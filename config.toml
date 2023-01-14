@@ -6,10 +6,6 @@ theme = "meghna-hugo"
 paginate = "6"
 # post excerpt
 summaryLength = "15"
-# disqus short name
-disqusShortname = "" # get your shortname form here : https://disqus.com
-# disable language
-disableLanguages = []
 
 
 ############################# Default Parameters ##########################
@@ -17,7 +13,7 @@ disableLanguages = []
 logo = "images/logo.svg"
 # Meta data
 description = "Responsive Multipurpose Parallax Hugo Template"
-author = "Themefisher"
+author = "Athanasia Monika Mowinckel"
 # Google Analytics
 google_analytics_id = "" # Your ID
 # post share
@@ -26,7 +22,7 @@ post_share = true
 # preloader
 [params.preloader]
 enable = false
-preloader = "images/logo.png"
+preloader = "images/logo.svg"
 
 # cookies
 [params.cookies]
@@ -37,8 +33,8 @@ expire_days = 2
 [params.map]
 enable = false
 gmap_api = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"
-map_latitude = "51.5223477"
-map_longitude = "-0.1622023"
+map_latitude = "59.943881952368336"
+map_longitude = "10.71344642896635"
 map_marker = "images/marker.png"
 
 
@@ -48,14 +44,14 @@ languageName = "En"
 languageCode = "en-us"
 weight = 1
 home = "Home"
-copyright = "Copyright &copy; 2020 Designed by [Themefisher](https://themefisher.com) & Developed by [Gethugothemes](https://gethugothemes.com)"
+copyright = "Copyright &copy; 2022 Capro"
 
 #[Languages.no]
 #languageName = "No"
 #languageCode = "no"
 #weight = 1
 #home = "Hjem"
-#copyright = "Copyright &copy; 2020 Designed by [Themefisher](https://themefisher.com) & Developed by [Gethugothemes](https://gethugothemes.com)"
+#copyright = "Copyright &copy; 2022 Capro"
 
 
 
@@ -70,20 +66,20 @@ name = "services"
 url = "#services"
 weight = 2
 
-[[Languages.en.menu.main]]
-name = "portfolio"
-url = "#portfolio"
-weight = 3
+#[[Languages.en.menu.main]]
+#name = "portfolio"
+#url = "#portfolio"
+#weight = 3
 
 [[Languages.en.menu.main]]
 name = "team"
 url = "#team"
 weight = 4
 
-[[Languages.en.menu.main]]
-name = "pricing"
-url = "#pricing"
-weight = 5
+#[[Languages.en.menu.main]]
+#name = "pricing"
+#url = "#pricing"
+#weight = 5
 
 [[Languages.en.menu.main]]
 name = "blog"
@@ -96,22 +92,22 @@ url = "#contact"
 weight = 7
 
 
-[[Languages.en.menu.main]]
-name = "Dropdown"
-weight = 7
-hasChildren = true
+#[[Languages.en.menu.main]]
+#name = "Dropdown"
+#weight = 7
+#hasChildren = true
 
-[[Languages.en.menu.main]]
-parent = "Dropdown"
-name = "Dropdown 1"
-url = "#"
-weight = 1
+#[[Languages.en.menu.main]]
+#parent = "Dropdown"
+#name = "Dropdown 1"
+#url = "#"
+#weight = 1
 
-[[Languages.en.menu.main]]
-parent = "Dropdown"
-name = "Dropdown 2"
-url = "#"
-weight = 2
+#[[Languages.en.menu.main]]
+#parent = "Dropdown"
+#name = "Dropdown 2"
+#url = "#"
+#weight = 2
 
 # Norwegian
 [[Languages.no.menu.main]]
@@ -166,10 +162,6 @@ name = "Dropdown 2"
 url = "#"
 weight = 2
 
-[[Languages.no.menu.main]]
-name = "themefisher"
-url = "https://themefisher.com/"
-weight = 8
 
 
 ############################# social icons ##########################
@@ -182,20 +174,9 @@ icon = "ti-twitter-alt" # themify icon pack : https://themify.me/themify-icons
 link = "#"
 
 [[params.social]]
-icon = "ti-youtube" # themify icon pack : https://themify.me/themify-icons
-link = "#"
-
-[[params.social]]
 icon = "ti-linkedin" # themify icon pack : https://themify.me/themify-icons
 link = "#"
 
-[[params.social]]
-icon = "ti-dribbble" # themify icon pack : https://themify.me/themify-icons
-link = "#"
-
-[[params.social]]
-icon = "ti-pinterest" # themify icon pack : https://themify.me/themify-icons
-link = "#"
 
 
 ############################# Plugins ##########################

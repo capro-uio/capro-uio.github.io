@@ -2,25 +2,28 @@
 skill:
   enable : true
   title : Our Skills
-  subtitle : We’ve skilled in wide range of web and Other digital market tools.
-  content : Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis magni explicabo cum aperiam recusandae sunt accusamus totam. Quidem quos fugiat sapiente numquam accusamus quas hic, itaque in libero reiciendis tempora!
+  subtitle : |
+    We’ve skilled in translating the needs of social scientists
+    into technical solutions to aid their work.
+  content : |
+
   image : images/about/company-growth.webp
   skill_item :
     # skill item loop
-    - name :  Business Development
+    - name :  Data flow and processing
       percent : 90%
-      
+
     # skill item loop
-    - name :  Analysis
+    - name :  Data capture
       percent : 70%
-      
+
     # skill item loop
-    - name :  Design
-      percent : 80%
-      
-    - name :  IOS Development
-      percent : 95%
-      
+    - name :  Project data management
+      percent : 85%
+
+    - name :  Registry data handling
+      percent : 65%
+
     # skill item loop
-    - name :  Android Development
+    - name :  HPC analyses
       percent : 75%

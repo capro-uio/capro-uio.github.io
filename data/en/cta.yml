@@ -3,9 +3,12 @@ cta:
   enable : true
   bg_image : "images/backgrounds/bg-white-wall.jpg"
   bg_image_webp : "images/backgrounds/bg-white-wall.webp"
-  title : "Great Design & Incredible Features"
-  content : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis tenetur odio impedit incidunt? Omnis accusantium ea reiciendis, fugit commodi nostrum."
+  title : "Get your project off on the right foot"
+  content : |
+    Don't wait with planning your data workflow, set it
+    up from the start. This way you can have better track
+    of your entire project from day 1!
   button:
     enable : true
-    label : "Start a project with us"
+    label : "Start your project with us"
     link : "#contact"
