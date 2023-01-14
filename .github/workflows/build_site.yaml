@@ -33,7 +33,7 @@ jobs:
 
       - name: Deploy
         if: github.ref == 'refs/heads/main'
-        with:
+        env:
           github_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git subtree push --prefix public origin gh-pages
