@@ -12,10 +12,13 @@ Tags: one-page, single-page, portfolio, custom-colors, post-formats, responsive,
   --primary: #CC4C4C ;
   --primary2: #CC4C4Cac;
   --primary-dark: #a6544a;
-  --secondary: #67AFAF;
+  --secondary: #85bfbf;
+  --dark: #20242b;
   --dark-gray: #353b43;
   --gray:  #737f8a;
   --light-gray:  #afbac4;
+  --light: #dedede;
+  --white: #fff;
 }
 
 /*=== MEDIA QUERY ===*/
@@ -27,7 +30,7 @@ html {
 body {
   background-color: var(--dark-gray);
   font-family: "Anaheim", sans-serif;
-  color: var(--gray);
+  color: var(--light-gray);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -39,7 +42,7 @@ h5,
 h6 {
   font-weight: 400;
   font-family: "Quattrocento Sans", sans-serif;
-  color: var(--light-gray);
+  color: var(--secondary);
 }
 
 p {
@@ -59,12 +62,12 @@ pre {
 ==================================================================*/
 ::-moz-selection {
   /* Code for Firefox */
-  color: #fff;
+  color: var(--white);
   background: var(--primary);
 }
 
 ::selection {
-  color: #fff;
+  color: var(--white);
   background: var(--primary);
 }
 
@@ -77,7 +80,7 @@ figure {
 }
 
 a {
-  color: #fff;
+  color: var(--white);
   transition: all .3s ease-in 0s;
 }
 
@@ -111,25 +114,25 @@ a:hover {
 
 .btn {
   background-color: transparent;
-  color: #fff;
+  color: var(--white);
   padding: 10px 30px;
   border-radius: 0;
   transition: all .3s ease-in 0s;
 }
 
 .btn:focus {
-  color: #ddd;
+  color: var(--light);
 }
 
 .btn-transparent {
-  border: 1px solid #4e595f;
+  border: 1px solid var(--gray);
 }
 
 .btn-transparent:hover,
 .btn-transparent:focus {
   background-color: var(--primary);
   border: 1px solid transparent;
-  color: #fff;
+  color: var(--white);
 }
 
 .border-meghna {
@@ -141,7 +144,7 @@ a:hover {
 }
 
 .border-meghna:before {
-  background-color: #fff;
+  background-color: var(--white);
   content: '';
   height: 6px;
   left: 50%;
@@ -161,8 +164,8 @@ a:hover {
 }
 
 .sub-title>h3 {
-  border-left: 3px solid #ddd;
-  border-right: 3px solid #ddd;
+  border-left: 3px solid var(--light);
+  border-right: 3px solid var(--light);
   display: inline-block;
   padding: 5px 25px;
   text-transform: uppercase;
@@ -179,7 +182,7 @@ a:hover {
 }
 
 .bg-dark {
-  background: #242930;
+  background: var(--dark);
 }
 
 .parallax-section {
@@ -232,7 +235,7 @@ a:hover {
 
 .btn-main {
   background: var(--primary);
-  color: #fff;
+  color: var(--white);
   display: inline-block;
   font-size: 14px;
   letter-spacing: 1px;
@@ -242,7 +245,7 @@ a:hover {
 
 .btn-main:hover {
   background: var(--primary2);
-  color: #fff;
+  color: var(--white);
 }
 
 .mt-20 {
@@ -274,7 +277,7 @@ a:hover {
 }
 
 .btn:focus {
-  color: #ddd;
+  color: var(--light);
 }
 
 #home {
@@ -300,7 +303,7 @@ a:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #2c2f36;
+  background-color: var(--dark);
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -315,7 +318,7 @@ a:hover {
   text-transform: capitalize;
   font-weight: 700;
   font-size: 38px;
-  color: #fff;
+  color: var(--white);
 }
 
 .title h2 span {
@@ -323,19 +326,19 @@ a:hover {
 }
 
 .title p {
-  color: #666;
+  color: var(--gray);
 }
 
 .title.title-white h2 {
-  color: #fff;
+  color: var(--white);
 }
 
 .bg-gray {
-  background: #f9f9f9;
+  background: var(--light-gray);
 }
 
 .section-bg {
-  background: #292F36;
+  background: var(--dark-gray);
 }
 
 .overly {
@@ -358,7 +361,7 @@ a:hover {
 
 .header-bradcrumb a,
 .header-bradcrumb .active {
-  color: #cfcfcf;
+  color: var(--light-gray);
   font-weight: 200;
   font-family: "Quattrocento Sans", sans-serif;
 }
@@ -401,7 +404,7 @@ a:hover {
   background-size: cover;
   padding: 140px 0 70px;
   text-align: center;
-  color: #fff;
+  color: var(--white);
   position: relative;
 }
 
@@ -419,7 +422,7 @@ a:hover {
   Navigation
 ==================================================================*/
 .navigation {
-  background-color: #1d2024;
+  background-color: var(--dark);
   width: 100%;
   margin-bottom: 0;
 }
@@ -471,7 +474,7 @@ a:hover {
 }
 
 .hero-area .block .video-button {
-  background: #fff;
+  background: var(--white);
   color: var(--primary);
   display: inline-block;
   height: 60px;
@@ -487,7 +490,7 @@ a:hover {
 
 .hero-area .block h1 {
   font-size: 90px;
-  color: #fff;
+  color: var(--white);
   text-transform: capitalize;
   font-weight: 700;
   margin-bottom: 20px;
@@ -500,7 +503,7 @@ a:hover {
 }
 
 .hero-area .block p {
-  color: #fff;
+  color: var(--white);
   font-size: 20px;
   width: 70%;
   margin: 0 auto;
@@ -508,7 +511,7 @@ a:hover {
 
 .hero-area .block .btn-transparent {
   margin-top: 40px;
-  border-color: #fff;
+  border-color: var(--white);
   padding: 14px 50px;
   font-size: 18px;
   font-size: 16px;
@@ -525,7 +528,7 @@ a:hover {
 }
 
 .hero-area-video .block {
-  color: #fff;
+  color: var(--white);
   text-align: center;
 }
 
@@ -536,7 +539,7 @@ a:hover {
 }
 
 .hero-area-video .block p {
-  color: #fff;
+  color: var(--white);
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 3px;
@@ -559,7 +562,7 @@ a:hover {
   About us section
 ==================================================================*/
 .about .block {
-  background: #242930;
+  background: var(--dark);
   padding: 30px;
   border-bottom: 2px solid transparent;
   transition: .5s all;
@@ -582,8 +585,8 @@ a:hover {
   background-color: transparent;
   margin: 46.19px auto 60px;
   padding: 20px 0;
-  border-left: 2px solid rgba(236, 239, 241, 0.07);
-  border-right: 2px solid rgba(236, 239, 241, 0.07);
+  border-left: 2px solid var(--secondary);
+  border-right: 2px solid var(--secondary);
   font-size: 50px;
   -webkit-transform: translateZ(0px);
   transform: translateZ(0px);
@@ -608,14 +611,14 @@ a:hover {
 
 .about .block .icon-box:before {
   top: -56.5685px;
-  border-top: 2px solid rgba(236, 239, 241, 0.07);
-  border-right: 2px solid rgba(236, 239, 241, 0.07);
+  border-top: 2px solid var(--secondary);
+  border-right: 2px solid var(--secondary);
 }
 
 .about .block .icon-box:after {
   bottom: -56.5685px;
-  border-bottom: 2px solid rgba(236, 239, 241, 0.07);
-  border-left: 2px solid rgba(236, 239, 241, 0.07);
+  border-bottom: 2px solid var(--secondary);
+  border-left: 2px solid var(--secondary);
 }
 
 .about .block .icon-box h3 {
@@ -656,12 +659,12 @@ a:hover {
 
 .call-to-action h2 {
   font-weight: 700;
-  color: #444;
+  color: var(--dark-gray);
 }
 
 .call-to-action p {
   font-size: 16px;
-  color: #666;
+  color: var(--light-gray);
 }
 
 .call-to-action .btn-main {
@@ -675,7 +678,7 @@ a:hover {
   padding: 100px 0;
   background-image: url("../images/call-to-action/call-to-action-bg.jpg");
   background-size: cover;
-  color: #fff;
+  color: var(--white);
 }
 
 .call-to-action-2 h2 {
@@ -683,7 +686,7 @@ a:hover {
 }
 
 .call-to-action-2 p {
-  color: #fff;
+  color: var(--white);
 }
 
 .call-to-action-2 .btn-main {
@@ -708,7 +711,7 @@ a:hover {
   background-color: transparent;
   border-radius: 0;
   padding: 5px 10px;
-  color: #ddd;
+  color: var(--light);
   border: 1px solid rgba(236, 239, 241, 0.07);
 }
 
@@ -736,7 +739,7 @@ a:hover {
 }
 
 .form-meghna ::placeholder {
-  color: #ddd !important;
+  color: var(--light) !important;
 }
 
 .google-map #map-canvas {
@@ -768,7 +771,7 @@ a:hover {
 .success {
   background-color: var(--primary-dark);
   border-radius: 4px;
-  color: #fff;
+  color: var(--white);
   display: none;
   font-size: 13px;
   padding: 10px;
@@ -785,7 +788,7 @@ a:hover {
 .counters-item {
   padding: 25px 0;
   margin-bottom: 10px;
-  background: #292F36;
+  background: var(--dark-gray);
 }
 
 .counters-item i {
@@ -816,7 +819,7 @@ a:hover {
 }
 
 .price-title {
-  background-color: #292F36;
+  background-color: var(--dark-gray);
   padding: 30px 0 20px;
 }
 
@@ -853,7 +856,7 @@ a:hover {
 }
 
 .pricing li:nth-child(2n) {
-  background-color: #292F36;
+  background-color: var(--dark-gray);
 }
 
 .pricing li .btn {
@@ -891,7 +894,7 @@ a:hover {
 
 .portfolio-block:before {
   transition: all 0.3s ease-in-out;
-  background: white;
+  background: var(--white);
   opacity: 0;
   top: 20px;
   right: 20px;
@@ -937,14 +940,14 @@ a:hover {
 }
 
 .portfolio-block .caption h4 a {
-  color: #555;
+  color: var(--gray);
 }
 
 .portfolio-block .caption .search-icon {
   background: var(--primary);
   width: 50px;
   height: 50px;
-  color: #fff;
+  color: var(--white);
   display: inline-block;
   font-size: 20px;
   border-radius: 30px;
@@ -974,7 +977,7 @@ a:hover {
   Services section 2
 ==================================================================*/
 .service-2 .service-item {
-  border: 1px solid #eee;
+  border: 1px solid var(--light-gray);
   margin-bottom: 30px;
   padding: 50px 20px;
   transition: all 0.3s ease 0s;
@@ -986,7 +989,7 @@ a:hover {
 }
 
 .service-2 .service-item:hover i {
-  background: #fff;
+  background: var(--white);
   color: var(--primary);
 }
 
@@ -996,7 +999,7 @@ a:hover {
   background: var(--primary) none repeat scroll 0 0;
   border-radius: 30px;
   box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.1);
-  color: #fff;
+  color: var(--white);
   height: 55px;
   line-height: 55px;
   margin-bottom: 20px;
@@ -1033,7 +1036,7 @@ a:hover {
   Our Team
 ==================================================================*/
 .team-member {
-  background-color: #292F36;
+  background-color: var(--dark-gray);
   margin-bottom: 10px;
 }
 
@@ -1093,8 +1096,8 @@ a:hover {
 }
 
 .member-photo .mask ul li a {
-  border: 1px solid #fff;
-  color: #fff;
+  border: 1px solid var(--white);
+  color: var(--white);
   display: block;
   font-size: 20px;
   height: 35px;
@@ -1104,7 +1107,7 @@ a:hover {
 }
 
 .member-photo .mask ul li a:hover {
-  background-color: #fff;
+  background-color: var(--white);
   color: var(--primary);
   border: 1px solid transparent;
 }
@@ -1174,7 +1177,7 @@ a:hover {
 
 .owl-controls .owl-page span {
   background-color: transparent;
-  border: 2px solid #fff;
+  border: 2px solid var(--white);
   border-radius: 50px;
   display: block;
   height: 13px;
@@ -1201,7 +1204,7 @@ a:hover {
 
 #our-clietns .owl-next,
 #our-clietns .owl-prev {
-  border: 1px solid #ddd;
+  border: 1px solid var(--light);
   border-radius: 50px;
   display: inline-block;
   margin: 45px 0 0;
@@ -1227,11 +1230,11 @@ a:hover {
   Latest Posts
 ==================================================================*/
 .note {
-  border: 1px solid #4e595f;
+  border: 1px solid var(--gray);
 }
 
 .post-block {
-  background-color: #292F36;
+  background-color: var(--dark-gray);
   margin-bottom: 10px;
 }
 
@@ -1247,7 +1250,7 @@ a:hover {
 }
 
 .note .media-wrapper {
-  border-bottom: 1px solid #4e595f;
+  border-bottom: 1px solid var(--gray);
 }
 
 .note .excerpt h3 {
@@ -1284,7 +1287,7 @@ a:hover {
 
 .post-meta>span {
   color: #666;
-  border-right: 1px solid #dedede;
+  border-right: 1px solid var(--light);
   display: inline-block;
   font-size: 13px;
   margin: 10px 10px 0 0;
@@ -1315,7 +1318,7 @@ a:hover {
 }
 
 .single-blog {
-  background-color: #fff;
+  background-color: var(--white);
   margin-bottom: 50px;
   padding: 20px;
 }
@@ -1323,14 +1326,14 @@ a:hover {
 .blog-subtitle {
   font-size: 15px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #dedede;
+  border-bottom: 1px solid var(--light);
   margin-bottom: 25px;
   text-transform: uppercase;
 }
 
 .next-prev {
-  border-bottom: 1px solid #dedede;
-  border-top: 1px solid #dedede;
+  border-bottom: 1px solid var(--light);
+  border-top: 1px solid var(--light);
   margin: 20px 0;
   padding: 25px 0;
 }
@@ -1357,7 +1360,7 @@ a:hover {
 }
 
 .social-profile ul li a {
-  color: #4e595f;
+  color: var(--gray);
   display: block;
   font-size: 16px;
 }
@@ -1379,7 +1382,7 @@ a:hover {
 }
 
 .post-author>img {
-  border: 1px solid #dedede;
+  border: 1px solid var(--light);
   max-width: 120px;
   padding: 5px;
   width: 100%;
@@ -1394,7 +1397,7 @@ a:hover {
 }
 
 .comment-wrap {
-  border: 1px solid #dedede;
+  border: 1px solid var(--light);
   border-radius: 1px;
   margin-left: 20px;
   padding: 10px;
@@ -1467,7 +1470,7 @@ a:hover {
 }
 
 .post-comment {
-  background-color: #292f36;
+  background-color: var(--dark-gray);
   ;
   padding: 20px;
   margin-top: 20px;
@@ -1544,7 +1547,7 @@ input#e-mail,
 }
 
 .social-icon ul li a:hover i {
-  color: #fff;
+  color: var(--white);
   opacity: 1;
 }
 
@@ -1560,7 +1563,7 @@ input#e-mail,
 
 .copyright {
   padding: 20px 0;
-  color: #fff;
+  color: var(--white);
 }
 
 .copyright img {
@@ -1572,9 +1575,9 @@ input#e-mail,
 }
 
 #scrollUp {
-  border: 1px solid #4e595f;
+  border: 1px solid var(--gray);
   bottom: 15px;
-  color: #fff;
+  color: var(--white);
   display: none;
   padding: 8px 12px;
   position: fixed;
@@ -1638,7 +1641,7 @@ input#e-mail,
 }
 
 .post-item .entry {
-  border: 1px solid #4e595f;
+  border: 1px solid var(--gray);
   margin-bottom: 30px;
 }
 
@@ -1682,19 +1685,19 @@ input#e-mail,
 }
 
 #post-thumb .owl-buttons {
-  color: #fff;
+  color: var(--white);
 }
 
 .post-meta {
   background-color: #3d444a;
-  border-top: 1px solid #4e595f;
+  border-top: 1px solid var(--gray);
   font-size: 13px;
   margin: 20px 0 0;
   padding: 0 20px 10px;
 }
 
 .post-meta>span {
-  border-right: 1px solid #4e595f;
+  border-right: 1px solid var(--gray);
   display: inline-block;
   font-size: 12px;
   margin: 10px 10px 0 0;
@@ -1725,7 +1728,7 @@ input#e-mail,
 
 .post-excerpt .more a:hover {
   background-color: var(--primary-dark);
-  color: #fff;
+  color: var(--white);
 }
 
 aside.widget {
@@ -1733,7 +1736,7 @@ aside.widget {
 }
 
 .widget-title>h3 {
-  color: #fff;
+  color: var(--white);
   margin-bottom: 15px;
   margin-top: 0;
   position: relative;
@@ -1788,7 +1791,7 @@ aside.widget {
 }
 
 .tab-excerpt h4 a {
-  color: #fff;
+  color: var(--white);
 }
 
 .tab-excerpt h4 a:hover {
@@ -1797,7 +1800,7 @@ aside.widget {
 
 .tab-post-nav li a {
   border-top: 3px solid transparent;
-  color: #fff;
+  color: var(--white);
   display: block;
   padding: 13px 18px;
   text-align: center;
@@ -1823,7 +1826,7 @@ aside.widget {
 
 .widget-content .tag {
   background-color: #2F383D;
-  color: #fff;
+  color: var(--white);
   display: inline-block;
   margin-bottom: 10px;
   margin-right: 5px;
@@ -1832,7 +1835,7 @@ aside.widget {
 
 .widget-content .tag:hover {
   background-color: var(--primary-dark);
-  color: #fff;
+  color: var(--white);
 }
 
 .post-pagination {
@@ -1868,14 +1871,14 @@ aside.widget {
 .post-pagination ul li a:hover,
 .post-pagination ul li.active a {
   background-color: var(--primary-dark);
-  color: #fff;
+  color: var(--white);
 }
 
 /*=================================================================
 	Single Blog Page
 ==================================================================*/
 .single-blog {
-  background-color: #fff;
+  background-color: var(--white);
   margin-bottom: 50px;
   padding: 20px;
 }
@@ -1889,8 +1892,8 @@ blockquote {
 }
 
 .next-prev {
-  border-bottom: 1px solid #4e595f;
-  border-top: 1px solid #4e595f;
+  border-bottom: 1px solid var(--gray);
+  border-top: 1px solid var(--gray);
   margin: 20px 0;
   padding: 15px 0 10px;
 }
@@ -1916,7 +1919,7 @@ blockquote {
 }
 
 .post-author>img {
-  border: 1px solid #4e595f;
+  border: 1px solid var(--gray);
   max-width: 120px;
   padding: 5px;
   width: 100%;
@@ -1925,7 +1928,7 @@ blockquote {
 .comment-reply-form>h3,
 .author-about>h4,
 .comments>h4 {
-  border-bottom: 1px solid #4e595f;
+  border-bottom: 1px solid var(--gray);
   margin-bottom: 15px;
   margin-top: 0;
   padding-bottom: 10px;
@@ -1949,7 +1952,7 @@ blockquote {
 }
 
 .comment-wrap {
-  border: 1px solid #4e595f;
+  border: 1px solid var(--gray);
   border-radius: 1px;
   margin-left: 20px;
   padding: 10px;
@@ -2005,7 +2008,7 @@ blockquote {
 .form-control-meghna .form-control {
   background-color: transparent;
   padding: 5px 10px;
-  color: #ddd;
+  color: var(--light);
   border: 1px solid rgba(236, 239, 241, 0.07);
 }
 
@@ -2031,7 +2034,7 @@ figcaption {
 
 .resp-sharing-button__link {
   text-decoration: none;
-  color: #fff;
+  color: var(--white);
   margin: 0.5em
 }
 
@@ -2056,14 +2059,14 @@ figcaption {
 
 /* Non solid icons get a stroke */
 .resp-sharing-button__icon {
-  stroke: #fff;
+  stroke: var(--white);
   fill: none
 }
 
 /* Solid icons get a fill */
 .resp-sharing-button__icon--solid,
 .resp-sharing-button__icon--solidcircle {
-  fill: #fff;
+  fill: var(--white);
   stroke: none
 }
 
@@ -2266,7 +2269,7 @@ figcaption {
 .pagination .page-item .page-link:hover {
   background: var(--primary);
   border-color: var(--primary);
-  color: #fff
+  color: var(--white)
 }
 
 .pagination .page-item:first-child .page-link,
@@ -2276,13 +2279,13 @@ figcaption {
 
 .pagination .page-item.active .page-link {
   background: var(--primary);
-  color: #fff;
+  color: var(--white);
   border-color: var(--primary);
 }
 
 #select-language {
   background: var(--dark-gray);
-  color: #ffffff;
+  color: var(--white)fff;
   border: 0;
 }
 
