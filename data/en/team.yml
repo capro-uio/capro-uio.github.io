@@ -25,8 +25,13 @@ team:
     - name : Inge Amlien
       image : images/team/inge_amlien_bw.png
       image_webp : images/team/inge_amlien_bw.webp
-      designation : IT solutions/HPC analyses/python
-      content : Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur necessitatibus ullam, culpa odio.
+      designation : Senior Engineer / Cloud / Containers / HPC / Python
+      content : |
+        Tech background and a PhD in psychology /
+        neuroscience. Inge has a passion for
+        building robust and scalable solutions that allow researchers
+        to focus on their research while maintaining high standards
+        of data security and privacy.
       social :
         - icon : ti-facebook # themify icon pack : https://themify.me/themify-icons
           link : "#"
@@ -41,8 +46,9 @@ team:
     - name : Markus Handal Sneve
       image : images/team/markus_handal_sneve_bw.png
       image_webp : images/team/markus_handal_sneve_bw.webp
-      designation : HPC analyses/MRI analyses/python
-      content : Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur necessitatibus ullam, culpa odio.
+      designation : fMRI analyses
+      content : Markus is awesome! He holds a PhD and is a
+        passionate researcher always on the bleeding edge of the field.
       social :
         - icon : ti-facebook # themify icon pack : https://themify.me/themify-icons
           link : "#"
