@@ -17,18 +17,27 @@
       <!-- /section title -->
 
       {{ range .team_member}}
+      {{ $sch := newScratch }}
       <!-- team member -->
       <div class="col-lg-3 col-md-6 col-12 wow fadeInDown" data-wow-duration="500ms">
+
         <div class="team-member">
           <div class="member-photo">
             <!-- member photo -->
-            <img class="img-fluid lozad" data-src="{{ .image_webp | absURL }}" onerror="this.onerror=null;this.src='{{ .image | absURL }}'" alt="{{ .name }}">
+            {{ with (resources.GetMatch .image ) }}
+              {{ $image :=  . }}
+              {{ $image := $image.Fill "300x300" | images.Filter (images.Grayscale ) }}
+              {{ $sch.Set "img" $image.RelPermalink }}
+            {{ end }}
+            <img class="img-fluid lozad" data-src="{{ $sch.Get "img" }}" alt="{{ .name }}">
 
             <!-- member social profile -->
             <div class="mask">
               <ul class="list-inline">
                 {{ range .social }}
-                <li class="list-inline-item"><a href="{{ .link | safeURL }}"><i class="{{ .icon }}"></i></a></li>
+                  {{ if .link }}
+                    <li class="list-inline-item"><a href="{{ .link | safeURL }}"><i class="{{ .icon }}"></i></a></li>
+                  {{ end }}
                 {{ end }}
               </ul>
             </div>
@@ -37,7 +46,7 @@
           <!-- member name & designation -->
           <div class="member-meta">
             <h4>{{ .name }}</h4>
-            <span>{{ .designation | markdownify}}</span>
+            <span>{{ delimit .designation  " / " | markdownify }}</span>
             <p>{{ .content | markdownify }}</p>
           </div>
         </div>

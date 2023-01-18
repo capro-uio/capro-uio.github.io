@@ -903,6 +903,7 @@ a:hover {
 
 .portfolio-block {
   position: relative;
+  height: 95%;
 }
 
 .portfolio-block:before {
