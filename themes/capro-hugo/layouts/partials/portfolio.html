@@ -31,7 +31,7 @@
 					{{ end }}
 					{{ range ( $categories | uniq ) }}
 					<label class="btn">
-						<input type="radio" name="shuffle-filter" value="{{ . | urlize }}" />{{ . | humanize }}
+						<input type="radio" name="shuffle-filter" value="{{ . | urlize }}" />{{ . }}
 					</label>
 					{{ end }}
 				</div>
@@ -41,10 +41,19 @@
 		<div class="row shuffle-wrapper justify-content-center">
 			{{"<!-- portfolio item -->" | safeHTML}}
 			{{ range .portfolio_item }}
+      {{ $sch := newScratch }}
+
 			<div class="col-lg-4 col-md-6 shuffle-item"
 				data-groups="[{{range $index, $element:= .categories }}{{if ne $index 0}},{{end}}&quot;{{. | urlize}}&quot;{{ end }}]">
 				<div class="portfolio-block mb-4">
-					<img class="img-fluid" src="{{ .image_webp | absURL }}" onerror="this.onerror=null;this.src='{{ .image | absURL }}'" alt="{{ .name }}">
+            {{ with (resources.GetRemote .image ) }}
+              {{ $image :=  . }}
+              {{ $image := $image.Fit "400x400" }}
+              {{ $sch.Set "img" $image.RelPermalink }}
+            {{ end }}
+          <div class="img-cont text-center">
+					  <img class="img-fluid" src="{{ $sch.Get "img" }}" alt="{{ .name }}">
+					</div>
 					<div class="caption">
 						<a class="search-icon image-popup" data-effect="mfp-with-zoom" href="{{ .image | relURL }}"
 							data-lightbox="image-1">
