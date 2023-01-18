@@ -1,76 +1,48 @@
-# #################################### portfolio ###############################
-# portfolio:
-#   enable : true
-#   title : Our Works
-#   portfolio_item :
-#     # portfolio item loop
-#     - name : Tag Design
-#       image : images/portfolio/portfolio-1.jpg
-#       image_webp : images/portfolio/portfolio-1.webp
-#       categories : ["design"]
-#       content : Lorem ipsum dolor sit amet consectetur adipisicing elit.
-#       link : "https://themefisher.com"
-#
-#     # portfolio item loop
-#     - name : Sound system
-#       image : images/portfolio/portfolio-2.jpg
-#       image_webp : images/portfolio/portfolio-2.webp
-#       categories : ["development"]
-#       content : Lorem ipsum dolor sit amet consectetur adipisicing elit.
-#       link : ""
-#
-#     # portfolio item loop
-#     - name : Clock Product
-#       image : images/portfolio/portfolio-3.jpg
-#       image_webp : images/portfolio/portfolio-3.webp
-#       categories : ["design", "development"]
-#       content : Lorem ipsum dolor sit amet consectetur adipisicing elit.
-#       link : "#"
-#
-#     # portfolio item loop
-#     - name : Bottol Label
-#       image : images/portfolio/portfolio-4.jpg
-#       image_webp : images/portfolio/portfolio-4.webp
-#       categories : ["photography", "development"]
-#       content : Lorem ipsum dolor sit amet consectetur adipisicing elit.
-#       link : "#"
-#
-#     # portfolio item loop
-#     - name : Shopping Bag
-#       image : images/portfolio/portfolio-5.jpg
-#       image_webp : images/portfolio/portfolio-5.webp
-#       categories : ["design"]
-#       content : Lorem ipsum dolor sit amet consectetur adipisicing elit.
-#       link : "#"
-#
-#     # portfolio item loop
-#     - name : Tag Design
-#       image : images/portfolio/portfolio-6.jpg
-#       image_webp : images/portfolio/portfolio-6.webp
-#       categories : ["photography"]
-#       content : Lorem ipsum dolor sit amet consectetur adipisicing elit.
-#       link : "#"
-#
-#     # portfolio item loop
-#     - name : Business Card
-#       image : images/portfolio/portfolio-7.jpg
-#       image_webp : images/portfolio/portfolio-7.webp
-#       categories : ["development"]
-#       content : Lorem ipsum dolor sit amet consectetur adipisicing elit.
-#       link : "#"
-#
-#     # portfolio item loop
-#     - name : Stationary Design
-#       image : images/portfolio/portfolio-8.jpg
-#       image_webp : images/portfolio/portfolio-8.webp
-#       categories : ["design", "development"]
-#       content : Lorem ipsum dolor sit amet consectetur adipisicing elit.
-#       link : "#"
-#
-#     # portfolio item loop
-#     - name : Tag Design
-#       image : images/portfolio/portfolio-2.jpg
-#       image_webp : images/portfolio/portfolio-2.webp
-#       categories : ["design", "photography"]
-#       content : Lorem ipsum dolor sit amet consectetur adipisicing elit.
-#       link : "#"
+#################################### portfolio ###############################
+portfolio:
+  enable : true
+  title : Our Works
+  portfolio_item :
+    # portfolio item loop
+    - name : ggseg - Brain atlas in R
+      image : https://raw.githubusercontent.com/ggseg/ggseg/main/inst/logo.png
+      categories : ["R-packages"]
+      content : |
+         Allows plotting of brain atlas data using ggplot2
+         in R. Full with extensions for 3d plots, and multiple
+         atlases.
+      link : "https://ggseg.r-universe.dev/ui#builds"
+
+    - name : Lifebrain Brain Health Survey
+      image : https://raw.githubusercontent.com/Lifebrain/gbhs/main/man/figures/logo.png
+      categories : ["R-packages", "Analyses"]
+      content : |
+        We conducted the data processing and analyses for all
+        associated reports and publications, and released the
+        data publicly.
+      link : "https://lifebrain.github.io/gbhs/"
+
+    - name : Nettskjemar
+      image : https://raw.githubusercontent.com/LCBC-UiO/nettskjemar/master/man/figures/logo.png
+      categories : ["R-packages"]
+      content : |
+        Package connecting to the Nettskjema UiO survey tool's
+        API to retrieve survey answers directly into R.
+      link : "https://lcbc-uio.github.io/nettskjemar/"
+
+    - name : uiothemes
+      image : https://raw.githubusercontent.com/capro-uio/uiothemes/main/man/figures/preview-presentation.png
+      categories : ["R-packages"]
+      content : |
+        The goal of uiothemes is to provide branded templates for the
+        University of Oslo for commonly used R markdown packages.
+      link : "https://github.com/capro-uio/uiothemes"
+
+    # portfolio item loop
+    - name : TSD Imaging processing pipeline
+      image : https://www.oslobrains.no/wp-content/uploads/2017/03/Screen-Shot-2017-03-08-at-09.33.48.jpg
+      categories : ["Analyses", "MRI"]
+      content : |
+        Custom MRI import and processing pipeline for the
+        Center of Lifespan Changes in Brain and Cognition.
+      link : "https://github.com/LCBC-UiO/TSD-Data-import-Processing"

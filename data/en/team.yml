@@ -5,9 +5,9 @@ team:
   team_member :
     # team member loop
     - name : Athanasia Mo Mowinckel
-      image : images/team/amm_mowinckel_bw.png
-      image_webp : images/team/amm_mowinckel_bw.webp
-      designation : Workflow/Data processing/Web applications/R
+      image : images/team/amm_mowinckel.png
+      designation : ["Workflow", "Data processing",
+        "Web applications", "R"]
       content : |
         With a PhD in psychology, Mo transitioned into research
         software and development as she saw technical solutions
@@ -23,9 +23,9 @@ team:
 
     # team member loop
     - name : Inge Amlien
-      image : images/team/inge_amlien_bw.png
-      image_webp : images/team/inge_amlien_bw.webp
-      designation : Senior Engineer / Cloud / Containers / HPC / Python
+      image : images/team/inge_amlien.jpeg
+      designation : ["Senior Engineer", "Cloud",
+        "Containers", "HPC", "Python"]
       content : |
         Tech background and a PhD in psychology /
         neuroscience. Inge has a passion for
@@ -34,28 +34,23 @@ team:
         of data security and privacy.
       social :
         - icon : ti-facebook # themify icon pack : https://themify.me/themify-icons
-          link : "#"
+          link : ""
         - icon : ti-twitter-alt # themify icon pack : https://themify.me/themify-icons
-          link : "#"
+          link : ""
         - icon : ti-linkedin # themify icon pack : https://themify.me/themify-icons
-          link : "#"
-        - icon : ti-dribbble # themify icon pack : https://themify.me/themify-icons
-          link : "#"
+          link : ""
 
     # team member loop
     - name : Markus Handal Sneve
-      image : images/team/markus_handal_sneve_bw.png
-      image_webp : images/team/markus_handal_sneve_bw.webp
-      designation : fMRI analyses
+      image : images/team/markus_handal_sneve.jpeg
+      designation : ["fMRI analyses", "HPC"]
       content : Markus is awesome! He holds a PhD and is a
         passionate researcher always on the bleeding edge of the field.
       social :
         - icon : ti-facebook # themify icon pack : https://themify.me/themify-icons
-          link : "#"
+          link : ""
         - icon : ti-twitter-alt # themify icon pack : https://themify.me/themify-icons
-          link : "#"
+          link : ""
         - icon : ti-linkedin # themify icon pack : https://themify.me/themify-icons
-          link : "#"
-        - icon : ti-dribbble # themify icon pack : https://themify.me/themify-icons
-          link : "#"
+          link : ""
 

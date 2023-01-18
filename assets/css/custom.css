@@ -5,3 +5,9 @@
 .about .block {
     height: 95%;
 }
+
+.portfolio-block .img-cont {
+  height: 20rem;
+  background: #fff;
+  padding: 50px;
+}
