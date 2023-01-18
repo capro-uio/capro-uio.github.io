@@ -903,7 +903,7 @@ a:hover {
 
 .portfolio-block {
   position: relative;
-  height: 95%;
+  height: 100%;
 }
 
 .portfolio-block:before {
@@ -919,8 +919,7 @@ a:hover {
 }
 
 .portfolio-block img {
-  width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .portfolio-block:hover:before {
@@ -938,6 +937,7 @@ a:hover {
 
 .portfolio-block .caption {
   position: absolute;
+  color: var(--dark-gray);
   top: 50%;
   left: 50%;
   opacity: 0;
@@ -954,7 +954,7 @@ a:hover {
 }
 
 .portfolio-block .caption h4 a {
-  color: var(--gray);
+  color: var(--dark-gray);
 }
 
 .portfolio-block .caption .search-icon {

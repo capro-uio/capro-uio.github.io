@@ -6,7 +6,6 @@ portfolio:
     # portfolio item loop
     - name : ggseg - Brain atlas in R
       image : https://raw.githubusercontent.com/ggseg/ggseg/main/inst/logo.png
-      image_webp : https://raw.githubusercontent.com/ggseg/ggseg/main/inst/logo.png
       categories : ["R-packages"]
       content : |
          Allows plotting of brain atlas data using ggplot2
@@ -15,8 +14,7 @@ portfolio:
       link : "https://ggseg.r-universe.dev/ui#builds"
 
     - name : Lifebrain Brain Health Survey
-      image : https://raw.githubusercontent.com/Lifebrain/gbhs/main/man/figures/logo.svg
-      image_webp : https://raw.githubusercontent.com/Lifebrain/gbhs/main/man/figures/logo.svg
+      image : https://raw.githubusercontent.com/Lifebrain/gbhs/main/man/figures/logo.png
       categories : ["R-packages", "Analyses"]
       content : |
         We conducted the data processing and analyses for all
@@ -26,7 +24,6 @@ portfolio:
 
     - name : Nettskjemar
       image : https://raw.githubusercontent.com/LCBC-UiO/nettskjemar/master/man/figures/logo.png
-      image_webp : https://raw.githubusercontent.com/LCBC-UiO/nettskjemar/master/man/figures/logo.png
       categories : ["R-packages"]
       content : |
         Package connecting to the Nettskjema UiO survey tool's
@@ -35,7 +32,6 @@ portfolio:
 
     - name : uiothemes
       image : https://raw.githubusercontent.com/capro-uio/uiothemes/main/man/figures/preview-presentation.png
-      image_webp : https://raw.githubusercontent.com/capro-uio/uiothemes/main/man/figures/preview-presentation.png
       categories : ["R-packages"]
       content : |
         The goal of uiothemes is to provide branded templates for the
@@ -45,7 +41,6 @@ portfolio:
     # portfolio item loop
     - name : TSD Imaging processing pipeline
       image : https://www.oslobrains.no/wp-content/uploads/2017/03/Screen-Shot-2017-03-08-at-09.33.48.jpg
-      image_webp : https://www.oslobrains.no/wp-content/uploads/2017/03/Screen-Shot-2017-03-08-at-09.33.48.jpg
       categories : ["Analyses", "MRI"]
       content : |
         Custom MRI import and processing pipeline for the
