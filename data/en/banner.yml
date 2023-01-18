@@ -1,10 +1,10 @@
 ############################### Banner ################################
 banner:
   enable : true
-  bg_image_webp : "images/backgrounds/hero-area.webp"
-  bg_image : "images/backgrounds/hero-area.jpg"
+  bg_image_webp : "images/backgrounds/image-from-rawpixel-id-3301766-jpeg.jpg"
+  bg_image : "images/backgrounds/image-from-rawpixel-id-3301766-jpeg.jpg"
   icon : "" # themify icon pack : https://themify.me/themify-icons
-  title : "See what your project could truly accomplish"
+  title : "What could your project truly accomplish"
   content : |
     Don't get stuck in technical skill traps, let us help you!
   button:

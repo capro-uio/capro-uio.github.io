@@ -1,7 +1,7 @@
 ################################# Default configuration ###################
-baseURL = "."
+baseURL = "https://www.capro.dev/"
 title = "CAPRO"
-theme = "meghna-hugo"
+theme = "capro-hugo"
 # post pagination
 paginate = "6"
 # post excerpt
@@ -12,7 +12,7 @@ summaryLength = "15"
 [params]
 logo = "images/logo.svg"
 # Meta data
-description = "Responsive Multipurpose Parallax Hugo Template"
+description = "We deal with data processing and capture of big lifescience data for social sciences and humanities."
 author = "Athanasia Monika Mowinckel"
 # Google Analytics
 google_analytics_id = "" # Your ID
@@ -165,17 +165,17 @@ weight = 2
 
 
 ############################# social icons ##########################
-[[params.social]]
-icon = "ti-facebook" # themify icon pack : https://themify.me/themify-icons
-link = "#"
+#[[params.social]]
+#icon = "ti-facebook" # themify icon pack : https://themify.me/themify-icons
+#link = "#"
 
-[[params.social]]
-icon = "ti-twitter-alt" # themify icon pack : https://themify.me/themify-icons
-link = "#"
+#[[params.social]]
+#icon = "ti-twitter-alt" # themify icon pack : https://themify.me/themify-icons
+#link = "#"
 
-[[params.social]]
-icon = "ti-linkedin" # themify icon pack : https://themify.me/themify-icons
-link = "#"
+#[[params.social]]
+#icon = "ti-linkedin" # themify icon pack : https://themify.me/themify-icons
+#link = "#"
 
 
 
@@ -190,7 +190,7 @@ link = "plugins/magnific-popup/magnific-popup.css"
 [[params.plugins.css]]
 link = "plugins/slick/slick.css"
 [[params.plugins.css]]
-link = "https://fonts.googleapis.com/css?family=Anaheim|Quattrocento+Sans:400,700&display=swap"
+link = "https://fonts.googleapis.com/css?family=Anaheim|Rasa:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
 
 # js plugins
 [[params.plugins.js]]

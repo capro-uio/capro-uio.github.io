@@ -41,7 +41,7 @@ h4,
 h5,
 h6 {
   font-weight: 400;
-  font-family: "Quattrocento Sans", sans-serif;
+  font-family: "Rasa", sans-serif;
   color: var(--secondary);
 }
 
@@ -471,6 +471,7 @@ a:hover {
 .hero-area .block {
   text-align: center;
   z-index: 99;
+  padding: 20px;
 }
 
 .hero-area .block .video-button {
@@ -492,16 +493,28 @@ a:hover {
   font-size: 90px;
   color: var(--white);
   text-transform: capitalize;
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 20px;
 }
 
-@media (max-width: 480px) {
+
+@media (max-width: 700px) {
+  .hero-area .block h1 {
+    font-size: 70px;
+  }
+}
+
+@media (max-width: 600px) {
   .hero-area .block h1 {
     font-size: 60px;
   }
 }
 
+@media (max-width: 500px) {
+  .hero-area .block h1 {
+    font-size: 50px !important;
+  }
+}
 .hero-area .block p {
   color: var(--white);
   font-size: 20px;

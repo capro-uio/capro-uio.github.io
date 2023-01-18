@@ -1,8 +1,8 @@
 ############################# call to action ##############################
 cta:
   enable : true
-  bg_image : "images/backgrounds/bg-white-wall.jpg"
-  bg_image_webp : "images/backgrounds/bg-white-wall.webp"
+  bg_image : "images/backgrounds/image-from-rawpixel-id-6028300-jpeg.jpg"
+  bg_image_webp : "images/backgrounds/image-from-rawpixel-id-6028300-jpeg.jpg"
   title : "Get your project off on the right foot"
   content : |
     Don't wait with planning your data workflow, set it

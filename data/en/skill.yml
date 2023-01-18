@@ -22,7 +22,7 @@ skill:
       percent : 85%
 
     - name :  Registry data handling
-      percent : 65%
+      percent : 55%
 
     # skill item loop
     - name :  HPC analyses

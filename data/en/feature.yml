@@ -1,8 +1,8 @@
 ############################# feature ###################################
 feature:
   enable : true
-  image : images/about/about-business-man.jpg
-  image_webp : images/about/about-business-man.webp
+  image : images/backgrounds/image-from-rawpixel-id-5942849-jpeg.jpg
+  image_webp : images/backgrounds/image-from-rawpixel-id-5942849-jpeg.jpg
   title : |
     We deal with data processing and capture of big lifescience
     data for social sciences and humanities
