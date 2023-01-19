@@ -1,14 +1,14 @@
-{{ $data := index site.Data site.Language.Lang }}
+{{ with .Site.GetPage "section" "funfacts" }}
 
-{{ if $data.funfacts.funfacts.enable }}
-{{ with $data.funfacts.funfacts }}
-{{"<!-- Start Counter Section -->" | safeHTML}}
-<section id="counter" class="parallax-section bg-1 section overly" style='background-image: url("{{ .bg_image_webp | absURL }}")'>
+{{ range first 1 (.Resources.ByType "image") }}
+  {{ $image :=  . }}
+<section id="counter" class="parallax-section bg-1 section overly" style='background-image: url("{{ $image.RelPermalink }}")'>
 	<!-- this image is for trigger this section fallback background image -->
-	<img class="lozad" style="display: none;" onerror="this.onerror=null;this.parentElement.style.backgroundImage= 'url({{ .bg_image | absURL }})'" data-src="{{ .bg_image_webp | absURL }}" />
+	<img class="lozad" style="display: none;" data-src="{{ $image.RelPermalink | absURL }}" />
+{{ end }}
 	<div class="container">
 		<div class="row justify-content-center">
-			{{ range .counter_item }}
+			{{ range .Params.item }}
 			<div class="col-lg-3 col-md-6 col-12 text-center wow fadeInDown" data-wow-duration="500ms">
 				<div class="counters-item">
 					<i class="{{ .icon }}"></i>
@@ -20,6 +20,4 @@
 		</div>
 	</div>
 </section>
-{{"<!-- /Counter Section -->" | safeHTML}}
-{{ end }}
 {{ end }}
