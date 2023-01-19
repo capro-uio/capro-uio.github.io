@@ -6,6 +6,7 @@ theme = "capro-hugo"
 paginate = "6"
 # post excerpt
 summaryLength = "15"
+enableGitInfo = true
 
 
 ############################# Default Parameters ##########################

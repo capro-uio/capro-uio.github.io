@@ -1,44 +1,51 @@
-{{ $data := index site.Data site.Language.Lang }}
+{{ with .Site.GetPage "section" "testimonial" }}
 
-{{ if $data.testimonial.testimonial.enable }}
-{{ with $data.testimonial.testimonial }}
-{{"<!-- Start Testimonial -->" | safeHTML}}
+{{ range first 1 (.Resources.ByType "image") }}
+  {{ $image :=  . }}
 <section id="testimonial" class="testimonial overly section bg-2"
-	style='background-image: url("{{ .bg_image_webp | absURL }}")'>
+	style='background-image: url("{{ $image.RelPermalink }}")'>
 	<!-- this image is for trigger this section fallback background image -->
-	<img src="{{ .bg_image_webp | absURL }}" style="display: none;" onerror="this.onerror=null;this.parentElement.style.backgroundImage= 'url({{ .bg_image | absURL }})'">
+	<img src="{{ $image.RelPermalink }}" style="display: none;">
+  {{ end }}
 	<div class="container">
 		<div class="row">
 			<div class="col-xl-12">
-				{{"<!-- testimonial wrapper -->" | safeHTML}}
+				<!-- testimonial wrapper -->
 				<div id="testimonials" class="wow fadeInUp" data-wow-duration="500ms" data-wow-delay="100ms">
-					{{ range .testimonial_item }}
-					{{"<!-- testimonial single -->" | safeHTML}}
+					{{ range .Pages }}
+		      {{ $sch := newScratch }}
+
+					<!-- testimonial single -->
 					<div class="item text-center">
 
-						{{"<!-- client photo -->" | safeHTML}}
+						<!-- client photo -->
+            {{ range first 1 (.Resources.ByType "image") }}
+              {{ $image :=  . }}
+              {{ $image := $image.Fill "300x300"  }}
+              {{ $sch.Set "img" $image.RelPermalink }}
+            {{ end }}
+
 						<div class="client-thumb">
-							<img class="img-fluid lozad" data-src="{{ .image_webp | absURL }}" onerror="this.onerror=null;this.src='{{ .image | absURL }}'" alt="{{ .name }}">
+							<img class="img-fluid lozad" data-src="{{ $sch.Get "img"  }}" alt="{{ .Params.author }}">
+							<small>{{ .Params.author }}</small>
 						</div>
 
-						{{"<!-- client info -->" | safeHTML}}
+						<!-- client info -->
 						<div class="client-info">
 							<div class="client-meta">
-								<h3>{{ .name }}</h3>
-								<span>{{ .date }}</span>
+								<h3>{{ .Title }}</h3>
+								<span>{{ .Lastmod | time.Format ":date_long"  }}</span>
 							</div>
 							<div class="client-comment">
-								<p>{{ .content | markdownify }}</p>
+								<p>{{ .Content }}</p>
 							</div>
 						</div>
 					</div>
-					{{"<!-- /testimonial single -->" | safeHTML}}
+					<!-- /testimonial single -->
 					{{ end }}
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
-{{"<!-- /testimonial -->" | safeHTML}}
-{{ end }}
 {{ end }}
