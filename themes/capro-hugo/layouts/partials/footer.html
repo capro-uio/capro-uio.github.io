@@ -32,14 +32,23 @@
 <script src="{{ site.Params.map.gmap_api | safeURL }}"></script>
 {{ end }}
 
+{{ partial "funcs/script.html" "jquery/jquery.min.js" }}
+{{ partial "funcs/script.html" "bootstrap/bootstrap.min.js" }}
+{{ partial "funcs/script.html" "slick/slick.min.js" }}
+{{ partial "funcs/script.html" "shuffle/shuffle.min.js" }}
+{{ partial "funcs/script.html" "magnific-popup/jquery.magnific-popup.min.js" }}
+{{ partial "funcs/script.html" "lazy-load/lozad.min.js" }}
+{{ partial "funcs/script.html" "google-map/map.js" }}
+
+
 {{ "<!-- JS Plugins -->" | safeHTML }}
 {{ range site.Params.plugins.js}}
 <script src="{{ .link | absURL }}"></script>
 {{ end }}
 
-{{ "<!-- Main Script -->" | safeHTML }}
-{{ $script := resources.Get "js/script.js" | minify | fingerprint "sha384"}}
-<script src="{{ $script.Permalink }}" integrity="{{ $script.Data.Integrity }}"></script>
+<!-- Main Script -->
+{{ partial "funcs/script.html" "main/script.js" }}
+
 
 <!-- cookie -->
 {{ if site.Params.cookies.enable }}
