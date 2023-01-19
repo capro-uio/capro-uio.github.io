@@ -1,29 +1,25 @@
-{{ $data := index site.Data site.Language.Lang }}
-
-{{ if $data.contact.contact.enable }}
-{{ with $data.contact.contact }}
-{{"<!-- Start Contact Us -->" | safeHTML}}
+{{ with site.Params.contact  }}
+<!-- Start Contact Us -->
 <section id="contact" class="contact-us section-bg">
 	<div class="container pb-5">
 		<div class="row">
 			<div class="col-lg-12">
-				{{"<!-- section title -->" | safeHTML}}
+				<!-- section title -->
 				<div class="title text-center wow fadeIn" data-wow-duration="500ms">
 					<h2>{{ with .title }} {{ index (split . " ") 0 | safeHTML }} {{ end }}<span class="color">
 							{{ with .title }} {{ after (len (index (split . " ") 0)) . | safeHTML }} {{ end }}</span></h2>
 					<div class="border-meghna"></div>
 				</div>
 			</div>
-			{{"<!-- /section title -->" | safeHTML}}
+			<!-- /section title -->
 
-			{{"<!-- Contact Details -->" | safeHTML}}
+			<!-- Contact Details -->
 			<div class="contact-info col-lg-6 wow fadeInUp" data-wow-duration="500ms">
-				<h3>{{ .subtitle | markdownify }}</h3>
 				<p> {{ .content | markdownify }} </p>
 
-				{{ if .contact_form.enable }}
+				{{ if .item }}
 				<div class="contact-details">
-					{{ range .contact_list }}
+					{{ range .item }}
 					<div class="con-info clearfix">
 						<i class="{{ .icon }}"></i>
 						<span>{{ .info }}</span>
@@ -33,9 +29,9 @@
 				{{ end }}
 			</div>
 
-			{{"<!-- Contact Form -->" | safeHTML}}
-			{{ if .contact_form.enable }}
-			{{ with .contact_form }}
+			<!-- Contact Form -->
+			{{ if .form }}
+			{{ with .form }}
 			<div class="col-lg-6 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
 				<form id="contact-form" class="form-meghna" method="post" action="{{ .form_action }}" role="form">
 					<div class="form-group">
@@ -59,7 +55,7 @@
 			{{ end }}
 			{{ else }}
 			<div class="contact-details">
-				{{ range .contact_list }}
+				{{ range .item }}
 				<div class="con-info clearfix">
 					<i class="{{ .icon }}"></i>
 					<span>{{ .info }}</span>
@@ -70,6 +66,4 @@
 		</div>
 	</div>
 </section>
-{{"<!-- /contact -->" | safeHTML}}
-{{ end }}
 {{ end }}

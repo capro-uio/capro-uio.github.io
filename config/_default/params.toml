@@ -12,9 +12,6 @@ post_share = true
 enable = false
 preloader = "images/logo.png"
 
-[banner]
-image = "images/backgrounds/image-from-rawpixel-id-3301766-jpeg.jpg"
-
 # cookies
 [cookies]
 enable = false

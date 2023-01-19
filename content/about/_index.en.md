@@ -12,7 +12,7 @@ item :
       Out staff has extensive knowledge in technical solutions for scientific work.
   
   - icon : ti-infinite # themify icon pack : https://themify.me/themify-icons
-    title : We bridge science and technology
+    title : We bridge science & technology
     content : |
-      We work in the intersection of science &amp; technology.
+      We work in the intersection of science &amp; technology to provide cutting-edge solutions.
 ---

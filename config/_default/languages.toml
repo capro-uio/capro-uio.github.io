@@ -10,9 +10,14 @@ copyright = "Copyright &copy; 2022 Capro"
 [en.banner]
 title = "What could your project truly accomplish"
 content = "Don't get stuck in technical skill traps, let us help you!"
+image = "images/image-from-rawpixel-id-3337467-jpeg.jpg"
 [en.banner.button]
 label = "Explore Us"
 link = "#services"
+
+[en.contact]
+title = "Contact Us"
+content = "We currently do not have a point of contact. Please check back in soon for updates."
 
 [no]
 languageName = "No"
@@ -21,9 +26,23 @@ weight = 2
 home = "Hjem"
 description = "Vi jobber med dataprosessering og fanging av store livsvitenskapsdata for samfunnsvitere og humaniora."
 copyright = "Opphavsrett &copy; 2022 Capro"
+
 [no.banner]
 title = "Hva kunne prosjektet ditt virkelug utføre"
 content = "Ikke sett deg fast i tekniske feller, la oss hjelpe deg!"
+image = "images/image-from-rawpixel-id-3337467-jpeg.jpg"
 [no.banner.button]
 label = "Utforsk oss"
 link = "#services"
+
+[no.contact]
+title = "Kontakt oss"
+content = "Vi har foreløpig ikke noe kontaktpunkt. Kom tilbake senere for mer informasjon."
+
+[no.contact.form]
+form_action = "#" #contact form works with https://formspree.io
+name = "Ditt navn"
+email = "Din e-post"
+subject = "Emne"
+message = "Beskjed"
+submit = "Levér"
