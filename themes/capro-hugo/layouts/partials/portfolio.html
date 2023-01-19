@@ -1,19 +1,15 @@
-{{ $data := index site.Data site.Language.Lang }}
-
-{{ if $data.portfolio.portfolio.enable }}
-{{ with $data.portfolio.portfolio }}
-{{"<!-- Portfolio Section -->" | safeHTML}}
+{{ with .Site.GetPage "section" "portfolio" }}
 <section class="portfolio section" id="portfolio">
 	<div class="container">
 		<div class="row ">
 			<div class="col-xl-12">
-				{{"<!-- section title -->" | safeHTML}}
+				<!-- section title -->
 				<div class="title text-center">
-					<h2>{{ with .title }} {{ index (split . " ") 0 | safeHTML }} {{ end }}<span class="color">
-						{{ with .title }} {{ after (len (index (split . " ") 0)) . | safeHTML }} {{ end }}</span></h2>
+					<h2>{{ with .Title }} {{ index (split . " ") 0 | safeHTML }} {{ end }}<span class="color">
+						{{ with .Title }} {{ after (len (index (split . " ") 0)) . | safeHTML }} {{ end }}</span></h2>
 					<div class="border-meghna"></div>
 				</div>
-				{{"<!-- /section title -->" | safeHTML}}
+				<!-- /section title -->
 			</div>
 		</div>
 		<div class="row">
@@ -24,8 +20,8 @@
 						<input type="radio" name="shuffle-filter" value="all" checked="checked" />{{ i18n "all"}}
 					</label>
 					{{ $categories := slice }}
-					{{ range .portfolio_item }}
-					{{ range .categories }}
+					{{ range .Pages }}
+					{{ range .Params.categories }}
 					{{ $categories = $categories | append . }}
 					{{ end }}
 					{{ end }}
@@ -39,34 +35,34 @@
 		</div>
 
 		<div class="row shuffle-wrapper justify-content-center">
-			{{"<!-- portfolio item -->" | safeHTML}}
-			{{ range .portfolio_item }}
+			<!-- portfolio item -->
+			{{ range .Pages }}
       {{ $sch := newScratch }}
 
 			<div class="col-lg-4 col-md-6 shuffle-item"
-				data-groups="[{{range $index, $element:= .categories }}{{if ne $index 0}},{{end}}&quot;{{. | urlize}}&quot;{{ end }}]">
+				data-groups="[{{range $index, $element:= .Params.categories }}{{if ne $index 0}},{{end}}&quot;{{. | urlize}}&quot;{{ end }}]">
 				<div class="portfolio-block mb-4">
-            {{ with (resources.GetRemote .image ) }}
+            {{ range first 1 (.Resources.ByType "image") }}
               {{ $image :=  . }}
               {{ $image := $image.Fit "400x400" }}
               {{ $sch.Set "img" $image.RelPermalink }}
             {{ end }}
           <div class="img-cont text-center">
-					  <img class="img-fluid" src="{{ $sch.Get "img" }}" alt="{{ .name }}">
+					  <img class="img-fluid" src="{{ $sch.Get "img" }}" alt="{{ .Title }}">
 					</div>
 					<div class="caption">
-						<a class="search-icon image-popup" data-effect="mfp-with-zoom" href="{{ .image | relURL }}"
+						<a class="search-icon image-popup" data-effect="mfp-with-zoom" href="{{ $sch.Get "img" }}"
 							data-lightbox="image-1">
 							<i class="ti-search"></i>
 						</a>
 						<h4 class="mt-3">
-							{{ if or (eq .link "#") (eq .link "") }}
-							{{ .name }}
+							{{ if .Params.link }}
+								<a href="{{ .Params.link | safeURL }}">{{ .Title }}</a>
 							{{ else }}
-							<a href="{{ .link | safeURL }}">{{ .name }}</a>
-							{{ end }}
+  							{{ .Title }}
+  						{{ end }}
 						</h4>
-						<p>{{ .content | markdownify }}</p>
+						<p>{{ .Content }}</p>
 					</div>
 				</div>
 			</div>
@@ -74,6 +70,4 @@
 		</div>
 	</div>
 </section>
-{{"<!-- /Portfolio -->" | safeHTML}}
-{{ end }}
 {{ end }}
