@@ -1,22 +1,19 @@
-{{ $data := index site.Data site.Language.Lang }}
+{{ with .Site.GetPage "section" "service" }}
 
-{{ if $data.service.service.enable}}
-{{ with $data.service.service}}
-{{"<!-- service -->" | safeHTML }}
 <section id="services" class="bg-one section">
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-12">
-				{{"<!-- section title -->" | safeHTML }}
+				<!-- section title -->
 				<div class="title text-center wow fadeIn" data-wow-duration="500ms">
-					<h2>{{ with .title }} {{ index (split . " ") 0 | safeHTML }} {{ end }}<span class="color">
-						{{ with .title }} {{ after (len (index (split . " ") 0)) . | safeHTML }} {{ end }}</span></h2>
+					<h2>{{ with .Title }} {{ index (split . " ") 0 | safeHTML }} {{ end }}<span class="color">
+						{{ with .Title }} {{ after (len (index (split . " ") 0)) . | safeHTML }} {{ end }}</span></h2>
 					<div class="border-meghna"></div>
 				</div>
 			</div>
-			{{"<!-- /section title -->" | safeHTML }}
+			<!-- /section title -->
 
-			{{ range .service_item}}
+			{{ range .Params.item}}
 			{{"<!-- Single Service Item -->" | safeHTML }}
 			<article class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-duration="500ms">
 				<div class="service-block text-center">
@@ -32,6 +29,4 @@
 		</div>
 	</div>
 </section>
-{{"<!-- /service -->" | safeHTML }}
-{{ end }}
 {{ end }}
