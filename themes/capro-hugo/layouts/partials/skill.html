@@ -1,16 +1,13 @@
-{{ $data := index site.Data site.Language.Lang }}
+{{ with .Site.GetPage "section" "skill" }}
 
-{{ if $data.skill.skill.enable }}
-{{ with $data.skill.skill }}
-{{"<!-- Skills -->" | safeHTML }}
 <section id="skills" class="parallax-section section section-bg overly">
 	<div class="container">
 		<div class="row">
 			{{"<!-- section title -->" | safeHTML }}
 			<div class="col-lg-12">
 				<div class="title text-center">
-					<h2>{{ with .title }} {{ index (split . " ") 0 | safeHTML }} {{ end }}<span class="color">
-						{{ with .title }} {{ after (len (index (split . " ") 0)) . | safeHTML }} {{ end }}</span></h2>
+					<h2>{{ with .Title }} {{ index (split . " ") 0 | safeHTML }} {{ end }}<span class="color">
+						{{ with .Title }} {{ after (len (index (split . " ") 0)) . | safeHTML }} {{ end }}</span></h2>
 					<div class="border-meghna"></div>
 				</div>
 			</div>
@@ -18,16 +15,17 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-6">
-				<h2>{{ .subtitle | markdownify }}</h2>
-				<p> {{ .content | markdownify }}</p>
-				{{ with .image }}
-				<img class="img-fluid lozad" data-src="{{ . | absURL }}" alt="image">
+				<h2>{{ .Params.subtitle | markdownify }}</h2>
+				<p> {{ .Content }}</p>
+        {{ range first 1 (.Resources.ByType "image") }}
+          {{ $image :=  . }}
+				  <img class="img-fluid lozad" data-src="{{ $image.RelPermalink }}" alt="image">
 				{{ end }}
 			</div>
 			<div class="col-lg-6">
 				<ul class="skill-bar">
 					{{ $.Scratch.Set "counter" 0 }}
-					{{ range $index, $element:= .skill_item }}
+					{{ range $index, $element:= .Params.item }}
 					{{ $.Scratch.Set "counter" (add ($.Scratch.Get "counter") 1) }}
 					<li>
 						<p><span>{{if lt $index 9}}0{{end}}{{$.Scratch.Get `counter`}}- </span>{{ .name }}</p>
@@ -43,6 +41,4 @@
 		</div>
 	</div>
 </section>
-{{"<!-- /skill -->" | safeHTML }}
-{{ end }}
 {{ end }}

@@ -1,21 +1,20 @@
-{{ $data := index site.Data site.Language.Lang }}
-
-{{ if $data.feature.feature.enable }}
-{{ with $data.feature.feature }}
-{{"<!-- feature -->" | safeHTML}}
+{{ with .Site.GetPage "section" "feature" }}
 <section class="section section-bg about-2 padding-0" id="feature">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-lg-6 padding-0" style="background-image: url('{{ .image_webp | absURL }}'); background-size: cover; background-position: top center; background-repeat: no-repeat; min-height: 400px;">
-				<!-- this image is for trigger this section fallback background image -->
-				<img src="{{ .image_webp | absURL }}" style="display: none;" onerror="this.onerror=null;this.parentElement.style.backgroundImage= 'url({{ .image | absURL }})'">
-			</div>
+      {{ range first 1 (.Resources.ByType "image") }}
+        {{ $image :=  . }}
+  			<div class="col-lg-6 padding-0" style="background-image: url('{{ $image.RelPermalink }}'); background-size: cover; background-position: top center; background-repeat: no-repeat; min-height: 400px;">
+  				<!-- this image is for trigger this section fallback background image -->
+  				<img src="{{ $image.RelPermalink }}" style="display: none;">
+  			</div>
+      {{ end }}
 			<div class="col-lg-6">
 				<div class="content-block">
-					<h2>{{ .title | markdownify }}</h2>
-					<p>{{ .content | markdownify }}</p>
+					<h2>{{ .Title }}</h2>
+					<p>{{ .Content }}</p>
 					<div class="row">
-						{{ range .feature_item }}
+						{{ range .Params.item }}
 						<div class="col-lg-6">
 							<div class="media">
 								{{with .icon}}
@@ -36,6 +35,4 @@
 		</div>
 	</div>
 </section>
-{{"<!-- /feature -->" | safeHTML}}
-{{ end }}
 {{ end }}
