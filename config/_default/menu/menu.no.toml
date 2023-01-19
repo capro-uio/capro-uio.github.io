@@ -1,0 +1,30 @@
+[[main]]
+name = "om"
+url = "#about"
+weight = 1
+
+[[main]]
+name = "tjenester"
+url = "#services"
+weight = 2
+
+[[main]]
+name = "portfolio"
+url = "#portfolio"
+weight = 3
+
+[[main]]
+name = "team"
+url = "#team"
+weight = 4
+
+[[main]]
+name = "priser"
+url = "#pricing"
+weight = 5
+
+#[[main]]
+#name = "blog"
+#url = "#blog"
+#weight = 6
+

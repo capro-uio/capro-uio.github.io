@@ -1,0 +1,29 @@
+
+################################ Languages ########################
+[en]
+languageName = "En"
+languageCode = "en-us"
+weight = 1
+home = "Home"
+description = "We deal with data processing and capture of big lifescience data for social sciences and humanities."
+copyright = "Copyright &copy; 2022 Capro"
+[en.banner]
+title = "What could your project truly accomplish"
+content = "Don't get stuck in technical skill traps, let us help you!"
+[en.banner.button]
+label = "Explore Us"
+link = "#services"
+
+[no]
+languageName = "No"
+languageCode = "no"
+weight = 2
+home = "Hjem"
+description = "Vi jobber med dataprosessering og fanging av store livsvitenskapsdata for samfunnsvitere og humaniora."
+copyright = "Opphavsrett &copy; 2022 Capro"
+[no.banner]
+title = "Hva kunne prosjektet ditt virkelug utføre"
+content = "Ikke sett deg fast i tekniske feller, la oss hjelpe deg!"
+[no.banner.button]
+label = "Utforsk oss"
+link = "#services"

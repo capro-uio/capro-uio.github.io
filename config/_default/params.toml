@@ -1,0 +1,51 @@
+############################# Default Parameters ##########################
+logo = "images/logo.svg"
+# Meta data
+author = "Athanasia Monika Mowinckel"
+# Google Analytics
+google_analytics_id = "" # Your ID
+# post share
+post_share = true
+
+# preloader
+[preloader]
+enable = false
+preloader = "images/logo.png"
+
+[banner]
+image = "images/backgrounds/image-from-rawpixel-id-3301766-jpeg.jpg"
+
+# cookies
+[cookies]
+enable = false
+expire_days = 2
+
+# google map
+[map]
+enable = false
+gmap_api = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"
+map_latitude = "59.943881952368336"
+map_longitude = "10.71344642896635"
+map_marker = "images/marker.png"
+
+
+############################# social icons ##########################
+#[[social]]
+#icon = "ti-facebook" # themify icon pack : https://themify.me/themify-icons
+#link = "#"
+
+#[[social]]
+#icon = "ti-twitter-alt" # themify icon pack : https://themify.me/themify-icons
+#link = "#"
+
+#[[social]]
+#icon = "ti-linkedin" # themify icon pack : https://themify.me/themify-icons
+#link = "#"
+
+
+
+############################# Plugins ##########################
+# css plugins
+[[plugins.css]]
+link = "https://fonts.googleapis.com/css?family=Anaheim|Rasa:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+

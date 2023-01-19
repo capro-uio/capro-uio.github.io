@@ -6,25 +6,10 @@
   translation: Se alle poster
 - id: share
   translation: Del
-- id: aboutAuthor
-  translation: Om forfatteren
 - id: authorsPosts
-  translation: Forfatterens poster
+  translation: Poster av
 - id: all
   translation: Alle
-- id: about
-  translation: Om oss
-- id: services
-  translation: Tjenester
-- id: portfolio
-  translation: Portfolio
-- id: team
-  translation: Team
-- id: pricing
-  translation: Priser
-- id: blog
-  translation: Blog
 - id: contact
   translation: Kontakt
-- id: themefisher
-  translation: Themefisher
+

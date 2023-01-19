@@ -1,0 +1,3 @@
+################################# Default configuration ###################
+baseURL = "https://www.capro.dev/"
+disableLanguages = ['no']

@@ -2,7 +2,7 @@
 contact:
   enable : true
   title : Contact Us
-  subtitle : Contact Details
+  #subtitle : Contact Details
   content : |
     We currently do not have a point of contact.
     Please check back in soon for updates.
