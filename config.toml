@@ -66,10 +66,10 @@ name = "services"
 url = "#services"
 weight = 2
 
-#[[Languages.en.menu.main]]
-#name = "portfolio"
-#url = "#portfolio"
-#weight = 3
+[[Languages.en.menu.main]]
+name = "portfolio"
+url = "#portfolio"
+weight = 3
 
 [[Languages.en.menu.main]]
 name = "team"
@@ -135,33 +135,10 @@ name = "priser"
 url = "#pricing"
 weight = 5
 
-[[Languages.no.menu.main]]
-name = "blog"
-url = "#blog"
-weight = 6
-
-[[Languages.no.menu.main]]
-name = "contact"
-url = "#contact"
-weight = 7
-
-[[Languages.no.menu.main]]
-name = "Dropdown"
-weight = 7
-hasChildren = true
-
-[[Languages.no.menu.main]]
-parent = "Dropdown"
-name = "Dropdown 1"
-url = "#"
-weight = 1
-
-[[Languages.no.menu.main]]
-parent = "Dropdown"
-name = "Dropdown 2"
-url = "#"
-weight = 2
-
+#[[Languages.no.menu.main]]
+#name = "blog"
+#url = "#blog"
+#weight = 6
 
 
 ############################# social icons ##########################
@@ -192,18 +169,3 @@ link = "plugins/slick/slick.css"
 [[params.plugins.css]]
 link = "https://fonts.googleapis.com/css?family=Anaheim|Rasa:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
 
-# js plugins
-[[params.plugins.js]]
-link = "plugins/jquery/jquery.min.js"
-[[params.plugins.js]]
-link = "plugins/bootstrap/bootstrap.min.js"
-[[params.plugins.js]]
-link = "plugins/slick/slick.min.js"
-[[params.plugins.js]]
-link = "plugins/shuffle/shuffle.min.js"
-[[params.plugins.js]]
-link = "plugins/magnific-popup/jquery.magnific-popup.min.js"
-[[params.plugins.js]]
-link = "plugins/lazy-load/lozad.min.js"
-[[params.plugins.js]]
-link = "plugins/google-map/map.js"

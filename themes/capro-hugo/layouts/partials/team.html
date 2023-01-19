@@ -1,7 +1,6 @@
 {{ $data := index site.Data site.Language.Lang }}
 
-{{ if $data.team.team.enable }}
-{{ with $data.team.team }}
+{{ with .Site.GetPage "section" "team" }}
 <!-- Start Our Team -->
 <section id="team" class="section">
   <div class="container">
@@ -9,14 +8,14 @@
       <div class="col-lg-12">
         <!-- section title -->
         <div class="title text-center wow fadeInUp" data-wow-duration="500ms">
-          <h2>{{ with .title }} {{ index (split . " ") 0 | safeHTML }} {{ end }}<span class="color">
-            {{ with .title }} {{ after (len (index (split . " ") 0)) . | safeHTML }} {{ end }}</span></h2>
+          <h2>{{ with .Title }} {{ index (split . " ") 0 | safeHTML }} {{ end }}<span class="color">
+            {{ with .Title }} {{ after (len (index (split . " ") 0)) . | safeHTML }} {{ end }}</span></h2>
           <div class="border-meghna"></div>
         </div>
       </div>
       <!-- /section title -->
 
-      {{ range .team_member}}
+      {{ range .Pages }}
       {{ $sch := newScratch }}
       <!-- team member -->
       <div class="col-lg-3 col-md-6 col-12 wow fadeInDown" data-wow-duration="500ms">
@@ -24,17 +23,17 @@
         <div class="team-member">
           <div class="member-photo">
             <!-- member photo -->
-            {{ with (resources.GetMatch .image ) }}
+            {{ range first 1 (.Resources.ByType "image") }}
               {{ $image :=  . }}
               {{ $image := $image.Fill "300x300" | images.Filter (images.Grayscale ) }}
               {{ $sch.Set "img" $image.RelPermalink }}
             {{ end }}
-            <img class="img-fluid lozad" data-src="{{ $sch.Get "img" }}" alt="{{ .name }}">
+            <img class="img-fluid lozad" data-src="{{ $sch.Get "img" }}" alt="{{ .Title }}">
 
             <!-- member social profile -->
             <div class="mask">
               <ul class="list-inline">
-                {{ range .social }}
+                {{ range .Params.social }}
                   {{ if .link }}
                     <li class="list-inline-item"><a href="{{ .link | safeURL }}"><i class="{{ .icon }}"></i></a></li>
                   {{ end }}
@@ -45,9 +44,9 @@
 
           <!-- member name & designation -->
           <div class="member-meta">
-            <h4>{{ .name }}</h4>
-            <span>{{ delimit .designation  " / " | markdownify }}</span>
-            <p>{{ .content | markdownify }}</p>
+            <h4>{{ .Title }}</h4>
+            <span>{{ delimit .Params.designation  " / " | markdownify }}</span>
+            <p>{{ .Summary }}</p>
           </div>
         </div>
       </div>
@@ -57,5 +56,4 @@
   </div>
 </section>
 <!-- /team -->
-{{ end }}
 {{ end }}
