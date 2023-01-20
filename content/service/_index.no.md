@@ -44,3 +44,6 @@ item :
       å holde oversikt over og bruke. Vi kan hjelpe deg gjøre dataene dine (mer)
       FAIR, og enklere for deg og ditt team å arbeide med.
 ---
+
+Vi tilbyr en rekke tjenester for å hjelpe forskere nå deres prosjektmål.
+Utforsk noen av våre tjenester.

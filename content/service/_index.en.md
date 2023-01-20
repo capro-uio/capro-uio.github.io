@@ -44,3 +44,6 @@ item :
       track and discover. We can help you get your data (more) FAIR, and also
       easier for you and your team to work with.
 ---
+
+We offer a variety of services t help scientists reach their project goals.
+Explore some of our services.

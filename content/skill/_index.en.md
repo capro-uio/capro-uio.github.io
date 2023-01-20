@@ -1,8 +1,5 @@
 ---
 title : Our Skills
-subtitle : |
-  We’re skilled in translating the needs of social scientists
-  into technical solutions to aid their work.
 item :
   - name :  Data flow and processing
     percent : 90%
@@ -19,3 +16,6 @@ item :
   - name :  HPC analyses
     percent : 75%
 ---
+
+We’re skilled in translating the needs of social scientists into technical solutions to aid their work.
+  

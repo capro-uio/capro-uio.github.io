@@ -1,8 +1,5 @@
 ---
 title : Våre ferdigheter
-subtitle : |
-  Vi er dyktige på å oversette behovene til samfunnsvitere
-  til tekniske løsninger som hjelper deres arbeid.
 item :
   - name : Dataflyt & prosessering
     percent : 90%
@@ -19,3 +16,6 @@ item :
   - name :  HPC analyse
     percent : 75%
 ---
+
+Vi er dyktige på å oversette behovene til samfunnsvitere til tekniske løsninger som hjelper deres arbeid.
+  
