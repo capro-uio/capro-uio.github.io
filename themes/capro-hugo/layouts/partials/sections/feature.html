@@ -1,6 +1,6 @@
 {{ with .Site.GetPage "section" "feature" }}
 {{ if gt (.Params.item | len ) 0}}
-<section class="section section-bg about-2 p-0" id="feature">
+<section class="bg-one about-2 p-0" id="feature">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-lg-6">
@@ -25,13 +25,13 @@
 						{{ end }}
 					</div>
 				</div>
-	      {{ range first 1 (.Resources.ByType "image") }}
-        {{ $image :=  . }}
-  			<div class="col-lg-6 p-0" style="background-image: url('{{ $image.RelPermalink }}'); background-size: cover; background-position: top center; background-repeat: no-repeat; min-height: 400px;">
-  				<!-- this image is for trigger this section fallback background image -->
-  				<img src="{{ $image.RelPermalink }}" style="display: none;">
-  			</div>
       {{ end }}
+			</div>
+      {{ range first 1 (.Resources.ByType "image") }}
+      {{ $image :=  . }}
+			<div class="col-lg-6 p-0 bg-cover" style="background-image: url('{{ $image.RelPermalink }}'); background-position: top center; background-repeat: no-repeat; min-height: 400px;">
+				<!-- this image is for trigger this section fallback background image -->
+				<img src="{{ $image.RelPermalink }}" style="display: none;">
 			</div>
 		</div>
 	</div>

@@ -7,7 +7,9 @@ Version: 1.3
 Tags: one-page, single-page, portfolio, custom-colors, post-formats, responsive, html5, css3
 */
 
-
+/*=================================================================
+  Colour vars
+==================================================================*/
 :root {
   --primary: #CC4C4C ;
   --primary2: #CC4C4Cac;
@@ -21,7 +23,10 @@ Tags: one-page, single-page, portfolio, custom-colors, post-formats, responsive,
   --white: #fff;
 }
 
-/*=== MEDIA QUERY ===*/
+/*=================================================================
+  Basic Setup
+==================================================================*/
+
 html {
   background-color: var(--dark-gray);
   color: var(--gray);
@@ -57,9 +62,6 @@ pre {
   color: var(--light-gray);
 }
 
-/*=================================================================
-  Basic Setup
-==================================================================*/
 ::-moz-selection {
   /* Code for Firefox */
   color: var(--white);
@@ -72,78 +74,47 @@ pre {
 }
 
 hr {
-  border-top: 1px solid rgba(255, 255, 255, .1);
+  border-top: 1px solid var(--dark)
+  opacity: 0.2;
 }
 
 figure {
   margin: 0;
 }
 
-a {
-  color: var(--white);
-  transition: all .3s ease-in 0s;
-}
-
 iframe {
   border: 0;
+}
+
+a {
+  color: var(--secondary);
 }
 
 a,
 a:focus,
 a:hover {
+  transition: all .3s ease-in 0s;
   text-decoration: none;
   outline: 0;
 }
 
 a:focus,
 a:hover {
-  color: var(--primary-dark);
-}
-
-.kill-margin-bottom {
-  margin-bottom: 0 !important;
-}
-
-.mb-50 {
-  margin-bottom: 50px;
-}
-
-.btn {
-  background-color: transparent;
-  color: var(--white);
-  padding: 10px 30px;
-  border-radius: 0;
-  transition: all .3s ease-in 0s;
-}
-
-.btn:focus {
-  color: var(--light);
-}
-
-.btn-transparent {
-  border: 1px solid var(--gray);
-}
-
-.btn-transparent:hover,
-.btn-transparent:focus {
-  background-color: var(--primary);
-  border: 1px solid transparent;
+  text-decoration: none;
+  outline: 0;
   color: var(--white);
 }
 
-.btn-main {
-  background: var(--primary);
-  color: var(--white);
-  display: inline-block;
-  font-size: 14px;
-  letter-spacing: 1px;
-  padding: 10px 35px;
-  text-transform: uppercase;
+#select-language {
+  background: var(--dark-gray);
+  color: var(--white)fff;
+  border: 0;
 }
 
-.btn-main:hover {
-  background: var(--primary2);
-  color: var(--white);
+.simple-icon {
+  color: #6c7b8a;
+  padding: 10px;
+  display: block;
 }
 
 .border-capro {
@@ -182,54 +153,11 @@ a:hover {
   text-transform: uppercase;
 }
 
-.btn.active:focus,
-.btn:active:focus,
-.btn:focus {
-  outline: 0;
-  box-shadow: none;
-}
-
-.bg-one {
-  background-color: var(--dark-gray);
-}
-
-.bg-dark {
-  background: var(--dark);
-}
-
 .parallax-section {
   background-attachment: fixed !important;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-.inline-block {
-  display: inline-block;
-}
-
-figure {
-  margin: 0;
-}
-
-a {
-  transition: all .2s ease-in 0s;
-}
-
-iframe {
-  border: 0;
-}
-
-a,
-a:focus,
-a:hover {
-  text-decoration: none;
-  outline: 0;
-}
-
-a:focus,
-a:hover {
-  color: var(--primary);
 }
 
 .section {
@@ -248,12 +176,8 @@ a:hover {
   }
 }
 
-.section-sm {
-  padding: 70px 0;
-}
-
-.section-xs {
-  padding: 50px 0;
+.section-bg {
+  background: var(--dark-gray);
 }
 
 
@@ -304,14 +228,6 @@ a:hover {
   color: var(--white);
 }
 
-.bg-gray {
-  background: var(--light-gray);
-}
-
-.section-bg {
-  background: var(--dark-gray);
-}
-
 .overly {
   position: relative;
 }
@@ -345,26 +261,6 @@ a:hover {
   outline: none;
 }
 
-/* CSS mfp-with-zoom class */
-.mfp-with-zoom .mfp-container,
-.mfp-with-zoom.mfp-bg {
-  opacity: 0;
-  transition: all 0.3s ease-out;
-}
-
-.mfp-with-zoom.mfp-ready .mfp-container {
-  opacity: 1;
-}
-
-.mfp-with-zoom.mfp-ready.mfp-bg {
-  opacity: 0.8;
-}
-
-.mfp-with-zoom.mfp-removing .mfp-container,
-.mfp-with-zoom.mfp-removing.mfp-bg {
-  opacity: 0;
-}
-
 .logo {
   margin-top: 10px;
   display: inline-block;
@@ -389,6 +285,78 @@ a:hover {
   bottom: 0;
 }
 
+
+/*=================================================================
+  MPF with zoom
+==================================================================*/
+.mfp-with-zoom .mfp-container,
+.mfp-with-zoom.mfp-bg {
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+.mfp-with-zoom.mfp-ready .mfp-container {
+  opacity: 1;
+}
+
+.mfp-with-zoom.mfp-ready.mfp-bg {
+  opacity: 0.8;
+}
+
+.mfp-with-zoom.mfp-removing .mfp-container,
+.mfp-with-zoom.mfp-removing.mfp-bg {
+  opacity: 0;
+}
+
+
+/*=================================================================
+  Buttons
+==================================================================*/
+.btn {
+  background-color: transparent;
+  color: var(--white);
+  padding: 10px 30px;
+  border-radius: 0;
+  transition: all .3s ease-in 0s;
+}
+
+.btn:focus {
+  color: var(--light);
+}
+
+.btn.active:focus,
+.btn:active:focus,
+.btn:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+.btn-transparent {
+  border: 1px solid var(--gray);
+}
+
+.btn-transparent:hover,
+.btn-transparent:focus {
+  background-color: var(--primary);
+  border: 1px solid transparent;
+  color: var(--white);
+}
+
+.btn-main {
+  background: var(--primary);
+  color: var(--white);
+  display: inline-block;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 10px 35px;
+  text-transform: uppercase;
+}
+
+.btn-main:hover {
+  background: var(--primary2);
+  color: var(--white);
+}
+
 /*=================================================================
   Navigation
 ==================================================================*/
@@ -409,17 +377,30 @@ a:hover {
   outline: 0;
 }
 
-.bg-1 {
-  background-repeat: no-repeat;
+/*=================================================================
+  Background
+==================================================================*/
+.bg-cover{
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.bg-2 {
+.bg-contain {
+  background-size: contain;
   background-repeat: no-repeat;
-  background-size: cover;
+}
+
+.bg-fixed {
   background-attachment: fixed;
 }
 
+.bg-one {
+  background-color: var(--dark-gray);
+}
+
+/*=================================================================
+  Hero
+==================================================================*/
 .hero-area {
   background-size: cover;
   height: 100vh;
@@ -534,13 +515,7 @@ a:hover {
   margin-top: 20px;
 }
 
-.dark-bg {
-  background: rgba(0, 0, 0, 0.7);
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  z-index: -1;
-}
+
 
 /*=================================================================
   About us section
@@ -676,6 +651,10 @@ a:hover {
 .call-to-action-2 .btn-main {
   margin-top: 20px;
 }
+
+/*=================================================================
+  Contact
+==================================================================*/
 
 .contact-us {
   padding-top: 50px;
@@ -1469,7 +1448,9 @@ a:hover {
   height: auto;
 }
 
-/* Staticman Comments */
+/*=================================================================
+  staticman comments
+==================================================================*/
 
 #staticman-form:before {
   display: block;
@@ -2046,7 +2027,10 @@ figcaption {
   text-align: center;
 }
 
-/*! Social sharing buttons from Sharingbuttons.io */
+/*=================================================================
+ Sharing buttons
+==================================================================*/
+
 .resp-sharing-button__link,
 .resp-sharing-button__icon {
   display: inline-block
@@ -2262,7 +2246,9 @@ figcaption {
   background-color: #4B97D1;
 }
 
-
+/*=================================================================
+ Pagination
+==================================================================*/
 .pagination {
   text-align: center;
   display: block;
@@ -2303,19 +2289,9 @@ figcaption {
   border-color: var(--primary);
 }
 
-#select-language {
-  background: var(--dark-gray);
-  color: var(--white)fff;
-  border: 0;
-}
-
-.simple-icon {
-  color: #6c7b8a;
-  padding: 10px;
-  display: block;
-}
-
-/* cookie */
+/*=================================================================
+ Cookie
+==================================================================*/
 .cookie-box {
   position: fixed;
   left: 0;

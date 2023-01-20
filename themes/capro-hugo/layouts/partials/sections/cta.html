@@ -1,7 +1,7 @@
 {{ with .Site.GetPage "section" "cta" }}
 {{ range first 1 (.Resources.ByType "image") }}
   {{ $image :=  . }}
-<section id="cta" class="call-to-action section-sm bg-1 overly" style='background-image: url("{{ $image.RelPermalink }}")'>
+<section id="cta" class="call-to-action py-5 bg-cover bg-fixed overly" style='background-image: url("{{ $image.RelPermalink }}")'>
 	<!-- this image is for trigger this section fallback background image -->
 	<img src="{{ $image.RelPermalink }}" style="display: none;">
 {{ end }}
