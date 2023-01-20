@@ -1,7 +1,7 @@
 
 ################################ Languages ########################
 [en]
-languageName = "En"
+languageName = "English"
 languageCode = "en-us"
 weight = 1
 home = "Home"
@@ -20,7 +20,7 @@ title = "Contact Us"
 content = "We currently do not have a point of contact. Please check back in soon for updates."
 
 [no]
-languageName = "No"
+languageName = "Norsk"
 languageCode = "no"
 weight = 2
 home = "Hjem"
