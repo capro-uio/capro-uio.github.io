@@ -1,7 +1,9 @@
 ---
 title: Center for Lifespan Changes in Brain and Cognition
 link: https://www.oslobrains.no/
-author: Kristine B. Walhovd
+author: 
+  name: Kristine B. Walhovd
+  position: Center leader
 ---
 
 Capro created a custom database solution for us with our data spanning 15 years of longitudinal data collection.
