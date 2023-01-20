@@ -1108,7 +1108,7 @@ a:hover {
 
 .client-info {
   margin: 0 auto;
-  width: 50%;
+  width: 60%;
 }
 
 @media (max-width: 768px) {
@@ -1134,6 +1134,8 @@ a:hover {
 
 .client-info p {
   font-size: 18px;
+  letter-spacing: 1.2px;
+  line-height: 23px;
 }
 
 .client-thumb img {
