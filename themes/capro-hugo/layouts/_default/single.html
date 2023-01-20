@@ -6,7 +6,7 @@
         <h1>{{ .Title }}</h1>
         <ul class="list-inline mb-2">
           <li class="list-inline-item"><a href="{{ `author/` | relLangURL }}{{ .Params.Author | urlize }}/">{{ .Params.Author }}</a></li>
-          <li class="list-inline-item">{{ dateFormat "Monday, Jan 2, 2006" .Date }}</li>
+          <li class="list-inline-item"><span>{{.Date.Day}} {{i18n .Date.Month}} {{.Date.Year}}</span></li>
         </ul>
             {{ range first 1 (.Resources.ByType "image") }}
               {{ $image :=  . }}

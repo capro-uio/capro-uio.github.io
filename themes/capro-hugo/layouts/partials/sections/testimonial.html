@@ -38,7 +38,7 @@
 						<div class="client-info">
 							<div class="client-meta">
 								<h3>{{ .Title }}</h3>
-								<span>{{ .Lastmod.Format "January 2, 2006" }}</span>
+								<span>{{.Lastmod.Day}} {{i18n .Lastmod.Month}} {{.Lastmod.Year}}</span>
 							</div>
 							<blockquote class="client-quote">
 							  <p>
