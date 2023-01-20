@@ -13,16 +13,11 @@
 	{{ hugo.Generator }}
 
 	<!-- css assets -->
-	{{ $sch := newScratch }}
-
-	{{ $sch.Set "css" slice }}
-	{{ range resources.Match "*/*.css" }}
-    {{ $sch.Set "css" ( ($sch.Get "css")  | append . ) }}
-  {{ end }}
-	{{ with resources.Match "*/*.css" }}
-    {{ $css := . | resources.Concat "css/bundle.css" | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $css.Permalink }}" crossorigin="anonymous">
-	{{ end }}
+	{{ partial "funcs/css.html" "bootstrap/bootstrap.min.css"}}
+	{{ partial "funcs/css.html" "themify-icons/themify-icons.css"}}
+	{{ partial "funcs/css.html" "magnific-popup/magnific-popup.css"}}
+	{{ partial "funcs/css.html" "slick/slick.css"}}
+	{{ partial "funcs/css.html" "main/style.css"}}
 
   <!-- custom css -->
 	{{ range site.Params.plugins.css }}
@@ -30,8 +25,7 @@
 	{{ end }}
 
 	<!-- Custom stylesheet - for your changes -->
-	{{ $custom := resources.Get "css/custom.css" | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $custom.Permalink }}" media="screen">
+	{{ partial "funcs/css.html" "css/custom.css"}}
 
 	<!--Favicon-->
 	<link rel="shortcut icon" href="{{ `images/favicon.png` | absURL }}" type="image/x-icon">
