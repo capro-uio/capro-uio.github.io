@@ -33,13 +33,13 @@
 {{ end }}
 
 <!-- JS assets (must come in this specific order)-->
-{{ partial "funcs/script.html" "jquery/jquery.min.js" }}
-{{ partial "funcs/script.html" "bootstrap/bootstrap.min.js" }}
-{{ partial "funcs/script.html" "slick/slick.min.js" }}
-{{ partial "funcs/script.html" "shuffle/shuffle.min.js" }}
-{{ partial "funcs/script.html" "magnific-popup/jquery.magnific-popup.min.js" }}
-{{ partial "funcs/script.html" "lazy-load/lozad.min.js" }}
-{{ partial "funcs/script.html" "google-map/map.js" }}
+{{ partial "funcs/script.html" "plugins/jquery/jquery.min.js" }}
+{{ partial "funcs/script.html" "plugins/bootstrap/bootstrap.min.js" }}
+{{ partial "funcs/script.html" "plugins/slick/slick.min.js" }}
+{{ partial "funcs/script.html" "plugins/shuffle/shuffle.min.js" }}
+{{ partial "funcs/script.html" "plugins/magnific-popup/jquery.magnific-popup.min.js" }}
+{{ partial "funcs/script.html" "plugins/lazy-load/lozad.min.js" }}
+{{ partial "funcs/script.html" "plugins/google-map/map.js" }}
 
 
 {{ "<!-- JS Plugins -->" | safeHTML }}
@@ -48,7 +48,7 @@
 {{ end }}
 
 <!-- Main Script -->
-{{ partial "funcs/script.html" "main/script.js" }}
+{{ partial "funcs/script.html" "plugins/main/script.js" }}
 
 
 <!-- cookie -->

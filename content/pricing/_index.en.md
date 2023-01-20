@@ -1,19 +1,19 @@
-# ---
-# title : Cost estimates
-# item :
-#   - name : PSI UiO
-#     price : $99
-#     unit : hourly
-#     # services:
-#       # - 1GB Disk Space
-#       # - 10 Email Account
-#       # - Script Installer
-#       # - 1 GB Storage
-#       # - 10 GB Bandwidth
-#       # - 24/7 Tech Support
-#     # button:
-#     #   label : "Signup"
-#     #   link : "#"
+---
+title : Cost estimates
+item :
+  - name : PSI UiO
+    price : $99
+    unit : hourly
+    # services:
+      # - 1GB Disk Space
+      # - 10 Email Account
+      # - Script Installer
+      # - 1 GB Storage
+      # - 10 GB Bandwidth
+      # - 24/7 Tech Support
+    # button:
+    #   label : "Signup"
+    #   link : "#"
 #   
 #   - name : SV UiO
 #     price : $149
@@ -57,4 +57,4 @@
 #     # button:
 #     #   label : "Signup"
 #     #   link : "#"
-# ---
+---
