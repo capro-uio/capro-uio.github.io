@@ -1,3 +1,13 @@
+{{ define "og" }}
+  <meta property="og:title" content="{{ .Title }}" />
+  <meta property="og:description" content="404 - Not found" />
+  {{ with .Site.Params.logo }}
+    <meta property="og:image" content="{{ . | absURL }}" />
+  {{ end }}
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="{{ .Page.Lang }}" />
+{{ end }}
+
 {{ define "main" }}
 <section class="section">
   <div class="container">
@@ -10,5 +20,4 @@
     </div>
   </div>
 </section>
-
 {{ end }}

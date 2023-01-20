@@ -1,29 +1,26 @@
+{{ define "og" }}
+  <meta property="og:title" content="{{ .Title }}" />
+  <meta property="og:description" content="{{ .Site.Params.description }}" />
+
+  {{ with .Site.Params.logo }}
+    <meta property="og:image" content="{{ . | absURL }}" />
+  {{ end }}
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="{{ .Page.Lang }}" />
+{{ end }}
+
 {{ define "main" }}
-
-{{ partial "sections/about.html" . }}
-
-{{ partial "sections/feature.html" . }}
-
-{{ partial "sections/service.html" . }}
-
-{{ partial "sections/cta.html" . }}
-
-{{ partial "sections/skill.html" . }}
-
-{{ partial "sections/portfolio.html" . }}
-
-{{ partial "sections/funfacts.html" . }}
-
-{{ partial "sections/team.html" . }}
-
-{{ partial "sections/pricing.html" . }}
-
-{{ partial "sections/testimonial.html" . }}
-
-{{ partial "sections/blog.html" . }}
-
-{{ partial "sections/contact.html" . }}
-
-{{ partial "sections/map.html" . }}
-
+  {{ partial "sections/about.html" . }}
+  {{ partial "sections/feature.html" . }}
+  {{ partial "sections/service.html" . }}
+  {{ partial "sections/cta.html" . }}
+  {{ partial "sections/skill.html" . }}
+  {{ partial "sections/portfolio.html" . }}
+  {{ partial "sections/funfacts.html" . }}
+  {{ partial "sections/team.html" . }}
+  {{ partial "sections/pricing.html" . }}
+  {{ partial "sections/testimonial.html" . }}
+  {{ partial "sections/blog.html" . }}
+  {{ partial "sections/contact.html" . }}
+  {{ partial "sections/map.html" . }}
 {{ end }}

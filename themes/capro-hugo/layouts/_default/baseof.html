@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ with site.LanguageCode }}{{ . }}{{ else }}en-us{{ end }}">
-{{ partial "general/head.html" . }}
+
+  <head>
+    {{ partial "general/head.html" . }}
+
+    {{- block "og" . }}{{- end }}
+  </head>
 
 <body id="body" data-spy="scroll" data-target=".navbar" data-offset="55">
   <div id="content">
