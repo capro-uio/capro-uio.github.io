@@ -14,10 +14,8 @@
 
   {{ range first 3 (.Resources.ByType "image") }}
     {{ $image := . }}
-    {{ $image := $image.Fit "1024x512" }}
+    {{ $image := $image.Resize "x512" }}
     <meta property="og:image" content="{{ $image.Permalink }}" />
-    <meta property="og:image:width" content="{{ $image.Width}}" />
-    <meta property="og:image:height" content="{{ $image.Height }}" />
     <meta name="twitter:image" content="{{ $image.Permalink }}">
   {{ end }}
   {{ with resources.GetMatch .Site.Params.logo }}

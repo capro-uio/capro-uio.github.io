@@ -1,8 +1,11 @@
 {{ define "og" }}
   <meta property="og:title" content="{{ .Title }}" />
   <meta property="og:description" content="404 - Not found" />
-  {{ with .Site.Params.logo }}
-    <meta property="og:image" content="{{ . | absURL }}" />
+  {{ with resources.GetMatch .Site.Params.logo }}
+    {{ $image := . }}
+    {{ $image := $image.Resize "x512" }}
+    <meta property="og:image" content="{{ $image.Permalink }}" />
+    <meta name="twitter:image" content="{{ $image.Permalink }}">
   {{ end }}
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="{{ .Page.Lang }}" />
