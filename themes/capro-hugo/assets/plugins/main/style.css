@@ -16,11 +16,9 @@ Tags: one-page, single-page, portfolio, custom-colors, post-formats, responsive,
   --primary-dark: #a6544a;
   --secondary: #85bfbf;
   --dark: #20242b;
-  --dark-gray: #353b43;
-  --gray:  #737f8a;
-  --light-gray:  #afbac4;
-  --light: #dedede;
-  --white: #fff;
+  --grey:  #2f353c;
+  --light:  ##6d7176;
+  --white: #c0c2c4;
 }
 
 /*=================================================================
@@ -28,14 +26,14 @@ Tags: one-page, single-page, portfolio, custom-colors, post-formats, responsive,
 ==================================================================*/
 
 html {
-  background-color: var(--dark-gray);
+  background-color: var(--grey);
   color: var(--gray);
 }
 
 body {
-  background-color: var(--dark-gray);
+  background-color: var(--grey);
   font-family: "Anaheim", sans-serif;
-  color: var(--light-gray);
+  color: var(--light);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -59,7 +57,7 @@ p {
 }
 
 pre {
-  color: var(--light-gray);
+  color: var(--light);
 }
 
 ::-moz-selection {
@@ -106,7 +104,7 @@ a:hover {
 }
 
 #select-language {
-  background: var(--dark-gray);
+  background: var(--grey);
   color: var(--white)fff;
   border: 0;
 }
@@ -176,11 +174,6 @@ a:hover {
   }
 }
 
-.section-bg {
-  background: var(--dark-gray);
-}
-
-
 #home {
   position: relative;
 }
@@ -248,7 +241,7 @@ a:hover {
 
 .header-bradcrumb a,
 .header-bradcrumb .active {
-  color: var(--light-gray);
+  color: var(--light);
   font-weight: 200;
   font-family: "Quattrocento Sans", sans-serif;
 }
@@ -395,7 +388,11 @@ a:hover {
 }
 
 .bg-one {
-  background-color: var(--dark-gray);
+  background-color: var(--grey);
+}
+
+.bg-dark {
+  background: var(--dark);
 }
 
 /*=================================================================
@@ -581,7 +578,7 @@ a:hover {
 }
 
 .about .block .icon-box h3 {
-  color: var(--light-gray);
+  color: var(--light);
 }
 
 /*=================================================================
@@ -618,12 +615,12 @@ a:hover {
 
 .call-to-action h2 {
   font-weight: 700;
-  color: var(--dark-gray);
+  color: var(--grey);
 }
 
 .call-to-action p {
   font-size: 16px;
-  color: var(--dark-gray);
+  color: var(--grey);
 }
 
 .call-to-action .btn-main {
@@ -751,7 +748,7 @@ a:hover {
 .counters-item {
   padding: 25px 0;
   margin-bottom: 10px;
-  background: var(--dark-gray);
+  background: var(--grey);
 }
 
 .counters-item i {
@@ -782,7 +779,7 @@ a:hover {
 }
 
 .price-title {
-  background-color: var(--dark-gray);
+  background-color: var(--grey);
   padding: 30px 0 20px;
 }
 
@@ -819,7 +816,7 @@ a:hover {
 }
 
 .pricing li:nth-child(2n) {
-  background-color: var(--dark-gray);
+  background-color: var(--grey);
 }
 
 .pricing li .btn {
@@ -838,7 +835,7 @@ a:hover {
 .portfolio-filter .btn {
   outline: 0;
   border: 1px solid rgba(236, 239, 241, 0.07);
-  background: transparent;
+  background: var(--grey);
   display: inline-block;
   font-size: 16px;
   padding: 6px 20px;
@@ -882,7 +879,7 @@ a:hover {
 
 .portfolio-block .caption {
   position: absolute;
-  color: var(--dark-gray);
+  color: var(--grey);
   top: 50%;
   left: 50%;
   opacity: 0;
@@ -899,7 +896,7 @@ a:hover {
 }
 
 .portfolio-block .caption h4 a {
-  color: var(--dark-gray);
+  color: var(--grey);
 }
 
 .portfolio-block .caption .search-icon {
@@ -936,7 +933,7 @@ a:hover {
   Services section 2
 ==================================================================*/
 .service-2 .service-item {
-  border: 1px solid var(--light-gray);
+  border: 1px solid var(--light);
   margin-bottom: 30px;
   padding: 50px 20px;
   transition: all 0.3s ease 0s;
@@ -998,8 +995,9 @@ a:hover {
   Our Team
 ==================================================================*/
 .team-member {
-  background-color: var(--dark-gray);
+  background-color: transparent;
   margin-bottom: 10px;
+  color: var(--white);
 }
 
 .team-member:hover .mask {
@@ -1092,6 +1090,8 @@ a:hover {
 
 .slick-slide{
   content: none;
+  color: var(--white);
+  height: 100vh;
 }
 
 .slick-slide:hover{
@@ -1107,13 +1107,12 @@ a:hover {
 #testimonial::after {
   content: "&";
   font-size: 140vh;
-  color: rgba(0, 0, 0, 0.1);
+  color: var(--dark);
   position: absolute;
   top: -38vh;
   right: -10vh;
+  opacity: 0.4;
 }
-
-
 
 .client-info {
   margin: 0 auto;
@@ -1130,10 +1129,10 @@ a:hover {
   border: none;
 }
 
-.client-quote span{
+.client-quote span {
   position: absolute;
   color: var(--secondary);
-  left: 27%;
+  right: 350px;
   top: 52%;
   font-size: 100px;
   opacity: 0.3;
@@ -1141,7 +1140,6 @@ a:hover {
 }
 
 .client-info p {
-  color: var(--light-gray);
   font-size: 18px;
 }
 
@@ -1233,7 +1231,7 @@ a:hover {
 }
 
 .post-block {
-  background-color: var(--dark-gray);
+  background-color: var(--grey);
   margin-bottom: 10px;
 }
 
@@ -1471,7 +1469,7 @@ a:hover {
 }
 
 .post-comment {
-  background-color: var(--dark-gray);
+  background-color: var(--grey);
   ;
   padding: 20px;
   margin-top: 20px;
@@ -1505,7 +1503,7 @@ a:hover {
 }
 
 .post-comment-name {
-  color: var(--light-gray);
+  color: var(--light);
   font-weight: 500;
   font-size: 18px;
 }
