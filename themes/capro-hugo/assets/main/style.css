@@ -1,8 +1,8 @@
 /*
-Template Name: Meghna Responsive HTML5/CSS3 Business Template
+Template Name: capro Responsive HTML5/CSS3 Business Template
 Author: Themefisher
 Author URI: www.Themefisher.com
-Description: Meghna Responsive HTML5/CSS3 Portfolio Template
+Description: capro Responsive HTML5/CSS3 Portfolio Template
 Version: 1.3
 Tags: one-page, single-page, portfolio, custom-colors, post-formats, responsive, html5, css3
 */
@@ -104,10 +104,6 @@ a:hover {
   margin-bottom: 0 !important;
 }
 
-.padding-0 {
-  padding: 0 !important;
-}
-
 .mb-50 {
   margin-bottom: 50px;
 }
@@ -135,7 +131,22 @@ a:hover {
   color: var(--white);
 }
 
-.border-meghna {
+.btn-main {
+  background: var(--primary);
+  color: var(--white);
+  display: inline-block;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 10px 35px;
+  text-transform: uppercase;
+}
+
+.btn-main:hover {
+  background: var(--primary2);
+  color: var(--white);
+}
+
+.border-capro {
   border-top: 2px solid rgba(236, 239, 241, 0.07);
   height: 1px;
   margin: 15px auto 0;
@@ -143,7 +154,7 @@ a:hover {
   width: 30%;
 }
 
-.border-meghna:before {
+.border-capro:before {
   background-color: var(--white);
   content: '';
   height: 6px;
@@ -163,7 +174,7 @@ a:hover {
   padding: 0 0 50px;
 }
 
-.sub-title>h3 {
+.sub-title > h3 {
   border-left: 3px solid var(--light);
   border-right: 3px solid var(--light);
   display: inline-block;
@@ -175,6 +186,7 @@ a:hover {
 .btn:active:focus,
 .btn:focus {
   outline: 0;
+  box-shadow: none;
 }
 
 .bg-one {
@@ -192,21 +204,8 @@ a:hover {
   background-size: cover;
 }
 
-.no-padding {
-  padding: 0 !important;
-}
-
 .inline-block {
   display: inline-block;
-}
-
-.btn {
-  cursor: pointer;
-}
-
-.btn.focus,
-.btn:focus {
-  box-shadow: none;
 }
 
 figure {
@@ -233,25 +232,6 @@ a:hover {
   color: var(--primary);
 }
 
-.btn-main {
-  background: var(--primary);
-  color: var(--white);
-  display: inline-block;
-  font-size: 14px;
-  letter-spacing: 1px;
-  padding: 10px 35px;
-  text-transform: uppercase;
-}
-
-.btn-main:hover {
-  background: var(--primary2);
-  color: var(--white);
-}
-
-.mt-20 {
-  margin-top: 20px;
-}
-
 .section {
   padding: 100px 0;
 }
@@ -276,18 +256,9 @@ a:hover {
   padding: 50px 0;
 }
 
-.btn:focus {
-  color: var(--light);
-}
 
 #home {
   position: relative;
-}
-
-.btn.active:focus,
-.btn:active:focus,
-.btn:focus {
-  outline: 0;
 }
 
 .parallax-section {
@@ -720,7 +691,7 @@ a:hover {
   margin-bottom: 60px;
 }
 
-.form-meghna .form-control {
+.form-capro .form-control {
   background-color: transparent;
   border-radius: 0;
   padding: 5px 10px;
@@ -728,13 +699,13 @@ a:hover {
   border: 1px solid rgba(236, 239, 241, 0.07);
 }
 
-.form-meghna .form-control:focus {
+.form-capro .form-control:focus {
   border-color: none;
   box-shadow: none;
 }
 
-.form-meghna input:hover,
-.form-meghna textarea:hover {
+.form-capro input:hover,
+.form-capro textarea:hover {
   border-color: var(--primary);
 }
 
@@ -751,7 +722,7 @@ a:hover {
   background-color: var(--primary2);
 }
 
-.form-meghna ::placeholder {
+.form-capro ::placeholder {
   color: var(--light) !important;
 }
 
@@ -1028,9 +999,11 @@ a:hover {
 .skill-bar p span {
   font-style: italic;
   font-size: 30px;
+  letter-spacing: 1px;
   color: rgba(187, 187, 187, 0.34);
   display: inline-block;
   vertical-align: middle;
+  padding-right: 0.25rem;
 }
 
 .skill-bar .progress {
@@ -1138,14 +1111,30 @@ a:hover {
   Testimonial section
 ==================================================================*/
 
+.slick-slide{
+  content: none;
+}
+
 .slick-slide:hover{
-  color: var(--white);
+  color: var(--light);
+}
+
+#testimonial {
+  overflow: hidden;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#testimonial::after {
+  content: "&";
+  font-size: 140vh;
+  color: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: -38vh;
+  right: -10vh;
 }
 
 
-.testimonial:before {
-  background: rgba(42, 48, 55, 0.7);
-}
 
 .client-info {
   margin: 0 auto;
@@ -1158,7 +1147,21 @@ a:hover {
   }
 }
 
-.client-comment p {
+.client-info blockquote{
+  border: none;
+}
+
+.client-quote span{
+  position: absolute;
+  color: var(--secondary);
+  left: 27%;
+  top: 52%;
+  font-size: 100px;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.client-info p {
   color: var(--light-gray);
   font-size: 18px;
 }
@@ -1179,6 +1182,7 @@ a:hover {
 }
 
 .client-meta span {
+  position: relative;
   font-size: 12px;
 }
 
@@ -2021,14 +2025,14 @@ blockquote {
   margin: 0;
 }
 
-.form-control-meghna .form-control {
+.form-control-capro .form-control {
   background-color: transparent;
   padding: 5px 10px;
   color: var(--light);
   border: 1px solid rgba(236, 239, 241, 0.07);
 }
 
-.form-control-meghna .form-control:focus {
+.form-control-capro .form-control:focus {
   border-color: var(--primary);
   box-shadow: 0 0 0 0.2rem rgba(0, 174, 255, 0.432);
 }
