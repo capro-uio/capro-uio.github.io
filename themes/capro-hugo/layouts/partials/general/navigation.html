@@ -3,9 +3,10 @@
 		<nav class="navbar navbar-expand-lg navbar-dark">
 			<a class="navbar-brand p-0" href="{{ .Site.BaseURL | relLangURL }}">
 				{{ if site.Params.logo }}
-				<img class="lozad" data-src="{{ site.Params.logo | absURL }}" alt="{{ .Site.Title }}" height="42">
+				  {{ $logo := resources.GetMatch .Site.Params.logo }}
+				  <img class="lozad" data-src="{{ $logo.Permalink }}" alt="{{ .Site.Title }}" height="42">
 				{{ else }}
-				{{ site.Title }}
+				  {{ site.Title }}
 				{{ end }}
 			</a>
 

@@ -1,12 +1,23 @@
 {{ define "og" }}
   <meta property="og:title" content="{{ .Title }}" />
+  <meta name="twitter:title" content="{{ .Title }}">
   <meta property="og:description" content="{{ .Site.Params.description }}" />
+  <meta name="twitter:description" content="{{ .Site.Params.description }}">
 
-  {{ with .Site.Params.logo }}
-    <meta property="og:image" content="{{ . | absURL }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="{{ .Lang }}" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="{{ .Site.BaseURL }}">
+    <meta property="twitter:url" content="{{ .Site.BaseURL }}">
+
+  {{ with resources.GetMatch .Site.Params.logo }}
+    {{ $image := . }}
+    {{ $image := $image.Fit "1024x512" }}
+    <meta property="og:image" content="{{ $image.Permalink }}" />
+    <meta name="twitter:image" content="{{ $image.Permalink }}">
   {{ end }}
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="{{ .Page.Lang }}" />
+  <link rel="canonical" href="{{ .Permalink }}" />
 {{ end }}
 
 {{ define "main" }}
