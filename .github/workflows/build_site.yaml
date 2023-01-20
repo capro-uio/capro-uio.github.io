@@ -38,7 +38,7 @@ jobs:
 
       - name: Commit results
         run: |
-          cp ./public
+          cd ./public
           git init
           git add .
           git commit -m 'deploy site'
