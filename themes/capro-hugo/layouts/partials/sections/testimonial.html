@@ -1,22 +1,26 @@
 {{ with .Site.GetPage "section" "testimonial" }}
-
-{{ range first 1 (.Resources.ByType "image") }}
-  {{ $image :=  . }}
-<section id="testimonial" class="testimonial overly section bg-2"
-	style='background-image: url("{{ $image.RelPermalink }}")'>
-	<!-- this image is for trigger this section fallback background image -->
-	<img src="{{ $image.RelPermalink }}" style="display: none;">
-  {{ end }}
+{{ if gt (.Pages | len ) 0}}
+<section id="testimonial" class="overly section bg-2 p-4">
 	<div class="container">
-		<div class="row">
+		<div class="row justify-content-center">
+      <div class="col-lg-12">
+        <!-- section title -->
+        <div class="title text-center wow fadeInUp" data-wow-duration="500ms">
+          <h2>{{ with .Title }} {{ index (split . " ") 0 | safeHTML }} {{ end }}<span class="color">
+            {{ with .Title }} {{ after (len (index (split . " ") 0)) . | safeHTML }} {{ end }}</span></h2>
+          <div class="border-capro"></div>
+        </div>
+      </div>
+      <!-- /section title -->
+
 			<div class="col-xl-12">
 				<!-- testimonial wrapper -->
-				<div id="testimonials" class="wow fadeInUp overly p-4" data-wow-duration="500ms" data-wow-delay="100ms">
+				<div id="testimonials" class="wow fadeInUp" data-wow-duration="500ms" data-wow-delay="100ms">
 					{{ range .Pages }}
 		      {{ $sch := newScratch }}
-{{ with .Params.link }}<a class="testimonial" href="{{.}}">{{end}}
+          {{ with .Params.link }}<a href="{{.}}">{{end}}
 					<!-- testimonial single -->
-					<div class="item text-center">
+					<div class="item overly p-4 text-center">
 
 						<!-- client photo -->
             {{ range first 1 (.Resources.ByType "image") }}
@@ -27,7 +31,7 @@
 
 						<div class="client-thumb">
 							<img class="img-fluid lozad" data-src="{{ $sch.Get "img"  }}" alt="{{ .Params.author }}">
-							<small>{{ .Params.author }}</small>
+							{{ with .Params.author }}<small>{{.name}}, {{.position}}</small> {{ end }}
 						</div>
 
 						<!-- client info -->
@@ -36,9 +40,12 @@
 								<h3>{{ .Title }}</h3>
 								<span>{{ .Lastmod.Format "January 2, 2006" }}</span>
 							</div>
-							<div class="client-comment">
-								<p>{{ .Content }}</p>
-							</div>
+							<blockquote class="client-quote">
+							  <p>
+							    <span class="fa-solid fa-quote-right"></span>
+								  {{ .Content }}
+								</p>
+							</blockquote>
 						</div>
 					</div>
 				  {{ with .Params.link }}</a>{{end}}
@@ -50,4 +57,5 @@
 		</div>
 	</div>
 </section>
+{{ end }}
 {{ end }}

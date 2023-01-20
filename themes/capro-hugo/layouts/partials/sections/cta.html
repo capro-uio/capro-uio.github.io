@@ -1,5 +1,4 @@
 {{ with .Site.GetPage "section" "cta" }}
-
 {{ range first 1 (.Resources.ByType "image") }}
   {{ $image :=  . }}
 <section id="cta" class="call-to-action section-sm bg-1 overly" style='background-image: url("{{ $image.RelPermalink }}")'>

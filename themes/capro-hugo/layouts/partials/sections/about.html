@@ -1,4 +1,5 @@
 {{ with .Site.GetPage "section" "about" }}
+{{ if gt (.Pages | len ) 0}}
 
 <!-- Start About Section -->
 <section class="bg-one about section" id="about">
@@ -9,7 +10,7 @@
 				<div class="title text-center wow fadeIn" data-wow-duration="1500ms">
 					<h2> {{ with .Title }} {{ index (split . " ") 0 | safeHTML }} {{ end }}<span class="color">
 						{{ with .Title }} {{ index (split . " ") 1 | safeHTML }} {{ end }} </span></h2>
-					<div class="border-meghna"></div>
+					<div class="border-capro"></div>
 				</div>
 			</div>
 			<!-- /section title -->
@@ -32,4 +33,5 @@
 		</div>
 	</div>
 </section>
+{{ end }}
 {{ end }}

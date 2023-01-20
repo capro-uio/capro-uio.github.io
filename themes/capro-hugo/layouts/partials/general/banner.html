@@ -1,8 +1,4 @@
-{{ $image := site.Params.banner_image }}
-<p>{{ $image }}</p>
-
 {{ with site.Params.banner  }}
-<p>{{.image}}</p>
 <!-- Welcome Slider-->
 <section class="hero-area" style='background-image: url("{{ .image | absURL }}")'>
 	<!-- this image is for trigger this section fallback background image -->

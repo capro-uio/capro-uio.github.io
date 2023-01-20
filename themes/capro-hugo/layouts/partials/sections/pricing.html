@@ -1,4 +1,5 @@
 {{ with .Site.GetPage "section" "pricing" }}
+{{ if and (.Params.item) (gt (.Params.item | len ) 0)}}
 
 <!-- Start Pricing section -->
 <section id="pricing" class="pricing section">
@@ -10,7 +11,7 @@
         <div class="title text-center wow fadeInDown" data-wow-duration="500ms">
 					<h2>{{ with .Title }} {{ index (split . " ") 0 | safeHTML }} {{ end }}<span class="color">
             {{ with .Title }} {{ after (len (index (split . " ") 0)) . | safeHTML }} {{ end }}</span></h2>
-          <div class="border-meghna"></div>
+          <div class="border-capro"></div>
         </div>
       </div>
       <!-- /section title -->
@@ -44,4 +45,5 @@
     </div>
   </div>
 </section>
+{{ end }}
 {{ end }}

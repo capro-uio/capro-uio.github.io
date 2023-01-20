@@ -10,7 +10,7 @@
 					  <span class="color">{{ index (split .Params.single  " ") 1 | safeHTML }}</span>
 					</h2>
 					{{ end }}
-					<div class="border-meghna"></div>
+					<div class="border-capro"></div>
 				</div>
 				<div class="content text-center">
 					<figure>
@@ -49,7 +49,7 @@
   				  {{ with .Site.GetPage "section" "team" }}
               {{ index (split .Params.single " ") 1 | safeHTML }}
             {{ end }}</h2>
-					<div class="border-meghna"></div>
+					<div class="border-capro"></div>
 				</div>
 			</div>
 			{{ range where site.RegularPages "Params.author" .Title }}

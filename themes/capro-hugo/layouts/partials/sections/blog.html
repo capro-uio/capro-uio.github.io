@@ -1,5 +1,5 @@
 {{ if gt (where site.RegularPages "Section" "==" "blog") 0}}
-{{"<!-- Start Blog Section -->" | safeHTML}}
+{{ if gt (.Pages | len ) 0}}
 <section id="blog" class="section">
 	<div class="container">
 		<div class="row justify-content-center">
@@ -8,7 +8,7 @@
 				<div class="title text-center wow fadeInDown">
 					<h2> {{ with i18n "blogTitle" }} {{ index (split . " ") 0 | safeHTML }} {{ end }}<span class="color">
 							{{ with i18n "blogTitle" }} {{ index (split . " ") 1 | safeHTML }} {{ end }} </span></h2>
-					<div class="border-meghna"></div>
+					<div class="border-capro"></div>
 				</div>
 			</div>
 			{{"<!-- /section title -->" | safeHTML}}
@@ -23,5 +23,5 @@
 		</div>
 	</div>
 </section>
-{{"<!-- /blog -->" | safeHTML}}
+{{ end }}
 {{ end }}

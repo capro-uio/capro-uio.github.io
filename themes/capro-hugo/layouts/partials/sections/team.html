@@ -1,5 +1,5 @@
 {{ with .Site.GetPage "section" "team" }}
-<!-- Start Our Team -->
+{{ if gt (.Pages | len ) 0}}
 <section id="team" class="section">
   <div class="container">
     <div class="row justify-content-center">
@@ -8,7 +8,7 @@
         <div class="title text-center wow fadeInUp" data-wow-duration="500ms">
           <h2>{{ with .Title }} {{ index (split . " ") 0 | safeHTML }} {{ end }}<span class="color">
             {{ with .Title }} {{ after (len (index (split . " ") 0)) . | safeHTML }} {{ end }}</span></h2>
-          <div class="border-meghna"></div>
+          <div class="border-capro"></div>
         </div>
       </div>
       <!-- /section title -->
@@ -54,4 +54,5 @@
   </div>
 </section>
 <!-- /team -->
+{{ end }}
 {{ end }}
