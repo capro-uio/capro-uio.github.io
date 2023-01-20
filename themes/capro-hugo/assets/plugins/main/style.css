@@ -250,10 +250,6 @@ a:hover {
   color: var(--primary);
 }
 
-.slick-slide {
-  outline: none;
-}
-
 .logo {
   margin-top: 10px;
   display: inline-block;
@@ -1094,7 +1090,6 @@ a:hover {
 .slick-slide{
   content: none;
   color: var(--white);
-  height: 100vh;
 }
 
 .slick-slide:hover{
