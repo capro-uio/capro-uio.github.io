@@ -1,0 +1,75 @@
+{{ with .Site.GetPage "section" "portfolio" }}
+{{ if gt (.Pages | len ) 0}}
+<section class="portfolio section" id="portfolio">
+	<div class="container">
+		<div class="row ">
+			<div class="col-xl-12">
+				<!-- section title -->
+				<div class="title text-center">
+					<h2>{{ with .Title }} {{ index (split . " ") 0 | safeHTML }} {{ end }}<span class="color">
+						{{ with .Title }} {{ after (len (index (split . " ") 0)) . | safeHTML }} {{ end }}</span></h2>
+					<div class="border-capro"></div>
+				</div>
+				<!-- /section title -->
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="btn-group portfolio-filter btn-group-toggle justify-content-center d-flex flex-wrap"
+					data-toggle="buttons">
+					<label class="btn active">
+						<input type="radio" name="shuffle-filter" value="all" checked="checked" />{{ i18n "all"}}
+					</label>
+					{{ $categories := slice }}
+					{{ range .Pages }}
+					{{ range .Params.categories }}
+					{{ $categories = $categories | append . }}
+					{{ end }}
+					{{ end }}
+					{{ range ( $categories | uniq ) }}
+					<label class="btn">
+						<input type="radio" name="shuffle-filter" value="{{ . | urlize }}" />{{ . }}
+					</label>
+					{{ end }}
+				</div>
+			</div>
+		</div>
+
+		<div class="row shuffle-wrapper justify-content-center">
+			<!-- portfolio item -->
+			{{ range .Pages }}
+      {{ $sch := newScratch }}
+
+			<div class="col-lg-4 col-md-6 shuffle-item"
+				data-groups="[{{range $index, $element:= .Params.categories }}{{if ne $index 0}},{{end}}&quot;{{. | urlize}}&quot;{{ end }}]">
+				<div class="portfolio-block mb-4">
+            {{ range first 1 (.Resources.ByType "image") }}
+              {{ $image :=  . }}
+              {{ $image := $image.Fit "400x400" }}
+              {{ $sch.Set "img" $image.RelPermalink }}
+            {{ end }}
+          <div class="img-cont text-center">
+					  <img class="img-fluid" src="{{ $sch.Get "img" }}" alt="{{ .Title }}">
+					</div>
+					<div class="caption">
+						<a class="search-icon image-popup" data-effect="mfp-with-zoom" href="{{ $sch.Get "img" }}"
+							data-lightbox="image-1">
+							<i class="ti-search"></i>
+						</a>
+						<h4 class="mt-3">
+							{{ if .Params.link }}
+								<a href="{{ .Params.link | safeURL }}">{{ .Title }}</a>
+							{{ else }}
+  							{{ .Title }}
+  						{{ end }}
+						</h4>
+						<p>{{ .Content }}</p>
+					</div>
+				</div>
+			</div>
+			{{ end }}
+		</div>
+	</div>
+</section>
+{{ end }}
+{{ end }}

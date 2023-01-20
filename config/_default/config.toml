@@ -1,0 +1,10 @@
+################################# Default configuration ###################
+baseURL = "."
+title = "CAPRO"
+theme = "capro-hugo"
+# post pagination
+paginate = "6"
+# post excerpt
+summaryLength = "15"
+enableGitInfo = true
+defaultContentLanguage = "en"

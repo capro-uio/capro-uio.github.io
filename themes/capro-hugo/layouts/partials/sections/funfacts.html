@@ -1,0 +1,24 @@
+{{ with .Site.GetPage "section" "funfacts" }}
+{{ if gt (.Params.item | len ) 0}}
+{{ range first 1 (.Resources.ByType "image") }}
+  {{ $image :=  . }}
+<section id="counter" class="parallax-section bg-cover bg-fixed section overly" style='background-image: url("{{ $image.RelPermalink }}")'>
+	<!-- this image is for trigger this section fallback background image -->
+	<img class="lozad" style="display: none;" data-src="{{ $image.RelPermalink | absURL }}" />
+{{ end }}
+	<div class="container">
+		<div class="row justify-content-center">
+			{{ range .Params.item }}
+			<div class="col-lg-3 col-md-6 col-12 text-center wow fadeInDown" data-wow-duration="500ms">
+				<div class="counters-item">
+					<i class="{{ .icon }}"></i>
+					<span class="count" data-count="{{ .count }}">0</span>
+					<h3>{{ .title | markdownify }}</h3>
+				</div>
+			</div>
+			{{ end }}
+		</div>
+	</div>
+</section>
+{{ end }}
+{{ end }}

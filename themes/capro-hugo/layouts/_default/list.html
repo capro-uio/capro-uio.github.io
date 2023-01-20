@@ -1,20 +1,17 @@
 {{ define "main" }}
-
-{{ partial "navigation.html" . }}
-
-{{"<!-- Start Blog Section -->" | safeHTML}}
-<section id="blog" class="section">
+{{ with .CurrentSection }}
+<section id="{{ .Section }}" class="section">
   <div class="container">
     <div class="row">
       <div class="col-12">
-        {{"<!-- section title -->" | safeHTML}}
+        <!-- section title -->
         <div class="title text-center wow fadeInDown">
-          <h2>{{ with i18n "blogTitle" }} {{ index (split . " ") 0 | safeHTML }} {{ end }}<span class="color">
-              {{ with i18n "blogTitle" }} {{ index (split . " ") 1 | safeHTML }} {{ end }}</span></h2>
-          <div class="border-meghna"></div>
+          <h2>{{ with .Title }} {{ index (split . " ") 0 | safeHTML }} {{ end }}<span class="color">
+              {{ with .Title }} {{ index (split . " ") 1 | safeHTML }} {{ end }}</span></h2>
+          <div class="border-capro"></div>
         </div>
       </div>
-      {{"<!-- /section title -->" | safeHTML}}
+      <!-- /section title -->
       {{ $paginator := .Paginate .Data.Pages }}
       {{ range $paginator.Pages }}
       {{ .Render "article" }}
@@ -25,6 +22,6 @@
     </div>
   </div>
 </section>
-{{"<!-- /blog -->" | safeHTML}}
+{{ end}}
 
 {{ end }}

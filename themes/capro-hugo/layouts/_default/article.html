@@ -1,7 +1,12 @@
 <article class="col-lg-4 col-md-6 col-12 clearfix wow fadeInUp mb-4" data-wow-duration="500ms">
   <div class="post-block">
     <div class="media-wrapper">
-      <img class="img-fluid lozad" data-src="{{ .Params.Image_webp | absURL }}" onerror="this.onerror=null;this.src='{{ .Params.image | absURL }}'">
+      {{ range first 1 (.Resources.ByType "image") }}
+        {{ $image :=  . }}
+        {{ $image := $image.Fit "300x300" }}
+        <img class="img-fluid lozad" data-src="{{ $image.RelPermalink }}" >
+      {{ end }}
+
     </div>
 
     <div class="content">

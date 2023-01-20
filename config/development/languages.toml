@@ -1,0 +1,13 @@
+[en.contact.form]
+form_action = "#" #contact form works with https://formspree.io
+name = "Your Name"
+email = "Your Email"
+subject = "Subject"
+message = "Message"
+submit = "Submit"
+
+[en.contact]
+content = ""
+
+[no.contact]
+content = ""
