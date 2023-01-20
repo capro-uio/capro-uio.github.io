@@ -2,7 +2,7 @@
 title : Cost estimates
 item :
   - name : PSI UiO
-    price : $99
+    price : 1100 NOK
     unit : hourly
     # services:
       # - 1GB Disk Space

@@ -105,7 +105,7 @@ a:hover {
 
 #select-language {
   background: var(--grey);
-  color: var(--white)fff;
+  color: var(--white);
   border: 0;
 }
 
@@ -392,7 +392,7 @@ a:hover {
 }
 
 .bg-dark {
-  background: var(--dark);
+  background-color: var(--dark);
 }
 
 /*=================================================================
@@ -1099,24 +1099,13 @@ a:hover {
 }
 
 #testimonial {
-  overflow: hidden;
   height: 100vh;
   overflow: hidden;
 }
 
-#testimonial::after {
-  content: "&";
-  font-size: 140vh;
-  color: var(--dark);
-  position: absolute;
-  top: -38vh;
-  right: -10vh;
-  opacity: 0.4;
-}
-
 .client-info {
   margin: 0 auto;
-  width: 45%;
+  width: 50%;
 }
 
 @media (max-width: 768px) {
@@ -1124,6 +1113,7 @@ a:hover {
     width: 90%;
   }
 }
+
 
 .client-info blockquote{
   border: none;
