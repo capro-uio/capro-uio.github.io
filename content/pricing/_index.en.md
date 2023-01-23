@@ -1,7 +1,7 @@
 ---
 title : Cost estimates
 item :
-  - name : Non-binding conversation 
+  - name : Non-binding talks 
     price : 
       - price: Free
     unit : 1 hour

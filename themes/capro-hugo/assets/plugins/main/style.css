@@ -43,22 +43,24 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 400;
-  font-family: "Rasa", sans-serif;
+  font-weight: 300;
+  font-family: "Space Grotesk", sans-serif;
   color: var(--secondary);
 }
 
 p {
-  font-family: "Quattrocento Sans", sans-serif;
+  font-family: "Spectral", serif;
+  color: var(--light);
+}
+
+code {
+  font-family: 'Space Mono', monospace;
 }
 
 [scroll-behavior=smooth] {
   scroll-behavior: smooth;
 }
 
-pre {
-  color: var(--light);
-}
 
 ::-moz-selection {
   /* Code for Firefox */
