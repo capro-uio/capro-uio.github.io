@@ -27,7 +27,7 @@ Tags: one-page, single-page, portfolio, custom-colors, post-formats, responsive,
 
 html {
   background-color: var(--grey);
-  color: var(--gray);
+  color: var(--white);
 }
 
 body {
@@ -845,11 +845,12 @@ a:hover {
 
 .portfolio-filter .btn.active {
   border-color: var(--primary);
+  color: var(--light);
 }
 
 .portfolio-block:before {
   transition: all 0.3s ease-in-out;
-  background: var(--white);
+  background: #fff;
   opacity: 0;
   top: 20px;
   right: 20px;
@@ -1090,14 +1091,20 @@ a:hover {
 .slick-slide{
   content: none;
   color: var(--white);
+  width: 80%;
 }
 
 .slick-slide:hover{
   color: var(--light);
 }
 
+#testimonials{
+  width: 90%;
+  text-align: center;
+  position: relative;
+}
+
 #testimonial {
-  height: 100vh;
   overflow: hidden;
 }
 
@@ -1238,6 +1245,10 @@ a:hover {
 
 .note .media-wrapper {
   border-bottom: 1px solid var(--gray);
+}
+
+.media-wrapper {
+  text-align: center;
 }
 
 .note .excerpt h3 {

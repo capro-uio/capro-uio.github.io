@@ -44,7 +44,7 @@
       <!-- /section title -->
       {{ $paginator := .Paginate .Data.Pages }}
       {{ range $paginator.Pages }}
-      {{ .Render "article" }}
+        {{ .Render "article" }}
       {{ end }}
       <div class="col-12">
         {{ template "_internal/pagination.html" . }}

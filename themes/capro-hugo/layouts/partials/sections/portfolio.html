@@ -45,6 +45,7 @@
 				<div class="portfolio-block mb-4">
             {{ range first 1 (.Resources.ByType "image") }}
               {{ $image :=  . }}
+              {{ $image := $image.Resize "600x" }}
               {{ $image := $image.Fit "400x400" }}
               {{ $sch.Set "img" $image.RelPermalink }}
             {{ end }}

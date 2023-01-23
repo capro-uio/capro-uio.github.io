@@ -3,10 +3,10 @@
     <div class="media-wrapper">
       {{ range first 1 (.Resources.ByType "image") }}
         {{ $image :=  . }}
+        {{ $image := $image.Resize "600x" }}
         {{ $image := $image.Fit "300x300" }}
         <img class="img-fluid lozad" data-src="{{ $image.RelPermalink }}" >
       {{ end }}
-
     </div>
 
     <div class="content">

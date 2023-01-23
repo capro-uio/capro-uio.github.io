@@ -23,6 +23,7 @@
             <!-- member photo -->
             {{ range first 1 (.Resources.ByType "image") }}
               {{ $image :=  . }}
+              {{ $image := $image.Resize "600x" }}
               {{ $image := $image.Fill "300x300" | images.Filter (images.Grayscale ) }}
               {{ $sch.Set "img" $image.RelPermalink }}
             {{ end }}

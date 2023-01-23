@@ -13,7 +13,7 @@
       </div>
       <!-- /section title -->
 
-			<div class="col-lg-12">
+			<div class="col-lg-12 d-flex justify-content-center">
 				<!-- testimonial wrapper -->
 				<div id="testimonials" class="wow fadeInUp" data-wow-duration="500ms" data-wow-delay="100ms">
 					{{ range .Pages }}
@@ -25,6 +25,7 @@
 						<!-- client photo -->
             {{ range first 1 (.Resources.ByType "image") }}
               {{ $image :=  . }}
+              {{ $image := $image.Resize "600x" }}
               {{ $image := $image.Fill "300x300"  }}
               {{ $sch.Set "img" $image.RelPermalink }}
             {{ end }}
