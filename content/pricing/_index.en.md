@@ -1,8 +1,28 @@
 ---
 title : Cost estimates
 item :
-  - name : PSI UiO
-    price : 1100 NOK
+  - name : Non-binding conversation 
+    price : 
+      - price: Free
+    unit : 1 hour
+    services:
+      - 1:1 with a team member
+      - Advice on services
+      - If necessary, cost and time estimates for a project or workshop
+    # button:
+    #   label : "Signup"
+    #   link : "#"
+    
+  - name : Project assistance 
+    price : 
+      - name: PSI UiO
+        price: 1100 NOK
+      - name: SV UiO
+        price: 1320 NOK
+      - name: Remaining UiO
+        price: 1375 NOK
+      - name: External
+        price: 1430 NOK
     unit : hourly
     services:
       - Some hours of HPC
@@ -13,42 +33,26 @@ item :
     #   label : "Signup"
     #   link : "#"
 
-  - name : SV UiO
-    price : 1320 NOK
+  - name : Workshop
+    price : 
+      - name: PSI UiO
+        price: 2500 NOK
+      - name: SV UiO
+        price: 3000 NOK
+      - name: Remaining UiO
+        price: 3125 NOK
+      - name: External
+        price: 3250 NOK
     unit : hourly
     services:
-      - Some hours of HPC
-      - 1-1 time with a team member
-      - Code you will own
-      - Direct line of contact with team
-#     button:
-#       label : "Signup"
-#       link : "#"
-   
-  # pricing table loop
-  - name : Remaining UiO
-    price : 1375 NOK
-    unit : hourly
-    services:
-      - Some hours of HPC
-      - 1-1 time with a team member
-      - Code you will own
-      - Direct line of contact with team
-#     button:
-#       label : "Signup"
-#       link : "#"
-   
-  - name : External
-    price : 1430 NOK
-    unit : hourly
-    services:
-      - Some hours of HPC
-      - 1-1 time with a team member
-      - Code you will own
-      - Direct line of contact with team
-#     button:
-#       label : "Signup"
-#       link : "#"
+      - 2 hours prep per 1 hour workshop
+      - Workshop materials
+      - Team availability before and after workshop
+      - Option for online workshop
+    # button:
+    #   label : "Signup"
+    #   link : "#"
+
 ---
 
 Our prices include some basic infrastructure to get started.

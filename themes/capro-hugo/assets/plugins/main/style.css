@@ -779,18 +779,17 @@ a:hover {
 }
 
 .price-title {
-  background-color: var(--grey);
+  border-bottom: 1px solid rgba(236, 239, 241, 0.07);
 }
 
 .price-title h3 {
-  color: var(--white);
+  color: var(--secondary);
   text-transform: uppercase;
 }
 
 .price-title p {
   font-size: 18px;
   font-weight: 400;
-  border-bottom: 1px solid rgba(236, 239, 241, 0.07);
 }
 
 .price-title .value {
@@ -1101,7 +1100,7 @@ a:hover {
 #testimonials{
   width: 90%;
   text-align: center;
-  position: relative;
+  position: price-titlerelative;
 }
 
 #testimonial {

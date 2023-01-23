@@ -29,8 +29,11 @@
 
           <!-- plan name & value -->
           <div class="price-title">
-            <h3>{{ .name }}</h3>
-            <p><strong class="value">{{ .price }}</strong>/ {{ .unit }}</p>
+            <h3 class="value">{{ .name }}</h3>
+            {{ $unit := .unit }}
+            {{ range .price }}
+              <p>{{with .name}}{{ . }} {{end}}<strong >{{ .price }}</strong> / {{$unit}}</p>
+            {{ end }}
           </div>
 
           <!-- plan description -->
