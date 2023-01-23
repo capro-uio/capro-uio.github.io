@@ -3,12 +3,8 @@ title : Inge Amlien
 designation : ["Senioringeniør", "Skyløsninger",
   "Containers", "HPC", "Python"]
 social :
-  - icon : ti-facebook # themify icon pack : https://themify.me/themify-icons
-    link : ""
-  - icon : ti-twitter-alt # themify icon pack : https://themify.me/themify-icons
-    link : ""
-  - icon : ti-linkedin # themify icon pack : https://themify.me/themify-icons
-    link : ""
+  - icon : "fa-brands fa-orcid"
+    link : "https://orcid.org/0000-0002-8508-9088"
 ---
 
 IT-bakgrunn og en PhD i psykologi / nevrovitenskap.
