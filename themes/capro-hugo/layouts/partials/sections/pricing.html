@@ -21,7 +21,8 @@
 					<p>{{ .Content }}</p>
         </div>
       </div>
-
+      {{ $data := newScratch }}
+      {{ $data.Set "entities" .Params.entities }}
       {{ range .Params.item }}
       <!-- single pricing table -->
       <div class="col-lg-3 col-md-6 col-12 text-center wow fadeInUp" data-wow-duration="200ms">
@@ -30,10 +31,29 @@
           <!-- plan name & value -->
           <div class="price-title">
             <h3 class="value">{{ .name }}</h3>
-            {{ $unit := .unit }}
-            {{ range .price }}
-              <p>{{with .name}}{{ . }} {{end}}<strong >{{ .price }}</strong> / {{$unit}}</p>
-            {{ end }}
+            <table id="price-table-{{.name | urlize }}">
+              {{ $unit := .unit }}
+              {{ range .price }}
+                {{ $id := .id }}
+                {{ $price := .price }}
+                {{ if eq $id "base" }}
+                  {{ range ($data.Get "entities")  }}
+                    <tr class="py-5">
+                     <td class="border-right pr-2 text-right">{{ .name }}</td>
+                     <td class="pl-2 text-left"><strong>{{ mul .percent $price }}</strong> / {{$unit}}</td>
+                    </tr>
+                  {{ end }}
+                {{ end }}
+                {{ range ($data.Get "entities")  }}
+                  {{ if eq .id $id }}
+                    <tr class="py-5">
+                     <td class="border-right pr-2 text-right">{{ .name }}</td>
+                     <td class="pl-2 text-left"><strong>{{ $price }}</strong> / {{$unit}}</td>
+                    </tr>
+                  {{ end }}
+                {{ end }}
+              {{ end }}
+            </table>
           </div>
 
           <!-- plan description -->
