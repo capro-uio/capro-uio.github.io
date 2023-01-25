@@ -1,9 +1,4 @@
 [[main]]
-name = "om"
-url = "#about"
-weight = 1
-
-[[main]]
 name = "tjenester"
 url = "#services"
 weight = 2

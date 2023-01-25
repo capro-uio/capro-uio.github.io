@@ -1,10 +1,5 @@
 ################### Navigation ########################
 [[main]]
-name = "about"
-url = "#about"
-weight = 1
-
-[[main]]
 name = "services"
 url = "#services"
 weight = 2
@@ -19,15 +14,11 @@ name = "team"
 url = "#team"
 weight = 4
 
-#[[main]]
-#name = "pricing"
-#url = "#pricing"
-#weight = 5
+[[main]]
+name = "prices"
+url = "#pricing"
+weight = 5
 
-#[[main]]
-#name = "blog"
-#url = "#blog"
-#weight = 6
 
 [[main]]
 name = "contact"
