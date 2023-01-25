@@ -28,7 +28,7 @@ jobs:
       - name: Build
         run: |
           hugo --minify \
-            --baseURL ${{github.event.number}}--capro-uio.netlify.app
+            --baseURL https://${{github.event.number}}--capro-uio.netlify.app
 
       - name: Install netlify cli
         run: npm install netlify-cli -g
