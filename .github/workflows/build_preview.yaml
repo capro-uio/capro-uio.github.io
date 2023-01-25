@@ -27,7 +27,7 @@ jobs:
 
       - name: rename baseurl
         run: |
-          sed -e 's/\"\.\"/\"test--capro-uio.netlify.app\"/g' config/_default/config.toml > tmp
+          sed -e 's/\"\.\"/\"${{github.event.number}}--capro-uio.netlify.app\"/g' config/_default/config.toml > tmp
           mv tmp config/_default/config.toml
 
       - name: Build
