@@ -33,7 +33,6 @@ html {
 body {
   background-color: var(--grey);
   font-family: "Anaheim", sans-serif;
-  font-weight: 200;
   color: var(--light);
   -webkit-font-smoothing: antialiased;
   font-size: 18px;
@@ -525,6 +524,7 @@ a:hover {
   border-bottom: 2px solid transparent;
   transition: .5s all;
   margin-bottom: 20px;
+  height: 95%;
 }
 
 .about .block:hover {
@@ -868,6 +868,12 @@ a:hover {
   height: 100%;
 }
 
+.portfolio-block .img-cont {
+  height: 20rem;
+  background: #fff;
+  padding: 50px;
+}
+
 .portfolio-block:hover:before {
   opacity: 1;
 }
@@ -926,6 +932,7 @@ a:hover {
   border-top: 1px solid rgba(236, 239, 241, 0.07);
   margin-bottom: 40px;
   box-shadow: 2px 2px 5px rgba(44, 44, 44, 0.3), 13px 13px 0 rgba(255, 255, 255, 0.7);
+  height: 85%;
 }
 
 .service-block .service-icon {
