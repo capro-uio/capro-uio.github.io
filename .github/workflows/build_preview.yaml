@@ -25,6 +25,11 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
+      - name: rename baseurl
+        run: |
+          sed 's/"\."/"https://${{github.event.number}}--capro-uio.netlify.app"/g' config/_default/config.toml > tmp
+          mv tmp config/_default/config.toml
+
       - name: Build
         run: hugo --minify
 
@@ -36,7 +41,8 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         run: |
-          echo "Running netlify preview deploy"
-          netlify deploy --dir ./public/ --alias https://${{github.event.number}}--rladies-dev.netlify.app/
+          netlify deploy \
+            --dir ./public/ \
+            --alias https://${{github.event.number}}--capro-uio.netlify.app
         shell: sh
 
