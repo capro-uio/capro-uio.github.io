@@ -5,8 +5,6 @@ designation : ["Workflow", "Data processing",
 social : # themify icon pack : https://themify.me/themify-icons or fontawesome
   - icon : ti-twitter-alt
     link : "https://twitter.com/DrMowinckels"
-  - icon : ti-linkedin 
-    link : "https://www.linkedin.com/in/drmowinckels/"
   - icon : ti-github 
     link : "https://github.com/drmowinckels"
   - icon: "fa-brands fa-orcid"
