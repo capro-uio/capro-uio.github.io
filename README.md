@@ -3,6 +3,26 @@
 [![Build site and deploy](https://github.com/capro-uio/capro-uio.github.io/actions/workflows/build_site.yaml/badge.svg)](https://github.com/capro-uio/capro-uio.github.io/actions/workflows/build_site.yaml)
 
 
+## Setting up new pages
+
+There are [Hugo Archetypes](https://gohugo.io/content-management/archetypes/) set up for certain type of content:
+
+- testimonials
+- portfolio
+- team members
+
+To initiate new pages with these archetypes, you can use hugo commands:
+
+```sh
+hugo new --kind testimonial testimonial/[new-folder-name]
+hugo new --kind portfolio   portfolio/[new-folder-name]
+hugo new --kind team        team/[new-folder-name]
+```
+
+These will create new [bundled pages](https://gohugo.io/content-management/page-bundles/) for the content you want to add, with markdown files containing
+yaml settings that need to be filled in before publishing.
+There should be any further instructions in the archetypes themselves.
+
 ## Branding
 
 ### Font
