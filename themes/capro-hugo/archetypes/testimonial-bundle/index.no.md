@@ -1,12 +1,11 @@
 ---
-title : "" # Prosjekttittel
-categories : # Velg de som passer. Kan legge til nye, men vi bør begrense antall kategorier på tvers. 
-  - R-packages
-  - MRI
-  - Analyses
-link : "" # URL som åpnes når lupe iconet klikkes
+title: ""   # Øverst i blå tekst
+link: ""    # URL som åpnes når den klikkes. Paper eller prosjektside.
 date: {{ .Date }}
+author: 
+  name: ""      # Navn på personen som ga testimonial
+  position: ""  # Deres stilling
 ---
 
-Kort tekst om arbeidet.
+Sitatet går her.
 Bildefil i denne mappen (png, pdf, tiff, jpg) brukes som portfolio bilde

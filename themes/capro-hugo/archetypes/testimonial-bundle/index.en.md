@@ -4,6 +4,7 @@ link: ""    # URL to open if testimonial is clicked. Paper or project.
 author: 
   name: ""      # Name of the person who gave testimonial
   position: ""  # Position of that person
+date: {{ .Date }}
 ---
 
 The testimonial goes here.

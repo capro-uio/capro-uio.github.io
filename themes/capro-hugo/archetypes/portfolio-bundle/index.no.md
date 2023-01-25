@@ -1,11 +1,12 @@
 ---
-title : ggseg - Hjerneatlas i R
-categories : ["R-pakke"]
-link : "https://ggseg.r-universe.dev/ui#builds"
-date: 2020-11-30
+title : "" # Prosjekttittel
+categories : # Velg de som passer. Kan legge til nye, men vi bør begrense antall kategorier på tvers. 
+  - R-packages
+  - MRI
+  - Analyses
+link : "" # URL som åpnes når lupe iconet klikkes
+date: {{ .Date }}
 ---
 
-Tillater visualisering av hjerneavbildingsresultater i R.
-Med medfølgende utvidelser for 3d plots og flere atlas.
-
-<!-- read more -->
+Kort tekst om arbeidet.
+Bildefil i denne mappen (png, pdf, tiff, jpg) brukes som portfolio bilde
