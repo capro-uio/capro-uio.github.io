@@ -31,15 +31,17 @@
             {{ end }}
 
 						<div class="client-thumb">
-							<img class="img-fluid lozad" data-src="{{ $sch.Get "img"  }}" alt="{{ .Params.author }}">
+							<img class="img-fluid lozad" data-src="{{ $sch.Get "img"  }}" alt="{{ .Params.author }} - &copy; {{with .Params.photo_credit}}{{.}}{{end}}">
+							<small class="text-secondary">{{with .Params.photo_credit}}&copy; {{.}}{{end}}<br></small>
 							{{ with .Params.author }}<small>{{.name}}, {{.position}}</small> {{ end }}
+
 						</div>
 
 						<!-- client info -->
 						<div class="client-info">
 							<div class="client-meta">
 								<h3>{{ .Title }}</h3>
-								<span>{{.Lastmod.Day}} {{i18n .Lastmod.Month}} {{.Lastmod.Year}}</span>
+								<span>{{.Date.Day}} {{i18n .Date.Month}} {{.Date.Year}}</span>
 							</div>
 							<blockquote class="client-quote">
 							  <p>
