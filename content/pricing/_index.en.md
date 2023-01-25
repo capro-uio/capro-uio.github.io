@@ -31,7 +31,7 @@ item :
       - Advice on services
       - If necessary, cost and time estimates for a project or workshop
     
-  - name : Project assistance 
+  - name : Project 
     price : 
       - id: base
         price: 1100

@@ -25,11 +25,11 @@
       {{ $data.Set "entities" .Params.entities }}
       {{ range .Params.item }}
       <!-- single pricing table -->
-      <div class="col-lg-3 col-md-6 col-12 text-center wow fadeInUp" data-wow-duration="200ms">
-        <div class="price-item p-2">
+      <div class="col-lg-4 col-md-6 col-12 text-center wow fadeInUp" data-wow-duration="200ms">
+        <div class="price-item p-2 row justify-content-center">
 
           <!-- plan name & value -->
-          <div class="price-title">
+          <div class="price-title col-auto">
             <h3 class="value">{{ .name }}</h3>
             <table id="price-table-{{.name | urlize }}">
               {{ $unit := .unit }}

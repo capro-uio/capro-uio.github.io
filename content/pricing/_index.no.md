@@ -34,7 +34,7 @@ item :
     #   label : "Signup"
     #   link : "#"
 
-  - name : Prosjektassistanse
+  - name : Prosjekt
     price :
       - id: base
         price: 1100
