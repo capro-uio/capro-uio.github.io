@@ -1,5 +1,5 @@
 ---
-title: R-Ladies website development
+title: R-Ladies website (WordPress to Hugo)
 link: https://rladies-dev.netlify.app/
 author: 
   name: Maëlle Salmon
