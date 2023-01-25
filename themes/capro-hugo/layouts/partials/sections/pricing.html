@@ -40,7 +40,7 @@
                   {{ range ($data.Get "entities")  }}
                     <tr class="py-5">
                      <td class="border-right pr-2 text-right">{{ .name }}</td>
-                     <td class="pl-2 text-left"><strong>{{ mul .percent $price }}</strong> / {{$unit}}</td>
+                     <td class="pl-2 text-left"><strong>{{ lang.FormatNumberCustom 0 (mul .percent $price) "-|.| " "|" }}</strong> / {{$unit}}</td>
                     </tr>
                   {{ end }}
                 {{ end }}
@@ -48,7 +48,7 @@
                   {{ if eq .id $id }}
                     <tr class="py-5">
                      <td class="border-right pr-2 text-right">{{ .name }}</td>
-                     <td class="pl-2 text-left"><strong>{{ $price }}</strong> / {{$unit}}</td>
+                     <td class="pl-2 text-left"><strong>{{ lang.FormatNumberCustom 0 $price "-|.| " "|"  }}</strong> / {{$unit}}</td>
                     </tr>
                   {{ end }}
                 {{ end }}

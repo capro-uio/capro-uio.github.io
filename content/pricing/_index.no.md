@@ -20,7 +20,7 @@ item :
   - name : Uforpliktende samtale
     price :
       - id: uio
-        price: Gratis
+        price: 0
       - id: nc
         price: 1100
       - id: com

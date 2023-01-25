@@ -20,7 +20,7 @@ item :
   - name : Non-binding talks 
     price : 
       - id: uio
-        price: Free
+        price: 0
       - id: nc
         price: 1100
       - id: com
