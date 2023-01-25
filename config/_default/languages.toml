@@ -8,11 +8,11 @@ home = "Home"
 description = "We deal with data processing and capture of big lifescience data for social sciences and humanities."
 copyright = "Copyright &copy; 2022 Capro"
 [en.banner]
-title = "What could your project truly accomplish"
-content = "Don't get stuck in technical skill traps, let us help you!"
+title = "Unlock Your Research Potential"
+content = "Whether you're conducting a study or developing a new product, don't let technical skills hold you back. Contact us today to start realizing the true potential of your research project."
 image = "images/image-from-rawpixel-id-3337467-jpeg.jpg"
 [en.banner.button]
-label = "Explore Us"
+label = "Our Services"
 link = "#services"
 
 [en.contact]

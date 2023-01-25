@@ -1,32 +1,27 @@
 ---
-title : |
-  We deal with data processing and capture of big lifescience
-  data for social sciences and humanities
-item :
-  - title : UiO Integrated
-    icon : ti-rocket # themify icon pack : https://themify.me/themify-icons
-    content : |
-      Integrated solutions using UiOs services like Nettskjema, Educloud, TSD and
-      NREC to facilitate secure data capture and storage.
+title: We specialize in data processing and capture of large life science data for social sciences and humanities
 
-  - title : HPC analyses
-    icon : ti-server # themify icon pack : https://themify.me/themify-icons
-    content : |
-      Complex and large data often require the use of High Performance Computing
-      for efficiency.
-
-  - title : Standardised output
-    icon : ti-package # themify icon pack : https://themify.me/themify-icons
-    content : |
-      We can offer standardised output from various data sources to provide
-      clean and interoperable data for you to work with.
-
-  - title : Customisation on demand
-    icon : ti-announcement # themify icon pack : https://themify.me/themify-icons
-    content : |
-      Custom solutions for your project specific needs, so you can have
-      a workflow that suits you and your team.
+item:
+  - title: Integrated Solutions
+    icon: ti-rocket # themify icon pack: https://themify.me/themify-icons
+    content: |
+      We offer integrated solutions using the University of Oslo's services, such as Nettskjema, Educloud, TSD, NREC, and GCP to facilitate secure data capture and storage.
+      
+  - title: High-Performance Computing Analyses
+    icon: ti-server # themify icon pack: https://themify.me/themify-icons
+    content: |
+      Complex and large data often require the use of High-Performance Computing for efficiency and speed. We have expertise in utilizing HPC resources to handle your data needs.
+      
+  - title: Standardized Data Output
+    icon: ti-package # themify icon pack: https://themify.me/themify-icons
+    content: |
+      We can provide standardized output from various data sources to ensure clean and interoperable data for you to work with, making it easier to integrate into your existing workflow.
+      
+  - title: Customization on Demand
+    icon: ti-announcement # themify icon pack: https://themify.me/themify-icons
+    content: |
+      Our team offers custom solutions tailored to your project's specific needs and existing infrastructure, ensuring a workflow that best suits you and your team
+      
 ---
 
-Capturing and processing of large data is becoming increasingly important in social science and humanities, but project leaders can struggle implementing the required technical solutions to get their projects running. 
-We provide both standardised and custom solutions for your project needs, to help you set you and your team up for success.
+Capturing and processing large data sets is becoming increasingly important in social sciences and humanities, but project leaders can struggle with implementing the necessary technical solutions. We provide both standardized and customized solutions to meet your project needs and help set you and your team up for success.

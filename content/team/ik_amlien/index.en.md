@@ -1,7 +1,7 @@
 ---
-title : Inge Amlien
-designation : ["Senior Engineer", "Cloud",
-  "Containers", "HPC", "Python"]
+title : Inge Kasbohm Amlien
+designation : ["Data Engineer", "Cloud",
+  "Containers", "HPC"]
 social :
   - icon : "fa-brands fa-orcid"
     link : "https://orcid.org/0000-0002-8508-9088"
