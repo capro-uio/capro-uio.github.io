@@ -27,7 +27,6 @@ item :
         price: 2000
     unit: 1 time
     services:
-      - Noen timer HPC
       - 1-1 tid med medarbeider
       - Råd om tjenester
       - Om nødvendig, prisoverslag for et prosjekt eller kurs
