@@ -43,3 +43,11 @@ jobs:
             --alias ${{github.event.number}}
         shell: sh
 
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            The PR has been [deployed as a preview](https://${{github.event.number}}--capro-uio.netlify.app).
+            Please double check it looks ok before merging.
+
+
