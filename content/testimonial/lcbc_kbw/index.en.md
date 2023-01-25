@@ -4,6 +4,7 @@ link: https://www.oslobrains.no/
 author: 
   name: Kristine B. Walhovd
   position: Center leader
+date: 2022-09-10
 ---
 
 Capro created a custom database solution for us with our data spanning 15 years of longitudinal data collection.

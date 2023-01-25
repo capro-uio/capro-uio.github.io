@@ -4,6 +4,7 @@ link: https://www.lifebrain.uio.no/
 author: 
   name: Barbara Bodorkos Friedman
   position: Administrativ koordinator
+date: 2023-01-10
 ---
 
 Den unike og omfattende Lifebrain databasen har takket være Mo blitt en ordentlig skattekiste.

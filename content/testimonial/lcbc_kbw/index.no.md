@@ -4,6 +4,7 @@ link: https://www.oslobrains.no/
 author: 
   name: Kristine B. Walhovd
   position: Senterleder
+date: 2022-09-10
 ---
 
 Capro lagde en spesialisert løsning for oss med våre data som spenner 15 år med lengdesnittsdata.
