@@ -1,7 +1,7 @@
 ---
-title : Inge Amlien
-designation : ["Senior Engineer", "Cloud",
-  "Containers", "HPC", "Python"]
+title : Inge Kasbohm Amlien
+designation : ["Data Engineer", "Cloud",
+  "Containers", "HPC"]
 social :
   - icon : ti-facebook # themify icon pack : https://themify.me/themify-icons
     link : ""

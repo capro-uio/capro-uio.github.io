@@ -11,5 +11,5 @@ social :
     link : ""
 ---
 
-IT-bakgrunn og en PhD i psykologi / nevrovitenskap.
+IT-bakgrunn og PhD i psykologi / nevrovitenskap.
 Inge har en lidenskap for å bygge robuste og skalerbare løsninger som tillager forskere å fokusere på deres forskning, mens de samtidig holder høye standardere for datasikkerhet og -privacy.

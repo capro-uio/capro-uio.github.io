@@ -9,5 +9,4 @@ social :
   - icon : ti-linkedin # themify icon pack : https://themify.me/themify-icons
     link : ""
 ---
-
-Markus is awesome! He holds a PhD and is a passionate researcher always on the bleeding edge of the field.
+Dr. Markus is a highly skilled, holding a PhD in psychology. He is a dedicated researcher who consistently stays at the forefront of the field through his passion for exploring and discovering new advancements.
