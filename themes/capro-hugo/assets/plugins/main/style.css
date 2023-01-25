@@ -777,9 +777,11 @@ a:hover {
 #pricing{
   color: var(--white);
 }
+
 .price-item {
   border: 1px solid rgba(236, 239, 241, 0.07);
   margin-bottom: 15px;
+  height: 98%;
 }
 
 .price-title {

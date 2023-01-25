@@ -25,13 +25,13 @@
       {{ $data.Set "entities" .Params.entities }}
       {{ range .Params.item }}
       <!-- single pricing table -->
-      <div class="col-lg-4 col-md-6 col-12 text-center wow fadeInUp" data-wow-duration="200ms">
+      <div class="col-lg-4 col-md-6 col-12 text-center wow fadeInUp m-2" data-wow-duration="200ms">
         <div class="price-item p-2 row justify-content-center">
 
           <!-- plan name & value -->
           <div class="price-title col-auto">
             <h3 class="value">{{ .name }}</h3>
-            <table id="price-table-{{.name | urlize }}">
+            <table id="price-table-{{.name | urlize }}" class="mb-3">
               {{ $unit := .unit }}
               {{ range .price }}
                 {{ $id := .id }}

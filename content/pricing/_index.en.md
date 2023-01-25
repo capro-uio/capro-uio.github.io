@@ -35,7 +35,7 @@ item :
     price : 
       - id: base
         price: 1100
-    unit : hourly
+    unit : hour
     services:
       - Some hours of HPC
       - 1-1 time with a team member
@@ -46,7 +46,7 @@ item :
     price : 
       - id: base
         price: 2500
-    unit : hourly
+    unit : hour
     services:
       - 2 hours prep per 1 hour workshop
       - Workshop materials
