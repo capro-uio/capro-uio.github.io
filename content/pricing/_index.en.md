@@ -30,6 +30,9 @@ item :
       - 1:1 with a team member
       - Advice on services
       - If necessary, cost and time estimates for a project or workshop
+    button:
+      label : "Book a time"
+      link : "#book"
     
   - name : Project 
     price : 

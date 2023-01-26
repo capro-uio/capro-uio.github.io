@@ -1,0 +1,29 @@
+
+################################ Languages ########################
+languageName = "Norsk"
+languageCode = "no"
+weight = 2
+home = "Hjem"
+description = "Vi jobber med dataprosessering og fanging av store livsvitenskapsdata for samfunnsvitere og humaniora."
+copyright = "Opphavsrett &copy; 2022 Capro"
+
+[banner]
+title = "Hva kunne prosjektet ditt virkelig utrette"
+content = "Ikke sett deg fast i tekniske feller, la oss hjelpe deg!"
+image = "images/image-from-rawpixel-id-3337467-jpeg.jpg"
+
+[banner.button]
+label = "Utforsk oss"
+link = "#services"
+
+[contact]
+title = "Kontakt oss"
+content = "Book en time for konsultasjon om du ønsker mer informasjon om våre tjenester."
+
+[[contact.item]]
+icon = "ti-location-pin" # themify icon pack : https://themify.me/themify-icons
+info = """
+  Harald Schjelderups hus,
+  Forskningsveien 3A,
+  0373 Oslo
+  """
