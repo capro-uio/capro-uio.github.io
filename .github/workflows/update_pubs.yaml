@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  get-pubs:
+  pubs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout repository
