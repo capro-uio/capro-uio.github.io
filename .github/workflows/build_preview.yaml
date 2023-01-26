@@ -26,6 +26,8 @@ jobs:
           extended: true
 
       - name: Build
+        env:
+          HUGO_GMAP_API: ${{ secrets.HUGO_GMAP_API }}
         run: |
           hugo --minify \
             --baseURL https://${{github.event.number}}--capro-uio.netlify.app
