@@ -11,10 +11,10 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  get_pubs:
     runs-on: ubuntu-22.04
     steps:
-       - name: Checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Setup R
