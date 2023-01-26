@@ -20,7 +20,7 @@ item :
   - name : Uforpliktende samtale
     price :
       - id: uio
-        price: Gratis
+        price: 0
       - id: nc
         price: 1100
       - id: com
@@ -30,9 +30,9 @@ item :
       - 1-1 tid med medarbeider
       - Råd om tjenester
       - Om nødvendig, prisoverslag for et prosjekt eller kurs
-    # button:
-    #   label : "Signup"
-    #   link : "#"
+    button:
+      label : "Book en tid"
+      link : "#book"
 
   - name : Prosjekt
     price :

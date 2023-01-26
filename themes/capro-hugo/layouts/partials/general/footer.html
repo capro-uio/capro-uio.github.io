@@ -28,8 +28,8 @@
 <!-- /footer -->
 
 <!-- Google Map API -->
-{{ if site.Params.map.enable }}
-<script src="{{ site.Params.map.gmap_api | safeURL }}"></script>
+{{ with site.Params.map.gmap_api }}
+<script src="{{ printf "https://maps.googleapis.com/maps/api/js?key=%s" (getenv . | safeURL) }}"></script>
 {{ end }}
 
 <!-- JS assets (must come in this specific order)-->

@@ -20,7 +20,7 @@ item :
   - name : Non-binding talks 
     price : 
       - id: uio
-        price: Free
+        price: 0
       - id: nc
         price: 1100
       - id: com
@@ -30,12 +30,15 @@ item :
       - 1:1 with a team member
       - Advice on services
       - If necessary, cost and time estimates for a project or workshop
+    button:
+      label : "Book a time"
+      link : "#book"
     
   - name : Project 
     price : 
       - id: base
         price: 1100
-    unit : hourly
+    unit : hour
     services:
       - Some hours of HPC
       - 1-1 time with a team member
@@ -46,7 +49,7 @@ item :
     price : 
       - id: base
         price: 2500
-    unit : hourly
+    unit : hour
     services:
       - 2 hours prep per 1 hour workshop
       - Workshop materials

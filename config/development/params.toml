@@ -1,8 +1,5 @@
 
 [[contact.item]]
-icon = "ti-location-pin" # themify icon pack : https://themify.me/themify-icons
-info = "Khaja Road, Bayzid, Chittagong, Bangladesh"
-[[contact.item]]
 icon = "ti-mobile" # themify icon pack : https://themify.me/themify-icons
 info = "+880-31-000-000"
 [[contact.item]]
