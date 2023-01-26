@@ -14,10 +14,17 @@
 			<!-- /section title -->
 
 			<!-- Contact Details -->
-			<div class="contact-info col-lg-6 wow fadeInUp" data-wow-duration="500ms">
+			<div class="col-lg-6 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
 				<p> {{ .content | markdownify }} </p>
 
-				{{ if .item }}
+        <!-- Calendly inline widget begin -->
+        <div id="book" class="calendly-inline-widget" data-url="https://calendly.com/capro-uio/chat?background_color=2f353c&text_color=c0c2c4&primary_color=cc4c4c" style="min-width:320px;height:900px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        <!-- Calendly inline widget end -->
+			</div>
+
+			<div class="contact-info col-lg-6 wow fadeInUp" data-wow-duration="500ms">
+
 				<div class="contact-details">
 					{{ range .item }}
 					<div class="con-info clearfix">
@@ -26,43 +33,7 @@
 					</div>
 					{{ end }}
 				</div>
-				{{ end }}
 			</div>
-
-			<!-- Contact Form -->
-			{{ if .form }}
-			{{ with .form }}
-			<div class="col-lg-6 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
-				<form id="contact-form" class="form-meghna" method="post" action="{{ .form_action }}" role="form">
-					<div class="form-group">
-						<input type="text" placeholder="{{ .name }}" class="form-control" name="name" id="name">
-					</div>
-					<div class="form-group">
-						<input type="email" placeholder="{{ .email }}" class="form-control" name="email" id="email">
-					</div>
-					<div class="form-group">
-						<input type="text" placeholder="{{ .subject }}" class="form-control" name="subject" id="subject">
-					</div>
-					<div class="form-group">
-						<textarea rows="6" placeholder="{{ .message }}" class="form-control" name="message" id="message"></textarea>
-					</div>
-					<div id="cf-submit">
-						<button type="submit" id="contact-submit" class="btn btn-transparent btn-block"
-							value="{{ .submit }}">{{ .submit }}</button>
-					</div>
-				</form>
-			</div>
-			{{ end }}
-			{{ else }}
-			<div class="contact-details">
-				{{ range .item }}
-				<div class="con-info clearfix">
-					<i class="{{ .icon }}"></i>
-					<span>{{ .info }}</span>
-				</div>
-				{{ end }}
-			</div>
-			{{ end }}
 		</div>
 	</div>
 </section>

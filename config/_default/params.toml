@@ -19,8 +19,7 @@ expire_days = 2
 
 # google map
 [map]
-enable = false
-gmap_api = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"
+gmap_api = "HUGO_GMAP_API"
 map_latitude = "59.943881952368336"
 map_longitude = "10.71344642896635"
 map_marker = "images/marker.png"
