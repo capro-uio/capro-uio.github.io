@@ -8,6 +8,8 @@
   translation: Del
 - id: authorsPosts
   translation: Poster av
+- id: authorsPubs
+  translation: Publikasjoner av
 - id: all
   translation: Alle
 - id: contact

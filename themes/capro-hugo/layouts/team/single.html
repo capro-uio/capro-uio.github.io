@@ -68,6 +68,7 @@
 	</div>
 </section>
 
+{{ if gt (where site.RegularPages "Params.author" .Title | len ) 0  }}
 <section class="section">
 	<div class="container">
 		<div class="row">
@@ -87,3 +88,31 @@
 	</div>
 </section>
 {{ end }}
+
+{{ if .Resources.Match "pubs.md" }}
+<section class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 mx-auto">
+				<div class="title text-center">
+					<h2>{{ i18n "authorsPubs" }}<span class="color">
+  				  {{ with .Site.GetPage "section" "team" }}
+              {{ index (split .Params.single " ") 1 | safeHTML }}
+            {{ end }}</h2>
+					<div class="border-capro"></div>
+				</div>
+			</div>
+			<div id="pubs" class="col-lg-10 mx-auto">
+			  {{ with .Resources.Match "pubs.md" }}
+  			  {{ range . }}
+    			  {{ .Content }}
+  			  {{ end }}
+  			 {{ end }}
+  		</div>
+		</div>
+	</div>
+</section>
+{{ end }}
+
+{{ end }}
+

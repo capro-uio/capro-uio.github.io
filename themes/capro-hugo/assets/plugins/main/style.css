@@ -17,7 +17,7 @@ Tags: one-page, single-page, portfolio, custom-colors, post-formats, responsive,
   --secondary: #85bfbf;
   --dark: #20242b;
   --grey:  #2f353c;
-  --light:  ##6d7176;
+  --light:  #6d7176;
   --white: #c0c2c4;
 }
 
@@ -33,7 +33,6 @@ html {
 body {
   background-color: var(--grey);
   font-family: "Anaheim", sans-serif;
-  color: var(--light);
   -webkit-font-smoothing: antialiased;
   font-size: 18px;
 }
@@ -51,7 +50,7 @@ h6 {
 
 p {
   font-family: "Spectral", serif;
-  color: var(--light);
+  color: var(--white);
 }
 
 code {
@@ -2320,4 +2319,21 @@ figcaption {
 
 .cookie-box-hide {
   display: none;
+}
+
+/*=================================================================
+ Publications table
+==================================================================*/
+#pubs {
+  color: var(--white);
+  font-size: 16px;
+}
+
+#pubs td {
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
+
+#pubs tr {
+    border-bottom: 1px solid var(--light);
 }
