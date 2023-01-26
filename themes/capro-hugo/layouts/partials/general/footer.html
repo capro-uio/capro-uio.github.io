@@ -5,7 +5,6 @@
 			<div class="col-xl-12">
 
 				<!-- Footer Social Links -->
-				{{ if site.Params.social }}
 				<div class="social-icon">
 					<ul class="list-inline">
 						{{ range site.Params.social }}
@@ -13,18 +12,15 @@
 						{{ end }}
 					</ul>
 				</div>
-				{{ end }}
 
 				<!-- copyright -->
-				{{ with  site.Params.copyright}}
 				<div class="copyright text-center">
 					<a href="{{ site.Home.Permalink }}">
 						<img src="{{ site.Params.logo | absURL }}" alt="{{ site.Title }}" height="42" />
 					</a>
 					<br>
-					<p>{{ . | markdownify }}</p>
+					<p>{{ site.Params.copyright | markdownify }}</p>
 				</div>
-				{{ end }}
 			</div>
 		</div>
 	</div>
@@ -33,7 +29,7 @@
 
 <!-- Google Map API -->
 {{ with site.Params.map.gmap_api }}
-<script src="{{ printf "https://maps.googleapis.com/maps/api/js?key=%s&callback=initMap" (getenv .) }}"></script>
+<script src="{{ printf "https://maps.googleapis.com/maps/api/js?key=%s" (getenv . | safeURL) }}"></script>
 {{ end }}
 
 <!-- JS assets (must come in this specific order)-->
