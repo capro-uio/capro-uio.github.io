@@ -33,7 +33,7 @@
 
 <!-- Google Map API -->
 {{ with site.Params.map.gmap_api }}
-<script src="{{ printf "https://maps.googleapis.com/maps/api/js?key=%s" (getenv .) }}"></script>
+<script src="{{ printf "https://maps.googleapis.com/maps/api/js?key=%s&callback=initMap" (getenv .) }}"></script>
 {{ end }}
 
 <!-- JS assets (must come in this specific order)-->
