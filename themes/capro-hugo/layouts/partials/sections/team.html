@@ -43,7 +43,7 @@
 
           <!-- member name & designation -->
           <div class="member-meta">
-            <h4>{{ .Title }}</h4>
+            <h4><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4>
             <span>{{ delimit .Params.designation  " / " | markdownify }}</span>
             <p>{{ .Summary }}</p>
           </div>

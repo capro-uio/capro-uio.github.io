@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
   schedule:
-    - cron: '54 12 * * *'
+    - cron: '0 0 * * 0' # Run on sundays
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -23,7 +23,7 @@ jobs:
       - run: |
           echo "Version: 0.0.9" > DESCRIPTION
           echo "Package: capro-website" >> DESCRIPTION
-          echo "Depends: dplyr, knitr, scholar, here" >> DESCRIPTION
+          echo "Depends: jsonlite, scholar, here" >> DESCRIPTION
       - name: Install R dependencies
         uses: r-lib/actions/setup-r-dependencies@v2
         with:

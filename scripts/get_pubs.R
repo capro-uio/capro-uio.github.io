@@ -1,48 +1,32 @@
 library(scholar)
-library(dplyr)
-library(knitr)
-options(knitr.kable.NA = 'Unsorted')
+library(jsonlite)
 
 get_pubs <- function(id, file){
   if(is.null(id)) return()
-  dt <- get_publications(id) |>
-    as_tibble() |>
-    arrange(desc(year)) |>
-    mutate(
-      url = sprintf("https://scholar.google.no/citations?view_op=view_citation&citation_for_view=%s", pubid),
-      auth = sapply(author, function(x){
-        k <- strsplit(x, ", ")[[1]]
-        if(length(k) > 6){
-          k <- paste0(k[1:3], collapse=", ")
-          k <- paste(k, "et al.", collapse=" ")
-        }else{
-          n <- length(k)
-          j <- paste0(k[1:(n-1)], collapse=", ")
-          k <- paste(c(j, "&", k[n]), collapse=" ")
-        }
-        k
-      })
-    ) |>
-    transmute(
-      author = auth,
-      title = sprintf("[%s](%s)", title, url),
-      journal = sprintf("%s %s", journal, number),
-      year
-    )
+  dt <- get_publications(id)
+  dt <- dt[order(dt$year, decreasing = TRUE),]
+  # dt$url <- sprintf("https://scholar.google.no/citations?view_op=view_citation&citation_for_view=%s", dt$pubid)
+  dt$author <- sapply(dt$author, function(x){
+    k <- strsplit(x, ", ")[[1]]
+    if(length(k) > 6){
+      k <- paste0(k[1:3], collapse=", ")
+      k <- paste(k, "et al.", collapse=" ")
+    }else{
+      n <- length(k)
+      j <- paste0(k[1:(n-1)], collapse=", ")
+      k <- paste(c(j, "&", k[n]), collapse=" ")
+    }
+    k
+  })
+  dt$journal <- ifelse(dt$journal == "", "", sprintf("%s %s", dt$journal, dt$number))
+  dt <- dt[, c("year","author", "title", "journal", "pubid")]
+  row.names(dt) <- NULL
 
-  rows <- dt |>
-    mutate(n = row_number()) |>
-    group_by(year) |>
-    summarise(
-      min = min(n),
-      max = max(n)
-    )
-
-
-  tbl <- dt |>
-    kable(format = "markdown", )
-
-  writeLines(tbl, file)
+  dir.create(dirname(file), showWarnings = FALSE, recursive = TRUE)
+  jsonlite::write_json(dt,
+                       file,
+                       pretty = TRUE,
+                       auto_unbox = TRUE)
 }
 
 
@@ -60,9 +44,11 @@ ids <- team |>
       j[[1]][2]
   })
 
-mapply(get_pubs,
-       id = ids,
-       file = gsub("index[.]en", "pubs", team))
+mapply(
+  get_pubs,
+  id = ids,
+  file = here::here("data/team/pubs", paste0(basename(dirname(team)), ".json"))
+)
 
 
 

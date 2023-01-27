@@ -2334,6 +2334,13 @@ figcaption {
   padding-top: 10px;
 }
 
-#pubs tr {
-    border-bottom: 1px solid var(--light);
+#pubs .borderless td,
+#pubs .borderless th {
+  border: none;
+  border-bottom: 1px solid var(--light) !important;
+}
+
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+  color: var(--light);
 }
