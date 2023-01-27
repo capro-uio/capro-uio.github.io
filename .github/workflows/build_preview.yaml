@@ -23,7 +23,6 @@ jobs:
         id: cache-action
         uses: actions/cache@v3
         with:
-          name: team-pubs
           path: data/team/pubs/
           key: ${{ runner.os }}-cache-key
 
@@ -35,7 +34,7 @@ jobs:
         run: |
           echo "Version: 0.0.9" > DESCRIPTION
           echo "Package: capro-website" >> DESCRIPTION
-          echo "Depends: jsonlite, scholar, here" >> DESCRIPTION
+          echo "Depends: jsonlite, scholar" >> DESCRIPTION
       - name: Install R dependencies
         if: steps.cache-action.outputs.cache-hit != 'true'
         uses: r-lib/actions/setup-r-dependencies@v2
@@ -45,13 +44,6 @@ jobs:
       - name: Get publications
         if: steps.cache-action.outputs.cache-hit != 'true'
         run: Rscript scripts/get_pubs.R
-
-      - name: Cache pubs
-        uses: actions/upload-artifact@v3
-        with:
-          name: team-pubs
-          path: |
-            data/team/pubs/
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2

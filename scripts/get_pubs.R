@@ -23,6 +23,7 @@ get_pubs <- function(id, file){
   row.names(dt) <- NULL
 
   dir.create(dirname(file), showWarnings = FALSE, recursive = TRUE)
+  cat("writing to: ", file, "\n")
   jsonlite::write_json(dt,
                        file,
                        pretty = TRUE,
@@ -30,7 +31,7 @@ get_pubs <- function(id, file){
 }
 
 
-team <- list.files(here::here("content/team"),
+team <- list.files("content/team",
            recursive = TRUE,
            pattern = "^index.en.md$",
            full.names = TRUE)
@@ -44,10 +45,10 @@ ids <- team |>
       j[[1]][2]
   })
 
-mapply(
+j <- mapply(
   get_pubs,
   id = ids,
-  file = here::here("data/team/pubs", paste0(basename(dirname(team)), ".json"))
+  file = paste0("data/team/pubs/", basename(dirname(team)), ".json")
 )
 
 
