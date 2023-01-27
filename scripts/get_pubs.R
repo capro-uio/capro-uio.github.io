@@ -23,7 +23,7 @@ get_pubs <- function(id, file){
   row.names(dt) <- NULL
 
   dir.create(dirname(file), showWarnings = FALSE, recursive = TRUE)
-  cat("writing to: ", file, "\n")
+  cat("writing to: ", normalizePath(file), "\n")
   jsonlite::write_json(dt,
                        file,
                        pretty = TRUE,
