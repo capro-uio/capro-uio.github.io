@@ -132,9 +132,9 @@
 			  <table id="pubs" class="table table-hover borderless">
 			      <thead>
             <tr>
-              <th scope="col">Year</th>
-              <th scope="col">Authors</th>
-              <th scope="col">Title</th>
+              <th width="10%" scope="col">Year</th>
+              <th width="20%" scope="col">Authors</th>
+              <th width="50%" scope="col">Title</th>
               <th scope="col">Journal</th>
             </tr>
           </thead>
@@ -142,7 +142,7 @@
     			  {{ range $pubs }}
   			    <tr class="price-title shuffle-item"
 				data-groups="[&quot;{{ .year | urlize}}&quot;]">
-  			      <td>{{.year}}</td>
+  			      <td width="10%" >{{.year}}</td>
   			      <td width="20%">{{ .author }}</td>
   			      <td width="50%"><a href={{ printf "https://scholar.google.no/citations?view_op=view_citation&citation_for_view=%s" .pubid }}>{{ .title }}</a></td>
   			      <td>{{ .journal }}</td>
