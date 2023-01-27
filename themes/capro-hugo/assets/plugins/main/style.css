@@ -32,6 +32,7 @@ html {
 
 body {
   background-color: var(--grey);
+  color: var(--white);
   font-family: "Anaheim", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 18px;
@@ -749,6 +750,7 @@ a:hover {
 .counters-item {
   padding: 25px 0;
   margin-bottom: 10px;
+  color: var(--light);
   background: var(--grey);
 }
 
