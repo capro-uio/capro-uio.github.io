@@ -7,3 +7,5 @@ social :
 ---
 
 Markus er fantastisk! Markus har en PhD i nevrovitenskap og er en lidenskapelig forsker som alltid er på den fremste fronten av sitt felt når det gjelder faglig og teknisk kunnskap.
+
+<!-- more -->

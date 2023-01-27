@@ -1,10 +1,16 @@
+# R stuff
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
 
+# mac stuff
 **.DS_Store
 
+# Hugo stuff
 resources/
 public/
+
+# Automated data
+data/team/pubs/
 

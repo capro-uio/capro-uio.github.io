@@ -8,6 +8,8 @@
   translation: Share
 - id: authorsPosts
   translation: Posts by
+- id: authorsPubs
+  translation: Publications by
 - id: all
   translation: All
 - id: contact

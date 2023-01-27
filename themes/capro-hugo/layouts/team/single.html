@@ -68,6 +68,7 @@
 	</div>
 </section>
 
+{{ if gt (where site.RegularPages "Params.author" .Title | len ) 0  }}
 <section class="section">
 	<div class="container">
 		<div class="row">
@@ -87,3 +88,74 @@
 	</div>
 </section>
 {{ end }}
+
+{{ $pubs := index $.Site.Data.team.pubs (path.Dir .File | path.Base) }}
+{{ if gt ($pubs | len) 0}}
+<section class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 mx-auto">
+				<div class="title text-center">
+					<h2>{{ i18n "authorsPubs" }}<span class="color">
+  				  {{ with .Site.GetPage "section" "team" }}
+              {{ index (split .Params.single " ") 1 | safeHTML }}
+            {{ end }}</h2>
+					<div class="border-capro"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="btn-group portfolio-filter btn-group-toggle justify-content-center d-flex flex-wrap"
+					data-toggle="buttons">
+					<label class="btn active">
+						<input type="radio" name="shuffle-filter" value="all" checked="checked" />{{ i18n "all"}}
+					</label>
+					{{ $years := slice }}
+					{{ range $pubs }}
+					  {{ with .year }}
+					    {{ $years = $years | append . }}
+            {{ end }}
+					{{ end }}
+					{{ range ( $years | uniq ) }}
+					<label class="btn">
+						<input type="radio" name="shuffle-filter" value="{{ . | urlize }}" />{{ . }}
+					</label>
+					{{ end }}
+				</div>
+			</div>
+		</div>
+
+		<div class="row justify-content-center">
+			<div id="pubs" class="col-lg-10 mx-auto">
+			  <table id="pubs" class="table table-hover borderless">
+			      <thead>
+            <tr>
+              <th width="10%" scope="col">Year</th>
+              <th width="20%" scope="col">Authors</th>
+              <th width="50%" scope="col">Title</th>
+              <th scope="col">Journal</th>
+            </tr>
+          </thead>
+			    <tbody class="shuffle-wrapper">
+    			  {{ range $pubs }}
+  			    <tr class="price-title shuffle-item"
+				data-groups="[&quot;{{ .year | urlize}}&quot;]">
+  			      <td width="10%" >{{.year}}</td>
+  			      <td width="20%">{{ .author }}</td>
+  			      <td width="50%"><a href={{ printf "https://scholar.google.no/citations?view_op=view_citation&citation_for_view=%s" .pubid }}>{{ .title }}</a></td>
+  			      <td>{{ .journal }}</td>
+  		      </tr>
+    			  {{ end }}
+		      </tbody>
+			   </table>
+  		  </div>
+  		</div>
+		</div>
+	</div>
+</section>
+{{ end }}
+
+{{ end }}
+

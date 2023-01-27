@@ -14,3 +14,6 @@ social :
 ---
 
 Med en PhD i psykologi, begynte Mo å jobbe med forskningsprogramvare og utvikling ettersom hun så at tekniske løsninger kunne hjelpe medforskere å gjennomføre deres prosjekter mer effektivt.
+
+<!-- more -->
+
