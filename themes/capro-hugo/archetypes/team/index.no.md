@@ -13,6 +13,7 @@ social :    # Kan bruke både themify (https://themify.me/themify-icons) iconer 
     link: ""
   - icon: "fa-brands fa-mastodon"
     link: ""
+gscholar_id: "" #google scholar id, for publiations list
 ---
 
 Tekst om personen går her. Kort.
