@@ -1,6 +1,6 @@
 
 # CAPRO website repo
-[![Build site and deploy](https://github.com/capro-uio/capro-uio.github.io/actions/workflows/build_site.yaml/badge.svg)](https://github.com/capro-uio/capro-uio.github.io/actions/workflows/build_site.yaml)
+[![Build site and deploy](https://github.com/capro-uio/capro-uio.github.io/actions/workflows/build_production.yaml/badge.svg)](https://github.com/capro-uio/capro-uio.github.io/actions/workflows/build_production.yaml)
 
 
 ## Setting up new pages
