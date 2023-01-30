@@ -17,11 +17,6 @@ item:
     content: |
       We can provide standardized output from various data sources to ensure clean and interoperable data for you to work with, making it easier to integrate into your existing workflow.
       
-  - title: Reproducible analyses & Containers
-    icon: ti-package
-    content: |
-      Our team has extensive experience in implementing reproducible workflows and utilizing containerization technology to ensure the reproducibility of results.
-      
   - title: Customization on Demand
     icon: ti-announcement
     content: |
