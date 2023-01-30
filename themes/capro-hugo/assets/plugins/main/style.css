@@ -846,7 +846,7 @@ a:hover {
   font-size: 16px;
   padding: 6px 20px;
   font-weight: 700;
-  color: var(--gray);
+  color: var(--dark);
   transition: .3s all;
 }
 
