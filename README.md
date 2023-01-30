@@ -3,7 +3,30 @@
 [![Build site and deploy](https://github.com/capro-uio/capro-uio.github.io/actions/workflows/build_production.yaml/badge.svg)](https://github.com/capro-uio/capro-uio.github.io/actions/workflows/build_production.yaml)
 
 
-## Setting up new pages
+## Built with [Hugo](https://gohugo.io/)
+
+Hugo is a static site generator, generating html pages based on markdown and a predefined css/html theme.
+The pages can be previewed locally with 
+
+```
+hugo serve
+```
+
+The terminal will let you know which localhost it is working on, by default it should be `1313`. 
+
+### Built with Github actions
+
+The pages are built with Github actions, in two different workflows.
+
+One will build page previews on PRs to the main branch.
+Pleas always have a look at the preview before merging to main
+
+The other will build and deploy the production page to the main website URL.
+
+Team publications are updated one a week, and are cached for the remaining builds to speed up build time.
+
+
+### Setting up new pages
 
 There are [Hugo Archetypes](https://gohugo.io/content-management/archetypes/) set up for certain type of content:
 
