@@ -855,6 +855,10 @@ a:hover {
   color: var(--light);
 }
 
+.portfolio-block p{
+    color: var(--dark);
+}
+
 .portfolio-block:before {
   transition: all 0.3s ease-in-out;
   background: #fff;
@@ -863,6 +867,7 @@ a:hover {
   right: 20px;
   bottom: 20px;
   left: 20px;
+  color: var(--dark) !important;
   position: absolute;
   content: '';
 }
@@ -892,7 +897,6 @@ a:hover {
 
 .portfolio-block .caption {
   position: absolute;
-  color: var(--grey);
   top: 50%;
   left: 50%;
   opacity: 0;
@@ -916,7 +920,7 @@ a:hover {
   background: var(--primary);
   width: 50px;
   height: 50px;
-  color: var(--white);
+  color: #fff;
   display: inline-block;
   font-size: 20px;
   border-radius: 30px;
