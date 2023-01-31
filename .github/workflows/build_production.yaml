@@ -1,4 +1,4 @@
-name: Build site and deploy
+name: Build site and deploy production
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 0 * * 0' # Run on sundays
+    - cron: '*/15 * * * *' # Run on sundays
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -53,21 +53,13 @@ jobs:
         if: steps.cache-action.outputs.cache-hit != 'true' || github.event_name == 'schedule'
         run: Rscript scripts/get_pubs.R
 
-      - name: Build
+      - name: Build 🔧
         env:
           HUGO_GMAP_API: ${{ secrets.HUGO_GMAP_API }}
         run: hugo --minify
 
-      - name: git config
-        run: |
-          git config --global user.email "actions@github.com"
-          git config --global user.name "gh-pages committer"
-
-      - name: Commit results
-        run: |
-          cd ./public
-          git init
-          git add .
-          git commit -m 'deploy site'
-          git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git HEAD:gh-pages --force
-
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: public # The folder the action should deploy.
