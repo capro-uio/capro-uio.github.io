@@ -1,4 +1,4 @@
-name: Build site and deploy
+name: Build site and deploy preview
 
 on:
   workflow_dispatch:
@@ -51,7 +51,7 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
-      - name: Build
+      - name: Build 🔧
         env:
           HUGO_GMAP_API: ${{ secrets.HUGO_GMAP_API }}
         run: |
@@ -61,7 +61,7 @@ jobs:
       - name: Install netlify cli
         run: npm install netlify-cli -g
 
-      - name: Deploy preview
+      - name: Deploy preview 🚀
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
