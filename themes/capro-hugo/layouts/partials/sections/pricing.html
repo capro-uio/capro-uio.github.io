@@ -30,7 +30,7 @@
 
           <!-- plan name & value -->
           <div class="price-title col-auto">
-            <h3 class="value">{{ .name }}</h3>
+            <h3>{{ .name }}</h3>
             <table id="price-table-{{.name | urlize }}" class="mb-3">
               {{ $unit := .unit }}
               {{ range .price }}
@@ -40,7 +40,7 @@
                   {{ range ($data.Get "entities")  }}
                     <tr class="py-5">
                      <td class="border-right pr-2 text-right">{{ .name }}</td>
-                     <td class="pl-2 text-left"><strong>{{ lang.FormatNumberCustom 0 (mul .percent $price) "-|.| " "|" }}</strong> / {{$unit}}</td>
+                     <td class="pl-2 text-left"><span class="value">{{ lang.FormatNumberCustom 0 (mul .percent $price) "-|.| " "|" }}</span> / {{$unit}}</td>
                     </tr>
                   {{ end }}
                 {{ end }}
@@ -48,7 +48,7 @@
                   {{ if eq .id $id }}
                     <tr class="py-5">
                      <td class="border-right pr-2 text-right">{{ .name }}</td>
-                     <td class="pl-2 text-left"><strong>{{ lang.FormatNumberCustom 0 $price "-|.| " "|"  }}</strong> / {{$unit}}</td>
+                     <td class="pl-2 text-left"><span class="value">{{ lang.FormatNumberCustom 0 $price "-|.| " "|"  }}</span> / {{$unit}}</td>
                     </tr>
                   {{ end }}
                 {{ end }}
