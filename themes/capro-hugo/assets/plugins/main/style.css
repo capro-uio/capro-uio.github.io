@@ -16,7 +16,7 @@ Tags: one-page, single-page, portfolio, custom-colors, post-formats, responsive,
   --primary-dark: #a6544a;
   --secondary: #85bfbf;
   --dark: #20242b;
-  --grey:  #2f353c;
+  --grey:  #2A2F36;
   --light:  #6d7176;
   --white: #c0c2c4;
 }
@@ -780,13 +780,19 @@ a:hover {
 }
 
 .price-item {
+  background-color: var(--dark);
   border: 1px solid rgba(236, 239, 241, 0.07);
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   height: 98%;
 }
 
 .price-title {
+  padding-top: 1rem;
   border-bottom: 1px solid rgba(236, 239, 241, 0.07);
+}
+
+.price-item .price-title:hover {
+  border-bottom: 1px solid var(--primary);
 }
 
 .price-title h3 {
@@ -802,6 +808,7 @@ a:hover {
 .price-title .value {
   color: var(--secondary);
   font-size: 30px;
+  font-style: italic;
 }
 
 .pricing ul,
@@ -811,6 +818,7 @@ a:hover {
   padding: 0;
   border: none !important;
   font-size: 16px;
+  width: 100%;
 }
 
 .pricing li {
@@ -841,7 +849,7 @@ a:hover {
 .portfolio-filter .btn {
   outline: 0;
   border: 1px solid rgba(236, 239, 241, 0.07);
-  background: var(--grey);
+  background: var(--dark);
   display: inline-block;
   font-size: 16px;
   padding: 6px 20px;
@@ -852,11 +860,11 @@ a:hover {
 
 .portfolio-filter .btn.active {
   border-color: var(--primary);
-  color: var(--light);
+  color: var(--white) !important;
 }
 
 .portfolio-block p{
-    color: var(--dark);
+  color: var(--dark);
 }
 
 .portfolio-block:before {
@@ -934,6 +942,7 @@ a:hover {
   Services section
 ==================================================================*/
 .service-block {
+  background-color: var(--dark);
   padding: 60px 20px;
   border-left: 1px solid rgba(236, 239, 241, 0.07);
   border-top: 1px solid rgba(236, 239, 241, 0.07);
@@ -986,18 +995,17 @@ a:hover {
   Our skills
 ==================================================================*/
 .skill-bar p {
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 0;
 }
 
 .skill-bar p span {
   font-style: italic;
-  font-size: 30px;
+  font-size: 40px;
   letter-spacing: 1px;
   color: rgba(187, 187, 187, 0.34);
   display: inline-block;
   vertical-align: middle;
-  padding-right: 0.25rem;
 }
 
 .skill-bar .progress {
@@ -1091,6 +1099,7 @@ a:hover {
 }
 
 .member-meta {
+  background-color: var(--dark);
   padding: 15px;
 }
 
@@ -1109,12 +1118,14 @@ a:hover {
 .slick-slide{
   content: none;
   color: var(--white);
+  background-color: var(--dark);
   width: 80%;
 }
 
 .slick-slide:hover{
   color: var(--light);
 }
+
 
 #testimonials{
   width: 90%;

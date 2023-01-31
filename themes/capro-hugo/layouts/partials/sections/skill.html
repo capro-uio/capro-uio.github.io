@@ -28,7 +28,7 @@
 					{{ range $index, $element:= .Params.item }}
 					{{ $.Scratch.Set "counter" (add ($.Scratch.Get "counter") 1) }}
 					<li>
-						<p><span class="p2">{{if lt $index 9}}0{{end}}{{$.Scratch.Get `counter`}}-</span>{{ .name }}</p>
+						<p><span>{{if lt $index 9}}0{{end}}{{$.Scratch.Get `counter`}}-</span>{{ .name }}</p>
 						<div class="progress">
 							<div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
 								style="width:{{ .percent }}">
