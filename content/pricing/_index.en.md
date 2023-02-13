@@ -37,7 +37,7 @@ item :
   - name : Project 
     price : 
       - id: base
-        price: 1100
+        price: 880
     unit : hour
     services:
       - Some hours of HPC
@@ -48,7 +48,7 @@ item :
   - name : Workshop
     price : 
       - id: base
-        price: 2500
+        price: 2000
     unit : hour
     services:
       - 2 hours prep per 1 hour workshop
@@ -57,7 +57,7 @@ item :
       - Option for online workshop
 ---
 
-Our services are contracted on an hourly basis, and our prices include some basic infrastructure to get started.
+Our services are contracted on an hourly basis (presentet excluding value added taxes), and our prices include some basic infrastructure to get started.
 In case of projects needing secure data locations (like TSD) or heavy computational nodes (like Saga), such project infrastructure will not be handled by CAPRO, but we can aid you in setting up data structures and workflows once you have that in place.
 We can advise you in your needs prior to any contracted work is begun.
 We also have some resources to run smaller projects on our own servers as long as regulatory guidelines are followed.

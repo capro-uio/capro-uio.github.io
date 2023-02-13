@@ -37,7 +37,7 @@ item :
   - name : Prosjekt
     price :
       - id: base
-        price: 1100
+        price: 880
     unit: pr time
     services:
       - Noen timer HPC
@@ -52,7 +52,7 @@ item :
   - name : Kurs
     price :
       - id: base
-        price: 2500
+        price: 2000
     unit : pr time
     services:
       - 2 timer forberedelser per 1 time kurs
@@ -64,5 +64,5 @@ item :
 #       link : "#"
 ---
 
-Tjenestene våre kjøpes på timebasis, og prisene våre inkluderer noe grunnleggende infrastruktur for å komme i gang.
+Tjenestene våre kjøpes på timebasis (oppgitt uten mva), og prisene våre inkluderer noe grunnleggende infrastruktur for å komme i gang.
 Timebaserte prosjektpriser dekker menneskelig arbeidstid, ikke beregningstimer.
