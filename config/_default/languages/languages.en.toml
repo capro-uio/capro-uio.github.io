@@ -18,7 +18,7 @@ link = "#services"
 
 [contact]
 title = "Contact Us"
-content = "Book a consultation to learn more about what we can offer."
+content = "[Book a consultation](https://app.reclaim.ai/m/capro/initiating-talks) to learn more about what we can offer."
 
 [[contact.item]]
 icon = "ti-location-pin" # themify icon pack : https://themify.me/themify-icons
