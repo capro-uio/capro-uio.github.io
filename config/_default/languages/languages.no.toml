@@ -18,7 +18,7 @@ link = "#services"
 
 [contact]
 title = "Kontakt oss"
-content = "Book en time for konsultasjon om du ønsker mer informasjon om våre tjenester."
+content = "[Book en time](https://app.reclaim.ai/m/capro/initiating-talks) for konsultasjon om du ønsker mer informasjon om våre tjenester."
 
 [[contact.item]]
 icon = "ti-location-pin" # themify icon pack : https://themify.me/themify-icons
