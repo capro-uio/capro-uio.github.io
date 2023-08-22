@@ -24,4 +24,9 @@ params:
       learn more about what we can offer.
     item:
       - icon: ti-location-pin
-        info: 'Harald Schjelderups hus, Forskningsveien 3A, 0373 Oslo'
+        info: |
+          Harald Schjelderups hus,
+          Forskningsveien 3A,
+          0373 Oslo
+          Norway
+          
