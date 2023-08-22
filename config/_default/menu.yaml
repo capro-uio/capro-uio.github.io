@@ -1,19 +1,19 @@
 main:
-  - name: tjenester
+  - identifier: services
     url: '#services'
     weight: 2
-  - name: portfolio
+  - identifier: portfolio
     url: '#portfolio'
     weight: 3
-  - name: team
+  - identifier: team
     url: '#team'
     weight: 4
-  - name: priser
+  - identifier: prices
     url: '#pricing'
     weight: 5
-  - name: Nyheter
+  - identifier: news
     url: '#news'
     weight: 6
-  - name: Kontakt
+  - identifier: contact
     url: '#contact'
     weight: 7
