@@ -1,5 +1,6 @@
 ---
 title : Athanasia Mo Mowinckel
+id: am_mowinckel
 designation : ["Workflow", "Data processing",
   "Web applications", "R"]
 social : # themify icon pack : https://themify.me/themify-icons or fontawesome

@@ -1,0 +1,61 @@
+{{ if gt (where site.RegularPages "Section" "==" "news") 0}}
+{{ if gt (.Pages | len ) 0}}
+<section id="news" class="section">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-12">
+				<!-- section title -->
+				<div class="title text-center wow fadeInDown">
+					<h2>
+						{{ $section := .Site.GetPage "news" .Section }}
+						{{ with $section }}
+							{{ index (split .Title " ") 0 | safeHTML }}
+						<span class="color">
+							{{ index (split .Title " ") 1 | safeHTML }}
+						</span>
+						{{ end }}
+					</h2>
+					<div class="border-capro"></div>
+				</div>
+			</div>
+			<!-- /section title -->
+
+			{{ range first 3 (where site.RegularPages "Section" "==" "news")}}
+			{{ $sch := newScratch }}
+			<!-- team member -->
+			<div class="col-lg-3 col-md-6 col-12 wow fadeInDown" data-wow-duration="500ms">
+	  
+			  <div class="team-member">
+				<div class="member-photo">
+				  <!-- member photo -->
+				  {{ range first 1 (.Resources.ByType "image") }}
+					{{ $image :=  . }}
+					{{ $image := $image.Resize "600x" }}
+					{{ $image := $image.Fill "300x300" | images.Filter (images.Grayscale ) }}
+					{{ $sch.Set "img" $image.RelPermalink }}
+				  {{ end }}
+				  <img class="img-fluid lozad" data-src="{{ $sch.Get "img" }}" alt="{{ .Title }}">
+	  
+				  <!-- member social profile -->
+				  <div class="mask">
+					<a href="{{ .RelPermalink }}"></a>
+				  </div>
+				</div>
+	  
+				<div class="member-meta">
+				  <h4><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4>
+				  <span>{{ delimit .Params.tags  " / " | markdownify }}</span>
+				  <p>{{ .Summary }}</p>
+				</div>
+			  </div>
+			</div>
+			{{ end }}
+
+			<div class="all-post text-center col-lg-12">
+				<a class="btn btn-main" href="{{ `news/` | absLangURL }}">{{ i18n "viewAllPost" }}</a>
+			</div>
+		</div>
+	</div>
+</section>
+{{ end }}
+{{ end }}
