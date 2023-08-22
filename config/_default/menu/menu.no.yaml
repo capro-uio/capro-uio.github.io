@@ -1,0 +1,19 @@
+main:
+  - name: tjenester
+    url: '#services'
+    weight: 2
+  - name: portfolio
+    url: '#portfolio'
+    weight: 3
+  - name: team
+    url: '#team'
+    weight: 4
+  - name: priser
+    url: '#pricing'
+    weight: 5
+  - name: Nyheter
+    url: '#news'
+    weight: 6
+  - name: Kontakt
+    url: '#contact'
+    weight: 7

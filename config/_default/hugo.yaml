@@ -1,0 +1,7 @@
+baseURL: .
+title: CAPRO
+theme: capro-hugo
+paginate: '6'
+summaryLength: '15'
+enableGitInfo: true
+defaultContentLanguage: en

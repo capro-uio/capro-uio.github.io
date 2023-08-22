@@ -1,0 +1,19 @@
+main:
+  - name: services
+    url: '#services'
+    weight: 2
+  - name: portfolio
+    url: '#portfolio'
+    weight: 3
+  - name: team
+    url: '#team'
+    weight: 4
+  - name: prices
+    url: '#pricing'
+    weight: 5
+  - name: news
+    url: '#news'
+    weight: 6
+  - name: contact
+    url: '#contact'
+    weight: 7
