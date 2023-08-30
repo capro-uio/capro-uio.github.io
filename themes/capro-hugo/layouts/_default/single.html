@@ -33,8 +33,26 @@
       <div class="col-lg-8 offset-lg-2 text-center">
         <h1>{{ .Title }}</h1>
         <ul class="list-inline mb-2">
-          <li class="list-inline-item"><a href="{{ `author/` | relLangURL }}{{ .Params.Author | urlize }}/">{{ .Params.Author }}</a></li>
+          {{- range .Params.author }}
+            {{- with $.Site.GetPage "taxonomyTerm" (printf "team/%s" (urlize .)) }}
+            <li class="list-inline-item"><a href="{{ .Permalink }}">
+              {{ .Title }}
+              </a></li>
+            {{ end }}
+          {{ end }}
           <li class="list-inline-item"><span>{{.Date.Day}} {{i18n .Date.Month}} {{.Date.Year}}</span></li>
+          {{ $taxonomy := "tags" }}
+          {{ with .GetTerms $taxonomy }}
+            <ul class="list-inline">
+              {{ range . }}
+                <li class="list-inline-item">
+                  <!--<a href="{{ .RelPermalink }}">-->
+                    <i class="text-muted">{{ .LinkTitle }}</i>
+                 <!-- </a>-->
+              </li>
+              {{ end }}
+            </ul>
+          {{ end }}
         </ul>
             {{ range first 1 (.Resources.ByType "image") }}
               {{ $image :=  . }}
@@ -47,10 +65,6 @@
       <div class="col-lg-8 offset-lg-2">
         <div class="post-single-content">
           {{ .Content }}
-        </div>
-        <!-- comments -->
-        <div class="mt-5">
-          {{ template "_internal/disqus.html" . }}
         </div>
       </div>
     </div>
