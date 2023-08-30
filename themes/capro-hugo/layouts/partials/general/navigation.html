@@ -25,21 +25,23 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
-              {{ .Name }}
+              {{ or (T .Identifier) .Name | safeHTML }}
             </a>
             <div class="dropdown-menu">
               {{ range .Children }}
               {{ $childURL := .URL | absLangURL }}
               {{ $active := eq $childURL $pageURL }}
               <a class="dropdown-item" {{if findRE `^http` .URL}}target="_blank" rel="noopener" {{end}}
-                href="{{if findRE `^#` .URL}}{{if not $.IsHome}}{{site.BaseURL | relLangURL}}{{end}}{{.URL}}{{else}}{{.URL | relLangURL}}{{end}}">{{ .Name }}</a>
+                href="{{if findRE `^#` .URL}}{{if not $.IsHome}}{{site.BaseURL | relLangURL}}{{end}}{{.URL}}{{else}}{{.URL | relLangURL}}{{end}}">
+				{{ or (T .Identifier) .Name | safeHTML  }}</a>
               {{ end }}
             </div>
           </li>
           {{ else }}
           <li class="nav-item">
             <a class="nav-link" {{if findRE `^http` .URL}}target="_blank" rel="noopener" {{end}}
-              href="{{if findRE `^#` .URL}}{{if not $.IsHome}}{{site.BaseURL | relLangURL}}{{end}}{{.URL}}{{else}}{{.URL | relLangURL}}{{end}}">{{.Name}}</a>
+              href="{{if findRE `^#` .URL}}{{if not $.IsHome}}{{site.BaseURL | relLangURL}}{{end}}{{.URL}}{{else}}{{.URL | relLangURL}}{{end}}">
+			  {{ or (T .Identifier) .Name | safeHTML }}</a>
           </li>
           {{ end }}
           {{ end }}
@@ -47,36 +49,22 @@
 				<!-- Language List -->
 				{{- if site.IsMultiLingual }}
 				<select id="select-language" onchange="location = this.value;">
-					{{ $siteLanguages := site.Languages}}
-					{{ $pageLang := .Page.Lang}}
+					{{ $siteLanguages := site.Languages }}
+					{{ $pageLang := .Page.Lang }}
   					{{ range .Page.AllTranslations }}
   					{{ $translation := .}}
     					{{ range $siteLanguages }}
-      					{{ if eq $translation.Lang .Lang }}
-      					{{ $selected := false }}
-        					{{ if eq $pageLang .Lang}}
-        					  <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}" selected>{{ .LanguageName }}
-        					  </option>
-        					{{ else }}
-        					  <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}">{{ .LanguageName }}</option>
-        					{{ end }}
-      					{{ end }}
+							{{ if eq $translation.Lang .Lang }}
+								{{ $selected := false }}
+								<option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}" {{ if eq $pageLang .Lang }} selected {{end}}>
+								{{ .Params.LanguageName }}
+								</option>
+							{{ end }}
     					{{ end }}
   					{{ end }}
 				</select>
 				{{ end }}
 			</div>
 		</nav>
-		<div class="pb-2 text-danger text-center">
-      <small>
-        <i class="fa-solid fa-triangle-exclamation"></i>
-		{{ if eq .Page.Lang "en"}}
-			We have been approved as a UiO Core facility, and are in the process of establishing protocols for our services.
-		{{ else }}
-			Vi har blitt gitt UiO kjernefasilitetsstatus og er i prosessen med å etablere våre tjenesteprotokoller.
-		{{ end }}
-        <i class="fa-solid fa-triangle-exclamation"></i>
-      </small>
-		</div>
 	</div>
 </section>

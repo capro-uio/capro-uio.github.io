@@ -1,5 +1,6 @@
 ---
 title : Inge Kasbohm Amlien
+id: ik_amlien
 designation : ["Data Engineer", "Cloud",
   "Containers", "HPC"]
 social :

@@ -1,2 +1,2 @@
 ################################# Default configuration ###################
-baseURL = ""
+baseURL: "https://www.capro.dev/"
