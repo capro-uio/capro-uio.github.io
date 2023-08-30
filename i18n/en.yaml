@@ -1,41 +1,29 @@
-- id: blogTitle
-  translation: Latest Post
-- id: readMore
-  translation: Read more
-- id: viewAllPost
-  translation: View All Post
-- id: share
-  translation: Share
-- id: authorsPosts
-  translation: Posts by
-- id: authorsPubs
-  translation: Publications by
-- id: all
-  translation: All
-- id: contact
-  translation: Contact
+# general
+- readMore: Read more
+- viewAllPost: View All Post
+- share: Share
+- authorsPosts: Posts by
+- authorsPubs: Publications by
+- all: All
 
-- id: January
-  translation: January
-- id: February
-  translation: February
-- id: March
-  translation: March
-- id: April
-  translation: April
-- id: May
-  translation: May
-- id: June
-  translation: June
-- id: July
-  translation: July
-- id: August
-  translation: August
-- id: September
-  translation: September
-- id: October
-  translation: October
-- id: November
-  translation: November
-- id: December
-  translation: December
+# Months
+- January: January
+- February: February
+- March: March
+- April: April
+- May: May
+- June: June
+- July: July
+- August: August
+- September: September
+- October: October
+- November: November
+- December:  December
+
+# Menu
+- services: Services
+- portfolio: Portfolio
+- team: Team
+- prices: Prices
+- news: News
+- contact: Contact
