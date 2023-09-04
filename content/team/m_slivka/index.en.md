@@ -4,6 +4,8 @@ designation :
   - Neuroimaging data processing
   - Optimization & standardization
   - Machine learning
+  - HPC
+id: m_slivka
 social : # themify icon pack : https://themify.me/themify-icons or fontawesome (https://fontawesome.com/icons)
   - icon : ti-github 
     link : "https://github.com/Mak2055"
