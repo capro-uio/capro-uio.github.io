@@ -1,9 +1,11 @@
 ---
-title : "" # Navn på person
+title : "Maksim Slivka"
 designation : 
-  - liste
-  - med én
-  - eller flere ferdigheter
+  - Neuroimaging data prosessering
+  - Optimalisering og standardisering
+  - Maskinlæring
+  - HPC
+id: m_slivka
 social :    # Kan bruke både themify (https://themify.me/themify-icons) iconer og fontawesome (https://fontawesome.com/icons)
   - icon : ti-twitter-alt
     link : ""
