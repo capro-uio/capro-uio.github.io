@@ -15,6 +15,6 @@ social : # themify icon pack : https://themify.me/themify-icons or fontawesome (
     link: ""
 ---
 
-José Luis has a PhD in evolutionary biology and a MSc in applied physics. He is passionate about designing and implementing state-of-the-art tools to explore complex patterns in biological and neuroscientific research.
+José Luis has a diverse background in engineering (BSc), applied physics (MSc), and evolutionary biology (PhD). He enjoys creating and implementing advanced tools that help make sense of complex pattern in biology and neuroscience.
 
 ![profile_photo](https://github.com/capro-uio/capro-uio.github.io/assets/123122708/acb73fc4-11a0-44d0-8974-45e346751922)
