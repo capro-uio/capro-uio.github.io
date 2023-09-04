@@ -5,8 +5,6 @@ designation :
   - Optimization & standardization
   - Machine learning
 social : # themify icon pack : https://themify.me/themify-icons or fontawesome (https://fontawesome.com/icons)
-  - icon : ti-twitter-alt
-    link : ""
   - icon : ti-github 
     link : "https://github.com/Mak2055"
   - icon: "fa-brands fa-orcid"
