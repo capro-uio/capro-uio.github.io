@@ -1,6 +1,5 @@
 ---
 title : Markus Handal Sneve
-id: mh_sneve
 designation : ["fMRI analyse", "HPC"]
 social :
   - icon : "fa-brands fa-orcid"
