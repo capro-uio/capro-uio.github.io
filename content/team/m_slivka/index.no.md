@@ -11,5 +11,4 @@ social :    # Kan bruke både themify (https://themify.me/themify-icons) iconer 
     link : "https://github.com/Mak2055"
 ---
 
-Tekst om personen går her. Kort.
-Bilde i denne mappen brukes som profil bilde.
+Som en Biomedisinsk ingeniør (MSc) med spesialisering i komputasonell nevrovitenskap er Maksim spesielt dyktig i prosessering av MR og EEG data. Ved æ være i spissen av forskning, er han spesielt interesert i å utvikle og applisere nye løsninger til vitenskapelige problemer.
