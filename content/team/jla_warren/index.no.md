@@ -1,20 +1,18 @@
 ---
-title : "" # Navn på person
+title : "José-Luis Alatorre-Warren" 
 designation : 
-  - liste
-  - med én
-  - eller flere ferdigheter
-social :    # Kan bruke både themify (https://themify.me/themify-icons) iconer og fontawesome (https://fontawesome.com/icons)
+  - Computational neuroimaging
+  - Structural and diffusion MRI
+  - Developmental and evolutionary neuroscience
+photo: https://github.com/capro-uio/capro-uio.github.io/assets/123122708/acb73fc4-11a0-44d0-8974-45e346751922
+social : # themify icon pack : https://themify.me/themify-icons or fontawesome (https://fontawesome.com/icons)
   - icon : ti-twitter-alt
-    link : ""
+    link : "https://twitter.com/alatwarren"
   - icon : ti-github 
-    link : ""
+    link : "https://github.com/jlawarren"
   - icon: "fa-brands fa-orcid"
-    link: ""
-  - icon: "fa-brands fa-mastodon"
-    link: ""
-gscholar_id: "" #google scholar id, for publiations list
+    link: "https://orcid.org/0000-0002-3638-9957"
+gscholar_id: "LRCb81EAAAAJ" #google scholar id, for publiations list
 ---
 
-Tekst om personen går her. Kort.
-Bilde i denne mappen brukes som profil bilde.
+José Luis har en mangfoldig bakgrunn innen ingeniørfag (BSc), anvendt fysikk (MSc) og evolusjonsbiologi (PhD). Han liker å skape og implementere avanserte verktøy som hjelper til med å forstå komplekse mønstre innen biologi og nevrovitenskap.
