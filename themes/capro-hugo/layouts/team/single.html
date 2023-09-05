@@ -96,7 +96,7 @@
 {{ end }}
 
 {{ $pub :=  path.Dir .File | path.Base }}
-{{ $pubpath := printf "data/team/%s.json" $pub}}
+{{ $pubpath := printf "data/team/pubs/%s.json" $pub}}
 {{ $pubs := index $.Site.Data.team.pubs (path.Dir .File | path.Base) }}
 {{ if and (fileExists $pubpath) (gt ($pubs | len) 0)  }}
 <section class="section">
