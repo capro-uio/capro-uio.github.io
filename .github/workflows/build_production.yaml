@@ -43,6 +43,7 @@ jobs:
           echo "Version: 0.0.9" > DESCRIPTION
           echo "Package: capro-website" >> DESCRIPTION
           echo "Depends: jsonlite, scholar" >> DESCRIPTION
+          
       - name: Install R dependencies
         if: steps.cache-action.outputs.cache-hit != 'true' || github.event_name == 'schedule'
         uses: r-lib/actions/setup-r-dependencies@v2
