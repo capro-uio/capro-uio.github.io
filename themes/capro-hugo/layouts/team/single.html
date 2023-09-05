@@ -42,10 +42,16 @@
 				</div>
 				<div class="content text-center">
 					<figure>
-	           {{ range first 1 (.Resources.ByType "image") }}
-              {{ $image :=  . }}
-              {{ $image := $image.Fill "300x300" }}
-						<img class="rounded-circle img-fluid lozad" data-src="{{ $image.RelPermalink }}">
+						{{ if isset .Params "photo" }}
+							{{ $image := resources.GetRemote .Params.photo }}
+							{{ $image := $image.Fill "300x300" }}
+							<img class="rounded-circle img-fluid lozad" data-src="{{ $image.RelPermalink }}">
+						{{ else }}
+							{{ range first 1 (.Resources.ByType "image") }}
+								{{ $image :=  . }}
+								{{ $image := $image.Fill "300x300" }}
+								<img class="rounded-circle img-fluid lozad" data-src="{{ $image.RelPermalink }}">
+							{{ end }}
 						{{ end }}
 						<figcaption>
 							<h5 class="font-weight-bold">
