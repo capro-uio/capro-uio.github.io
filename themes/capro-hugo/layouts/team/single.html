@@ -89,8 +89,10 @@
 </section>
 {{ end }}
 
+{{ $pub :=  path.Dir .File | path.Base }}
+{{ $pubpath := printf "data/team/%s.json" $pub}}
 {{ $pubs := index $.Site.Data.team.pubs (path.Dir .File | path.Base) }}
-{{ if gt ($pubs | len) 0}}
+{{ if and (fileExists $pubpath) (gt ($pubs | len) 0)  }}
 <section class="section">
 	<div class="container">
 		<div class="row">
@@ -98,8 +100,8 @@
 				<div class="title text-center">
 					<h2>{{ i18n "authorsPubs" }}<span class="color">
   				  {{ with .Site.GetPage "section" "team" }}
-              {{ index (split .Params.single " ") 1 | safeHTML }}
-            {{ end }}</h2>
+				     {{ index (split .Params.single " ") 1 | safeHTML }}
+				  {{ end }}</h2>
 					<div class="border-capro"></div>
 				</div>
 			</div>
@@ -116,7 +118,7 @@
 					{{ range $pubs }}
 					  {{ with .year }}
 					    {{ $years = $years | append . }}
-            {{ end }}
+            		{{ end }}
 					{{ end }}
 					{{ range ( $years | uniq ) }}
 					<label class="btn">
