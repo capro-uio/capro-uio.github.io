@@ -1,6 +1,5 @@
 ---
 title : Inge Amlien
-id: ik_amlien
 designation : ["Senioringeniør", "Skyløsninger",
   "Containers", "HPC", "Python"]
 social :

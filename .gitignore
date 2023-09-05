@@ -3,6 +3,9 @@
 .Rhistory
 .RData
 .Ruserdata
+renv/library/
+renv/staged/
+
 
 # mac stuff
 **.DS_Store
