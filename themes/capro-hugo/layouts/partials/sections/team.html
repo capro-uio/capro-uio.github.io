@@ -16,19 +16,19 @@
       {{ range .Pages | shuffle }}
       {{ $sch := newScratch }}
       <!-- team member -->
-      <div class="col-lg-3 col-md-6 col-12 wow fadeInDown" data-wow-duration="500ms">
+      <div class="col-xl-3 col-lg-4 col-md-6 col-12 wow fadeInDown" data-wow-duration="500ms">
         <div class="team-member">
           <div class="member-photo">
             <!-- member photo -->
             {{ if isset .Params "photo" }}
               {{ $image := resources.GetRemote .Params.photo }}
-              {{ $image := $image.Fill "300x300" | images.Filter (images.Grayscale )}}
+              {{ $image := $image.Fill "600x600" | images.Filter (images.Grayscale )}}
               {{ $sch.Set "img" $image.RelPermalink }}
             {{ else }}
               {{ range first 1 (.Resources.ByType "image") }}
                 {{ $image :=  . }}
                 {{ $image := $image.Resize "600x" }}
-                {{ $image := $image.Fill "300x300" | images.Filter (images.Grayscale ) }}
+                {{ $image := $image.Fill "600x600" | images.Filter (images.Grayscale ) }}
                 {{ $sch.Set "img" $image.RelPermalink }}
               {{ end }}
             {{ end }}
