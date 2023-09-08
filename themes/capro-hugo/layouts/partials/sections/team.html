@@ -2,7 +2,7 @@
 {{ if gt (.Pages | len ) 0}}
 <section id="team" class="section bg-dark">
   <div class="container">
-    <div class="row justify-content-center">
+    <div class="row content-justify-center">
       <div class="col-lg-12">
         <!-- section title -->
         <div class="title text-center wow fadeInUp" data-wow-duration="500ms">
@@ -13,23 +13,22 @@
       </div>
       <!-- /section title -->
 
-      {{ range .Pages }}
+      {{ range .Pages | shuffle }}
       {{ $sch := newScratch }}
       <!-- team member -->
-      <div class="col-lg-3 col-md-6 col-12 wow fadeInDown" data-wow-duration="500ms">
-
+      <div class="col-xl-3 col-lg-4 col-md-6 col-12 wow fadeInDown" data-wow-duration="500ms">
         <div class="team-member">
           <div class="member-photo">
             <!-- member photo -->
             {{ if isset .Params "photo" }}
               {{ $image := resources.GetRemote .Params.photo }}
-              {{ $image := $image.Fill "300x300" | images.Filter (images.Grayscale )}}
+              {{ $image := $image.Fill "600x600" | images.Filter (images.Grayscale )}}
               {{ $sch.Set "img" $image.RelPermalink }}
             {{ else }}
               {{ range first 1 (.Resources.ByType "image") }}
                 {{ $image :=  . }}
                 {{ $image := $image.Resize "600x" }}
-                {{ $image := $image.Fill "300x300" | images.Filter (images.Grayscale ) }}
+                {{ $image := $image.Fill "600x600" | images.Filter (images.Grayscale ) }}
                 {{ $sch.Set "img" $image.RelPermalink }}
               {{ end }}
             {{ end }}
@@ -40,7 +39,11 @@
               <ul class="list-inline">
                 {{ range .Params.social }}
                   {{ if .link }}
-                    <li class="list-inline-item"><a href="{{ .link | safeURL }}"><i class="{{ .icon }}"></i></a></li>
+                    <li class="list-inline-item">
+                      <a href="{{ .link | safeURL }}" title="Link to {{ index (split .icon "-") (sub (len (split .icon "-")) 1) }}" >
+                        <i class="{{ .icon }}"></i>
+                      </a>
+                    </li>
                   {{ end }}
                 {{ end }}
               </ul>

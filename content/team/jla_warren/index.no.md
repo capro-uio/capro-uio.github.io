@@ -4,7 +4,6 @@ designation :
   - Computational neuroimaging
   - Structural and diffusion MRI
   - Developmental and evolutionary neuroscience
-photo: https://github.com/capro-uio/capro-uio.github.io/assets/123122708/acb73fc4-11a0-44d0-8974-45e346751922
 social : # themify icon pack : https://themify.me/themify-icons or fontawesome (https://fontawesome.com/icons)
   - icon : ti-twitter-alt
     link : "https://twitter.com/alatwarren"

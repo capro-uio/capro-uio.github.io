@@ -5,7 +5,6 @@ designation :
   - Optimization & standardization
   - Machine learning
   - HPC
-photo: https://github.com/capro-uio/capro-uio.github.io/assets/94443666/cf7d32e0-0bb5-4784-9445-5c577d3b6025
 social : # themify icon pack : https://themify.me/themify-icons or fontawesome (https://fontawesome.com/icons)
   - icon : ti-github 
     link : "https://github.com/Mak2055"
