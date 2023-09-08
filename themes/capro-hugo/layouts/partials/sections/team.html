@@ -39,7 +39,11 @@
               <ul class="list-inline">
                 {{ range .Params.social }}
                   {{ if .link }}
-                    <li class="list-inline-item"><a href="{{ .link | safeURL }}"><i class="{{ .icon }}"></i></a></li>
+                    <li class="list-inline-item">
+                      <a href="{{ .link | safeURL }}" title="Link to {{ index (split .icon "-") (sub (len (split .icon "-")) 1) }}" >
+                        <i class="{{ .icon }}"></i>
+                      </a>
+                    </li>
                   {{ end }}
                 {{ end }}
               </ul>
