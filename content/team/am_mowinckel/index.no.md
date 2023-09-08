@@ -1,6 +1,5 @@
 ---
 title : Athanasia Mo Mowinckel
-id: am_mowinckel
 designation : ["Arbeidsflyt", "Data prosessering",
   "Nettapplikasjoner", "R"]
 social :

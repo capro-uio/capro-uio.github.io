@@ -21,11 +21,17 @@
         <div class="team-member">
           <div class="member-photo">
             <!-- member photo -->
-            {{ range first 1 (.Resources.ByType "image") }}
-              {{ $image :=  . }}
-              {{ $image := $image.Resize "600x" }}
-              {{ $image := $image.Fill "300x300" | images.Filter (images.Grayscale ) }}
+            {{ if isset .Params "photo" }}
+              {{ $image := resources.GetRemote .Params.photo }}
+              {{ $image := $image.Fill "300x300" | images.Filter (images.Grayscale )}}
               {{ $sch.Set "img" $image.RelPermalink }}
+            {{ else }}
+              {{ range first 1 (.Resources.ByType "image") }}
+                {{ $image :=  . }}
+                {{ $image := $image.Resize "600x" }}
+                {{ $image := $image.Fill "300x300" | images.Filter (images.Grayscale ) }}
+                {{ $sch.Set "img" $image.RelPermalink }}
+              {{ end }}
             {{ end }}
             <img class="img-fluid lozad" data-src="{{ $sch.Get "img" }}" alt="{{ .Title }}">
 

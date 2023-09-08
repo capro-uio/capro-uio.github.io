@@ -26,31 +26,13 @@ jobs:
         with:
           hugo-version: '0.111.3'
           extended: true
-
-      - name: Enable Pubs Cache
-        id: cache-action
-        uses: actions/cache@v3
-        with:
-          path: data/team/pubs/
-          key: ${{ runner.os }}-cache-key
-
-      - name: Setup R
-        if: steps.cache-action.outputs.cache-hit != 'true' || github.event_name == 'schedule'
-        uses: r-lib/actions/setup-r@v2
-
-      - if: steps.cache-action.outputs.cache-hit != 'true' || github.event_name == 'schedule'
-        run: |
-          echo "Version: 0.0.9" > DESCRIPTION
-          echo "Package: capro-website" >> DESCRIPTION
-          echo "Depends: jsonlite, scholar" >> DESCRIPTION
-      - name: Install R dependencies
-        if: steps.cache-action.outputs.cache-hit != 'true' || github.event_name == 'schedule'
-        uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          cache-version: 2
+          
+      - run: sudo apt-get install -y libcurl4-openssl-dev
+      - uses: actions/checkout@v3
+      - uses: r-lib/actions/setup-r@v2
+      - uses: r-lib/actions/setup-renv@v2
 
       - name: Get publications
-        if: steps.cache-action.outputs.cache-hit != 'true' || github.event_name == 'schedule'
         run: Rscript scripts/get_pubs.R
 
       - name: Build 🔧
