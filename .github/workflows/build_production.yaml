@@ -27,7 +27,9 @@ jobs:
           hugo-version: '0.111.3'
           extended: true
 
-      - run: sudo apt-get install -y libcurl4-openssl-dev --fix-missing
+      - run: |
+        sudo apt-get update
+        sudo apt-get install -y libcurl4-openssl-dev --fix-missing
       - uses: actions/checkout@v3
       - uses: r-lib/actions/setup-r@v2
       - uses: r-lib/actions/setup-renv@v2
