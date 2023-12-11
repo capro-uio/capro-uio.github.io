@@ -1,10 +1,10 @@
 <section class="sticky-top navigation">
 	<div class="container">
 		<nav class="navbar navbar-expand-lg navbar-dark">
-			<a class="navbar-brand p-0" href="{{ .Site.BaseURL | relLangURL }}">
+			<a class="navbar-brand p-0 m-2" href="{{ .Site.BaseURL | relLangURL }}">
 				{{ if site.Params.logo }}
 				  {{ $logo := resources.GetMatch .Site.Params.logo }}
-				  <img class="lozad" data-src="{{ $logo.Permalink }}" alt="{{ .Site.Title }}" height="42">
+				  <img class="lozad" data-src="{{ $logo.Permalink }}" alt="{{ .Site.Title }}" height="50">
 				{{ else }}
 				  {{ site.Title }}
 				{{ end }}

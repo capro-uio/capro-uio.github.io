@@ -1,10 +1,10 @@
-logo: images/logo.png
+logo: images/capro_logo_dark.png
 author: Athanasia Monika Mowinckel
 google_analytics_id: ''
 post_share: true
 preloader:
   enable: false
-  preloader: images/logo.png
+  preloader: images/capro_logo_dark.png
 cookies:
   enable: false
   expire_days: 2
