@@ -1,4 +1,4 @@
-name: Build site and deploy production
+name: Production site
 
 on:
   workflow_dispatch:
@@ -14,6 +14,7 @@ concurrency:
 
 jobs:
   deploy:
+    name: Build & Deploy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
