@@ -1,4 +1,4 @@
-name: Build site and deploy production
+name: Production site
 
 on:
   workflow_dispatch:
@@ -14,9 +14,10 @@ concurrency:
 
 jobs:
   deploy:
-    runs-on: ubuntu-22.04
+    name: Build & Deploy
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
@@ -30,8 +31,11 @@ jobs:
       - run: |
           sudo apt-get update
           sudo apt-get install -y libcurl4-openssl-dev --fix-missing
-      - uses: actions/checkout@v3
+
       - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.3.0'
+
       - uses: r-lib/actions/setup-renv@v2
 
       - name: Get publications
