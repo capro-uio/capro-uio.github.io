@@ -9,7 +9,8 @@ tags: # choose any appropriate. Make new if appropriate, but we should not have 
 #link : "" # URL that opens if search icon is clicked
 date: 2023-08-22T09:50:21+02:00
 slug: release
-alias: news/2023-08-22-release
+aliases: 
+  - /news/2023-08-22-release
 summary: |
   Approval to become a core facility at UiO will make it easier for researchers to use Capro's services.
 ---
