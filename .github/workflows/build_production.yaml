@@ -36,6 +36,7 @@ jobs:
         with:
           r-version: 'renv'
 
+
       - uses: r-lib/actions/setup-renv@v2
 
       - name: Get publications
