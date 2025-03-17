@@ -8,7 +8,8 @@ tags:
   - uio
 date: 2025-03-17
 slug: nettskjemar-update
-alias: news/2025/03-nettskjemar/
+aliases: 
+  - /news/2025/03-nettskjemar/
 summary: |
   Discover the improved `nettskjemar` R package with Nettskjema API v3 integration, enhanced functions, and tidyverse compatibility.
 ---

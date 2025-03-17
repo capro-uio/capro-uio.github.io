@@ -13,4 +13,4 @@ renv/staged/
 # Hugo stuff
 resources/
 public/
-
+.hugo_build.lock
