@@ -8,7 +8,7 @@ tags: # choose any appropriate. Make new if appropriate, but we should not have 
   - uio
 link : "" # URL that opens if search icon is clicked
 date: 2023-08-22T09:50:21+02:00
-alias: 2023-08-22-release
+alias: news/2023-08-22-release
 slug: release
 summary: |
   Godkjenning som UiO kjernefasilitet gjør det mulig for oss å tilby tjenester til forskere ved UiO og andre institusjoner.
