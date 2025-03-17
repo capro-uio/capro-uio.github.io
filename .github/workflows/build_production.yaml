@@ -1,4 +1,4 @@
-name: Production site
+name: Build site and deploy production
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 0 * * SUN' # Run on sundays
+    - cron: '1 10 * * SAT'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -14,13 +14,12 @@ concurrency:
 
 jobs:
   deploy:
-    name: Build & Deploy
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+          submodules: true 
+          fetch-depth: 0  
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -28,18 +27,10 @@ jobs:
           hugo-version: '0.111.3'
           extended: true
 
-      - run: |
+      - name: Update system libs
+        run: |
           sudo apt-get update
-          sudo apt-get install -y libcurl4-openssl-dev --fix-missing
-
-      - uses: r-lib/actions/setup-r@v2
-        with:
-          r-version: '4.3.0'
-
-      - uses: r-lib/actions/setup-renv@v2
-
-      - name: Get publications
-        run: Rscript scripts/get_pubs.R
+          sudo apt-get install -y libcurl4-openssl-dev  --fix-missing
 
       - name: Build 🔧
         env:
@@ -49,5 +40,5 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: public # The folder the action should deploy.
+          branch: gh-pages
+          folder: public 
