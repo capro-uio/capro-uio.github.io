@@ -6,7 +6,7 @@ tags:
   - nettskjema
   - R
   - uio
-date: 2025-03-20
+date: 2025-03-17
 summary: |
   Discover the improved `nettskjemar` R package with Nettskjema API v3 integration, enhanced functions, and tidyverse compatibility.
 ---
