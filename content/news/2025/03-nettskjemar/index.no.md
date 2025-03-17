@@ -1,15 +1,14 @@
 ---
 title : "Oppdatering av R-pakke mot Nettskjema"
 author:
-- am_mowinckel
+  - am_mowinckel
 tags:
-- nettskjema
-- R
-- uio
+  - nettskjema
+  - R
+  - uio
 date: 2025-03-20
 slug: nettskjemar-update
-summary: |
-Oppdag den forbedrede `nettskjemar` R-pakken med Nettskjema API v3-integrasjon, utvidede funksjoner og tidyverse-kompatibilitet.
+summary: "Oppdag den forbedrede `nettskjemar` R-pakken med Nettskjema API v3-integrasjon, utvidede funksjoner og tidyverse-kompatibilitet."
 ---
 
 En ny versjon av vår [nettskjemar](/nettskjemar) R-pakke er nettopp lansert.  
