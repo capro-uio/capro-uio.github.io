@@ -2,7 +2,7 @@ name: Get author data
 
 on:
   workflow_dispatch:
-  push:
+  pull_request:
     branches:
       - main
   schedule:
