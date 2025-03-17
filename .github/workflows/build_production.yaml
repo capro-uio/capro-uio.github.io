@@ -21,10 +21,15 @@ jobs:
           submodules: true 
           fetch-depth: 0  
 
+      - name: Set env parameters
+        run: |
+          hugovr=$(cat .hugo_version)
+          echo "hugovr=$hugovr" >> $GITHUB_ENV
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.111.3'
+          hugo-version: ${{ env.hugovr }}
           extended: true
 
       - name: Update system libs
