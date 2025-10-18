@@ -1,6 +1,20 @@
 [
   {
     "year": 2025,
+    "author": "D Vidal-Piñeiro, Ø Sørensen, M Strømstad, IK Amlien, M Anderson & ...",
+    "title": "Reliability of structural brain change in cognitively healthy adult samples",
+    "journal": "Imaging Neuroscience 3, imag_a_00547",
+    "pubid": "JV2RwH3_ST0C"
+  },
+  {
+    "year": 2025,
+    "author": "AM Fjell, O Røgeberg, Ø Sørensen, IK Amlien, D Bartrés-Faz & ...",
+    "title": "Reevaluating the role of education in cognitive decline and brain aging: Insights from large-scale longitudinal cohorts across 33 countries",
+    "journal": "medRxiv ",
+    "pubid": "RYcK_YlVTxYC"
+  },
+  {
+    "year": 2025,
     "author": "BE Padrela, M Slivka, MH Sneve et al.",
     "title": "Blood-brain barrier water permeability across the adult lifespan: A multi-echo ASL study",
     "journal": "Neurobiology of Aging 147, 176-186",
@@ -8,31 +22,73 @@
   },
   {
     "year": 2025,
-    "author": "KB Walhovd, ACS Brathen, K Overbye, J Kransberg, O Sorensen & ...",
+    "author": "AM Fjell, O Rogeberg, Ø Sørensen, IK Amlien, D Bartrés-Faz & ...",
+    "title": "Reevaluating the role of education on cognitive decline and brain aging in longitudinal cohorts across 33 Western countries",
+    "journal": "Nature Medicine 1-10",
+    "pubid": "M05iB0D1s5AC"
+  },
+  {
+    "year": 2025,
+    "author": "L Etholm, J Ivanovic, VS Larsen, MH Sneve, MI Lossius & KÅ Alfstad",
+    "title": "Localizing value of disturbances of self‐integration, depersonalization, and forced thinking: A systematic review",
+    "journal": "Epileptic Disorders 27 (2), 156-170",
+    "pubid": "RGFaLdJalmkC"
+  },
+  {
+    "year": 2025,
+    "author": "AM Fjell, MH Sneve, IK Amlien, H Grydeland, AM Mowinckel & ...",
+    "title": "Stable hippocampal correlates of high episodic memory function across adulthood",
+    "journal": "Scientific Reports 15 (1), 8816",
+    "pubid": "70eg2SAEIzsC"
+  },
+  {
+    "year": 2025,
+    "author": "A Ravndal, AM Fjell, D Vidal-Piñeiro et al.",
+    "title": "Sex differences in healthy brain aging are unlikely to explain higher Alzheimer’s disease prevalence in women",
+    "journal": "Proceedings of the National Academy of Sciences 122 (42), e2510486122",
+    "pubid": "SeFeTyx0c_EC"
+  },
+  {
+    "year": 2025,
+    "author": "L Raud, MJB Smits, MH Sneve et al.",
+    "title": "Differential expression of spatiotemporal sleep spindle clusters in ageing",
+    "journal": "bioRxiv 2025.05. 19.654222",
+    "pubid": "ldfaerwXgEUC"
+  },
+  {
+    "year": 2025,
+    "author": "KB Walhovd, ACS Bråthen, K Overbye, J Kransberg, Ø Sørensen & ...",
     "title": "How and when can environmental influences change cerebral cortex? An experimental training study of twins with birth weight differences",
     "journal": "bioRxiv 2025.03. 06.641380",
     "pubid": "35N4QoGY0k4C"
   },
   {
     "year": 2025,
-    "author": "AMM Fjell, OJ Rogeberg, IK Amlien, D Bartres-Faz, A Brandmaier & ...",
-    "title": "Reevaluating the Role of Education in Cognitive Decline and Brain Aging: Insights from Large-Scale Longitudinal Cohorts across 33 Countries",
-    "journal": "medRxiv 2025.01. 29.25321305",
-    "pubid": "RYcK_YlVTxYC"
+    "author": "EG Blakstad, M Sneve, D Vidal-Pineiro, KB Walhovd, AM Fjell & ...",
+    "title": "Memory-Related Default-Executive Coupling Across the Lifespan and Associations with Changes in Cognitive Control",
+    "journal": "bioRxiv 2025.09. 02.673776",
+    "pubid": "pqnbT2bcN3wC"
   },
   {
     "year": 2024,
     "author": "B Padrela, A Mahroo, M Tee et al.",
-    "title": "Developing blood-brain barrier arterial spin labelling as a non-invasive early biomarker of Alzheimer’s disease (DEBBIE-AD): a prospective observational multicohort study protocol",
+    "title": "Developing blood-brain barrier arterial spin labelling as a non-invasive early biomarker of Alzheimer’s disease (DEBBIE-AD): A prospective observational multicohort study protocol",
     "journal": "BMJ open 14 (3), e081635",
     "pubid": "isC4tDSrTZIC"
   },
   {
     "year": 2024,
-    "author": "D Vidal-Piñeiro, Ø Sørensen, M Strømstad, IK Amlien, M Anderson & ...",
-    "title": "Reliability of structural brain change in cognitively healthy adult samples",
-    "journal": "bioRxiv 2024.06. 03.592804",
-    "pubid": "JV2RwH3_ST0C"
+    "author": "HT Ness, L Folvik, MH Sneve et al.",
+    "title": "Recalled through this day but forgotten next week?—retrieval activity predicts durability of partly consolidated memories",
+    "journal": "Cerebral Cortex 34 (6), bhae233",
+    "pubid": "blknAaTinKkC"
+  },
+  {
+    "year": 2024,
+    "author": "H Grydeland, MH Sneve, JM Roe et al.",
+    "title": "Network segregation during episodic memory shows age-invariant relations with memory performance from 7 to 82 years",
+    "journal": "bioRxiv 2024.12. 23.630050",
+    "pubid": "NaGl4SEjCO4C"
   },
   {
     "year": 2024,
@@ -40,13 +96,6 @@
     "title": "What underlies exceptional memory function in older age? No evidence for aging-specific relationships to hippocampal atrophy and retrieval activity",
     "journal": "bioRxiv 2024.04. 12.589183",
     "pubid": "M3NEmzRMIkIC"
-  },
-  {
-    "year": 2024,
-    "author": "H Grydeland, MH Sneve, JM Roe et al.",
-    "title": "Network Segregation During Episodic Memory Shows Age-Invariant Relations with Memory Performance From 7 to 82 Years",
-    "journal": "bioRxiv 2024.12. 23.630050",
-    "pubid": "NaGl4SEjCO4C"
   },
   {
     "year": 2024,
@@ -64,13 +113,6 @@
   },
   {
     "year": 2024,
-    "author": "HT Ness, L Folvik, MH Sneve et al.",
-    "title": "Recalled through this day but forgotten next week?—retrieval activity predicts durability of partly consolidated memories",
-    "journal": "Cerebral Cortex 34 (6), bhae233",
-    "pubid": "blknAaTinKkC"
-  },
-  {
-    "year": 2024,
     "author": "B Padrela, A Mahroo, M Tee et al.",
     "title": "DEveloping BBB-ASL as non-Invasive Early biomarker of Alzheimer's Disease (DEBBIE-AD): Study design",
     "journal": "Cerebral Circulation-Cognition and Behavior 6, 100308",
@@ -85,24 +127,10 @@
   },
   {
     "year": 2023,
-    "author": "E Capogna, MH Sneve, L Raud et al.",
-    "title": "Whole-brain connectivity during encoding: age-related differences and associations with cognitive and brain structural decline",
-    "journal": "Cerebral Cortex 33 (1), 68-82",
-    "pubid": "TQgYirikUcIC"
-  },
-  {
-    "year": 2023,
     "author": "L Raud, MH Sneve, D Vidal-Piñeiro et al.",
     "title": "Hippocampal-cortical functional connectivity during memory encoding and retrieval",
-    "journal": "Neuroimage 279, 120309",
+    "journal": "NeuroImage 279, 120309",
     "pubid": "j3f4tGmQtD8C"
-  },
-  {
-    "year": 2023,
-    "author": "AR Løchen, KK Kolskår, AMG de Lange, MH Sneve, B Haatveit & ...",
-    "title": "Visual processing deficits in patients with schizophrenia spectrum and bipolar disorders and associations with psychotic symptoms, and intellectual abilities",
-    "journal": "Heliyon 9 (2)",
-    "pubid": "TFP_iSt0sucC"
   },
   {
     "year": 2023,
@@ -110,6 +138,13 @@
     "title": "Sustained upregulation of widespread hippocampal–neocortical coupling following memory encoding",
     "journal": "Cerebral Cortex 33 (8), 4844-4858",
     "pubid": "_Qo2XoVZTnwC"
+  },
+  {
+    "year": 2023,
+    "author": "AR Løchen, KK Kolskår, AMG de Lange, MH Sneve, B Haatveit & ...",
+    "title": "Visual processing deficits in patients with schizophrenia spectrum and bipolar disorders and associations with psychotic symptoms, and intellectual abilities",
+    "journal": "Heliyon 9 (2)",
+    "pubid": "TFP_iSt0sucC"
   },
   {
     "year": 2023,
@@ -127,6 +162,13 @@
   },
   {
     "year": 2022,
+    "author": "E Capogna, MH Sneve, L Raud et al.",
+    "title": "Whole-brain connectivity during encoding: age-related differences and associations with cognitive and brain structural decline",
+    "journal": "Cerebral Cortex 33 (1), 68-82",
+    "pubid": "TQgYirikUcIC"
+  },
+  {
+    "year": 2022,
     "author": "HT Ness, L Folvik, MH Sneve et al.",
     "title": "Reduced hippocampal-striatal interactions during formation of durable episodic memories in aging",
     "journal": "Cerebral Cortex 32 (11), 2358-2372",
@@ -135,7 +177,7 @@
   {
     "year": 2021,
     "author": "L Lengali, J Hippe, C Hatlestad-Hall, TW Rygvold, MH Sneve & ...",
-    "title": "Sensory-induced human LTP-Like synaptic plasticity–using visual evoked potentials to explore the relation between LTP-like synaptic plasticity and visual perceptual learning",
+    "title": "Sensory-induced human LTP-like synaptic plasticity–using visual evoked potentials to explore the relation between LTP-like synaptic plasticity and visual perceptual learning",
     "journal": "Frontiers in Human Neuroscience 15, 684573",
     "pubid": "mB3voiENLucC"
   },
@@ -197,17 +239,17 @@
   },
   {
     "year": 2019,
-    "author": "AM Fjell, CH Chen, D Sederevicius, MH Sneve, H Grydeland & ...",
-    "title": "Continuity and discontinuity in human cortical development and change from embryonic stages to old age",
-    "journal": "Cerebral Cortex 29 (9), 3879-3890",
-    "pubid": "8k81kl-MbHgC"
-  },
-  {
-    "year": 2019,
     "author": "D Vidal-Piñeiro, MH Sneve, LH Nyberg, AM Mowinckel, D Sederevicius & ...",
     "title": "Maintained frontal activity underlies high memory function over 8 years in aging",
     "journal": "Cerebral cortex 29 (7), 3111-3123",
     "pubid": "Zph67rFs4hoC"
+  },
+  {
+    "year": 2019,
+    "author": "AM Fjell, CH Chen, D Sederevicius, MH Sneve, H Grydeland & ...",
+    "title": "Continuity and discontinuity in human cortical development and change from embryonic stages to old age",
+    "journal": "Cerebral Cortex 29 (9), 3879-3890",
+    "pubid": "8k81kl-MbHgC"
   },
   {
     "year": 2019,
@@ -232,7 +274,7 @@
   },
   {
     "year": 2019,
-    "author": "IK Amlien, MH Sneve, D Vidal-Piñeiro, KB Walhovd & AM Fjell",
+    "author": "IK Amlien, MH Sneve, D Vidal-Pineiro, KB Walhovd & AM Fjell",
     "title": "Elaboration benefits source memory encoding through centrality change",
     "journal": "Scientific Reports 9 (1), 3704",
     "pubid": "4DMP91E08xMC"
@@ -267,17 +309,17 @@
   },
   {
     "year": 2018,
-    "author": "AM Fjell, D Sederevicius, MH Sneve, AMG de Lange, AC Sjøli Bråthen & ...",
-    "title": "Longitudinal increase in sleep problems is related to amyloid deposition in cortical regions with high HOMER1 gene expression",
-    "journal": "bioRxiv 335612",
-    "pubid": "3fE2CSJIrl8C"
-  },
-  {
-    "year": 2018,
     "author": "MH Sneve, H Grydeland, MGP Rosa et al.",
     "title": "The hotspots in primate cortical brain evolution support supramodal cognitive flexibility",
     "journal": "bioRxiv 333930",
     "pubid": "MXK_kJrjxJIC"
+  },
+  {
+    "year": 2018,
+    "author": "AM Fjell, D Sederevicius, MH Sneve, AMG de Lange, ACS Bråthen & ...",
+    "title": "Longitudinal increase in sleep problems is related to amyloid deposition in cortical regions with high HOMER1 gene expression",
+    "journal": "bioRxiv 335612",
+    "pubid": "3fE2CSJIrl8C"
   },
   {
     "year": 2017,
@@ -366,7 +408,7 @@
   {
     "year": 2015,
     "author": "AM Fjell, IK Amlien, MH Sneve et al.",
-    "title": "The roots of Alzheimer's disease: are high-expanding cortical areas preferentially targeted?",
+    "title": "The roots of Alzheimer's disease: Are high-expanding cortical areas preferentially targeted?",
     "journal": "Cerebral Cortex 25 (9), 2556-2565",
     "pubid": "zYLM7Y9cAGgC"
   },
@@ -413,16 +455,22 @@
     "pubid": "d1gkVwhDpl0C"
   },
   {
+    "author": "BE Padrela, S Tecelão, ME Tranfa et al.",
+    "title": "Blood-brain barrier water permeability in relation to Alzheimer’s Disease and age-related vascular damage",
+    "journal": "",
+    "pubid": "HoB7MX3m0LUC"
+  },
+  {
+    "author": "B Padrela, S Tecelão, BE Kirsebom et al.",
+    "title": "Blood-Brain Barrier Water Exchange in Relation to Amyloid, Cognition and Cerebrovascular Burden",
+    "journal": "",
+    "pubid": "g5m5HwL7SMYC"
+  },
+  {
     "author": "P Helfer, TR Shultz, E Langnes et al.",
     "title": "Hippocam",
     "journal": "",
-    "pubid": "lSLTfruPkqcC"
-  },
-  {
-    "author": "L Etholm, J Ivanovic, VS Larsen, MH Sneve, MI Lossius & KÅ Alfstad",
-    "title": "Localizing value of disturbances of self‐integration, depersonalization, and forced thinking: A systematic review",
-    "journal": "Epileptic Disorders ",
-    "pubid": "RGFaLdJalmkC"
+    "pubid": "2P1L_qKh6hAC"
   },
   {
     "author": "BE Padrela, S Tecelão, O Geier et al.",

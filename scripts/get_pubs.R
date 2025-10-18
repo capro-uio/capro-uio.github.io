@@ -2,7 +2,9 @@ library(jsonlite)
 library(scholar)
 
 get_pubs <- function(id, file) {
-  if (is.null(id)) return()
+  if (is.null(id)) {
+    return()
+  }
   dt <- get_publications(id)
   dt <- dt[order(dt$year, decreasing = TRUE), ]
   # dt$url <- sprintf("https://scholar.google.no/citations?view_op=view_citation&citation_for_view=%s", dt$pubid)
@@ -42,6 +44,10 @@ team <- list.files(
 ids <- team |>
   lapply(readLines) |>
   sapply(function(x) {
+    # only process non-drafted profiles
+    if (length(grep("draft: true", x)) > 0) {
+      return()
+    }
     j <- x[grep("gscholar", x)] |>
       strsplit('\"')
     if (length(j) > 0) j[[1]][2]
