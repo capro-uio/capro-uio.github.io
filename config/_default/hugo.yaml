@@ -1,4 +1,4 @@
-baseURL: .
+baseURL: "."
 title: CAPRO
 theme: capro-tw
 pagination.pagerSize: "6"

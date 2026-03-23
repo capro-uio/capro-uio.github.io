@@ -15,13 +15,15 @@
 
 {{/* Main CSS: pre-built Tailwind + Themify icons */}}
 {{ $tw := resources.Get "css/vendor/tailwind.css" }}
-{{ $ti := resources.Get "css/themify-icons.css" }}
+{{ $ti := resources.Get "css/vendor/themify-icons.css" }}
 {{ $css := slice $tw $ti | resources.Concat "capro.min.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 
 {{/* FontAwesome: deferred loading (self-hosted via SCSS) */}}
 {{ $fa := resources.Get "scss/fontawesome.scss" | toCSS | minify | fingerprint }}
-<link rel="stylesheet" href="{{ $fa.RelPermalink }}"
-      integrity="{{ $fa.Data.Integrity }}"
-      media="print" onload="this.media='screen'">
-<noscript><link rel="stylesheet" href="{{ $fa.RelPermalink }}"></noscript>
+{{ with $fa }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}"
+            integrity="{{ .Data.Integrity }}"
+            media="print" onload="this.media='screen'">
+      <noscript><link rel="stylesheet" href="{{ .RelPermalink }}"></noscript>
+{{ end }}
