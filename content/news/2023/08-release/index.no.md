@@ -3,7 +3,7 @@ title : "Capro godskjent som UiO kjernefasilitet" # Title of the project
 author: 
   - am_mowinckel # Who is the author of the news item
 tags: # choose any appropriate. Make new if appropriate, but we should not have too many overall categories. 
-  - core-facilty
+  - core-facility
   - hub/node
   - uio
 link : "" # URL that opens if search icon is clicked

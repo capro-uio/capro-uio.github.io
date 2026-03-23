@@ -9,7 +9,7 @@ item :
   - icon : ti-cup # themify icon pack : https://themify.me/themify-icons
     title : We're Professional
     content : |
-      Out staff has extensive knowledge in technical solutions for scientific work.
+      Our staff has extensive knowledge in technical solutions for scientific work.
   
   - icon : ti-infinite # themify icon pack : https://themify.me/themify-icons
     title : We bridge science & technology
