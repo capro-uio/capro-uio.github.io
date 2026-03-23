@@ -14,3 +14,6 @@ renv/staged/
 resources/
 public/
 .hugo_build.lock
+
+# Node
+node_modules/
