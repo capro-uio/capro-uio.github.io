@@ -15,15 +15,23 @@ jobs:
     name: Build & Deploy
     runs-on: ubuntu-latest
     steps:
+      - name: Comment PR – building
+        if: github.event_name == 'pull_request'
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          comment-tag: preview
+          message: |
+            :hourglass_flowing_sand: Building site preview...
+
       - uses: actions/checkout@v4
         with:
-          submodules: true 
-          fetch-depth: 0 
+          submodules: true
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Install theme dependencies
         run: npm install --prefix themes/capro-tw
@@ -34,12 +42,12 @@ jobs:
           echo "hugovr=$hugovr" >> $GITHUB_ENV
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: ${{ env.hugovr }}
           extended: true
 
-      - name: Build 🔧
+      - name: Build
         env:
           HUGO_GMAP_API: ${{ secrets.HUGO_GMAP_API }}
         run: |
@@ -49,7 +57,7 @@ jobs:
       - name: Install netlify cli
         run: npm install netlify-cli -g
 
-      - name: Deploy preview 🚀
+      - name: Deploy preview
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
@@ -59,11 +67,19 @@ jobs:
             --alias ${{github.event.number}}
         shell: sh
 
-      - name: Comment PR
-        uses: thollander/actions-comment-pull-request@v2
+      - name: Comment PR – success
+        if: success() && github.event_name == 'pull_request'
+        uses: thollander/actions-comment-pull-request@v3
         with:
+          comment-tag: preview
           message: |
-            The PR has been [deployed as a preview](https://${{github.event.number}}--capro-uio.netlify.app).
-            Please double check it looks ok before merging.
+            :white_check_mark: Preview deployed at https://${{github.event.number}}--capro-uio.netlify.app
+            Please check it looks ok before merging.
 
-
+      - name: Comment PR – failure
+        if: failure() && github.event_name == 'pull_request'
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          comment-tag: preview
+          message: |
+            :x: Preview build failed. [View logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
