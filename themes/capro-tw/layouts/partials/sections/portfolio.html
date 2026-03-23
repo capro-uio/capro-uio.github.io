@@ -1,6 +1,6 @@
 {{ with .Site.GetPage "section" "portfolio" }}
 {{ if gt (.Pages | len) 0 }}
-<section class="section bg-dark" id="portfolio" x-data="{ filter: 'all' }">
+<section class="section bg-grey" id="portfolio" x-data="{ filter: 'all' }">
   <div class="max-w-7xl mx-auto px-4">
     <div class="section-title">
       <h2>{{ with .Title }}{{ index (split . " ") 0 | safeHTML }}{{ end }} <span class="accent">{{ with .Title }}{{ after (len (index (split . " ") 0)) . | safeHTML }}{{ end }}</span></h2>

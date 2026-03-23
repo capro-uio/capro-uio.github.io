@@ -1,6 +1,6 @@
 {{ if gt (where site.RegularPages "Section" "==" "news") 0 }}
 {{ if gt (.Pages | len) 0 }}
-<section class="section" id="news">
+<section class="section bg-dark" id="news">
   <div class="max-w-7xl mx-auto px-4">
     <div class="section-title reveal">
       <h2>
@@ -10,7 +10,7 @@
           {{ if gt (len $words) 1 }}
             {{ index $words 0 | safeHTML }} <span class="accent">{{ after (len (index $words 0)) .Title | strings.TrimLeft " " | safeHTML }}</span>
           {{ else }}
-            <span class="accent">{{ .Title | safeHTML }}</span>
+            {{ .Title | safeHTML }}
           {{ end }}
         {{ end }}
       </h2>

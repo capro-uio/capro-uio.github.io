@@ -65,17 +65,11 @@
   /* Services */
   .service-block {
     @apply text-center h-full;
-    padding: 60px 24px;
+    padding: 60px 32px;
     background-color: var(--color-dark);
     border-left: 1px solid var(--color-border);
     border-top: 1px solid var(--color-border);
-    box-shadow: 2px 2px 5px rgba(44, 44, 44, 0.3), 13px 13px 0 rgba(255, 255, 255, 0.07);
-    transition: box-shadow var(--transition-base), border-color var(--transition-base);
-  }
-
-  .service-block:hover {
-    box-shadow: var(--shadow-card-hover);
-    border-color: var(--color-primary);
+    box-shadow: 2px 2px 5px rgba(44, 44, 44, 0.3), 13px 13px 0 rgba(255, 255, 255, 0.04);
   }
 
   .service-block i {
