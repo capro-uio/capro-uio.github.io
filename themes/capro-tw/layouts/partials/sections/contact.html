@@ -6,13 +6,20 @@
       <div class="border-accent"></div>
     </div>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-      <div class="reveal space-y-6">
-        {{ range .item }}
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 flex items-center justify-center rounded-full flex-shrink-0" style="border: 1px solid var(--color-border);">
-            <i class="{{ .icon }} text-primary text-sm" aria-hidden="true"></i>
+      <div class="reveal">
+        <div class="space-y-6 mb-8">
+          {{ range .item }}
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 flex items-center justify-center rounded-full flex-shrink-0" style="border: 1px solid var(--color-border);">
+              <i class="{{ .icon }} text-primary text-sm" aria-hidden="true"></i>
+            </div>
+            <div class="text-sm font-serif">{{ .info | markdownify }}</div>
           </div>
-          <div class="text-sm font-serif">{{ .info | markdownify }}</div>
+          {{ end }}
+        </div>
+        {{ with site.Params.map }}
+        <div class="mt-6" style="border: 1px solid var(--color-border);">
+          <div id="contact-map" data-lat="{{ .map_latitude }}" data-lng="{{ .map_longitude }}" data-title="{{ site.Title }}" style="height: 250px;"></div>
         </div>
         {{ end }}
       </div>
