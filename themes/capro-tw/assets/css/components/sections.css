@@ -3,7 +3,7 @@
   .about-block {
     @apply h-full;
     background: var(--color-dark);
-    padding: 32px;
+    padding: 40px 32px;
     border-bottom: 2px solid transparent;
     transition: border-color var(--transition-base);
   }
@@ -16,17 +16,21 @@
     transform: translateY(-10px);
   }
 
+  .about-block h3 {
+    color: var(--color-secondary);
+  }
+
   .icon-box {
     position: relative;
-    width: 120px;
-    height: 69px;
-    margin: 35px auto 48px;
-    padding: 15px 0;
+    width: 160px;
+    height: 92px;
+    margin: 46px auto 60px;
+    padding: 20px 0;
     border-left: 2px solid var(--color-secondary);
     border-right: 2px solid var(--color-secondary);
     background-color: transparent;
     font-size: 36px;
-    color: var(--color-primary);
+    color: var(--color-light);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,21 +43,21 @@
     content: "";
     position: absolute;
     z-index: -1;
-    width: 84.85px;
-    height: 84.85px;
+    width: 113.14px;
+    height: 113.14px;
     background-color: var(--color-dark);
-    left: 15.6px;
+    left: 20.43px;
     transform: scaleY(0.5774) rotate(-45deg);
   }
 
   .icon-box::before {
-    top: -42.4px;
+    top: -56.57px;
     border-top: 2px solid var(--color-secondary);
     border-right: 2px solid var(--color-secondary);
   }
 
   .icon-box::after {
-    bottom: -42.4px;
+    bottom: -56.57px;
     border-bottom: 2px solid var(--color-secondary);
     border-left: 2px solid var(--color-secondary);
   }
@@ -61,11 +65,11 @@
   /* Services */
   .service-block {
     @apply text-center h-full;
-    padding: 48px 24px;
+    padding: 60px 24px;
     background-color: var(--color-dark);
     border-left: 1px solid var(--color-border);
     border-top: 1px solid var(--color-border);
-    box-shadow: var(--shadow-card);
+    box-shadow: 2px 2px 5px rgba(44, 44, 44, 0.3), 13px 13px 0 rgba(255, 255, 255, 0.07);
     transition: box-shadow var(--transition-base), border-color var(--transition-base);
   }
 
@@ -76,13 +80,13 @@
 
   .service-block i {
     @apply mb-6 block;
-    font-size: 48px;
-    color: var(--color-primary);
+    font-size: 50px;
+    color: var(--color-light);
   }
 
   .service-block h3 {
-    @apply text-xl font-medium mb-3 uppercase tracking-wide;
-    color: #fff;
+    @apply text-xl font-medium mb-3;
+    color: var(--color-secondary);
   }
 
   /* Skills */
@@ -99,16 +103,27 @@
   }
 
   /* Counters */
-  .counter-item i {
-    @apply mb-3;
-    font-size: 40px;
-    color: var(--color-primary);
+  .counter-card {
+    padding: 32px 24px;
+    background-color: var(--color-dark);
   }
 
-  .counter-value {
+  .counter-card i {
+    @apply mb-3 block;
+    font-size: 40px;
+    color: var(--color-light);
+  }
+
+  .counter-card .counter-value {
     font-size: 48px;
     font-weight: 700;
     color: var(--color-secondary);
+  }
+
+  .counter-card h3 {
+    @apply mt-2;
+    font-size: 0.9rem;
+    color: var(--color-body);
   }
 
   /* Pricing */
