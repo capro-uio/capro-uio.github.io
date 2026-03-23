@@ -1,0 +1,58 @@
+<header class="site-nav" x-data="{ open: false, scrolled: false }" @scroll.window="scrolled = (window.scrollY > 50)" :class="scrolled && 'nav-scrolled'" @keydown.escape="open = false">
+  <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
+    <a href="{{ site.BaseURL | relLangURL }}" class="flex-shrink-0">
+      {{ with resources.GetMatch site.Params.logo }}
+        <img src="{{ .Permalink }}" alt="{{ site.Title }}" height="50" width="auto" class="h-12">
+      {{ else }}
+        <span class="text-xl font-bold">{{ site.Title }}</span>
+      {{ end }}
+    </a>
+
+    <button @click="open = !open" :aria-expanded="open" aria-label="Toggle navigation"
+            class="md:hidden p-2">
+      <i class="fa-solid fa-bars text-xl" x-show="!open"></i>
+      <i class="fa-solid fa-xmark text-xl" x-show="open" x-cloak></i>
+    </button>
+
+    <nav class="hidden md:flex items-center gap-6" aria-label="Main navigation">
+      {{ $currentPage := . }}
+      {{ range site.Menus.main }}
+        {{ $menuURL := .URL | absLangURL }}
+        {{ $pageURL := $currentPage.Permalink | absLangURL }}
+        <a href="{{ if findRE `^#` .URL }}{{ if not $currentPage.IsHome }}{{ site.BaseURL | relLangURL }}{{ end }}{{ .URL }}{{ else }}{{ .URL | relLangURL }}{{ end }}"
+           {{ if eq $menuURL $pageURL }}class="active"{{ end }}>
+          {{ or (T .Identifier) .Name | safeHTML }}
+        </a>
+      {{ end }}
+      {{ if hugo.IsMultilingual }}
+        <select class="lang-select" aria-label="Select language" onchange="location = this.value;">
+          {{ range .Page.AllTranslations }}
+            <option value="{{ .Permalink }}" {{ if eq $.Page.Lang .Lang }}selected{{ end }}>
+              {{ .Language.Params.languageName }}
+            </option>
+          {{ end }}
+        </select>
+      {{ end }}
+    </nav>
+
+    <nav x-show="open" x-transition x-cloak
+         class="absolute top-16 left-0 right-0 bg-dark md:hidden flex flex-col p-4 gap-4 z-50 border-t border-border"
+         aria-label="Mobile navigation">
+      {{ range site.Menus.main }}
+        <a href="{{ if findRE `^#` .URL }}{{ if not $currentPage.IsHome }}{{ site.BaseURL | relLangURL }}{{ end }}{{ .URL }}{{ else }}{{ .URL | relLangURL }}{{ end }}"
+           @click="open = false">
+          {{ or (T .Identifier) .Name | safeHTML }}
+        </a>
+      {{ end }}
+      {{ if hugo.IsMultilingual }}
+        <select class="lang-select" aria-label="Select language" onchange="location = this.value;">
+          {{ range .Page.AllTranslations }}
+            <option value="{{ .Permalink }}" {{ if eq $.Page.Lang .Lang }}selected{{ end }}>
+              {{ .Language.Params.languageName }}
+            </option>
+          {{ end }}
+        </select>
+      {{ end }}
+    </nav>
+  </div>
+</header>

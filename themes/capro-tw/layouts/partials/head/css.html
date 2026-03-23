@@ -1,0 +1,27 @@
+{{/* Preload critical fonts */}}
+<link rel="preload" href="{{ "/webfonts/google-fonts/space-grotesk/space-grotesk-latin-400-normal.woff2" | relURL }}"
+      as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ "/webfonts/google-fonts/spectral/spectral-latin-300-normal.woff2" | relURL }}"
+      as="font" type="font/woff2" crossorigin>
+
+{{/* Preload hero image for LCP */}}
+{{ with site.Params.banner }}
+  {{ $image := resources.GetMatch .image }}
+  {{ with $image }}
+    {{ $resized := .Resize "1600x webp" }}
+    <link rel="preload" href="{{ $resized.Permalink }}" as="image">
+  {{ end }}
+{{ end }}
+
+{{/* Main CSS: pre-built Tailwind + Themify icons */}}
+{{ $tw := resources.Get "css/vendor/tailwind.css" }}
+{{ $ti := resources.Get "css/themify-icons.css" }}
+{{ $css := slice $tw $ti | resources.Concat "capro.min.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+
+{{/* FontAwesome: deferred loading (self-hosted via SCSS) */}}
+{{ $fa := resources.Get "scss/fontawesome.scss" | toCSS | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $fa.RelPermalink }}"
+      integrity="{{ $fa.Data.Integrity }}"
+      media="print" onload="this.media='screen'">
+<noscript><link rel="stylesheet" href="{{ $fa.RelPermalink }}"></noscript>

@@ -1,0 +1,21 @@
+{{ with .Site.GetPage "section" "service" }}
+{{ if gt (.Params.item | len) 0 }}
+<section class="section bg-grey" id="services">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="section-title reveal">
+      <h2>{{ with .Title }}{{ index (split . " ") 0 | safeHTML }}{{ end }} <span class="accent">{{ with .Title }}{{ after (len (index (split . " ") 0)) . | safeHTML }}{{ end }}</span></h2>
+      <div class="border-accent"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {{ range .Params.item }}
+      <article class="service-block reveal">
+        <i class="{{ .icon }}"></i>
+        <h3 class="text-xl mb-3">{{ .name | markdownify }}</h3>
+        <p>{{ .content | markdownify }}</p>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}

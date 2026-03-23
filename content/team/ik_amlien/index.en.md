@@ -5,7 +5,6 @@ designation : ["Data Engineer", "Cloud",
 social :
   - icon : "fa-brands fa-orcid"
     link : "https://orcid.org/0000-0002-8508-9088"
-gscholar_id: "cwQrekcAAAAJ"
 ---
 
 Tech background and a PhD in psychology /neuroscience. 

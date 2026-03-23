@@ -1,0 +1,13 @@
+<article class="reveal">
+  <div class="bg-dark overflow-hidden">
+    {{ range first 1 (.Resources.ByType "image") }}
+      {{ $image := (.Resize "600x webp").Fit "300x300 webp" }}
+      <img src="{{ $image.RelPermalink }}" alt="{{ $.Title }}" class="w-full" loading="lazy">
+    {{ end }}
+    <div class="p-5">
+      <h3 class="text-lg mb-2"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+      <p class="text-sm mb-4">{{ .Summary }}</p>
+      <a class="btn btn-outline text-xs" href="{{ .Permalink }}">{{ i18n "readMore" }}</a>
+    </div>
+  </div>
+</article>

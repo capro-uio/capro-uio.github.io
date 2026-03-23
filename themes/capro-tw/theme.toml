@@ -1,0 +1,12 @@
+name = "capro-tw"
+description = "CAPRO Hugo theme with Tailwind CSS and Alpine.js. Visual design inspired by the capro-hugo theme, originally based on the Timer theme by Themefisher."
+license = "MIT"
+min_version = "0.154.0"
+
+[author]
+  name = "CAPRO"
+
+[original]
+  author = "Themefisher"
+  homepage = "https://themefisher.com"
+  repo = "https://github.com/themefisher/timer-hugo"

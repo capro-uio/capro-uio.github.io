@@ -1,0 +1,47 @@
+{{ with .Site.GetPage "section" "portfolio" }}
+{{ if gt (.Pages | len) 0 }}
+<section class="section bg-grey" id="portfolio" x-data="{ filter: 'all' }">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="section-title">
+      <h2>{{ with .Title }}{{ index (split . " ") 0 | safeHTML }}{{ end }} <span class="accent">{{ with .Title }}{{ after (len (index (split . " ") 0)) . | safeHTML }}{{ end }}</span></h2>
+      <div class="border-accent"></div>
+    </div>
+    <div class="flex flex-wrap justify-center gap-2 mb-8">
+      <button @click="filter = 'all'" :class="filter === 'all' ? 'border-primary bg-primary text-white' : 'border-border text-body'" class="px-5 py-2 text-sm font-bold border bg-dark transition-colors">{{ i18n "all" }}</button>
+      {{ $categories := slice }}
+      {{ range .Pages }}{{ range .Params.categories }}{{ $categories = $categories | append . }}{{ end }}{{ end }}
+      {{ range ($categories | uniq) }}
+      <button @click="filter = '{{ . | urlize }}'" :class="filter === '{{ . | urlize }}' ? 'border-primary bg-primary text-white' : 'border-border text-body'" class="px-5 py-2 text-sm font-bold border bg-dark transition-colors">{{ . }}</button>
+      {{ end }}
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {{ range .Pages }}
+      {{ $sch := newScratch }}
+      {{ range first 1 (.Resources.ByType "image") }}
+        {{ $image := (.Resize "600x webp").Fit "400x400 webp" }}
+        {{ $sch.Set "img" $image.RelPermalink }}
+      {{ end }}
+      <div x-show="filter === 'all' {{ range .Params.categories }}|| filter === '{{ . | urlize }}'{{ end }}" x-transition>
+        <div class="portfolio-card">
+          <div class="portfolio-img">
+            <img src="{{ $sch.Get "img" }}" alt="{{ .Title }}" loading="lazy">
+            <div class="portfolio-overlay">
+              {{ if .Params.link }}
+                <a href="{{ .Params.link | safeURL }}" class="search-circle" aria-label="View {{ .Title }}">
+                  <i class="ti-new-window" aria-hidden="true"></i>
+                </a>
+              {{ end }}
+            </div>
+          </div>
+          <div class="portfolio-meta">
+            <h3>{{ if .Params.link }}<a href="{{ .Params.link | safeURL }}">{{ .Title }}</a>{{ else }}{{ .Title }}{{ end }}</h3>
+            <p class="font-serif">{{ .Plain | truncate 120 }}</p>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}

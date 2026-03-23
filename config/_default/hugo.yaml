@@ -1,6 +1,6 @@
 baseURL: .
 title: CAPRO
-theme: capro-hugo
+theme: capro-tw
 pagination.pagerSize: '6'
 summaryLength: '15'
 enableGitInfo: true

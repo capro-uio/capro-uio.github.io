@@ -1,0 +1,70 @@
+@layer components {
+  .pubs-table {
+    @apply w-full text-sm;
+    color: var(--color-body);
+  }
+
+  .pubs-table th {
+    @apply pb-3 text-left font-medium text-xs uppercase tracking-wider;
+    color: var(--color-body);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .pubs-table td {
+    @apply py-3 align-top;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .pubs-table .pub-year {
+    @apply font-medium;
+    font-family: var(--font-sans);
+    color: var(--color-secondary);
+  }
+
+  .pubs-table .pub-authors {
+    @apply text-xs leading-relaxed;
+    color: var(--color-muted);
+  }
+
+  .pubs-table .pub-title a {
+    color: var(--color-secondary);
+    transition: color var(--transition-fast);
+  }
+
+  .pubs-table .pub-title a:hover {
+    color: var(--color-primary);
+  }
+
+  .pubs-table .pub-journal {
+    @apply text-xs italic;
+    color: var(--color-muted);
+  }
+
+  .pubs-table tbody tr:hover td {
+    color: var(--color-body);
+  }
+
+  .year-select {
+    @apply text-sm font-semibold cursor-pointer;
+    appearance: none;
+    background: var(--color-dark);
+    color: var(--color-body);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 8px 36px 8px 14px;
+    transition: border-color var(--transition-fast);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23d0d2d4' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+  }
+
+  .year-select:hover,
+  .year-select:focus {
+    border-color: var(--color-primary);
+  }
+
+  .year-select option {
+    background: var(--color-dark);
+    color: var(--color-body);
+  }
+}

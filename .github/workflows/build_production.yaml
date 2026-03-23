@@ -5,8 +5,6 @@ on:
   push:
     branches:
       - main
-  schedule:
-    - cron: '1 10 * * SAT'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -32,10 +30,13 @@ jobs:
           hugo-version: ${{ env.hugovr }}
           extended: true
 
-      - name: Update system libs
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libcurl4-openssl-dev  --fix-missing
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install theme dependencies
+        run: npm install --prefix themes/capro-tw
 
       - name: Build 🔧
         env:

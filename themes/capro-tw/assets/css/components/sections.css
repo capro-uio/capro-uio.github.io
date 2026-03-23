@@ -1,0 +1,294 @@
+@layer components {
+  /* About */
+  .about-block {
+    @apply h-full;
+    background: var(--color-dark);
+    padding: 40px 32px;
+    border-bottom: 2px solid transparent;
+    transition: border-color var(--transition-base);
+  }
+
+  .about-block:hover {
+    border-bottom-color: var(--color-primary);
+  }
+
+  .about-block:hover .icon-box {
+    transform: translateY(-10px);
+  }
+
+  .about-block h3 {
+    color: var(--color-secondary);
+  }
+
+  .icon-box {
+    position: relative;
+    width: 160px;
+    height: 92px;
+    margin: 46px auto 60px;
+    padding: 20px 0;
+    border-left: 2px solid var(--color-secondary);
+    border-right: 2px solid var(--color-secondary);
+    background-color: transparent;
+    font-size: 36px;
+    color: var(--color-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition-base);
+    z-index: 1;
+  }
+
+  .icon-box::before,
+  .icon-box::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 113.14px;
+    height: 113.14px;
+    background-color: var(--color-dark);
+    left: 20.43px;
+    transform: scaleY(0.5774) rotate(-45deg);
+  }
+
+  .icon-box::before {
+    top: -56.57px;
+    border-top: 2px solid var(--color-secondary);
+    border-right: 2px solid var(--color-secondary);
+  }
+
+  .icon-box::after {
+    bottom: -56.57px;
+    border-bottom: 2px solid var(--color-secondary);
+    border-left: 2px solid var(--color-secondary);
+  }
+
+  /* Services */
+  .service-block {
+    @apply text-center h-full;
+    padding: 60px 32px;
+    background-color: var(--color-dark);
+    border-left: 1px solid var(--color-border);
+    border-top: 1px solid var(--color-border);
+    box-shadow: 2px 2px 5px rgba(44, 44, 44, 0.3), 13px 13px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  .service-block i {
+    @apply mb-6 block;
+    font-size: 50px;
+    color: var(--color-light);
+  }
+
+  .service-block h3 {
+    @apply text-xl font-medium mb-3;
+    color: var(--color-secondary);
+  }
+
+  /* Skills */
+  .progress-bar-track {
+    @apply w-full rounded-full;
+    height: 6px;
+    background-color: var(--color-border);
+  }
+
+  .progress-bar-fill {
+    @apply h-full rounded-full;
+    background-color: var(--color-primary);
+    transition: width 0.8s ease;
+  }
+
+  /* Counters */
+  .counter-card {
+    width: 200px;
+    height: 200px;
+    padding: 32px 24px;
+    background-color: var(--color-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .counter-card i {
+    @apply mb-3 block;
+    font-size: 40px;
+    color: var(--color-light);
+  }
+
+  .counter-card .counter-value {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--color-secondary);
+  }
+
+  .counter-card h3 {
+    @apply mt-2;
+    font-size: 0.9rem;
+    color: var(--color-body);
+  }
+
+  /* Pricing */
+  .price-card {
+    @apply h-full;
+    padding: 40px 32px;
+    background-color: var(--color-dark);
+    border: 1px solid var(--color-border);
+    transition: border-color var(--transition-base);
+  }
+
+  .price-card h3 {
+    color: var(--color-secondary);
+    margin-bottom: 24px;
+  }
+
+  .price-card table td {
+    padding: 6px 8px;
+  }
+
+  .price-card:hover {
+    border-color: var(--color-primary);
+  }
+
+  /* Testimonials */
+  .testimonial-scroll {
+    @apply flex gap-6 overflow-x-auto items-stretch;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-light) transparent;
+    padding-bottom: 16px;
+  }
+
+  .testimonial-scroll::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .testimonial-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .testimonial-scroll::-webkit-scrollbar-thumb {
+    background: var(--color-light);
+    border-radius: 3px;
+  }
+
+  .testimonial-nav {
+    @apply absolute top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center;
+    background: var(--color-dark);
+    border: 1px solid var(--color-border);
+    color: var(--color-body);
+    transition: all var(--transition-fast);
+    cursor: pointer;
+  }
+
+  .testimonial-nav:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .testimonial-nav-left {
+    left: -20px;
+  }
+
+  .testimonial-nav-right {
+    right: -20px;
+  }
+
+  @media (max-width: 768px) {
+    .testimonial-nav { display: none; }
+  }
+
+  .testimonial-modern {
+    @apply flex flex-col flex-shrink-0;
+    width: 360px;
+    padding: 32px;
+    background-color: var(--color-grey);
+    border: 1px solid var(--color-border);
+    scroll-snap-align: start;
+    transition: border-color var(--transition-base);
+  }
+
+  .testimonial-modern:hover {
+    border-color: var(--color-primary);
+  }
+
+  .testimonial-modern blockquote {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .testimonial-modern blockquote p {
+    margin: 0;
+  }
+
+  /* Contact */
+  .contact-icon {
+    @apply mr-4 mt-1;
+    font-size: 20px;
+    color: var(--color-primary);
+  }
+
+  /* Portfolio */
+  .portfolio-card {
+    border: 1px solid var(--color-border);
+    background-color: var(--color-dark);
+    transition: border-color var(--transition-base);
+  }
+
+  .portfolio-card:hover {
+    border-color: var(--color-primary);
+  }
+
+  .portfolio-card .portfolio-img {
+    @apply relative overflow-hidden;
+    background: #fff;
+    padding: 40px;
+    height: 16rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .portfolio-card .portfolio-img img {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .portfolio-card .portfolio-overlay {
+    @apply absolute inset-0 flex items-center justify-center;
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.92);
+    transition: opacity var(--transition-base);
+  }
+
+  .portfolio-card:hover .portfolio-overlay {
+    opacity: 1;
+  }
+
+  .portfolio-card .portfolio-overlay .search-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+
+  .portfolio-card .portfolio-meta {
+    padding: 20px;
+  }
+
+  .portfolio-card .portfolio-meta h3 {
+    font-size: 1rem;
+    color: var(--color-secondary);
+  }
+
+  .portfolio-card .portfolio-meta p {
+    font-size: 0.85rem;
+    color: var(--color-light);
+    margin-top: 8px;
+  }
+}

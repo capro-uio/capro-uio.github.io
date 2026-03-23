@@ -1,0 +1,27 @@
+{
+  "name": "capro-tw",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "clean": "rm -rf assets/css/vendor assets/js/vendor assets/scss/vendor static/webfonts",
+    "setup": "mkdir -p assets/css/vendor assets/js/vendor assets/scss/vendor static/webfonts/fontawesome static/webfonts/google-fonts/space-grotesk static/webfonts/google-fonts/spectral",
+    "build": "npm run clean && npm run setup && npm run build:css && npm run sync:deps",
+    "build:css": "npx @tailwindcss/cli -i assets/css/main.css -o assets/css/vendor/tailwind.css --minify",
+    "sync:deps": "npm run sync:alpine && npm run sync:leaflet && npm run sync:fontawesome && npm run sync:fonts",
+    "sync:alpine": "cp node_modules/alpinejs/dist/cdn.min.js assets/js/vendor/alpine.min.js",
+    "sync:leaflet": "cp node_modules/leaflet/dist/leaflet.js assets/js/vendor/leaflet.js && cp node_modules/leaflet/dist/leaflet.css assets/css/vendor/leaflet.css && mkdir -p static/webfonts/leaflet && cp node_modules/leaflet/dist/images/* static/webfonts/leaflet/",
+    "sync:fontawesome": "cp node_modules/@fortawesome/fontawesome-free/webfonts/*.woff2 static/webfonts/fontawesome/ && cp -r node_modules/@fortawesome/fontawesome-free/scss/* assets/scss/vendor/",
+    "sync:fonts": "cp node_modules/@fontsource/space-grotesk/files/space-grotesk-latin-*-normal.woff2 static/webfonts/google-fonts/space-grotesk/ && cp node_modules/@fontsource/spectral/files/spectral-latin-*-normal.woff2 static/webfonts/google-fonts/spectral/ 2>/dev/null || true",
+    "update": "npm update && npm run build",
+    "postinstall": "npm run build"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.0",
+    "tailwindcss": "^4.1.0",
+    "alpinejs": "^3.14.0",
+    "@fortawesome/fontawesome-free": "^6.7.0",
+    "@fontsource/space-grotesk": "^5.0.0",
+    "@fontsource/spectral": "^5.0.0",
+    "leaflet": "^1.9.0"
+  }
+}

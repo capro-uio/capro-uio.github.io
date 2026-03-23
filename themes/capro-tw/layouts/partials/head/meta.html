@@ -1,0 +1,38 @@
+<meta charset="utf-8">
+<title>{{ .Title }}{{ if not .IsHome }} - {{ .Site.Title }}{{ end }}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with site.Params.description }}{{ . }}{{ end }}{{ end }}">
+{{ with site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+{{ hugo.Generator }}
+<link rel="canonical" href="{{ .Permalink }}">
+{{ if hugo.IsMultilingual }}
+  {{ range .AllTranslations }}
+    <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
+  {{ end }}
+{{ end }}
+<link rel="shortcut icon" href="{{ "images/favicon.png" | absURL }}" type="image/x-icon">
+
+{{/* Open Graph */}}
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:type" content="{{ cond .IsPage "article" "website" }}">
+<meta property="og:locale" content="{{ .Lang }}">
+<meta name="twitter:card" content="summary_large_image">
+{{ with resources.GetMatch site.Params.logo }}
+  {{ $image := .Resize "x512" }}
+  <meta property="og:image" content="{{ $image.Permalink }}">
+  <meta name="twitter:image" content="{{ $image.Permalink }}">
+{{ end }}
+
+{{ with site.Params.google_analytics_id }}
+{{ if ne . "" }}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ . }}');
+</script>
+{{ end }}
+{{ end }}

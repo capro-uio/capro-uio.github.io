@@ -1,0 +1,40 @@
+@layer components {
+  .btn {
+    @apply inline-block px-8 py-3 text-sm font-semibold uppercase tracking-wider;
+    transition: all var(--transition-fast);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary-dark);
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-primary);
+    color: #fff;
+  }
+
+  .btn-outline {
+    @apply border;
+    border-color: var(--color-border);
+    color: var(--color-body);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .btn-hero {
+    @apply px-14 py-5 text-lg font-bold uppercase tracking-widest;
+    background-color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    color: #fff;
+  }
+
+  .btn-hero:hover {
+    background-color: transparent;
+    border-color: #fff;
+    color: #fff;
+  }
+}

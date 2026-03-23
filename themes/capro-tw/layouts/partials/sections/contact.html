@@ -1,0 +1,43 @@
+{{ with site.Params.contact }}
+<section class="section bg-grey" id="contact">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="section-title reveal">
+      <h2>{{ with .title }}{{ index (split . " ") 0 | safeHTML }}{{ end }} <span class="accent">{{ with .title }}{{ after (len (index (split . " ") 0)) . | safeHTML }}{{ end }}</span></h2>
+      <div class="border-accent"></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div class="reveal">
+        <div class="space-y-6 mb-8">
+          {{ range .item }}
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 flex items-center justify-center rounded-full flex-shrink-0" style="border: 1px solid var(--color-border);">
+              <i class="{{ .icon }} text-primary text-sm" aria-hidden="true"></i>
+            </div>
+            <div class="text-sm font-serif">{{ .info | markdownify }}</div>
+          </div>
+          {{ end }}
+        </div>
+        {{ with site.Params.map }}
+        <div class="mt-6" style="border: 1px solid var(--color-border);">
+          <div id="contact-map" data-lat="{{ .map_latitude }}" data-lng="{{ .map_longitude }}" data-title="{{ site.Title }}" style="height: 250px;"></div>
+        </div>
+        {{ end }}
+      </div>
+      <div class="reveal">
+        <div class="p-8" style="background-color: var(--color-dark); border: 1px solid var(--color-border);">
+          <h3 class="text-xl mb-4">Get in touch</h3>
+          <p class="text-sm mb-6 text-light font-serif">Have a project in mind? We'd love to hear about it. Reach out to us using the contact information, or book a consultation directly.</p>
+          {{ with .content }}
+            {{ if findRE "reclaim\\.ai|calendly|book" . }}
+              {{ $link := index (findRE `https?://[^\s\)]+` .) 0 }}
+              {{ with $link }}
+                <a href="{{ . }}" class="btn btn-primary" target="_blank" rel="noopener">Book a consultation</a>
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
