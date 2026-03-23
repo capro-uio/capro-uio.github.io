@@ -14,6 +14,10 @@
 
 {{/* Map: only on pages with contact section */}}
 {{ with site.Params.map }}
+  {{ $leafletCss := resources.Get "css/vendor/leaflet.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $leafletCss.RelPermalink }}" integrity="{{ $leafletCss.Data.Integrity }}">
+  {{ $leafletJs := resources.Get "js/vendor/leaflet.js" | minify | fingerprint }}
+  <script src="{{ $leafletJs.RelPermalink }}" integrity="{{ $leafletJs.Data.Integrity }}" defer></script>
   {{ $map := resources.Get "js/map.js" | minify | fingerprint }}
   <script src="{{ $map.RelPermalink }}" integrity="{{ $map.Data.Integrity }}" defer></script>
 {{ end }}
