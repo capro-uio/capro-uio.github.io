@@ -10,30 +10,16 @@
         <div class="font-serif text-lg mb-8">
           {{ .content | markdownify }}
         </div>
-        <div class="space-y-6">
-          {{ range .item }}
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 flex items-center justify-center rounded-full flex-shrink-0" style="border: 1px solid var(--color-border);">
-              <i class="{{ .icon }} text-primary text-sm" aria-hidden="true"></i>
-            </div>
-            <div class="text-sm font-serif">{{ .info | markdownify }}</div>
-          </div>
-          {{ end }}
-        </div>
       </div>
-      <div class="reveal">
-        <div class="p-8" style="background-color: var(--color-dark); border: 1px solid var(--color-border);">
-          <h3 class="text-xl mb-4">Get in touch</h3>
-          <p class="text-sm mb-6 text-light font-serif">Have a project in mind? We'd love to hear about it. Reach out to us using the contact information, or book a consultation directly.</p>
-          {{ with .content }}
-            {{ if findRE "reclaim\\.ai|calendly|book" . }}
-              {{ $link := index (findRE `https?://[^\s\)]+` .) 0 }}
-              {{ with $link }}
-                <a href="{{ . }}" class="btn btn-primary" target="_blank" rel="noopener">Book a consultation</a>
-              {{ end }}
-            {{ end }}
-          {{ end }}
+      <div class="reveal space-y-6">
+        {{ range .item }}
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 flex items-center justify-center rounded-full flex-shrink-0" style="border: 1px solid var(--color-border);">
+            <i class="{{ .icon }} text-primary text-sm" aria-hidden="true"></i>
+          </div>
+          <div class="text-sm font-serif">{{ .info | markdownify }}</div>
         </div>
+        {{ end }}
       </div>
     </div>
   </div>
