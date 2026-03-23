@@ -13,7 +13,6 @@ social : # themify icon pack : https://themify.me/themify-icons or fontawesome
     link: "https://fosstodon.org/@Drmowinckels"
   - icon : fa-brands fa-twitter
     link : "https://twitter.com/DrMowinckels"
-gscholar_id: "7NkxgWQAAAAJ"
 ---
 
 With a PhD in psychology, Mo transitioned into research software and development as she saw technical solutions could aid fellow scientists in driving their projects forwards.

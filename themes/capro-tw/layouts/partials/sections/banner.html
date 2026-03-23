@@ -1,0 +1,14 @@
+{{ with site.Params.banner }}
+{{ $image := resources.GetMatch .image }}
+{{ $image = $image.Resize "1600x webp" }}
+<section class="relative min-h-screen flex items-center justify-center bg-cover bg-center" style='background-image: url("{{ $image.Permalink }}")'>
+  <div class="absolute inset-0 bg-black/60"></div>
+  <div class="relative text-center px-4 max-w-3xl mx-auto">
+    <h1 class="text-5xl md:text-7xl lg:text-8xl font-light mb-6">{{ .title | markdownify }}</h1>
+    <p class="text-lg md:text-xl mb-10 font-serif">{{ .content | markdownify }}</p>
+    {{ with .button }}
+      <a href="{{ .link }}" class="btn btn-hero">{{ .label }}</a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

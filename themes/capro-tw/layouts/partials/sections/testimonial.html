@@ -1,0 +1,51 @@
+{{ with .Site.GetPage "section" "testimonial" }}
+{{ if gt (.Pages | len) 0 }}
+<section class="section bg-dark" id="testimonial">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="section-title reveal">
+      <h2>{{ with .Title }}{{ index (split . " ") 0 | safeHTML }}{{ end }} <span class="accent">{{ with .Title }}{{ after (len (index (split . " ") 0)) . | safeHTML }}{{ end }}</span></h2>
+      <div class="border-accent"></div>
+    </div>
+    <div class="relative reveal" x-data="{ scroll(dir) { $refs.track.scrollBy({ left: dir * 392, behavior: 'smooth' }) } }">
+    <button @click="scroll(-1)" class="testimonial-nav testimonial-nav-left" aria-label="Previous testimonial">
+      <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+    </button>
+    <button @click="scroll(1)" class="testimonial-nav testimonial-nav-right" aria-label="Next testimonial">
+      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+    </button>
+    <div class="testimonial-scroll" x-ref="track" role="region" aria-label="Client testimonials" tabindex="0">
+      {{ range .Pages | shuffle }}
+      {{ $sch := newScratch }}
+      {{ range first 1 (.Resources.ByType "image") }}
+        {{ $image := (.Resize "600x webp").Fill "300x300 webp" }}
+        {{ $sch.Set "img" $image.RelPermalink }}
+      {{ end }}
+      <div class="testimonial-modern">
+        <div class="mb-4">
+          <i class="fa-solid fa-quote-left text-2xl text-primary opacity-40" aria-hidden="true"></i>
+        </div>
+        <blockquote class="font-serif text-body mb-6 leading-relaxed">
+          {{ .Content }}
+        </blockquote>
+        <div class="mt-auto flex items-center gap-4 pt-4 border-t border-border">
+          {{ with $sch.Get "img" }}
+            <img src="{{ . }}" alt="{{ $.Params.author.name }}" class="w-12 h-12 rounded-full object-cover flex-shrink-0" loading="lazy">
+          {{ end }}
+          <div>
+            {{ with .Params.author }}
+              <p class="text-sm font-medium text-body">{{ .name }}</p>
+              <p class="text-xs text-light">{{ .position }}</p>
+            {{ end }}
+            <p class="text-xs text-muted mt-0.5">
+              {{ with .Params.link }}<a href="{{ . }}">{{ end }}{{ .Title }}{{ with .Params.link }}</a>{{ end }}
+            </p>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}

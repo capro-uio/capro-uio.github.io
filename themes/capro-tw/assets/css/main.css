@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@source "../../layouts";
+
+@theme {
+  --color-primary: #c04545;
+  --color-primary-text: #E57575;
+  --color-primary-dark: #b84444;
+  --color-secondary: #85bfbf;
+  --color-tertiary: #D4A843;
+  --color-dark: #20242b;
+  --color-grey: #2A2F36;
+  --color-light: #8a8e93;
+  --color-body: #d0d2d4;
+  --color-muted: #9a9da0;
+  --color-border: rgba(236, 239, 241, 0.12);
+
+  --font-sans: 'Space Grotesk', sans-serif;
+  --font-serif: 'Spectral', serif;
+
+  --shadow-card: 2px 2px 5px rgba(0, 0, 0, 0.3), 10px 10px 0 rgba(255, 255, 255, 0.04);
+  --shadow-card-hover: 0 5px 30px rgba(0, 0, 0, 0.25);
+
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.6s ease;
+}
+
+[x-cloak] { display: none !important; }
+
+@layer base {
+  @font-face {
+    font-family: 'Space Grotesk';
+    src: url('/webfonts/google-fonts/space-grotesk/space-grotesk-latin-300-normal.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Space Grotesk';
+    src: url('/webfonts/google-fonts/space-grotesk/space-grotesk-latin-400-normal.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Space Grotesk';
+    src: url('/webfonts/google-fonts/space-grotesk/space-grotesk-latin-500-normal.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Spectral';
+    src: url('/webfonts/google-fonts/spectral/spectral-latin-300-normal.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-grey);
+    color: var(--color-body);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media (min-width: 768px) {
+    body { font-size: 20px; }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    color: var(--color-secondary);
+    line-height: 1.2;
+  }
+
+  h1 { font-weight: 300; }
+  h2 { font-weight: 500; }
+  h3, h4, h5, h6 { font-weight: 400; }
+
+  p {
+    font-family: var(--font-serif);
+    color: var(--color-body);
+    line-height: 1.7;
+  }
+
+  a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  a:hover {
+    color: var(--color-body);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: var(--color-primary);
+    color: var(--color-body);
+  }
+}
+
+@import "./components/layout.css";
+@import "./components/nav.css";
+@import "./components/buttons.css";
+@import "./components/sections.css";
+@import "./components/team.css";
+@import "./components/pubs.css";

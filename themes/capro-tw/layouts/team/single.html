@@ -1,0 +1,106 @@
+{{ define "main" }}
+<section class="section bg-grey">
+  <div class="max-w-3xl mx-auto px-4 text-center">
+    <div class="section-title">
+      {{ with .Site.GetPage "section" "team" }}
+        <h2>{{ index (split .Params.single " ") 0 | safeHTML }} <span class="accent">{{ index (split .Params.single " ") 1 | safeHTML }}</span></h2>
+      {{ end }}
+      <div class="border-accent"></div>
+    </div>
+    <figure class="mb-6">
+      {{ if isset .Params "photo" }}
+        {{ $image := resources.GetRemote .Params.photo | .Fill "600x600" }}
+        <img class="rounded-full w-48 h-48 mx-auto object-cover" src="{{ $image.RelPermalink }}" alt="{{ .Title }}" width="300" height="300">
+      {{ else }}
+        {{ range first 1 (.Resources.ByType "image") }}
+          {{ $image := .Fill "600x600" }}
+          <img class="rounded-full w-48 h-48 mx-auto object-cover" src="{{ $image.RelPermalink }}" alt="{{ $.Title }}" width="300" height="300">
+        {{ end }}
+      {{ end }}
+      <figcaption>
+        <h3 class="text-xl font-bold mt-4">{{ .Title }}</h3>
+      </figcaption>
+    </figure>
+    <hr class="border-border my-6">
+    <div class="font-serif mb-6">{{ .Content }}</div>
+    <hr class="border-border my-6">
+    <div class="flex justify-center gap-4">
+      {{ range .Params.Social }}
+        <a href="{{ .link | safeURL }}" class="text-xl hover:text-primary transition-colors"
+           aria-label="{{ index (split .icon "-") (sub (len (split .icon "-")) 1) }}">
+          <i class="{{ .icon }}" aria-hidden="true"></i>
+        </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{/* Posts by author */}}
+{{ if gt (where site.RegularPages "Params.author" .Title | len) 0 }}
+<section class="section">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="section-title">
+      <h2>{{ i18n "authorsPosts" }} <span class="accent">{{ with .Site.GetPage "section" "team" }}{{ index (split .Params.single " ") 1 | safeHTML }}{{ end }}</span></h2>
+      <div class="border-accent"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {{ range where site.RegularPages "Params.author" .Title }}
+        {{ .Render "article" }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{/* Publications from ORCID/OpenAlex */}}
+{{ $orcid := "" }}
+{{ range .Params.social }}
+  {{ if findRE "orcid\\.org" .link }}
+    {{ $orcid = replaceRE `.*/` "" .link }}
+  {{ end }}
+{{ end }}
+
+{{ if $orcid }}
+<section class="section" id="orcid-pubs" data-orcid="{{ $orcid }}">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="section-title">
+      <h2>{{ i18n "authorsPubs" }} <span class="accent">{{ with .Site.GetPage "section" "team" }}{{ index (split .Params.single " ") 1 | safeHTML }}{{ end }}</span></h2>
+      <div class="border-accent"></div>
+    </div>
+
+    <div id="orcid-pubs-loading" class="text-center py-8">
+      <p class="text-light">Loading publications from OpenAlex...</p>
+    </div>
+
+    <div id="orcid-pubs-error" class="text-center py-8" style="display:none;">
+      <p>Could not load publications. <a href="https://orcid.org/{{ $orcid }}" target="_blank" rel="noopener" class="text-primary hover:underline">View on ORCID</a></p>
+    </div>
+
+    <div id="orcid-pubs-content" style="display:none;">
+      <div class="mb-6">
+        <label for="orcid-pubs-year-select" class="sr-only">Filter by year</label>
+        <select id="orcid-pubs-year-select" class="year-select" aria-label="Filter publications by year">
+          <option value="all" selected>{{ i18n "all" }}</option>
+        </select>
+      </div>
+      <table class="pubs-table">
+        <thead>
+          <tr>
+            <th style="width:10%">Year</th>
+            <th style="width:20%">Authors</th>
+            <th style="width:40%">Title</th>
+            <th>Journal</th>
+          </tr>
+        </thead>
+        <tbody id="orcid-pubs-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+
+{{ define "scripts" }}
+{{ $orcid := resources.Get "js/orcid-pubs.js" | minify | fingerprint }}
+<script src="{{ $orcid.RelPermalink }}" integrity="{{ $orcid.Data.Integrity }}" defer></script>
+{{ end }}

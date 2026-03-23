@@ -1,0 +1,30 @@
+{{ define "main" }}
+<section class="section">
+  <div class="max-w-3xl mx-auto px-4">
+    <div class="text-center mb-8">
+      <h1 class="text-3xl mb-4">{{ .Title }}</h1>
+      <div class="flex flex-wrap justify-center gap-3 text-sm text-light mb-4">
+        {{ range .Params.author }}
+          {{ with $.Site.GetPage "taxonomyTerm" (printf "team/%s" (urlize .)) }}
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+          {{ end }}
+        {{ end }}
+        <span>{{ .Date.Day }} {{ i18n .Date.Month }} {{ .Date.Year }}</span>
+      </div>
+      {{ $taxonomy := "tags" }}
+      {{ with .GetTerms $taxonomy }}
+        <div class="flex flex-wrap justify-center gap-2 text-sm text-muted italic">
+          {{ range . }}<span>{{ .LinkTitle }}</span>{{ end }}
+        </div>
+      {{ end }}
+      {{ range first 1 (.Resources.ByType "image") }}
+        {{ $image := .Fit "400x400 webp" }}
+        <img src="{{ $image.RelPermalink }}" alt="{{ $.Title }}" class="mx-auto mt-4 rounded" loading="lazy" width="{{ $image.Width }}" height="{{ $image.Height }}">
+      {{ end }}
+    </div>
+    <div class="prose prose-invert max-w-none font-serif">
+      {{ .Content }}
+    </div>
+  </div>
+</section>
+{{ end }}

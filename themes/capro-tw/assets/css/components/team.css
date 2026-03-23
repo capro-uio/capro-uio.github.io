@@ -1,0 +1,68 @@
+@layer components {
+  .team-card {
+    @apply overflow-hidden h-full flex flex-col;
+    background-color: transparent;
+  }
+
+  .team-photo {
+    @apply relative overflow-hidden;
+  }
+
+  .team-photo img {
+    @apply w-full;
+    transition: transform var(--transition-base), filter var(--transition-base);
+  }
+
+  .team-photo:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.15);
+  }
+
+  @media (prefers-contrast: more) {
+    .team-photo:hover img {
+      filter: none;
+    }
+  }
+
+  .team-photo .social-overlay {
+    @apply absolute inset-0 flex items-end justify-center pb-5;
+    opacity: 0;
+    background: linear-gradient(to top, var(--color-dark) 0%, transparent 60%);
+    transition: opacity var(--transition-base);
+  }
+
+  .team-card:hover .social-overlay {
+    opacity: 1;
+  }
+
+  .social-overlay a {
+    @apply inline-block w-9 h-9 leading-9 text-center text-lg mx-1;
+    color: var(--color-body);
+    transition: color var(--transition-fast);
+  }
+
+  .social-overlay a:hover {
+    color: var(--color-primary);
+  }
+
+  .team-meta {
+    @apply flex-1;
+    padding: 16px;
+    background-color: var(--color-dark);
+    border-bottom: 2px solid transparent;
+    transition: border-color var(--transition-base);
+  }
+
+  .team-card:hover .team-meta {
+    border-bottom-color: var(--color-primary);
+  }
+
+  .team-meta h3 {
+    @apply text-lg mb-1;
+  }
+
+  .team-meta span {
+    @apply text-xs;
+    color: var(--color-light);
+  }
+}

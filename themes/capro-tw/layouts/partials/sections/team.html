@@ -1,0 +1,46 @@
+{{ with .Site.GetPage "section" "team" }}
+{{ if gt (.Pages | len) 0 }}
+<section class="section bg-dark" id="team">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="section-title reveal">
+      <h2>{{ with .Title }}{{ index (split . " ") 0 | safeHTML }}{{ end }} <span class="accent">{{ with .Title }}{{ after (len (index (split . " ") 0)) . | safeHTML }}{{ end }}</span></h2>
+      <div class="border-accent"></div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {{ range .Pages | shuffle }}
+      {{ $sch := newScratch }}
+      <div class="team-card reveal">
+        <div class="team-photo">
+          {{ if isset .Params "photo" }}
+            {{ $image := resources.GetRemote .Params.photo }}
+            {{ $image = $image.Fill "600x600 webp" | images.Filter (images.Grayscale) }}
+            {{ $sch.Set "img" $image.RelPermalink }}
+          {{ else }}
+            {{ range first 1 (.Resources.ByType "image") }}
+              {{ $image := (.Resize "600x webp").Fill "600x600 webp" | images.Filter (images.Grayscale) }}
+              {{ $sch.Set "img" $image.RelPermalink }}
+            {{ end }}
+          {{ end }}
+          <img src="{{ $sch.Get "img" }}" alt="{{ .Title }}" width="600" height="600" loading="lazy">
+          <div class="social-overlay">
+            {{ range .Params.social }}
+              {{ if .link }}
+                <a href="{{ .link | safeURL }}" aria-label="{{ index (split .icon "-") (sub (len (split .icon "-")) 1) }}">
+                  <i class="{{ .icon }}" aria-hidden="true"></i>
+                </a>
+              {{ end }}
+            {{ end }}
+          </div>
+        </div>
+        <div class="team-meta">
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <span>{{ delimit .Params.designation " / " | markdownify }}</span>
+          <div class="text-sm mt-2 font-serif">{{ .Summary }}</div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}

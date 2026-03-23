@@ -1,0 +1,22 @@
+{{ with .Site.GetPage "section" "funfacts" }}
+{{ if gt (.Params.item | len) 0 }}
+{{ range first 1 (.Resources.ByType "image") }}
+<section id="counter" class="relative py-28 bg-cover bg-center" style='background-image: url("{{ .RelPermalink }}")'>
+  <div class="absolute inset-0 bg-black/60"></div>
+{{ end }}
+  <div class="relative max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-3 max-w-4xl mx-auto">
+      {{ range .Params.item }}
+      <div class="text-center reveal px-8">
+        <div class="counter-item">
+          <i class="{{ .icon }}"></i>
+          <div class="counter-value" data-count="{{ .count }}">0</div>
+          <h3 class="text-sm mt-2">{{ .title | markdownify }}</h3>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}

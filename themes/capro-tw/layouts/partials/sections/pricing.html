@@ -1,0 +1,49 @@
+{{ with .Site.GetPage "section" "pricing" }}
+{{ if and (.Params.item) (gt (.Params.item | len) 0) }}
+<section class="section bg-grey" id="pricing">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="section-title reveal">
+      <h2>{{ with .Title }}{{ index (split . " ") 0 | safeHTML }}{{ end }} <span class="accent">{{ with .Title }}{{ after (len (index (split . " ") 0)) . | safeHTML }}{{ end }}</span></h2>
+      <div class="border-accent"></div>
+    </div>
+    <div class="max-w-2xl mx-auto text-center mb-8 reveal">
+      <div class="font-serif">{{ .Content }}</div>
+    </div>
+    {{ $data := newScratch }}
+    {{ $data.Set "entities" .Params.entities }}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {{ range .Params.item }}
+      <div class="price-card text-center reveal">
+        <h3 class="text-xl uppercase mb-4">{{ .name }}</h3>
+        <table class="w-full mb-4 text-sm">
+          {{ $unit := .unit }}
+          {{ range .price }}
+            {{ $id := .id }}
+            {{ $price := .price }}
+            {{ if eq $id "base" }}
+              {{ range ($data.Get "entities") }}
+              <tr><td class="text-right pr-2 border-r border-border py-1">{{ .name }}</td>
+                  <td class="text-left pl-2 py-1"><span class="text-secondary font-medium">{{ lang.FormatNumberCustom 0 (mul .percent $price) "-|.| " "|" }}</span> / {{ $unit }}</td></tr>
+              {{ end }}
+            {{ end }}
+            {{ range ($data.Get "entities") }}
+              {{ if eq .id $id }}
+              <tr><td class="text-right pr-2 border-r border-border py-1">{{ .name }}</td>
+                  <td class="text-left pl-2 py-1"><span class="text-secondary font-medium">{{ lang.FormatNumberCustom 0 $price "-|.| " "|" }}</span> / {{ $unit }}</td></tr>
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        </table>
+        <ul class="text-sm space-y-1 mb-6">
+          {{ range .services }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        {{ with .button }}
+          <a class="btn btn-outline" href="{{ .link | safeURL }}">{{ .label }}</a>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}

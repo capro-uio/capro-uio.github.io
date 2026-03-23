@@ -1,0 +1,6 @@
+name = "capro-tw"
+description = "CAPRO Hugo theme with Tailwind CSS and Alpine.js"
+min_version = "0.154.0"
+
+[author]
+  name = "CAPRO"

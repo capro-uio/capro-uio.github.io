@@ -1,0 +1,230 @@
+@layer components {
+  /* About */
+  .about-block {
+    @apply h-full;
+    background: var(--color-dark);
+    padding: 32px;
+    border-bottom: 2px solid transparent;
+    transition: border-color var(--transition-base);
+  }
+
+  .about-block:hover {
+    border-bottom-color: var(--color-primary);
+  }
+
+  .about-block:hover .icon-box {
+    transform: translateY(-10px);
+  }
+
+  .icon-box {
+    position: relative;
+    width: 120px;
+    height: 69px;
+    margin: 35px auto 48px;
+    padding: 15px 0;
+    border-left: 2px solid var(--color-secondary);
+    border-right: 2px solid var(--color-secondary);
+    background-color: transparent;
+    font-size: 36px;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition-base);
+    z-index: 1;
+  }
+
+  .icon-box::before,
+  .icon-box::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 84.85px;
+    height: 84.85px;
+    background-color: var(--color-dark);
+    left: 15.6px;
+    transform: scaleY(0.5774) rotate(-45deg);
+  }
+
+  .icon-box::before {
+    top: -42.4px;
+    border-top: 2px solid var(--color-secondary);
+    border-right: 2px solid var(--color-secondary);
+  }
+
+  .icon-box::after {
+    bottom: -42.4px;
+    border-bottom: 2px solid var(--color-secondary);
+    border-left: 2px solid var(--color-secondary);
+  }
+
+  /* Services */
+  .service-block {
+    @apply text-center h-full;
+    padding: 48px 24px;
+    background-color: var(--color-dark);
+    border-left: 1px solid var(--color-border);
+    border-top: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+    transition: box-shadow var(--transition-base), border-color var(--transition-base);
+  }
+
+  .service-block:hover {
+    box-shadow: var(--shadow-card-hover);
+    border-color: var(--color-primary);
+  }
+
+  .service-block i {
+    @apply mb-6 block;
+    font-size: 48px;
+    color: var(--color-primary);
+  }
+
+  .service-block h3 {
+    @apply text-xl font-medium mb-3 uppercase tracking-wide;
+    color: #fff;
+  }
+
+  /* Skills */
+  .progress-bar-track {
+    @apply w-full rounded-full;
+    height: 6px;
+    background-color: var(--color-border);
+  }
+
+  .progress-bar-fill {
+    @apply h-full rounded-full;
+    background-color: var(--color-primary);
+    transition: width 0.8s ease;
+  }
+
+  /* Counters */
+  .counter-item i {
+    @apply mb-3;
+    font-size: 40px;
+    color: var(--color-primary);
+  }
+
+  .counter-value {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--color-secondary);
+  }
+
+  /* Pricing */
+  .price-card {
+    @apply h-full;
+    padding: 40px 32px;
+    background-color: var(--color-dark);
+    border: 1px solid var(--color-border);
+    transition: border-color var(--transition-base);
+  }
+
+  .price-card h3 {
+    color: var(--color-secondary);
+    margin-bottom: 24px;
+  }
+
+  .price-card table td {
+    padding: 6px 8px;
+  }
+
+  .price-card:hover {
+    border-color: var(--color-primary);
+  }
+
+  /* Testimonials */
+  .testimonial-scroll {
+    @apply flex gap-6 overflow-x-auto items-stretch;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-light) transparent;
+    padding-bottom: 16px;
+  }
+
+  .testimonial-scroll::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .testimonial-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .testimonial-scroll::-webkit-scrollbar-thumb {
+    background: var(--color-light);
+    border-radius: 3px;
+  }
+
+  .testimonial-nav {
+    @apply absolute top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center;
+    background: var(--color-dark);
+    border: 1px solid var(--color-border);
+    color: var(--color-body);
+    transition: all var(--transition-fast);
+    cursor: pointer;
+  }
+
+  .testimonial-nav:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .testimonial-nav-left {
+    left: -20px;
+  }
+
+  .testimonial-nav-right {
+    right: -20px;
+  }
+
+  @media (max-width: 768px) {
+    .testimonial-nav { display: none; }
+  }
+
+  .testimonial-modern {
+    @apply flex flex-col flex-shrink-0;
+    width: 360px;
+    padding: 32px;
+    background-color: var(--color-grey);
+    border: 1px solid var(--color-border);
+    scroll-snap-align: start;
+    transition: border-color var(--transition-base);
+  }
+
+  .testimonial-modern:hover {
+    border-color: var(--color-primary);
+  }
+
+  .testimonial-modern blockquote {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .testimonial-modern blockquote p {
+    margin: 0;
+  }
+
+  /* Contact */
+  .contact-icon {
+    @apply mr-4 mt-1;
+    font-size: 20px;
+    color: var(--color-primary);
+  }
+
+  /* Portfolio */
+  .portfolio-item {
+    @apply relative overflow-hidden;
+  }
+
+  .portfolio-item .portfolio-overlay {
+    @apply absolute inset-0 flex items-center justify-center;
+    opacity: 0;
+    background: rgba(32, 36, 43, 0.85);
+    transition: opacity var(--transition-base);
+  }
+
+  .portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+  }
+}

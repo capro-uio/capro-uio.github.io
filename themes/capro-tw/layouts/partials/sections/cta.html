@@ -1,0 +1,15 @@
+{{ with .Site.GetPage "section" "cta" }}
+{{ $cta := . }}
+{{ range first 1 (.Resources.ByType "image") }}
+<section id="cta" class="relative py-24 bg-cover bg-center" style='background-image: url("{{ .RelPermalink }}")'>
+  <div class="absolute inset-0 bg-black/60"></div>
+  <div class="relative max-w-3xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-4 text-white">{{ $cta.Title }}</h2>
+    <div class="mb-8 font-serif text-lg">{{ $cta.Content }}</div>
+    {{ with $cta.Params.button }}
+      <a href="{{ .link }}" class="btn btn-primary">{{ .label }}</a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+{{ end }}

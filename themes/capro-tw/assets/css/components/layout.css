@@ -1,0 +1,51 @@
+@layer components {
+  .section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  @media (max-width: 768px) {
+    .section {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+  }
+
+  .section-title {
+    @apply text-center mb-12;
+  }
+
+  .section-title h2 {
+    @apply text-4xl font-bold capitalize;
+    color: var(--color-body);
+  }
+
+  .section-title .accent {
+    color: var(--color-primary-text);
+  }
+
+  .border-accent {
+    @apply w-16 mx-auto mt-4;
+    height: 2px;
+    background-color: var(--color-primary);
+  }
+
+  .bg-dark {
+    background-color: var(--color-dark);
+  }
+
+  .bg-grey {
+    background-color: var(--color-grey);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity var(--transition-slow), transform var(--transition-slow);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
