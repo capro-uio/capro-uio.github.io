@@ -3,12 +3,24 @@
 {{ range first 1 (.Resources.ByType "image") }}
 <section id="cta" class="relative py-24 bg-cover bg-center" style='background-image: url("{{ .RelPermalink }}")'>
   <div class="absolute inset-0 bg-black/60"></div>
+  <div class="absolute top-0 left-0 right-0 h-20" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,20 C360,60 720,10 1080,50 C1260,70 1380,30 1440,40" fill="none" stroke="#E57575" stroke-width="2" opacity="0.45"/>
+      <path d="M0,50 C240,20 600,70 900,30 C1200,0 1350,50 1440,20" fill="none" stroke="#c04545" stroke-width="2.5" opacity="0.5"/>
+    </svg>
+  </div>
   <div class="relative max-w-3xl mx-auto px-4 text-center">
     <h2 class="text-3xl font-bold mb-4 text-white">{{ $cta.Title }}</h2>
     <div class="mb-8 font-serif text-lg">{{ $cta.Content }}</div>
     {{ with $cta.Params.button }}
       <a href="{{ .link }}" class="btn btn-primary">{{ .label }}</a>
     {{ end }}
+  </div>
+  <div class="absolute bottom-0 left-0 right-0 h-20" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C300,70 600,20 900,50 C1200,80 1380,30 1440,60" fill="none" stroke="#c04545" stroke-width="2" opacity="0.45"/>
+      <path d="M0,60 C200,30 500,70 800,40 C1100,10 1300,60 1440,30" fill="none" stroke="#E57575" stroke-width="2.5" opacity="0.5"/>
+    </svg>
   </div>
 </section>
 {{ end }}

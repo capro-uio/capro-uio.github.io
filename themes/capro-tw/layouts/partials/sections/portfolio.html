@@ -14,7 +14,7 @@
       <button @click="filter = '{{ . | urlize }}'" :class="filter === '{{ . | urlize }}' ? 'border-primary bg-primary text-white' : 'border-border text-body'" class="px-5 py-2 text-sm font-bold border bg-dark transition-colors">{{ . }}</button>
       {{ end }}
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {{ range .Pages }}
       {{ $sch := newScratch }}
       {{ range first 1 (.Resources.ByType "image") }}
@@ -22,16 +22,21 @@
         {{ $sch.Set "img" $image.RelPermalink }}
       {{ end }}
       <div x-show="filter === 'all' {{ range .Params.categories }}|| filter === '{{ . | urlize }}'{{ end }}" x-transition>
-        <div class="portfolio-item">
-          <img src="{{ $sch.Get "img" }}" alt="{{ .Title }}" class="w-full" loading="lazy">
-          <div class="portfolio-overlay">
-            <div class="text-sm font-serif text-center px-4">{{ .Content }}</div>
+        <div class="portfolio-card">
+          <div class="portfolio-img">
+            <img src="{{ $sch.Get "img" }}" alt="{{ .Title }}" loading="lazy">
+            <div class="portfolio-overlay">
+              {{ if .Params.link }}
+                <a href="{{ .Params.link | safeURL }}" class="search-circle" aria-label="View {{ .Title }}">
+                  <i class="ti-new-window" aria-hidden="true"></i>
+                </a>
+              {{ end }}
+            </div>
           </div>
-        </div>
-        <div class="p-4 bg-grey">
-          <h3 class="text-base">
-            {{ if .Params.link }}<a href="{{ .Params.link | safeURL }}">{{ .Title }}</a>{{ else }}{{ .Title }}{{ end }}
-          </h3>
+          <div class="portfolio-meta">
+            <h3>{{ if .Params.link }}<a href="{{ .Params.link | safeURL }}">{{ .Title }}</a>{{ else }}{{ .Title }}{{ end }}</h3>
+            <p class="font-serif">{{ .Plain | truncate 120 }}</p>
+          </div>
         </div>
       </div>
       {{ end }}

@@ -25,8 +25,21 @@
   }
 
   .border-accent {
-    @apply w-16 mx-auto mt-4;
-    height: 2px;
+    border-top: 2px solid var(--color-border);
+    height: 1px;
+    margin: 15px auto 0;
+    position: relative;
+    width: 30%;
+  }
+
+  .border-accent::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    margin-left: -25px;
+    width: 50px;
+    height: 6px;
     background-color: var(--color-primary);
   }
 

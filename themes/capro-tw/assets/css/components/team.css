@@ -2,6 +2,12 @@
   .team-card {
     @apply overflow-hidden h-full flex flex-col;
     background-color: transparent;
+    border: 1px solid var(--color-border);
+    transition: border-color var(--transition-base);
+  }
+
+  .team-card:hover {
+    border-color: var(--color-primary);
   }
 
   .team-photo {
@@ -49,12 +55,6 @@
     @apply flex-1;
     padding: 16px;
     background-color: var(--color-dark);
-    border-bottom: 2px solid transparent;
-    transition: border-color var(--transition-base);
-  }
-
-  .team-card:hover .team-meta {
-    border-bottom-color: var(--color-primary);
   }
 
   .team-meta h3 {
