@@ -1,5 +1,7 @@
 ---
 title: Our Scientific Services
+aliases:
+  - /service/
 item:
   - name: Statistical Programming Workshops
     icon: "fa-solid fa-chalkboard-user"
