@@ -25,16 +25,15 @@
     color: var(--color-primary-text);
   }
 
-  .btn-hero {
-    @apply px-14 py-5 text-lg font-bold uppercase tracking-widest;
-    background-color: var(--color-primary);
-    border: 2px solid var(--color-primary);
+  .btn-outline-light {
+    @apply border-2;
+    border-color: rgba(255, 255, 255, 0.5);
     color: #fff;
   }
 
-  .btn-hero:hover {
-    background-color: transparent;
+  .btn-outline-light:hover {
     border-color: #fff;
-    color: #fff;
+    background-color: #fff;
+    color: var(--color-dark);
   }
 }

@@ -1,10 +1,8 @@
 {{ with .Site.GetPage "section" "about" }}
 <section class="section bg-dark" id="about">
   <div class="max-w-7xl mx-auto px-4">
-    <div class="section-title reveal">
-      <h2>{{ with .Title }}{{ index (split . " ") 0 | safeHTML }}{{ end }} <span class="accent">{{ with .Title }}{{ index (split . " ") 1 | safeHTML }}{{ end }}</span></h2>
-      <div class="border-accent"></div>
-    </div>
+    {{ partial "helpers/section-title.html" .Title }}
+    {{ partial "helpers/section-intro.html" .Content }}
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {{ range .Params.item }}
       <div class="reveal">

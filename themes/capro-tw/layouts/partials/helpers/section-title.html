@@ -1,0 +1,8 @@
+{{- /* Section heading: first word plain, remainder accented. */ -}}
+{{- with . -}}
+{{- $words := split . " " -}}
+<div class="section-title reveal">
+  <h2>{{ index $words 0 | safeHTML }}{{ if gt (len $words) 1 }} <span class="accent">{{ delimit (after 1 $words) " " | safeHTML }}</span>{{ end }}</h2>
+  <div class="border-accent"></div>
+</div>
+{{- end -}}

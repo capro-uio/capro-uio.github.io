@@ -32,7 +32,7 @@ item :
       - Om nødvendig, prisoverslag for et prosjekt eller kurs
     button:
       label : "Book en tid"
-      link : "#book"
+      link : "#contact"
 
   - name : Prosjekt
     price :

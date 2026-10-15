@@ -1,0 +1,13 @@
+{{- /* Resolves a configured link for the current page and language.
+       "#anchor"  -> home-page anchor (prefixed when not on the home page)
+       "/path/"   -> language-aware internal URL
+       otherwise  -> left untouched (external URLs, mailto:, ...) */ -}}
+{{- $url := .url -}}
+{{- $page := .page -}}
+{{- if hasPrefix $url "#" -}}
+  {{- if $page.IsHome -}}{{ $url }}{{- else -}}{{ print $page.Site.Home.RelPermalink $url }}{{- end -}}
+{{- else if hasPrefix $url "/" -}}
+  {{- $url | relLangURL -}}
+{{- else -}}
+  {{- $url -}}
+{{- end -}}

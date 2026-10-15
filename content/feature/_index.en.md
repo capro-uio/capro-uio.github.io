@@ -23,6 +23,9 @@ item:
       Our team offers custom solutions tailored to your project's specific needs and existing infrastructure, ensuring a workflow that best suits you and your team
       
 image_decorative: true
+build:
+  render: false
+  list: false
 ---
 
 Capturing and processing large data sets is becoming increasingly important in social sciences and humanities, but project leaders can struggle with implementing the necessary technical solutions. We provide both standardized and customized solutions to meet your project needs and help set you and your team up for success.

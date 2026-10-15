@@ -26,6 +26,11 @@
     color: var(--color-primary-text);
   }
 
+  .section-intro {
+    @apply max-w-2xl mx-auto text-center mb-12;
+    font-family: var(--font-serif);
+  }
+
   .border-accent {
     border-top: 2px solid var(--color-border);
     height: 1px;

@@ -1,6 +1,5 @@
 # general
 - readMore: Les mer
-- viewAllPost: Se alle poster
 - share: Del
 - authorsPosts: Poster av
 - authorsPubs: Publikasjoner av
@@ -8,6 +7,7 @@
 - contact: Kontakt
 
 - skipToContent: Hopp til innhold
+- bookConsultation: Book en konsultasjon
 
 # Months
 - January: Januar
@@ -24,6 +24,7 @@
 - December: Desember
 
 # Menu
+- about: Om oss
 - services: Tjenester
 - portfolio: Portfolio
 - team: Team

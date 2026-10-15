@@ -3,10 +3,7 @@
 {{ if gt (.Params.item | len) 0 }}
 <section class="section bg-dark" id="skills">
   <div class="max-w-7xl mx-auto px-4">
-    <div class="section-title reveal">
-      <h2>{{ with .Title }}{{ index (split . " ") 0 | safeHTML }}{{ end }} <span class="accent">{{ with .Title }}{{ after (len (index (split . " ") 0)) . | safeHTML }}{{ end }}</span></h2>
-      <div class="border-accent"></div>
-    </div>
+    {{ partial "helpers/section-title.html" .Title }}
 
     {{ with .Params.subtitle }}
       <div class="max-w-3xl mx-auto text-center mb-12 reveal">

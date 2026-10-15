@@ -1,12 +1,12 @@
 # general
 - readMore: Read more
-- viewAllPost: View All Posts
 - share: Share
 - authorsPosts: Posts by
 - authorsPubs: Publications by
 - all: All
 
 - skipToContent: Skip to content
+- bookConsultation: Book a consultation
 
 # Months
 - January: January
@@ -23,6 +23,7 @@
 - December: December
 
 # Menu
+- about: About us
 - services: Services
 - portfolio: Portfolio
 - team: Team

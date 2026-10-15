@@ -19,7 +19,7 @@
       {{ range site.Menus.main }}
         {{ $menuURL := .URL | absLangURL }}
         {{ $pageURL := $currentPage.Permalink | absLangURL }}
-        <a href="{{ if findRE `^#` .URL }}{{ if not $currentPage.IsHome }}{{ site.BaseURL | relLangURL }}{{ end }}{{ .URL }}{{ else }}{{ .URL | relLangURL }}{{ end }}"
+        <a href="{{ partial "helpers/link.html" (dict "url" .URL "page" $currentPage) }}"
            {{ if eq $menuURL $pageURL }}class="active"{{ end }}>
           {{ or (T .Identifier) .Name | safeHTML }}
         </a>
@@ -39,7 +39,7 @@
          class="absolute top-16 left-0 right-0 bg-dark md:hidden flex flex-col p-4 gap-4 z-50 border-t border-border"
          aria-label="Mobile navigation">
       {{ range site.Menus.main }}
-        <a href="{{ if findRE `^#` .URL }}{{ if not $currentPage.IsHome }}{{ site.BaseURL | relLangURL }}{{ end }}{{ .URL }}{{ else }}{{ .URL | relLangURL }}{{ end }}"
+        <a href="{{ partial "helpers/link.html" (dict "url" .URL "page" $currentPage) }}"
            @click="open = false">
           {{ or (T .Identifier) .Name | safeHTML }}
         </a>
