@@ -1,0 +1,21 @@
+<section class="sentence">
+  <div class="sentence__inner">
+    <h1 class="sentence__lead">{{ .Params.lead | markdownify }}</h1>
+    <p class="sentence__body">{{ .Params.body | markdownify }}</p>
+
+    <ul class="sentence__verbs">
+      {{ range .Params.verbs }}
+      <li><a href="{{ .link | relLangURL }}">{{ .word }}</a></li>
+      {{ end }}
+    </ul>
+
+    {{ with .Params.closer }}
+    <div class="sentence__act">
+      <a class="sentence__cta" href="{{ .link }}" target="_blank" rel="noopener">{{ .label }}</a>
+      <p class="sentence__fineprint">{{ .text | markdownify }}</p>
+    </div>
+    {{ end }}
+  </div>
+
+  <p class="sentence__whois">{{ .Params.whois | markdownify }}</p>
+</section>

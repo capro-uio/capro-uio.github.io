@@ -1,0 +1,14 @@
+{{ $cur := . }}
+<aside class="option-bar" aria-label="Landing page options">
+  <span class="option-bar__tag">Draft option</span>
+  <nav class="option-bar__links">
+    <a href="{{ "/" | relLangURL }}">Current site</a>
+    {{ range (where site.RegularPages "Section" "options").ByWeight }}
+      <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $cur.RelPermalink }} aria-current="page"{{ end }}>{{ index (split .Title "—") 0 | strings.TrimRight " " }}</a>
+    {{ end }}
+  </nav>
+  <details class="option-bar__why">
+    <summary>Why this one</summary>
+    <p>{{ .Params.premise | markdownify }}</p>
+  </details>
+</aside>

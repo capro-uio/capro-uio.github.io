@@ -1,0 +1,31 @@
+<section class="stuck">
+  <div class="stuck__inner">
+    <header class="stuck__head">
+      <h1>{{ .Params.lead }}</h1>
+      <p class="stuck__standfirst">{{ .Params.standfirst | markdownify }}</p>
+    </header>
+
+    <ol class="stuck__list">
+      {{ range $i, $item := .Params.items }}
+      <li class="stuck__row" style="--row: {{ $i }}">
+        <a href="{{ $item.link | relLangURL }}">
+          <span class="stuck__say">{{ $item.say }}</span>
+          <span class="stuck__answer">
+            <span class="stuck__answer-label">{{ $item.answer | safeHTML }}</span>
+            <svg class="stuck__arrow" viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+              <path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+      </li>
+      {{ end }}
+    </ol>
+
+    {{ with .Params.closer }}
+    <footer class="stuck__closer">
+      <p>{{ .text }}</p>
+      <a class="stuck__cta" href="{{ .link }}" target="_blank" rel="noopener">{{ .label }}</a>
+    </footer>
+    {{ end }}
+  </div>
+</section>

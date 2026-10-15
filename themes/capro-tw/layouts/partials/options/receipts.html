@@ -1,0 +1,47 @@
+<section class="receipts">
+  <header class="receipts__head">
+    <h1>{{ .Params.lead }}</h1>
+    <p class="receipts__standfirst">{{ .Params.standfirst | markdownify }}</p>
+  </header>
+
+  {{ range $i, $case := .Params.cases }}
+  <article class="receipt{{ if eq (mod $i 2) 1 }} receipt--flip{{ end }}">
+    <div class="receipt__media receipt__media--{{ default "mark" $case.kind }}">
+      {{ with site.GetPage $case.portfolio }}
+        {{ with (.Resources.ByType "image") }}
+          {{ $img := cond (eq $case.kind "photo") ((index . 0).Fill "1200x800 webp q82") ((index . 0).Fit "600x600 webp q90") }}
+          <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}"
+               alt="{{ $case.alt }}" loading="lazy" decoding="async">
+        {{ end }}
+      {{ end }}
+    </div>
+    <div class="receipt__text">
+      <h2 class="receipt__project">{{ $case.project }}</h2>
+      <p class="receipt__did">{{ $case.did }}</p>
+      <blockquote class="receipt__quote">{{ $case.quote | markdownify }}</blockquote>
+      <p class="receipt__who"><strong>{{ $case.who }}</strong><span>{{ $case.role }}</span></p>
+    </div>
+  </article>
+  {{ end }}
+
+  {{ with .Params.also }}
+  <div class="also">
+    <h2 class="also__title">{{ $.Params.alsoTitle }}</h2>
+    <div class="also__grid">
+      {{ range . }}
+      <figure class="also__item">
+        <blockquote>{{ .quote | markdownify }}</blockquote>
+        <figcaption><strong>{{ .who }}</strong><span>{{ .role }}</span></figcaption>
+      </figure>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+
+  {{ with .Params.closer }}
+  <footer class="receipts__closer">
+    <p>{{ .text }}</p>
+    <a class="receipts__cta" href="{{ .link }}" target="_blank" rel="noopener">{{ .label }}</a>
+  </footer>
+  {{ end }}
+</section>

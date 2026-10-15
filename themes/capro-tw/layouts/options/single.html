@@ -1,0 +1,6 @@
+{{ define "head" }}<meta name="robots" content="noindex">{{ end }}
+
+{{ define "main" }}
+  {{ partial "options/bar.html" . }}
+  {{ partial (printf "options/%s.html" .Params.variant) . }}
+{{ end }}

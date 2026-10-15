@@ -1,0 +1,19 @@
+{{ define "head" }}<meta name="robots" content="noindex">{{ end }}
+
+{{ define "main" }}
+<section class="optindex">
+  <h1>{{ .Title }}</h1>
+  <div class="optindex__intro">{{ .Content }}</div>
+
+  <ul class="optindex__list">
+    {{ range .Pages.ByWeight }}
+    <li>
+      <a href="{{ .RelPermalink }}">
+        <h2>{{ .Title }}</h2>
+        <p>{{ .Params.premise | markdownify | plainify }}</p>
+      </a>
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
