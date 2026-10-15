@@ -1,7 +1,5 @@
 ---
 title: Våre tjenester
-aliases:
-  - /service/
 item:
   - name: Kurs i statistikk og programmering
     icon: "fa-solid fa-chalkboard-user"
