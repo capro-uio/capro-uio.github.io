@@ -98,36 +98,6 @@
     transition: width 0.8s ease;
   }
 
-  /* Counters */
-  .counter-card {
-    width: 200px;
-    height: 200px;
-    padding: 32px 24px;
-    background-color: var(--color-dark);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .counter-card i {
-    @apply mb-3 block;
-    font-size: 40px;
-    color: var(--color-light);
-  }
-
-  .counter-card .counter-value {
-    font-size: 48px;
-    font-weight: 700;
-    color: var(--color-secondary);
-  }
-
-  .counter-card h3 {
-    @apply mt-2;
-    font-size: 0.9rem;
-    color: var(--color-body);
-  }
-
   /* Pricing */
   .price-card {
     @apply h-full;
