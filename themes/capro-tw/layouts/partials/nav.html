@@ -1,6 +1,10 @@
-<header class="site-nav" x-data="{ open: false, scrolled: false }" @scroll.window="scrolled = (window.scrollY > 50)" :class="scrolled && 'nav-scrolled'" @keydown.escape="open = false">
+{{ $page := . }}
+{{ $cur := .RelPermalink }}
+<header class="site-nav" x-data="{ open: false, scrolled: false }"
+        @scroll.window="scrolled = (window.scrollY > 50)" :class="scrolled && 'nav-scrolled'"
+        @keydown.escape="open = false">
   <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
-    <a href="{{ site.BaseURL | relLangURL }}" class="flex-shrink-0">
+    <a href="{{ site.Home.RelPermalink }}" class="flex-shrink-0">
       {{ with resources.GetMatch site.Params.logo }}
         <img src="{{ .Permalink }}" alt="{{ site.Title }}" height="50" width="auto" class="h-12">
       {{ else }}
@@ -8,26 +12,53 @@
       {{ end }}
     </a>
 
-    <button @click="open = !open" :aria-expanded="open" aria-label="Toggle navigation"
+    <button @click="open = !open" :aria-expanded="open.toString()" aria-label="Toggle navigation"
             class="md:hidden p-2">
       <i class="fa-solid fa-bars text-xl" x-show="!open"></i>
       <i class="fa-solid fa-xmark text-xl" x-show="open" x-cloak></i>
     </button>
 
-    <nav class="hidden md:flex items-center gap-6" aria-label="Main navigation">
-      {{ $currentPage := . }}
+    <nav class="hidden md:flex items-center gap-7" aria-label="Main navigation">
       {{ range site.Menus.main }}
-        {{ $menuURL := .URL | absLangURL }}
-        {{ $pageURL := $currentPage.Permalink | absLangURL }}
-        <a href="{{ partial "helpers/link.html" (dict "url" .URL "page" $currentPage) }}"
-           {{ if eq $menuURL $pageURL }}class="active"{{ end }}>
-          {{ or (T .Identifier) .Name | safeHTML }}
-        </a>
+        {{ $label := or (T .Identifier) .Name }}
+        {{ if .HasChildren }}
+          {{ $groupActive := false }}
+          {{ range .Children }}
+            {{ if eq (printf "%s" (partial "helpers/link.html" (dict "url" .URL "page" $page))) $cur }}
+              {{ $groupActive = true }}
+            {{ end }}
+          {{ end }}
+          {{/* Click only: Enter/Space on the button fires click, so a focusin
+               handler would re-open what the click just closed. */}}
+          <div class="nav-group" x-data="{ o: false }" @click.outside="o = false"
+               @keydown.escape="o = false; $refs.btn.focus()"
+               @focusout="if (!$el.contains($event.relatedTarget)) o = false">
+            <button type="button" x-ref="btn" @click="o = !o" :aria-expanded="o.toString()"
+                    class="nav-group__btn{{ if $groupActive }} active{{ end }}">
+              {{ $label | safeHTML }}
+              <svg viewBox="0 0 12 8" width="10" height="7" aria-hidden="true"
+                   class="nav-group__chev" :class="o && 'nav-group__chev--open'">
+                <path d="M1 1.5 6 6.5l5-5" fill="none" stroke="currentColor" stroke-width="1.6"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="nav-group__panel" x-show="o" x-cloak x-transition.opacity.duration.150ms>
+              {{ range .Children }}
+                {{ $href := printf "%s" (partial "helpers/link.html" (dict "url" .URL "page" $page)) }}
+                <a href="{{ $href }}" @click="o = false"
+                   {{ if eq $href $cur }}aria-current="page"{{ end }}>{{ or (T .Identifier) .Name | safeHTML }}</a>
+              {{ end }}
+            </div>
+          </div>
+        {{ else }}
+          {{ $href := printf "%s" (partial "helpers/link.html" (dict "url" .URL "page" $page)) }}
+          <a href="{{ $href }}"{{ if eq $href $cur }} class="active" aria-current="page"{{ end }}>{{ $label | safeHTML }}</a>
+        {{ end }}
       {{ end }}
       {{ if hugo.IsMultilingual }}
         <select class="lang-select" aria-label="Select language" onchange="location = this.value;">
-          {{ range .Page.AllTranslations }}
-            <option value="{{ .Permalink }}" {{ if eq $.Page.Lang .Lang }}selected{{ end }}>
+          {{ range $page.AllTranslations }}
+            <option value="{{ .Permalink }}" {{ if eq $page.Lang .Lang }}selected{{ end }}>
               {{ .Language.Params.languageName }}
             </option>
           {{ end }}
@@ -35,19 +66,29 @@
       {{ end }}
     </nav>
 
-    <nav x-show="open" x-transition x-cloak
-         class="absolute top-16 left-0 right-0 bg-dark md:hidden flex flex-col p-4 gap-4 z-50 border-t border-border"
+    {{/* Mobile: groups render open as labelled sections. A tap to reveal three
+         links is cost without benefit on a site this small. */}}
+    <nav x-show="open" x-transition x-cloak class="nav-mobile md:hidden"
          aria-label="Mobile navigation">
       {{ range site.Menus.main }}
-        <a href="{{ partial "helpers/link.html" (dict "url" .URL "page" $currentPage) }}"
-           @click="open = false">
-          {{ or (T .Identifier) .Name | safeHTML }}
-        </a>
+        {{ $label := or (T .Identifier) .Name }}
+        {{ if .HasChildren }}
+          <p class="nav-mobile__label">{{ $label | safeHTML }}</p>
+          {{ range .Children }}
+            {{ $href := printf "%s" (partial "helpers/link.html" (dict "url" .URL "page" $page)) }}
+            <a class="nav-mobile__child" href="{{ $href }}" @click="open = false"
+               {{ if eq $href $cur }}aria-current="page"{{ end }}>{{ or (T .Identifier) .Name | safeHTML }}</a>
+          {{ end }}
+        {{ else }}
+          {{ $href := printf "%s" (partial "helpers/link.html" (dict "url" .URL "page" $page)) }}
+          <a href="{{ $href }}" @click="open = false"
+             {{ if eq $href $cur }}aria-current="page"{{ end }}>{{ $label | safeHTML }}</a>
+        {{ end }}
       {{ end }}
       {{ if hugo.IsMultilingual }}
-        <select class="lang-select" aria-label="Select language" onchange="location = this.value;">
-          {{ range .Page.AllTranslations }}
-            <option value="{{ .Permalink }}" {{ if eq $.Page.Lang .Lang }}selected{{ end }}>
+        <select class="lang-select mt-3" aria-label="Select language" onchange="location = this.value;">
+          {{ range $page.AllTranslations }}
+            <option value="{{ .Permalink }}" {{ if eq $page.Lang .Lang }}selected{{ end }}>
               {{ .Language.Params.languageName }}
             </option>
           {{ end }}

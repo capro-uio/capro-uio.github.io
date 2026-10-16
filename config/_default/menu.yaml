@@ -1,22 +1,38 @@
+# Grouped by the question a visitor is asking, not by our org chart.
+#   "What we do"  -> can you help me, have you done it before, what does it cost
+#   "Who we are"  -> who would I be working with, are you credible
+#   Contact       -> the action, kept top level and never nested
 main:
+  - identifier: whatwedo
+    weight: 1
   - identifier: services
+    parent: whatwedo
     url: /services/
     weight: 1
-  - identifier: prices
-    url: /pricing/
-    weight: 2
   - identifier: portfolio
+    parent: whatwedo
     url: /portfolio/
+    weight: 2
+  - identifier: prices
+    parent: whatwedo
+    url: /pricing/
     weight: 3
+
+  - identifier: whoweare
+    weight: 2
   - identifier: team
+    parent: whoweare
     url: /team/
-    weight: 4
+    weight: 1
   - identifier: about
+    parent: whoweare
     url: /about/
-    weight: 5
+    weight: 2
   - identifier: news
+    parent: whoweare
     url: /news/
-    weight: 6
+    weight: 3
+
   - identifier: contact
     url: "#contact"
-    weight: 7
+    weight: 3
