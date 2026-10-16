@@ -1,0 +1,43 @@
+# Link checking. Runs over the built site, so it follows what readers actually
+# get — rendered links, aliases and redirects included.
+
+# Netlify preview aliases are generated per PR and 404 until the deploy lands;
+# the audit step already verifies the preview is reachable.
+exclude = [
+  '^https?://[0-9]+--capro-uio\.netlify\.app',
+  '^https?://localhost',
+  '^https?://127\.0\.0\.1',
+
+  # Served from outside Hugo: www.capro.dev/nettskjemar/ is live in production
+  # but is not built from this repo, so it is absent from every preview.
+  '^/nettskjemar',
+  'nettskjemar$',
+
+  # Known broken, awaiting triage (see note below).
+  '^https?://github\.com/LCBC-UiO/TSD-Data-import-Processing',
+  '^https?://www\.ub\.uio\.no/english/courses-events/events/all-libraries/2023/',
+  '^https?://www\.neurociencies\.ub\.edu',
+]
+
+# Known-broken links awaiting a decision from the team. Each one 404s or times
+# out today; the correct target is not something that can be guessed, so they
+# are parked here rather than left to fail every PR. Clear this list as they
+# are resolved — it is a TODO, not a permanent exemption.
+#   LCBC-UiO/TSD-Data-import-Processing: 404, likely private or renamed
+#   UiO library Digital Scholarship Days 2023: event page removed
+#   neurociencies.ub.edu: host does not respond
+
+# Sites that block automated requests but are fine in a browser.
+exclude_path = ["public/categories", "public/tags"]
+
+# LinkedIn, Twitter/X and some journals return 403/999 to any non-browser
+# client. Treating those as failures would train people to ignore this check.
+accept = ["200", "202", "206", "403", "429", "999"]
+
+max_retries = 2
+retry_wait_time = 3
+timeout = 20
+max_concurrency = 8
+
+# Mail links are checked for syntax only; no SMTP probing.
+include_mail = true

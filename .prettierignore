@@ -14,3 +14,7 @@ renv/
 
 # Content is authored prose; reflowing it churns diffs for no gain.
 content/
+
+# Tracked but covered by a global gitignore on at least one machine, so
+# changes to it cannot reliably be committed. Leave it alone.
+.vscode/

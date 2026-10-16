@@ -1,0 +1,65 @@
+name: Lint
+
+# Fast checks that need no deploy, so they fail in under a minute rather than
+# after a Netlify build. The checks that need a live site — axe-core and the
+# link check — run in build_preview.yaml against the deployed preview.
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Format, content and build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Formatting
+        run: npx --yes prettier@3 --check .
+
+      - name: Content accessibility
+        run: node scripts/a11y/content.mjs
+
+      - name: Set env parameters
+        run: echo "hugovr=$(cat .hugo_version)" >> $GITHUB_ENV
+
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: ${{ env.hugovr }}
+          extended: true
+
+      - name: Install theme dependencies
+        run: npm install --prefix themes/capro-tw
+
+      # Hugo exits 0 on a broken ref or a missing layout by default, so a page
+      # can silently render empty. Treat those warnings as failures.
+      - name: Build strictly
+        env:
+          HUGO_GMAP_API: ${{ secrets.HUGO_GMAP_API }}
+        run: hugo --minify --panicOnWarning --printPathWarnings
+
+      # The CSS bundle is committed, so a change to a source file without a
+      # rebuild ships stale styles. Catch that here rather than in review.
+      - name: CSS bundle is up to date
+        run: |
+          npm run build:css --prefix themes/capro-tw
+          if ! git diff --quiet -- themes/capro-tw/assets/css/vendor/tailwind.css; then
+            echo "::error::themes/capro-tw/assets/css/vendor/tailwind.css is stale."
+            echo "Run: npm run build:css --prefix themes/capro-tw"
+            git diff --stat -- themes/capro-tw/assets/css/vendor/tailwind.css
+            exit 1
+          fi

@@ -67,6 +67,21 @@ jobs:
             --alias ${{github.event.number}}
         shell: sh
 
+      - name: Content accessibility lint
+        run: node scripts/a11y/content.mjs
+
+      - name: Link check
+        id: links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --config lychee.toml
+            --no-progress
+            --base public
+            'public/**/*.html'
+          output: lychee-report.md
+          fail: true
+
       - name: Accessibility audit
         id: a11y
         if: github.event_name == 'pull_request'

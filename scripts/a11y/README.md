@@ -54,6 +54,6 @@ before navigating.
 
 **A clean run is a floor, not a ceiling.** Automated tooling catches roughly a
 third of real accessibility problems. It cannot tell you whether alt text is
-*meaningful*, whether the copy is understandable, or how the site sounds in a
+_meaningful_, whether the copy is understandable, or how the site sounds in a
 screen reader. Test with VoiceOver or NVDA before claiming the site is
 accessible.
