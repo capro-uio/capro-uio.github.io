@@ -89,7 +89,16 @@ async function settle(page) {
     document.head.appendChild(s);
     document.querySelectorAll('.reveal').forEach((e) => e.classList.add('visible'));
   });
-  await new Promise((r) => setTimeout(r, 250));
+  // Leaflet renders after networkidle2 fires. Without this the map's
+  // attribution is sometimes absent at scan time, so results flip between
+  // runs. Wait for it when a map is on the page.
+  if (await page.$('#contact-map')) {
+    await page
+      .waitForFunction(() => !!document.querySelector('.leaflet-control-attribution a'),
+        { timeout: 8000 })
+      .catch(() => {});
+  }
+  await new Promise((r) => setTimeout(r, 350));
 }
 
 async function axeScan(page, url, viewport, state, prep) {
@@ -121,8 +130,14 @@ const browser = await puppeteer.launch({
 const everything = await allRoutes();
 const routes = [];
 for (const r of SCAN_ALL ? everything : sampleByLayout(everything)) {
-  if (!(await isRedirectStub(r))) routes.push(r);
+  if (await isRedirectStub(r)) continue;
+  // A stale sitemap entry would otherwise be audited as the 404 page under
+  // the wrong URL. The 404 is worth checking, but on purpose (below).
+  const code = await fetch(BASE + r, { method: 'HEAD' })
+    .then((x) => x.status).catch(() => 0);
+  if (code === 200) routes.push(r);
 }
+routes.push('/404.html');   // a page real users land on
 
 // ---------------------------------------------------------------- axe pass
 for (const viewport of VIEWPORTS) {
