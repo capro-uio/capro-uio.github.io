@@ -32,7 +32,7 @@
   }
 
   .pubs-table .pub-title a:hover {
-    color: var(--color-primary);
+    color: var(--color-primary-text);
   }
 
   .pubs-table .pub-journal {

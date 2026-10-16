@@ -23,9 +23,9 @@ The package has extensive documentation [online](/nettskjemar), and we recommend
 This package is designed to help you effortlessly retrieve, process, and analyze survey data, all while being tidyverse-compatible. 
 Below, we highlight some of the key features of `nettskjemar` and why it might become your go-to tool for working with Nettskjema.
 
-### Key Features of `nettskjemar`
+## Key Features of `nettskjemar`
 
-#### **1. Download Form Submissions with Ease**
+### **1. Download Form Submissions with Ease**
 With just a few lines of R code, you can pull survey answers into a tidy dataframe. 
 This allows you to start working with your data immediately without spending time on manual downloads or file conversions.
 
@@ -38,7 +38,7 @@ formid <- 123823
 data <- ns_get_data(formid)
 ```
 
-#### **2. Raw Data in Long Format**
+### **2. Raw Data in Long Format**
 For those interested in timestamps or a detailed breakdown of how survey respondents interacted with individual questions, the package allows retrieval of **raw data** in long format. 
 This structure is perfect for analyzing response times or other granular aspects, and is only available to researchers through the API.
 
@@ -47,7 +47,7 @@ This structure is perfect for analyzing response times or other granular aspects
 raw_data <- ns_get_data(formid, type = "long")
 ```
 
-#### **3. Checkbox Matrix Handling**
+### **3. Checkbox Matrix Handling**
 Nettskjema includes an advanced checkbox matrix functionality, but the exported data can sometimes be tricky to manage. 
 Fortunately, `nettskjemar` offers tools to simplify and reshape checkbox data into user-friendly formats: such as as lists, delimited strings, or separated rows.
 
@@ -59,7 +59,7 @@ ns_get_data(formid) |>
   ns_alter_checkbox(to = "character", sep = ";")
 ```
 
-#### **4. Tidyverse-Compatible**
+### **4. Tidyverse-Compatible**
 The data retrieved with `nettskjemar` is fully compatible with the tidyverse ecosystem, making it an intuitive choice for R users already familiar with `dplyr`, `tidyr`, or `ggplot2`. 
 You can chain commands and explore your survey data with remarkable ease.
 
@@ -82,14 +82,14 @@ ns_get_data(formid) |>
   separate_rows(checkbox_matrix.1)
 ```
 
-### **Before Getting Started: Codebook Setup**
+## **Before Getting Started: Codebook Setup**
 To ensure smooth analysis in R, it’s recommended to enable and configure the **codebook** feature in the Nettskjema portal. 
 This makes it easier to work with well-labeled, organized data. 
 Head to the Nettskjema Portal’s *General Settings* and activate the "Codebook" option for your form. [Learn more about codebooks here](https://www.uio.no/tjenester/it/adm-app/nettskjema/hjelp/kodebok.html) (content in Norwegian).
 
 ---
 
-### Why Use `nettskjemar`?
+## Why Use `nettskjemar`?
 
 - **Time-Saving**: Skip manual data downloads—seamlessly fetch survey submissions directly into R.
 - **Customizable**: Tidy data the way you want—reshape checkbox matrices, fetch raw tall data, or stick with wide-form tibbles.

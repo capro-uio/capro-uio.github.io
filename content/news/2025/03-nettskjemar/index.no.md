@@ -22,9 +22,9 @@ Nedenfor fremhever vi noen av de viktigste funksjonene i `nettskjemar` og hvorfo
 
 ---
 
-### Viktige funksjoner i `nettskjemar`
+## Viktige funksjoner i `nettskjemar`
 
-#### **1. Last ned skjemabesvarelser med enkelhet**
+### **1. Last ned skjemabesvarelser med enkelhet**
 Med bare noen få linjer R-kode kan du hente svar til et ryddig data format. 
 Dette lar deg starte arbeidet med dataene dine umiddelbart uten å bruke tid på manuelle nedlastinger eller filkonverteringer.
 
@@ -36,7 +36,7 @@ formid <- 123823
 data <- ns_get_data(formid)
 ```
 
-#### **2. Rådata i langformat**
+### **2. Rådata i langformat**
 For de som er interessert i tidsstempler eller en detaljert oversikt over hvordan respondenter har interagert med individuelle spørsmål, tillater pakken henting av **rådata** i langt format.  
 Denne strukturen er perfekt for å analysere responstider eller andre detaljer, og er kun tilgjengelig for forskere gjennom API-et.
 
@@ -45,7 +45,7 @@ Denne strukturen er perfekt for å analysere responstider eller andre detaljer, 
 raw_data <- ns_get_data(formid, type = "long")
 ```
 
-#### **3. Håndtering av avkrysningsmatrise**
+### **3. Håndtering av avkrysningsmatrise**
 Nettskjema inkluderer et avansert avkrysningsmatriseverktøy (checkbox matrix), men de eksporterte dataene kan noen ganger være utfordrende å jobbe med. 
 Heldigvis tilbyr `nettskjemar` verktøy for å forenkle og omstrukturere avkrysningsdata til brukervennlige formater, som lister eller separerte strenger.
 
@@ -57,7 +57,7 @@ ns_get_data(formid) |>
   ns_alter_checkbox(to = "character", sep = ";")
 ```
 
-#### **4. Tidyverse-kompatibel**
+### **4. Tidyverse-kompatibel**
 Dataene hentet med `nettskjemar` er fullt kompatible med tidyverse-økosystemet, noe som gjør det til et intuitivt valg for R-brukere som allerede er kjent med `dplyr`, `tidyr` eller `ggplot2`. Du kan enkelt kjede kommandoer og utforske undersøkelsesdataene dine.
 
 ```r
@@ -79,7 +79,7 @@ ns_get_data(formid) |>
   separate_rows(checkbox_matrix.1)
 ```
 
-### **Før du starter: Aktivering av kodeboken**
+## **Før du starter: Aktivering av kodeboken**
 For å sikre en god arbeidsflyt i R, anbefales det å aktivere og konfigurere **kodebok**-funksjonen i Nettskjema-portalen.  
 Dette gjør det enklere å jobbe med godt merkede og organiserte data.
 
@@ -88,7 +88,7 @@ Gå til Nettskjema-portalen under *Generelle innstillinger* og aktiver "Kodebok"
 
 ---
 
-### Hvorfor bruke `nettskjemar`?
+## Hvorfor bruke `nettskjemar`?
 
 - **Tidsbesparende**: Hopp over manuelle nedlastinger—hent besvarelser direkte i R.  
 - **Tilpassbart**: Utform dataene slik du ønsker—endre avkrysningsmatriser, jobb med rådata i lange formater eller behold brede dataframes.  

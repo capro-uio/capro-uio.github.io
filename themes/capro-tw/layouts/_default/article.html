@@ -5,7 +5,8 @@
       <img src="{{ $image.RelPermalink }}" alt="{{ $.Title }}" class="w-full" loading="lazy">
     {{ end }}
     <div class="p-5">
-      <h3 class="text-lg mb-2"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+      {{/* Only rendered from _default/list.html, whose section title is the page h1. */}}
+      <h2 class="text-lg mb-2"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
       <p class="text-sm mb-4">{{ .Summary }}</p>
       <a class="btn btn-outline text-xs" href="{{ .Permalink }}">{{ i18n "readMore" }}</a>
     </div>

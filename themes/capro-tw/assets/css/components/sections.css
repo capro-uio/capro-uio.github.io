@@ -182,7 +182,7 @@
 
   .testimonial-nav:hover {
     border-color: var(--color-primary);
-    color: var(--color-primary);
+    color: var(--color-primary-text);
   }
 
   .testimonial-nav-left {
@@ -224,7 +224,7 @@
   .contact-icon {
     @apply mr-4 mt-1;
     font-size: 20px;
-    color: var(--color-primary);
+    color: var(--color-primary-text);
   }
 
   /* Portfolio */
