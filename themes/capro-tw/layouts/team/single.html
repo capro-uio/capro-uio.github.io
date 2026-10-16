@@ -3,7 +3,7 @@
   <div class="max-w-3xl mx-auto px-4 text-center">
     <div class="section-title">
       {{ with .Site.GetPage "section" "team" }}
-        <h2>{{ index (split .Params.single " ") 0 | safeHTML }} <span class="accent">{{ index (split .Params.single " ") 1 | safeHTML }}</span></h2>
+        <p class="section-title__label">{{ index (split .Params.single " ") 0 | safeHTML }} <span class="accent">{{ index (split .Params.single " ") 1 | safeHTML }}</span></p>
       {{ end }}
       <div class="border-accent"></div>
     </div>
@@ -18,7 +18,7 @@
         {{ end }}
       {{ end }}
       <figcaption>
-        <h3 class="text-xl font-bold mt-4">{{ .Title }}</h3>
+        <h1 class="text-xl font-bold mt-4">{{ .Title }}</h1>
       </figcaption>
     </figure>
     <hr class="border-border my-6">
@@ -69,7 +69,7 @@
     </div>
 
     <div id="orcid-pubs-loading" class="text-center py-8">
-      <p class="text-light">Loading publications from OpenAlex...</p>
+      <p class="text-muted">Loading publications from OpenAlex...</p>
     </div>
 
     <div id="orcid-pubs-error" class="text-center py-8" style="display:none;">

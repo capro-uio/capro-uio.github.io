@@ -67,6 +67,28 @@ jobs:
             --alias ${{github.event.number}}
         shell: sh
 
+      - name: Accessibility audit
+        id: a11y
+        if: github.event_name == 'pull_request'
+        run: |
+          url=https://${{github.event.number}}--capro-uio.netlify.app
+          # the alias is not always live the instant `netlify deploy` returns
+          for i in $(seq 1 20); do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "$url/") || code=000
+            [ "$code" = "200" ] && break
+            echo "waiting for $url ($code)"; sleep 5
+          done
+          npm ci --prefix scripts/a11y
+          BASE=https://${{github.event.number}}--capro-uio.netlify.app \
+            node scripts/a11y/run.mjs --report "$GITHUB_WORKSPACE/a11y-report.md"
+
+      - name: Comment PR – accessibility
+        if: always() && github.event_name == 'pull_request' && hashFiles('a11y-report.md') != ''
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          comment-tag: a11y
+          file-path: a11y-report.md
+
       - name: Comment PR – success
         if: success() && github.event_name == 'pull_request'
         uses: thollander/actions-comment-pull-request@v3
@@ -77,9 +99,20 @@ jobs:
             Please check it looks ok before merging.
 
       - name: Comment PR – failure
-        if: failure() && github.event_name == 'pull_request'
+        if: failure() && steps.a11y.outcome != 'failure' && github.event_name == 'pull_request'
         uses: thollander/actions-comment-pull-request@v3
         with:
           comment-tag: preview
           message: |
             :x: Preview build failed. [View logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+
+      # The audit failing means the preview deployed fine but has a11y issues;
+      # the report is posted separately, so just keep the preview link honest.
+      - name: Comment PR – deployed but audit failed
+        if: always() && steps.a11y.outcome == 'failure' && github.event_name == 'pull_request'
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          comment-tag: preview
+          message: |
+            :white_check_mark: Preview deployed at https://${{github.event.number}}--capro-uio.netlify.app
+            :warning: The accessibility audit found issues — see the report below.

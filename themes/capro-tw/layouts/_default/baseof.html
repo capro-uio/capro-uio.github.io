@@ -6,11 +6,12 @@
     {{ block "head" . }}{{ end }}
   </head>
   <body class="bg-grey text-body">
+    <a class="skip-link" href="#main">{{ i18n "skipToContent" }}</a>
     {{ partial "nav.html" . }}
-    {{ if .IsHome }}
-      {{ partial "sections/banner.html" . }}
-    {{ end }}
     <main id="main">
+      {{ if .IsHome }}
+        {{ partial "sections/banner.html" . }}
+      {{ end }}
       {{ block "main" . }}{{ end }}
     </main>
     {{ partial "footer/footer.html" . }}

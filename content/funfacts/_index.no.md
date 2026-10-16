@@ -11,4 +11,7 @@ item:
   - title : "Kaffekopper"
     icon : "fa-solid fa-mug-hot"
     count : "250"
+build:
+  render: false
+  list: false
 ---

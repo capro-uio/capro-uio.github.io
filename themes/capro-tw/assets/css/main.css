@@ -123,3 +123,13 @@
 @import "./components/team.css";
 @import "./components/pubs.css";
 @import "./components/footer-waves.css";
+
+/* Leaflet's stylesheet is unlayered and loads after ours, so an @layer rule
+   can never override it however specific. Its attribution links are #0078a8
+   on #333 text (2.55:1), under the 3:1 that link-in-text-block requires;
+   darkening moves them closer to the surrounding text, so underline instead.
+   Unlayered and two classes deep so it actually wins. */
+.leaflet-container .leaflet-control-attribution a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

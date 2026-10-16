@@ -34,7 +34,7 @@
           <div>
             {{ with .Params.author }}
               <p class="text-sm font-medium text-body">{{ .name }}</p>
-              <p class="text-xs text-light">{{ .position }}</p>
+              <p class="text-xs text-muted">{{ .position }}</p>
             {{ end }}
             <p class="text-xs text-muted mt-0.5">
               {{ with .Params.link }}<a href="{{ . }}">{{ end }}{{ .Title }}{{ with .Params.link }}</a>{{ end }}

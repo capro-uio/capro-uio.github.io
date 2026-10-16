@@ -22,7 +22,7 @@
 
   .btn-outline:hover {
     border-color: var(--color-primary);
-    color: var(--color-primary);
+    color: var(--color-primary-text);
   }
 
   .btn-hero {

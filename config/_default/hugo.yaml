@@ -5,3 +5,9 @@ pagination.pagerSize: "6"
 summaryLength: "15"
 enableGitInfo: true
 defaultContentLanguage: en
+
+# Monokai's comment colour is 3.03:1 on its own background, below AA for body
+# text. github-dark clears it at 6.15:1.
+markup:
+  highlight:
+    style: github-dark

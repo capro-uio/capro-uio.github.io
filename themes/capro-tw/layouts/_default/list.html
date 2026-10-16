@@ -2,10 +2,13 @@
 {{ with .CurrentSection }}
 <section class="section">
   <div class="max-w-7xl mx-auto px-4">
+    {{ with .Title }}
+    {{ $words := split . " " }}
     <div class="section-title reveal">
-      <h2>{{ with .Title }}{{ index (split . " ") 0 | safeHTML }}{{ end }} <span class="accent">{{ with .Title }}{{ index (split . " ") 1 | safeHTML }}{{ end }}</span></h2>
+      <h1>{{ index $words 0 | safeHTML }}{{ if gt (len $words) 1 }} <span class="accent">{{ delimit (after 1 $words) " " | safeHTML }}</span>{{ end }}</h1>
       <div class="border-accent"></div>
     </div>
+    {{ end }}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {{ $paginator := .Paginate .Data.Pages }}
       {{ range $paginator.Pages }}
