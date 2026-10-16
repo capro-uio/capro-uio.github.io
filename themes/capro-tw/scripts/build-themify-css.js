@@ -1,10 +1,10 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
-const srcDir = path.join(__dirname, "../node_modules/themify-icons/themify-icons");
-const outFile = path.join(__dirname, "../assets/css/vendor/themify-icons.css");
+const srcDir = path.join(__dirname, '../node_modules/themify-icons/themify-icons');
+const outFile = path.join(__dirname, '../assets/css/vendor/themify-icons.css');
 
-const icons = fs.readFileSync(path.join(srcDir, "_icons.scss"), "utf8");
+const icons = fs.readFileSync(path.join(srcDir, '_icons.scss'), 'utf8');
 
 const fontFace = `@font-face {
   font-family: themify;
@@ -31,9 +31,9 @@ const base = `[class^="ti-"],
   -moz-osx-font-smoothing: grayscale;
 }`;
 
-const tiIcons = icons.replace(/\.icon-/g, ".ti-");
+const tiIcons = icons.replace(/\.icon-/g, '.ti-');
 
-const css = [fontFace, base, tiIcons].join("\n");
+const css = [fontFace, base, tiIcons].join('\n');
 
 fs.writeFileSync(outFile, css);
-console.log("Generated", outFile);
+console.log('Generated', outFile);

@@ -3,6 +3,7 @@ title : "Get your project off on the right foot"
 button:
   label : "Start your project with us"
   link : "#contact"
+image_decorative: true
 ---
 
 Don't wait with planning your data workflow, set it up from the start. 

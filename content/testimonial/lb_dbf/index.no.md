@@ -1,6 +1,5 @@
 ---
 title: Lifebrain EU-Consortium, University of Barcelona
-link: http://www.neurociencies.ub.edu/david-bartres-faz/
 author: 
   name: David Bartrés-Faz
   position: Professor

@@ -12,6 +12,7 @@ aliases:
   - /news/2025/03-nettskjemar/
 summary: |
   Discover the improved `nettskjemar` R package with Nettskjema API v3 integration, enhanced functions, and tidyverse compatibility.
+image_alt: "The nettskjemar package fetching Nettskjema survey responses into R"
 ---
 
 A new version of our [nettskjemar](/nettskjemar) R-package has just been released.

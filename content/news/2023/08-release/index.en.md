@@ -13,6 +13,7 @@ aliases:
   - /news/2023-08-22-release
 summary: |
   Approval to become a core facility at UiO will make it easier for researchers to use Capro's services.
+image_decorative: true
 ---
 
 Right before the summer we were approved as a core facility at UiO. 

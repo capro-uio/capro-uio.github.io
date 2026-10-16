@@ -16,7 +16,7 @@ params:
     image: images/image-from-rawpixel-id-3337467-jpeg.jpg
     button:
       label: Our Services
-      link: '#services'
+      link: "#services"
   contact:
     title: Contact Us
     content: |
@@ -29,4 +29,3 @@ params:
           Forskningsveien 3A,
           0373 Oslo
           Norway
-          

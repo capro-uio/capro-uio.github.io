@@ -9,6 +9,7 @@ tags:
 date: 2025-03-17
 slug: nettskjemar-update
 summary: "Oppdag den forbedrede `nettskjemar` R-pakken med Nettskjema API v3-integrasjon, utvidede funksjoner og tidyverse-kompatibilitet."
+image_alt: "nettskjemar-pakken henter svar fra Nettskjema inn i R"
 ---
 
 En ny versjon av vår [nettskjemar](/nettskjemar) R-pakke er nettopp lansert.  

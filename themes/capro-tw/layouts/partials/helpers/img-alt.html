@@ -1,0 +1,46 @@
+{{- /* Alt text for a page-resource image. Returns the text only, so callers
+       write:  <img src="…" alt="{{ partial "helpers/img-alt.html" (dict
+                 "page" . "resource" $res "fallback" "Jane Doe") }}">
+
+       (Returning the whole attribute does not work: Go's html/template cannot
+       compute an output context for it and emits ZgotmplZ.)
+
+       Most images here need nothing written. A portrait is correctly labelled
+       by the person's name and a project mark by the project — that is what
+       `fallback` supplies. Only images carrying information the surrounding
+       text does not — a screenshot, a diagram, a chart — need real alt text.
+
+       For a page with one image, which is nearly all of them, put it at the
+       top level of the front matter:
+
+         image_alt: "Nettskjema's API returning survey answers as JSON"
+         image_decorative: true     # instead, if it is pure decoration
+
+       For a page with several images, label them individually. Hugo only
+       recognises src, name, title and params on a resource, so a custom key
+       has to live under params:
+
+         resources:
+           - src: api-diagram.png
+             params:
+               alt: "…"
+           - src: background.jpg
+             params:
+               decorative: true
+
+       An empty alt is the correct, deliberate value for decoration:
+       assistive technology skips the image entirely.
+*/ -}}
+{{- $alt := .fallback | default "" -}}
+
+{{- with .page -}}
+  {{- if .Params.image_decorative -}}{{- $alt = "" -}}{{- end -}}
+  {{- with .Params.image_alt -}}{{- $alt = . -}}{{- end -}}
+{{- end -}}
+
+{{- with .resource -}}
+  {{- if .Params.decorative -}}{{- $alt = "" -}}{{- end -}}
+  {{- with .Params.alt -}}{{- $alt = . -}}{{- end -}}
+{{- end -}}
+
+{{- $alt -}}

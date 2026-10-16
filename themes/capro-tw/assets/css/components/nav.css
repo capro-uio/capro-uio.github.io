@@ -3,7 +3,9 @@
     @apply sticky top-0 z-50;
     background-color: var(--color-dark);
     border-bottom: 1px solid transparent;
-    transition: border-color var(--transition-base), box-shadow var(--transition-base);
+    transition:
+      border-color var(--transition-base),
+      box-shadow var(--transition-base);
   }
 
   .site-nav.nav-scrolled {

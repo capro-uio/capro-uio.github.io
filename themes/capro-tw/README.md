@@ -15,12 +15,12 @@ Theme users run only Hugo. All npm dependencies are pre-built inside the theme v
 
 The npm build produces three categories of vendor assets:
 
-| Category | Source | Output |
-|---|---|---|
-| **CSS** | Tailwind CLI, Themify Icons | `assets/css/vendor/` |
-| **JS** | Alpine.js, Leaflet | `assets/js/vendor/` |
-| **SCSS** | FontAwesome | `assets/scss/vendor/` |
-| **Fonts** | FontAwesome, Themify, Space Grotesk, Spectral, Leaflet images | `static/webfonts/` |
+| Category  | Source                                                        | Output                |
+| --------- | ------------------------------------------------------------- | --------------------- |
+| **CSS**   | Tailwind CLI, Themify Icons                                   | `assets/css/vendor/`  |
+| **JS**    | Alpine.js, Leaflet                                            | `assets/js/vendor/`   |
+| **SCSS**  | FontAwesome                                                   | `assets/scss/vendor/` |
+| **Fonts** | FontAwesome, Themify, Space Grotesk, Spectral, Leaflet images | `static/webfonts/`    |
 
 Hugo then processes these in `layouts/partials/head/css.html`:
 
@@ -45,12 +45,12 @@ This triggers `postinstall`, which runs the full build: cleans vendor directorie
 
 ### npm scripts
 
-| Script | Description |
-|---|---|
-| `npm run build` | Full clean build (clean + setup + build:css + sync:deps) |
-| `npm run build:css` | Rebuild Tailwind CSS only |
-| `npm run update` | Update all npm packages and rebuild |
-| `npm run clean` | Remove all vendor directories |
+| Script              | Description                                              |
+| ------------------- | -------------------------------------------------------- |
+| `npm run build`     | Full clean build (clean + setup + build:css + sync:deps) |
+| `npm run build:css` | Rebuild Tailwind CSS only                                |
+| `npm run update`    | Update all npm packages and rebuild                      |
+| `npm run clean`     | Remove all vendor directories                            |
 
 ### Updating dependencies
 

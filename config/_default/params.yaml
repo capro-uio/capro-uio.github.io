@@ -1,6 +1,6 @@
 logo: images/capro_logo_dark.png
 author: Athanasia Monika Mowinckel
-google_analytics_id: ''
+google_analytics_id: ""
 post_share: true
 preloader:
   enable: false
@@ -10,8 +10,8 @@ cookies:
   expire_days: 2
 map:
   gmap_api: HUGO_GMAP_API
-  map_latitude: '59.943881952368336'
-  map_longitude: '10.71344642896635'
+  map_latitude: "59.943881952368336"
+  map_longitude: "10.71344642896635"
   map_marker: images/marker.png
 plugins:
   css:

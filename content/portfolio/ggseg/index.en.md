@@ -1,7 +1,7 @@
 ---
 title : ggseg - Brain atlas in R
 categories : ["R-packages"]
-link : "https://ggseg.r-universe.dev/ui#builds"
+link : "https://ggsegverse.r-universe.dev/builds"
 date: 2020-11-30
 ---
 
