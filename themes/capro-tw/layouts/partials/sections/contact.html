@@ -3,9 +3,12 @@
   <div class="max-w-5xl mx-auto px-4">
     {{ partial "helpers/section-title.html" .title }}
     {{ partial "helpers/section-intro.html" (.intro | markdownify) }}
-    {{ with .booking }}
-      <div class="text-center mb-14 reveal">
-        <a href="{{ . }}" class="btn btn-primary" target="_blank" rel="noopener">{{ i18n "bookConsultation" }}</a>
+    {{ with .email }}
+      {{/* The address is the label: people want to read and copy it, not just
+           fire a mail client they may not use. */}}
+      <div class="contact-email reveal">
+        <a href="mailto:{{ . }}">{{ . }}</a>
+        <p class="contact-email__note">{{ i18n "emailUs" }}</p>
       </div>
     {{ end }}
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start reveal">

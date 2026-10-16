@@ -18,6 +18,9 @@ item:
     content: |
       Code, documentation and workflows are handed over to you, so your project
       keeps running long after our hours on it are finished.
+build:
+  render: false
+  list: false
 ---
 
 CAPRO exists because capturing and processing large data has become central to

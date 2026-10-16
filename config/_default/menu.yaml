@@ -1,7 +1,9 @@
 # Grouped by the question a visitor is asking, not by our org chart.
-#   "What we do"  -> can you help me, have you done it before, what does it cost
-#   "Who we are"  -> who would I be working with, are you credible
-#   Contact       -> the action, kept top level and never nested
+#   "What we do" -> can you help me, have you done it before, what does it cost
+#   News         -> a plain link; it is a feed, not a category
+#   Contact      -> the action, never nested
+# The team lives on the landing page and at /team/, linked from there and
+# from the footer, so it does not need a nav slot of its own.
 main:
   - identifier: whatwedo
     weight: 1
@@ -18,21 +20,10 @@ main:
     url: /pricing/
     weight: 3
 
-  - identifier: whoweare
-    weight: 2
-  - identifier: team
-    parent: whoweare
-    url: /team/
-    weight: 1
-  - identifier: about
-    parent: whoweare
-    url: /about/
-    weight: 2
   - identifier: news
-    parent: whoweare
     url: /news/
-    weight: 3
+    weight: 2
 
   - identifier: contact
-    url: "#contact"
+    url: '#contact'
     weight: 3

@@ -30,12 +30,17 @@ params:
     button:
       label: Se alle tjenestene i detalj
       link: /services/
+  people:
+    title: Teamet
+    button:
+      label: Mer om teamet
+      link: /team/
   contact:
     title: Kontakt oss
-    booking: https://app.reclaim.ai/m/capro/initiating-talks
+    email: capro-contact@psykologi.uio.no
     intro: |
-      Usikker på om vi kan hjelpe? Book en gratis og uforpliktende samtale med
-      en i teamet, og vi sier det som det er.
+      Fortell oss hva du står fast på, så sier vi ærlig fra om vi kan hjelpe.
+      Den første samtalen er gratis for UiO-prosjekter.
     item:
       - icon: ti-location-pin
         info: |

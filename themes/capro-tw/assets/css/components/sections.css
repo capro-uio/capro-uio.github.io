@@ -258,4 +258,37 @@
     color: var(--color-light);
     margin-top: 8px;
   }
+
+  /* Contact */
+  .contact-email {
+    @apply text-center mb-14;
+  }
+
+  .contact-email a {
+    @apply inline-block;
+    font-family: var(--font-sans);
+    font-size: clamp(1.1rem, 3vw, 1.8rem);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    color: var(--color-primary-text);
+    word-break: break-word;
+    padding-bottom: 4px;
+    border-bottom: 1px solid color-mix(in oklch, var(--color-primary) 45%, transparent);
+    transition: color var(--transition-fast), border-color var(--transition-fast);
+  }
+
+  .contact-email a:hover,
+  .contact-email a:focus-visible {
+    color: var(--color-body);
+    border-bottom-color: var(--color-body);
+  }
+
+  .contact-email__note {
+    @apply mt-3;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-muted);
+  }
 }

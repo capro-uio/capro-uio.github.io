@@ -1,0 +1,40 @@
+{{ $page := . }}
+{{ $team := site.GetPage "section" "team" }}
+{{ with site.Params.people }}
+{{ if and $team (gt ($team.Pages | len) 0) }}
+<section class="section bg-dark" id="people">
+  <div class="max-w-5xl mx-auto px-4">
+    {{ partial "helpers/section-title.html" .title }}
+    {{ partial "helpers/section-intro.html" (.content | markdownify) }}
+
+    <ul class="people">
+      {{ range $team.Pages | shuffle }}
+      {{ $member := . }}
+      {{ $img := "" }}
+      {{ with ($member.Resources.ByType "image") }}
+        {{ $img = ((index . 0).Fill "320x320 webp q82" | images.Filter images.Grayscale).RelPermalink }}
+      {{ end }}
+      <li class="people__item">
+        <a href="{{ $member.RelPermalink }}">
+          {{ with $img }}
+            <img src="{{ . }}" width="320" height="320" alt="{{ $member.Title }}"
+                 loading="lazy" decoding="async">
+          {{ end }}
+          <span class="people__name">{{ $member.Title }}</span>
+          {{ with $member.Params.designation }}
+            <span class="people__role">{{ index . 0 }}</span>
+          {{ end }}
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+
+    {{ with .button }}
+    <div class="text-center mt-12 reveal">
+      <a href="{{ partial "helpers/link.html" (dict "url" .link "page" $page) }}" class="btn btn-outline">{{ .label }}</a>
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+{{ end }}

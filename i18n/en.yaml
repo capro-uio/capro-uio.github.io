@@ -6,7 +6,7 @@
 - all: All
 
 - skipToContent: Skip to content
-- bookConsultation: Book a consultation
+- emailUs: Email us
 
 # Months
 - January: January
@@ -23,9 +23,7 @@
 - December: December
 
 # Menu
-- whoweare: Who we are
 - whatwedo: What we do
-- about: About CAPRO
 - services: Services
 - portfolio: Our work
 - team: The team

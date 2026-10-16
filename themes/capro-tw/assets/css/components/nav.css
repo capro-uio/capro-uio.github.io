@@ -145,4 +145,20 @@
   .nav-mobile a[aria-current="page"] {
     color: var(--color-primary);
   }
+
+  .footer-links {
+    @apply flex flex-wrap justify-center gap-x-7 gap-y-2 mb-8;
+  }
+
+  .footer-links a {
+    @apply text-sm;
+    color: var(--color-muted);
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: 400;
+  }
+
+  .footer-links a:hover {
+    color: var(--color-primary);
+  }
 }

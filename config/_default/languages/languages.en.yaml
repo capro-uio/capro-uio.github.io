@@ -29,12 +29,17 @@ params:
     button:
       label: See all services in detail
       link: /services/
+  people:
+    title: The team
+    button:
+      label: More about the team
+      link: /team/
   contact:
     title: Contact Us
-    booking: https://app.reclaim.ai/m/capro/initiating-talks
+    email: capro-contact@psykologi.uio.no
     intro: |
-      Not sure whether we can help? Book a free, non-binding conversation with a
-      team member and we will tell you honestly.
+      Tell us what you are stuck on and we will tell you honestly whether we can
+      help. The first conversation is free for UiO projects.
     item:
       - icon: ti-location-pin
         info: |

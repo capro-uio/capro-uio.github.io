@@ -18,6 +18,9 @@ item:
     content: |
       Kode, dokumentasjon og arbeidsflyt overleveres til deg, slik at prosjektet
       ditt går videre lenge etter at timene våre er brukt opp.
+build:
+  render: false
+  list: false
 ---
 
 CAPRO finnes fordi innsamling og prosessering av store data har blitt sentralt i

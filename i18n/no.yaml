@@ -7,7 +7,7 @@
 - contact: Kontakt
 
 - skipToContent: Hopp til innhold
-- bookConsultation: Book en konsultasjon
+- emailUs: Send oss en e-post
 
 # Months
 - January: Januar
@@ -24,9 +24,7 @@
 - December: Desember
 
 # Menu
-- whoweare: Hvem vi er
 - whatwedo: Hva vi gjør
-- about: Om CAPRO
 - services: Tjenester
 - portfolio: Vårt arbeid
 - team: Teamet
