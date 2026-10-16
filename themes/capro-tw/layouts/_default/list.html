@@ -1,8 +1,9 @@
 {{ define "main" }}
+{{ $page := . }}
 {{ with .CurrentSection }}
 <section class="section">
   <div class="max-w-7xl mx-auto px-4">
-    {{ partial "helpers/section-title.html" .Title }}
+    {{ partial "helpers/section-title.html" (dict "title" .Title "page" $page) }}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {{ $paginator := .Paginate .Data.Pages }}
       {{ range $paginator.Pages }}

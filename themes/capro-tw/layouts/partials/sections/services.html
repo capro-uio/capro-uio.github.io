@@ -1,14 +1,15 @@
+{{ $page := . }}
 {{ with .Site.GetPage "section" "services" }}
 {{ if gt (.Params.item | len) 0 }}
 <section class="section bg-grey" id="services">
   <div class="max-w-7xl mx-auto px-4">
-    {{ partial "helpers/section-title.html" .Title }}
+    {{ partial "helpers/section-title.html" (dict "title" .Title "page" $page) }}
     {{ partial "helpers/section-intro.html" .Content }}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {{ range .Params.item }}
       <article class="service-block reveal">
         <i class="{{ .icon }}"></i>
-        <h3 class="text-xl mb-3">{{ .name | markdownify }}</h3>
+        {{ if eq ($page.Scratch.Get "itemLevel") 2 }}<h2 class="text-xl mb-3">{{ .name | markdownify }}</h2>{{ else }}<h3 class="text-xl mb-3">{{ .name | markdownify }}</h3>{{ end }}
         <p>{{ .content | markdownify }}</p>
       </article>
       {{ end }}

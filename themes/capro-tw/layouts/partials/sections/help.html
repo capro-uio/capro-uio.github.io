@@ -3,7 +3,7 @@
 {{ with site.Params.help }}
 <section class="section bg-grey" id="help">
   <div class="max-w-6xl mx-auto px-4">
-    {{ partial "helpers/section-title.html" .title }}
+    {{ partial "helpers/section-title.html" (dict "title" .title "page" $page) }}
     {{ partial "helpers/section-intro.html" (.content | markdownify) }}
     {{ with $services }}
     <ul class="help-grid reveal">

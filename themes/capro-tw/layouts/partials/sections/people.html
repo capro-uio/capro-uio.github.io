@@ -7,7 +7,7 @@
 {{ if and $team (gt ($team.Pages | len) 0) }}
 <section class="section bg-dark" id="people">
   <div class="max-w-5xl mx-auto px-4">
-    {{ partial "helpers/section-title.html" .title }}
+    {{ partial "helpers/section-title.html" (dict "title" .title "page" $page) }}
     {{ partial "helpers/section-intro.html" (.content | markdownify) }}
 
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">

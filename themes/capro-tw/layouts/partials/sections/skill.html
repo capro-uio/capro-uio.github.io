@@ -1,9 +1,10 @@
+{{ $page := . }}
 {{ with .Site.GetPage "section" "skill" }}
 {{ $section := . }}
 {{ if gt (.Params.item | len) 0 }}
 <section class="section bg-dark" id="skills">
   <div class="max-w-7xl mx-auto px-4">
-    {{ partial "helpers/section-title.html" .Title }}
+    {{ partial "helpers/section-title.html" (dict "title" .Title "page" $page) }}
 
     {{ with .Params.subtitle }}
       <div class="max-w-3xl mx-auto text-center mb-12 reveal">

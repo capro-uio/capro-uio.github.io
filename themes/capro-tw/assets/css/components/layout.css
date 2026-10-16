@@ -86,7 +86,8 @@
   }
 
   /* Links in running prose must be distinguishable without colour. */
-  .prose a {
+  .prose a,
+  .section-intro a {
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 1px;

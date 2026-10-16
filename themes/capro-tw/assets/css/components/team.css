@@ -82,7 +82,7 @@
   }
 
   .team-card--compact:hover .team-meta h3 a {
-    color: var(--color-primary);
+    color: var(--color-primary-text);
   }
 
   /* Whole photo is the link when there is no social overlay to compete with. */

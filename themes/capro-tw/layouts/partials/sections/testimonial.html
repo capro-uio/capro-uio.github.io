@@ -1,8 +1,9 @@
+{{ $page := . }}
 {{ with .Site.GetPage "section" "testimonial" }}
 {{ if gt (.Pages | len) 0 }}
 <section class="section bg-dark" id="testimonial">
   <div class="max-w-7xl mx-auto px-4">
-    {{ partial "helpers/section-title.html" .Title }}
+    {{ partial "helpers/section-title.html" (dict "title" .Title "page" $page) }}
     {{ partial "helpers/section-intro.html" .Content }}
     <div class="relative reveal" x-data="{ scroll(dir) { $refs.track.scrollBy({ left: dir * 392, behavior: 'smooth' }) } }">
     <button @click="scroll(-1)" class="testimonial-nav testimonial-nav-left" aria-label="Previous testimonial">

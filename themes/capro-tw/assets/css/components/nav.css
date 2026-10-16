@@ -65,7 +65,7 @@
 
   .nav-group__btn:hover,
   .nav-group__btn.active {
-    color: var(--color-primary);
+    color: var(--color-primary-text);
   }
 
   .nav-group__chev {
@@ -108,7 +108,7 @@
   .nav-group__panel a:hover,
   .nav-group__panel a[aria-current="page"] {
     background-color: var(--color-grey);
-    color: var(--color-primary);
+    color: var(--color-primary-text);
   }
 
   /* Mobile panel */
@@ -143,7 +143,7 @@
   }
 
   .nav-mobile a[aria-current="page"] {
-    color: var(--color-primary);
+    color: var(--color-primary-text);
   }
 
   .footer-links {
@@ -159,6 +159,6 @@
   }
 
   .footer-links a:hover {
-    color: var(--color-primary);
+    color: var(--color-primary-text);
   }
 }

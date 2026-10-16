@@ -1,7 +1,8 @@
+{{ $page := . }}
 {{ with site.Params.contact }}
 <section class="section bg-dark" id="contact">
   <div class="max-w-5xl mx-auto px-4">
-    {{ partial "helpers/section-title.html" .title }}
+    {{ partial "helpers/section-title.html" (dict "title" .title "page" $page) }}
     {{ partial "helpers/section-intro.html" (.intro | markdownify) }}
     {{ with .email }}
       {{/* The address is the label: people want to read and copy it, not just

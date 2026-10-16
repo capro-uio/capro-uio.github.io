@@ -1,8 +1,9 @@
+{{ $page := . }}
 {{ with .Site.GetPage "section" "team" }}
 {{ if gt (.Pages | len) 0 }}
 <section class="section bg-dark" id="team">
   <div class="max-w-7xl mx-auto px-4">
-    {{ partial "helpers/section-title.html" .Title }}
+    {{ partial "helpers/section-title.html" (dict "title" .Title "page" $page) }}
     {{ partial "helpers/section-intro.html" .Content }}
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {{ range .Pages | shuffle }}
