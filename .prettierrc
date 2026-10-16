@@ -1,0 +1,8 @@
+{
+  "printWidth": 88,
+  "singleQuote": true,
+  "overrides": [
+    { "files": "*.css", "options": { "singleQuote": false } },
+    { "files": ["*.yaml", "*.yml"], "options": { "singleQuote": false } }
+  ]
+}

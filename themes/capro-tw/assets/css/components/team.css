@@ -16,7 +16,9 @@
 
   .team-photo img {
     @apply w-full;
-    transition: transform var(--transition-base), filter var(--transition-base);
+    transition:
+      transform var(--transition-base),
+      filter var(--transition-base);
   }
 
   .team-photo:hover img {

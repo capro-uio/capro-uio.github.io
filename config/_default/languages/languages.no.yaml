@@ -1,6 +1,6 @@
 params:
   languageName: Norsk
-  languageCode: 'no'
+  languageCode: "no"
   weight: 2
   home: Hjem
   description: |
@@ -9,11 +9,11 @@ params:
   copyright: Opphavsrett &copy; 2022 Capro
   banner:
     title: Hva kunne prosjektet ditt virkelig utrette
-    content: 'Ikke sett deg fast i tekniske feller, la oss hjelpe deg!'
+    content: "Ikke sett deg fast i tekniske feller, la oss hjelpe deg!"
     image: images/image-from-rawpixel-id-3337467-jpeg.jpg
     button:
       label: Utforsk oss
-      link: '#services'
+      link: "#services"
   contact:
     title: Kontakt oss
     content: |
@@ -22,6 +22,6 @@ params:
     item:
       - icon: ti-location-pin
         info: |
-            Harald Schjelderups hus,
-            Forskningsveien 3A,
-            0373 Oslo
+          Harald Schjelderups hus,
+          Forskningsveien 3A,
+          0373 Oslo

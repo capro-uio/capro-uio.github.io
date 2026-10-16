@@ -1,18 +1,17 @@
-
 # CAPRO website repo
-[![Build site and deploy](https://github.com/capro-uio/capro-uio.github.io/actions/workflows/build_production.yaml/badge.svg)](https://github.com/capro-uio/capro-uio.github.io/actions/workflows/build_production.yaml)
 
+[![Build site and deploy](https://github.com/capro-uio/capro-uio.github.io/actions/workflows/build_production.yaml/badge.svg)](https://github.com/capro-uio/capro-uio.github.io/actions/workflows/build_production.yaml)
 
 ## Built with [Hugo](https://gohugo.io/)
 
 Hugo is a static site generator, generating html pages based on markdown and a predefined css/html theme.
-The pages can be previewed locally with 
+The pages can be previewed locally with
 
 ```
 hugo serve
 ```
 
-The terminal will let you know which localhost it is working on, by default it should be `1313`. 
+The terminal will let you know which localhost it is working on, by default it should be `1313`.
 
 ### Built with Github actions
 
@@ -24,7 +23,6 @@ Pleas always have a look at the preview before merging to main
 The other will build and deploy the production page to the main website URL.
 
 Team publications are updated one a week, and are cached for the remaining builds to speed up build time.
-
 
 ### Setting up new pages
 
@@ -59,11 +57,9 @@ Primary: #cc4c4c
 Secondary: #85bfbf
 Main grey: #353b43
 
-
 ### Logo
 
 Title: 80pt
 subtitle: 50pt, 5pt distance between letters
 
 Logo + Title in primary branding colour
-
