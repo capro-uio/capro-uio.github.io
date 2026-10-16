@@ -4,6 +4,9 @@ button:
   label : "Ta kontakt for hjelp"
   link : "#contact"
 image_decorative: true
+build:
+  render: false
+  list: false
 ---
 
 Ikke vent med å planlegge dataflyt for ditt prosjekt.

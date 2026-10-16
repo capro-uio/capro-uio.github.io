@@ -4,6 +4,9 @@ button:
   label : "Start your project with us"
   link : "#contact"
 image_decorative: true
+build:
+  render: false
+  list: false
 ---
 
 Don't wait with planning your data workflow, set it up from the start. 

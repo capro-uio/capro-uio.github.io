@@ -1,19 +1,29 @@
+# Grouped by the question a visitor is asking, not by our org chart.
+#   "What we do" -> can you help me, have you done it before, what does it cost
+#   News         -> a plain link; it is a feed, not a category
+#   Contact      -> the action, never nested
+# The team lives on the landing page and at /team/, linked from there and
+# from the footer, so it does not need a nav slot of its own.
 main:
+  - identifier: whatwedo
+    weight: 1
   - identifier: services
-    url: "#services"
-    weight: 2
+    parent: whatwedo
+    url: /services/
+    weight: 1
   - identifier: portfolio
-    url: "#portfolio"
-    weight: 3
-  - identifier: team
-    url: "#team"
-    weight: 4
+    parent: whatwedo
+    url: /portfolio/
+    weight: 2
   - identifier: prices
-    url: "#pricing"
-    weight: 5
+    parent: whatwedo
+    url: /pricing/
+    weight: 3
+
   - identifier: news
-    url: "#news"
-    weight: 6
+    url: /news/
+    weight: 2
+
   - identifier: contact
     url: "#contact"
-    weight: 7
+    weight: 3

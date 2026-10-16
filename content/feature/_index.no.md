@@ -32,6 +32,9 @@ item :
       for at akkurat ditt prosjekt og team kan
       får mest ut av dataene og jobbe effektivt.
 image_decorative: true
+build:
+  render: false
+  list: false
 ---
 
 Det blir stadig viktigere for samfunnsvitere og humanioa å fange og prosessere store data.

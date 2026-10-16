@@ -1,10 +1,12 @@
 # general
 - readMore: Read more
-- viewAllPost: View All Posts
 - share: Share
 - authorsPosts: Posts by
 - authorsPubs: Publications by
 - all: All
+
+- skipToContent: Skip to content
+- emailUs: Email us
 
 - skipToContent: Skip to content
 
@@ -23,9 +25,10 @@
 - December: December
 
 # Menu
+- whatwedo: What we do
 - services: Services
-- portfolio: Portfolio
-- team: Team
+- portfolio: Our work
+- team: The team
 - prices: Prices
 - news: News
 - contact: Contact

@@ -32,7 +32,7 @@ item :
       - If necessary, cost and time estimates for a project or workshop
     button:
       label : "Book a time"
-      link : "#book"
+      link : "#contact"
     
   - name : Project 
     price : 

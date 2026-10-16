@@ -4,28 +4,46 @@ params:
   weight: 1
   home: Home
   description: |
-    We deal with data processing and capture of big life science data for social
-    sciences and humanities.
+    CAPRO helps social science and humanities projects at the University of Oslo
+    capture, process, manage and analyse large and complex data.
   copyright: Copyright &copy; 2022 Capro
   banner:
-    title: Unlock Your Research Potential
+    title: We build the data workflows behind your research
     content: |
-      Whether you're conducting a study or developing a new product, don't let
-      technical skills hold you back. Contact us today to start realizing the true
-      potential of your research project.
+      CAPRO is a data engineering and data science team at the University of
+      Oslo. We help social science and humanities projects capture, process,
+      manage and analyse large and complex data.
     image: images/image-from-rawpixel-id-3337467-jpeg.jpg
+    buttons:
+      - label: What we can do
+        link: /services/
+        style: primary
+      - label: Get in touch
+        link: "#contact"
+        style: outline
+  help:
+    title: How we can help
+    content: |
+      Six things we do for research projects. Each one can be a one-off piece of
+      advice, a workshop, or a full project collaboration.
     button:
-      label: Our Services
-      link: "#services"
+      label: See all services in detail
+      link: /services/
+  people:
+    title: The team
+    button:
+      label: More about the team
+      link: /team/
   contact:
     title: Contact Us
-    content: |
-      [Book a consultation](https://app.reclaim.ai/m/capro/initiating-talks) to
-      learn more about what we can offer.
+    email: capro-contact@psykologi.uio.no
+    intro: |
+      Tell us what you are stuck on and we will tell you honestly whether we can
+      help. The first conversation is free for UiO projects.
     item:
       - icon: ti-location-pin
         info: |
-          Harald Schjelderups hus,
-          Forskningsveien 3A,
-          0373 Oslo
+          Harald Schjelderups hus,\
+          Forskningsveien 3A,\
+          0373 Oslo,\
           Norway
