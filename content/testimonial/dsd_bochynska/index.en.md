@@ -1,6 +1,5 @@
 ---
 title: Digital Scholarship Days Workshop
-link: https://www.ub.uio.no/english/courses-events/events/all-libraries/2023/digital-scholarship-days/quarto.html
 author: 
   name: Agata Bochynska
   position: Researcher & Research Librarian

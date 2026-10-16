@@ -1,9 +1,17 @@
 # Link checking. Runs over the built site, so it follows what readers actually
 # get — rendered links, aliases and redirects included.
+#
+# Running it locally: build with a local baseURL first, or absolute links
+# (og:image, canonical) point at the live site and 404 against fingerprints
+# that only exist in this build.
+#
+#   hugo --minify --baseURL http://localhost:1313/
+#   lychee --config lychee.toml --root-dir "$PWD/public" \
+#     --exclude '^http://localhost:1313' 'public/**/*.html'
 
-# Netlify preview aliases are generated per PR and 404 until the deploy lands;
-# the audit step already verifies the preview is reachable.
 exclude = [
+  # Preview aliases are generated per PR and 404 until the deploy lands; the
+  # audit step already verifies the preview is reachable.
   '^https?://[0-9]+--capro-uio\.netlify\.app',
   '^https?://localhost',
   '^https?://127\.0\.0\.1',
@@ -12,26 +20,14 @@ exclude = [
   # but is not built from this repo, so it is absent from every preview.
   '^/nettskjemar',
   'nettskjemar$',
-
-  # Known broken, awaiting triage (see note below).
-  '^https?://github\.com/LCBC-UiO/TSD-Data-import-Processing',
-  '^https?://www\.ub\.uio\.no/english/courses-events/events/all-libraries/2023/',
-  '^https?://www\.neurociencies\.ub\.edu',
 ]
 
-# Known-broken links awaiting a decision from the team. Each one 404s or times
-# out today; the correct target is not something that can be guessed, so they
-# are parked here rather than left to fail every PR. Clear this list as they
-# are resolved — it is a TODO, not a permanent exemption.
-#   LCBC-UiO/TSD-Data-import-Processing: 404, likely private or renamed
-#   UiO library Digital Scholarship Days 2023: event page removed
-#   neurociencies.ub.edu: host does not respond
-
-# Sites that block automated requests but are fine in a browser.
+# Taxonomy pages only repeat links that are already checked on the pages
+# themselves, and there are hundreds of them.
 exclude_path = ["public/categories", "public/tags"]
 
-# LinkedIn, Twitter/X and some journals return 403/999 to any non-browser
-# client. Treating those as failures would train people to ignore this check.
+# LinkedIn, Twitter/X and some journals answer any non-browser client with
+# 403 or 999. Failing on those would train people to ignore this check.
 accept = ["200", "202", "206", "403", "429", "999"]
 
 max_retries = 2
