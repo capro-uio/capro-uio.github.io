@@ -77,7 +77,7 @@ jobs:
           args: >-
             --config lychee.toml
             --no-progress
-            --base public
+            --root-dir ${{ github.workspace }}/public
             'public/**/*.html'
           output: lychee-report.md
           fail: true
