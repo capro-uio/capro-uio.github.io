@@ -18,7 +18,9 @@
   }
 
   @media (min-width: 768px) {
-    .banner-lead p { font-size: 1.2rem; }
+    .banner-lead p {
+      font-size: 1.2rem;
+    }
   }
 
   .help-grid {

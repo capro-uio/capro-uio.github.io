@@ -274,7 +274,9 @@
     word-break: break-word;
     padding-bottom: 4px;
     border-bottom: 1px solid color-mix(in oklch, var(--color-primary) 45%, transparent);
-    transition: color var(--transition-fast), border-color var(--transition-fast);
+    transition:
+      color var(--transition-fast),
+      border-color var(--transition-fast);
   }
 
   .contact-email a:hover,
