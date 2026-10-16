@@ -15,6 +15,7 @@ item :
 
   - name :  HPC analyse
     percent : 75%
+image_decorative: true
 ---
 
 Vi er dyktige på å oversette behovene til samfunnsvitere til tekniske løsninger som hjelper deres arbeid.

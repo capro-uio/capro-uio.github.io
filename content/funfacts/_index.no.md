@@ -14,4 +14,5 @@ item:
 build:
   render: false
   list: false
+image_decorative: true
 ---

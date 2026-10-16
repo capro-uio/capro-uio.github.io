@@ -13,6 +13,7 @@ aliases:
 slug: release
 summary: |
   Godkjenning som UiO kjernefasilitet gjør det mulig for oss å tilby tjenester til forskere ved UiO og andre institusjoner.
+image_decorative: true
 ---
 
 Like før sommeren ble vi godkjent som en kjernefasilitet ved UiO.

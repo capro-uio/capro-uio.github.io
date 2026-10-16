@@ -3,6 +3,7 @@ title : "Gi prosjektet ditt starthjelp"
 button:
   label : "Ta kontakt for hjelp"
   link : "#contact"
+image_decorative: true
 ---
 
 Ikke vent med å planlegge dataflyt for ditt prosjekt.

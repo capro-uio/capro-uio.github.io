@@ -1,4 +1,5 @@
 {{ with .Site.GetPage "section" "skill" }}
+{{ $section := . }}
 {{ if gt (.Params.item | len) 0 }}
 <section class="section bg-dark" id="skills">
   <div class="max-w-7xl mx-auto px-4">
@@ -22,7 +23,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
       <div class="reveal">
         {{ range first 1 (.Resources.ByType "image") }}
-          <img src="{{ .RelPermalink }}" alt="{{ $.Title }}" class="w-full" loading="lazy">
+          <img src="{{ .RelPermalink }}" alt="{{ partial "helpers/img-alt.html" (dict "page" $section "resource" . "fallback" "") }}" class="w-full" loading="lazy">
         {{ end }}
       </div>
       <div class="reveal space-y-8">
