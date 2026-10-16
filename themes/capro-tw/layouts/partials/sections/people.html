@@ -1,3 +1,6 @@
+{{/* The landing-page team strip: the same .team-card component the /team/
+     page uses, in a compact variant that drops the bio. One visual language
+     for the team in both places. */}}
 {{ $page := . }}
 {{ $team := site.GetPage "section" "team" }}
 {{ with site.Params.people }}
@@ -7,27 +10,28 @@
     {{ partial "helpers/section-title.html" .title }}
     {{ partial "helpers/section-intro.html" (.content | markdownify) }}
 
-    <ul class="people">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
       {{ range $team.Pages | shuffle }}
       {{ $member := . }}
-      {{ $img := "" }}
-      {{ with ($member.Resources.ByType "image") }}
-        {{ $img = ((index . 0).Fill "320x320 webp q82" | images.Filter images.Grayscale).RelPermalink }}
-      {{ end }}
-      <li class="people__item">
-        <a href="{{ $member.RelPermalink }}">
-          {{ with $img }}
-            <img src="{{ . }}" width="320" height="320" alt="{{ $member.Title }}"
-                 loading="lazy" decoding="async">
+      <div class="team-card team-card--compact reveal">
+        <div class="team-photo">
+          {{ with ($member.Resources.ByType "image") }}
+            {{ $img := (index . 0).Fill "500x500 webp q82" | images.Filter images.Grayscale }}
+            <img src="{{ $img.RelPermalink }}" width="500" height="500"
+                 alt="{{ $member.Title }}" loading="lazy" decoding="async">
           {{ end }}
-          <span class="people__name">{{ $member.Title }}</span>
+          <a class="team-photo__link" href="{{ $member.RelPermalink }}"
+             aria-label="{{ $member.Title }}"></a>
+        </div>
+        <div class="team-meta">
+          <h3><a href="{{ $member.RelPermalink }}">{{ $member.Title }}</a></h3>
           {{ with $member.Params.designation }}
-            <span class="people__role">{{ index . 0 }}</span>
+            <span>{{ delimit (first 2 .) " / " }}</span>
           {{ end }}
-        </a>
-      </li>
+        </div>
+      </div>
       {{ end }}
-    </ul>
+    </div>
 
     {{ with .button }}
     <div class="text-center mt-12 reveal">
