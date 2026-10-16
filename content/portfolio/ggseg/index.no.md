@@ -1,7 +1,7 @@
 ---
 title : ggseg - Hjerneatlas i R
 categories : ["R-pakke"]
-link : "https://ggseg.r-universe.dev/ui#builds"
+link : "https://ggsegverse.r-universe.dev/builds"
 date: 2020-11-30
 ---
 

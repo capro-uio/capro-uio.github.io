@@ -1,7 +1,7 @@
 ---
 title : Nettskjemar
 categories : ["R-pakke"]
-link : "https://github.com/capro-uio/uiothemes"
+link : "https://github.com/capro-uio/nettskjemar"
 date: 2019-01-31
 ---
 
