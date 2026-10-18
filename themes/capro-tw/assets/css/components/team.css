@@ -67,4 +67,26 @@
     @apply text-xs;
     color: var(--color-light);
   }
+
+  /* Compact variant used on the landing page: no bio, tighter meta. */
+  .team-card--compact .team-meta {
+    padding: 12px 14px;
+  }
+
+  .team-card--compact .team-meta h3 {
+    @apply text-base mb-0.5;
+  }
+
+  .team-card--compact .team-meta h3 a {
+    color: var(--color-secondary);
+  }
+
+  .team-card--compact:hover .team-meta h3 a {
+    color: var(--color-primary-text);
+  }
+
+  /* Whole photo is the link when there is no social overlay to compete with. */
+  .team-photo__link {
+    @apply absolute inset-0;
+  }
 }

@@ -4,24 +4,46 @@ params:
   weight: 2
   home: Hjem
   description: |
-    Vi jobber med dataprosessering og fanging av store livsvitenskapsdata
-    for samfunnsvitere og humaniora.
+    CAPRO hjelper prosjekter innen samfunnsvitenskap og humaniora ved
+    Universitetet i Oslo med å samle inn, prosessere, forvalte og analysere
+    store og komplekse data.
   copyright: Opphavsrett &copy; 2022 Capro
   banner:
-    title: Hva kunne prosjektet ditt virkelig utrette
-    content: "Ikke sett deg fast i tekniske feller, la oss hjelpe deg!"
+    title: Vi bygger dataflyten bak forskningen din
+    content: |
+      CAPRO er et team for dataflyt og dataanalyse ved Universitetet i Oslo. Vi
+      hjelper prosjekter innen samfunnsvitenskap og humaniora med å samle inn,
+      prosessere, forvalte og analysere store og komplekse data.
     image: images/image-from-rawpixel-id-3337467-jpeg.jpg
+    buttons:
+      - label: Dette kan vi gjøre
+        link: /services/
+        style: primary
+      - label: Ta kontakt
+        link: "#contact"
+        style: outline
+  help:
+    title: Slik kan vi hjelpe
+    content: |
+      Seks ting vi gjør for forskningsprosjekter. Hver av dem kan være et enkelt
+      råd, et kurs, eller et fullt prosjektsamarbeid.
     button:
-      label: Utforsk oss
-      link: "#services"
+      label: Se alle tjenestene i detalj
+      link: /services/
+  people:
+    title: Teamet
+    button:
+      label: Mer om teamet
+      link: /team/
   contact:
     title: Kontakt oss
-    content: |
-      [Book en time](https://app.reclaim.ai/m/capro/initiating-talks) for
-      konsultasjon om du ønsker mer informasjon om våre tjenester.
+    email: capro-contact@psykologi.uio.no
+    intro: |
+      Fortell oss hva du står fast på, så sier vi ærlig fra om vi kan hjelpe.
+      Den første samtalen er gratis for UiO-prosjekter.
     item:
       - icon: ti-location-pin
         info: |
-          Harald Schjelderups hus,
-          Forskningsveien 3A,
+          Harald Schjelderups hus,\
+          Forskningsveien 3A,\
           0373 Oslo

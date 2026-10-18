@@ -16,6 +16,9 @@ item :
   - name :  HPC analyses
     percent : 75%
 image_decorative: true
+build:
+  render: false
+  list: false
 ---
 
 We’re skilled in translating the needs of social scientists into technical solutions to aid their work.

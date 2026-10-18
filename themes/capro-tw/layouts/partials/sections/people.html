@@ -1,0 +1,44 @@
+{{/* The landing-page team strip: the same .team-card component the /team/
+     page uses, in a compact variant that drops the bio. One visual language
+     for the team in both places. */}}
+{{ $page := . }}
+{{ $team := site.GetPage "section" "team" }}
+{{ with site.Params.people }}
+{{ if and $team (gt ($team.Pages | len) 0) }}
+<section class="section bg-dark" id="people">
+  <div class="max-w-5xl mx-auto px-4">
+    {{ partial "helpers/section-title.html" (dict "title" .title "page" $page) }}
+    {{ partial "helpers/section-intro.html" (.content | markdownify) }}
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+      {{ range $team.Pages | shuffle }}
+      {{ $member := . }}
+      <div class="team-card team-card--compact reveal">
+        <div class="team-photo">
+          {{ with ($member.Resources.ByType "image") }}
+            {{ $img := (index . 0).Fill "500x500 webp q82" | images.Filter images.Grayscale }}
+            <img src="{{ $img.RelPermalink }}" width="500" height="500"
+                 alt="{{ $member.Title }}" loading="lazy" decoding="async">
+          {{ end }}
+          <a class="team-photo__link" href="{{ $member.RelPermalink }}"
+             aria-label="{{ $member.Title }}"></a>
+        </div>
+        <div class="team-meta">
+          <h3><a href="{{ $member.RelPermalink }}">{{ $member.Title }}</a></h3>
+          {{ with $member.Params.designation }}
+            <span>{{ delimit (first 2 .) " / " }}</span>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+
+    {{ with .button }}
+    <div class="text-center mt-12 reveal">
+      <a href="{{ partial "helpers/link.html" (dict "url" .link "page" $page) }}" class="btn btn-outline">{{ .label }}</a>
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+{{ end }}

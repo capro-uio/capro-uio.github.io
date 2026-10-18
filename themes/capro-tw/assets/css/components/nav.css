@@ -47,4 +47,118 @@
     border-color: var(--color-primary);
     color: #fff;
   }
+
+  /* Grouped nav */
+  .nav-group {
+    @apply relative;
+  }
+
+  .nav-group__btn {
+    @apply inline-flex items-center gap-2 text-sm font-medium uppercase tracking-wider;
+    color: var(--color-body);
+    background: none;
+    border: 0;
+    cursor: pointer;
+    padding: 0;
+    transition: color var(--transition-fast);
+  }
+
+  .nav-group__btn:hover,
+  .nav-group__btn.active {
+    color: var(--color-primary-text);
+  }
+
+  .nav-group__chev {
+    transition: transform var(--transition-fast);
+    opacity: 0.7;
+  }
+
+  .nav-group__chev--open {
+    transform: rotate(180deg);
+  }
+
+  .nav-group__panel {
+    @apply absolute left-0 flex flex-col z-50;
+    top: calc(100% + 0.9rem);
+    min-width: 13rem;
+    padding: 0.5rem 0;
+    background-color: var(--color-dark);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .nav-group__panel::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -0.9rem;
+    height: 0.9rem;
+  }
+
+  .nav-group__panel a {
+    @apply block text-sm normal-case tracking-normal;
+    padding: 0.6rem 1.1rem;
+    color: var(--color-body);
+    font-weight: 400;
+    letter-spacing: normal;
+    text-transform: none;
+  }
+
+  .nav-group__panel a:hover,
+  .nav-group__panel a[aria-current="page"] {
+    background-color: var(--color-grey);
+    color: var(--color-primary-text);
+  }
+
+  /* Mobile panel */
+  .nav-mobile {
+    @apply absolute top-16 left-0 right-0 flex flex-col p-5 gap-1 z-50;
+    background-color: var(--color-dark);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .nav-mobile > a {
+    padding-block: 0.6rem;
+  }
+
+  .nav-mobile__label {
+    @apply mt-4 mb-1;
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: var(--color-muted);
+  }
+
+  .nav-mobile__label:first-child {
+    @apply mt-0;
+  }
+
+  .nav-mobile__child {
+    padding-block: 0.6rem;
+    padding-left: 0.9rem;
+    border-left: 1px solid var(--color-border);
+  }
+
+  .nav-mobile a[aria-current="page"] {
+    color: var(--color-primary-text);
+  }
+
+  .footer-links {
+    @apply flex flex-wrap justify-center gap-x-7 gap-y-2 mb-8;
+  }
+
+  .footer-links a {
+    @apply text-sm;
+    color: var(--color-muted);
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: 400;
+  }
+
+  .footer-links a:hover {
+    color: var(--color-primary-text);
+  }
 }

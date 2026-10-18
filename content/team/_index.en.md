@@ -1,5 +1,7 @@
 ---
 title: Our Team
+aliases:
+  - /about/
 single: About Member
 ---
 

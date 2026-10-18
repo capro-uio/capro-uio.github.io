@@ -1,11 +1,5 @@
 {{/* Site JS: concat → minify → fingerprint */}}
-{{ $js := slice
-    (resources.Get "js/scroll-reveal.js")
-    (resources.Get "js/counter.js")
-    | resources.Concat "capro.js"
-    | minify
-    | fingerprint
-}}
+{{ $js := resources.Get "js/scroll-reveal.js" | minify | fingerprint }}
 <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
 
 {{/* Alpine.js */}}

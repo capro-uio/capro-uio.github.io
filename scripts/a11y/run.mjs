@@ -236,8 +236,12 @@ for (const viewport of VIEWPORTS) {
     `${stops.size} distinct stops`,
   );
 
-  // focus indicators
-  const fi = await page.evaluate(() => {
+  // Focus indicators. Only visible elements: a link inside a closed dropdown
+  // computes to outline-style:none, which is not a defect, and a check that
+  // cries wolf is a check people learn to ignore.
+  const probeFocus = () => {
+    const seen = (el) =>
+      !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
     const out = [];
     for (const s of [
       'a[href="#main"]',
@@ -245,8 +249,9 @@ for (const viewport of VIEWPORTS) {
       'footer a',
       '.nav-group__btn',
       'header nav a',
+      '.nav-group__panel a',
     ]) {
-      const el = document.querySelector(s);
+      const el = [...document.querySelectorAll(s)].find(seen);
       if (!el) continue;
       el.focus();
       const cs = getComputedStyle(el);
@@ -257,8 +262,23 @@ for (const viewport of VIEWPORTS) {
       });
     }
     return out;
-  });
-  for (const f of fi) note(`focus indicator on ${f.s}`, f.ok, f.outline);
+  };
+  for (const f of await page.evaluate(probeFocus)) {
+    note(`focus indicator on ${f.s}`, f.ok, f.outline);
+  }
+  // And again with the dropdown open, so its links are measurable. Open it
+  // with the keyboard, not a click: :focus-visible stops matching once the
+  // input modality is pointer, which reads as a missing focus ring.
+  const navBtn = await page.$('.nav-group__btn');
+  if (navBtn) {
+    await navBtn.focus();
+    await page.keyboard.press('Enter');
+    await new Promise((r) => setTimeout(r, 350));
+    for (const f of await page.evaluate(probeFocus)) {
+      if (f.s !== '.nav-group__panel a') continue;
+      note('focus indicator on an open dropdown link', f.ok, f.outline);
+    }
+  }
   await page.close();
 }
 

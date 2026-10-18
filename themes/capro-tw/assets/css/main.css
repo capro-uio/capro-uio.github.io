@@ -145,6 +145,7 @@
 @import "./components/layout.css";
 @import "./components/nav.css";
 @import "./components/buttons.css";
+@import "./components/hero.css";
 @import "./components/sections.css";
 @import "./components/team.css";
 @import "./components/pubs.css";

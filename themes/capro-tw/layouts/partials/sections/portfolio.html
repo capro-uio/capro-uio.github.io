@@ -1,11 +1,10 @@
+{{ $page := . }}
 {{ with .Site.GetPage "section" "portfolio" }}
 {{ if gt (.Pages | len) 0 }}
 <section class="section bg-grey" id="portfolio" x-data="{ filter: 'all' }">
   <div class="max-w-7xl mx-auto px-4">
-    <div class="section-title">
-      <h2>{{ with .Title }}{{ index (split . " ") 0 | safeHTML }}{{ end }} <span class="accent">{{ with .Title }}{{ after (len (index (split . " ") 0)) . | safeHTML }}{{ end }}</span></h2>
-      <div class="border-accent"></div>
-    </div>
+    {{ partial "helpers/section-title.html" (dict "title" .Title "page" $page) }}
+    {{ partial "helpers/section-intro.html" .Content }}
     <div class="flex flex-wrap justify-center gap-2 mb-8">
       <button @click="filter = 'all'" :class="filter === 'all' ? 'border-primary bg-primary text-white' : 'border-border text-body'" class="px-5 py-2 text-sm font-bold border bg-dark transition-colors">{{ i18n "all" }}</button>
       {{ $categories := slice }}
@@ -34,7 +33,7 @@
             </div>
           </div>
           <div class="portfolio-meta">
-            <h3>{{ if .Params.link }}<a href="{{ .Params.link | safeURL }}">{{ .Title }}</a>{{ else }}{{ .Title }}{{ end }}</h3>
+            {{ if eq ($page.Scratch.Get "itemLevel") 2 }}<h2>{{ if .Params.link }}<a href="{{ .Params.link | safeURL }}">{{ .Title }}</a>{{ else }}{{ .Title }}{{ end }}</h2>{{ else }}<h3>{{ if .Params.link }}<a href="{{ .Params.link | safeURL }}">{{ .Title }}</a>{{ else }}{{ .Title }}{{ end }}</h3>{{ end }}
             <p class="font-serif">{{ .Plain | truncate 120 }}</p>
           </div>
         </div>

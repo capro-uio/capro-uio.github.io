@@ -1,11 +1,13 @@
 # general
 - readMore: Les mer
-- viewAllPost: Se alle poster
 - share: Del
 - authorsPosts: Poster av
 - authorsPubs: Publikasjoner av
 - all: Alle
 - contact: Kontakt
+
+- skipToContent: Hopp til innhold
+- emailUs: Send oss en e-post
 
 - skipToContent: Hopp til innhold
 
@@ -24,9 +26,10 @@
 - December: Desember
 
 # Menu
+- whatwedo: Hva vi gjør
 - services: Tjenester
-- portfolio: Portfolio
-- team: Team
+- portfolio: Vårt arbeid
+- team: Teamet
 - prices: Priser
 - news: Nyheter
 - contact: Kontakt
