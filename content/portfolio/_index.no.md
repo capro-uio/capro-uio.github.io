@@ -1,5 +1,6 @@
 ---
-title : Våre arbeid
+title: "Ting vi har bygget"
 ---
 
-Utforsk noen av våre arbeider, og se hva vi kan best!
+Ekte prosjekter, og hva vi faktisk gjorde i hvert av dem. Ser noe her ut som
+din situasjon, så si fra når du tar kontakt.

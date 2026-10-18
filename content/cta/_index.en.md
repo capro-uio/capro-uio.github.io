@@ -1,13 +1,14 @@
 ---
-title : "Get your project off on the right foot"
+title: "Not sure your problem is on the list?"
 button:
-  label : "Start your project with us"
-  link : "#contact"
+  label: "Tell us what you are stuck on"
+  link: "#contact"
 image_decorative: true
 build:
   render: false
   list: false
 ---
 
-Don't wait with planning your data workflow, set it up from the start. 
-This way you can have better track of your entire project from day one!
+Ask anyway. Describe it in ordinary words — we will work out what it is called.
+The first conversation is free for UiO projects, and if it is not something we
+can help with, we will say so.

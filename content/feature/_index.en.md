@@ -1,31 +1,37 @@
 ---
-title: We specialize in data processing and capture of large life science data for social sciences and humanities
+title: What working with us is like
 
 item:
-  - title: Integrated Solutions
+  - title: We use what UiO already pays for
     icon: ti-rocket
     content: |
-      We offer integrated solutions using the University of Oslo's services, such as Nettskjema, Educloud, TSD, NREC, and GCP to facilitate secure data capture and storage.
-      
-  - title: High-Performance Computing Analyses
-    icon: ti-server
-    content: |
-      Complex and large data often require the use of High-Performance Computing for efficiency and speed. We have expertise in utilizing HPC resources to handle your data needs.
-      
-  - title: Standardized Data Output
+      Nettskjema, Educloud, TSD, NREC and Saga are already available to you. We
+      set your project up inside them rather than selling you something new.
+
+  - title: You own everything we build
     icon: ti-package
     content: |
-      We can provide standardized output from various data sources to ensure clean and interoperable data for you to work with, making it easier to integrate into your existing workflow.
-      
-  - title: Customization on Demand
-    icon: ti-announcement
+      Code, documentation and workflows are handed over to you. Nothing we write
+      needs us around to keep working.
+
+  - title: We can do it, or teach it
+    icon: ti-blackboard
     content: |
-      Our team offers custom solutions tailored to your project's specific needs and existing infrastructure, ensuring a workflow that best suits you and your team
-      
+      Some groups want the work done for them. Others want someone to sit with
+      their student for a week. Both are normal.
+
+  - title: You can start very small
+    icon: ti-check-box
+    content: |
+      An hour to work out whether a thing is even possible is a perfectly
+      sensible first job. Most collaborations start that way.
+
 image_decorative: true
 build:
   render: false
   list: false
 ---
 
-Capturing and processing large data sets is becoming increasingly important in social sciences and humanities, but project leaders can struggle with implementing the necessary technical solutions. We provide both standardized and customized solutions to meet your project needs and help set you and your team up for success.
+You do not need to know which of these services you need, or what any of it is
+called. Describe the problem and we will tell you which one it is — and whether
+it is something we can actually help with.

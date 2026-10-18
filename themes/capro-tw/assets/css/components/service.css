@@ -1,5 +1,4 @@
 @layer components {
-
   .svc-list {
     border-top: 1px solid var(--color-border);
   }

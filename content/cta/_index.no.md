@@ -1,13 +1,14 @@
 ---
-title : "Gi prosjektet ditt starthjelp"
+title: "Usikker på om problemet ditt står på listen?"
 button:
-  label : "Ta kontakt for hjelp"
-  link : "#contact"
+  label: "Fortell oss hva du står fast på"
+  link: "#contact"
 image_decorative: true
 build:
   render: false
   list: false
 ---
 
-Ikke vent med å planlegge dataflyt for ditt prosjekt.
-Med klar dataflyt fra starten kan du raskere jobbe med data når du har fått tilgang til det!
+Spør likevel. Beskriv det med vanlige ord — vi finner ut hva det heter. Den
+første samtalen er gratis for UiO-prosjekter, og er det ikke noe vi kan hjelpe
+med, sier vi fra.

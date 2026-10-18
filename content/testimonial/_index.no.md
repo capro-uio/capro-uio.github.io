@@ -1,5 +1,5 @@
 ---
-title: Utsagn fra kunder
+title: Hva folk sier etterpå
 build:
   render: false
   list: false
@@ -8,5 +8,4 @@ cascade:
     render: false
 ---
 
-Ikke ta oss på vårt ord. 
-Hør på våre kunder!
+Fra forskere som har jobbet med oss.

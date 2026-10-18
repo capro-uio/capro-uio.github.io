@@ -4,30 +4,34 @@ params:
   weight: 1
   home: Home
   description: |
-    CAPRO helps social science and humanities projects at the University of Oslo
-    capture, process, manage and analyse large and complex data.
+    CAPRO is a data and software team at the University of Oslo. We tidy up
+    messy research data, set up secure data collection, make analyses
+    reproducible, run large jobs on university servers, and teach research
+    groups to do it themselves.
   copyright: Copyright &copy; 2022 Capro
   banner:
-    title: We build the data workflows behind your research
+    title: Stuck on the data side of your research?
     content: |
-      CAPRO is a data engineering and data science team at the University of
-      Oslo. We help social science and humanities projects capture, process,
-      manage and analyse large and complex data.
+      CAPRO is a team of data and software people at the University of Oslo. We
+      tidy up messy data, set up collection that keeps it safe, make analyses
+      run the same way twice, get big jobs onto university servers, and teach
+      research groups to do all of it themselves. Mostly social science and
+      humanities — but anyone at UiO can ask.
     image: images/image-from-rawpixel-id-3337467-jpeg.jpg
     buttons:
-      - label: What we can do
+      - label: What we can help with
         link: /services/
         style: primary
-      - label: Get in touch
+      - label: Ask us about your project
         link: "#contact"
         style: outline
   help:
     title: How we can help
     content: |
-      Six things we do for research projects. Each one can be a one-off piece of
-      advice, a workshop, or a full project collaboration.
+      These are the problems people actually arrive with. Each one can be a
+      single conversation, a workshop, or a project we run alongside you.
     button:
-      label: See all services in detail
+      label: See what each one involves
       link: /services/
   people:
     title: The team
@@ -35,11 +39,12 @@ params:
       label: More about the team
       link: /team/
   contact:
-    title: Contact Us
+    title: Get in touch
     email: capro-contact@psykologi.uio.no
     intro: |
-      Tell us what you are stuck on and we will tell you honestly whether we can
-      help. The first conversation is free for UiO projects.
+      Tell us what you are stuck on, in your own words — you do not need to know
+      what the technical name for it is. We will tell you honestly whether we
+      can help. The first conversation is free for UiO projects.
     item:
       - icon: ti-location-pin
         info: |

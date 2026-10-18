@@ -5,5 +5,6 @@ aliases:
 single: About Member
 ---
 
-Our team is at hand to help social scientists and humanities to meet their project goals.
-We have a wide variety of skill sets spanning multiple programming languages and tools to help you in your project.
+We are the people who will actually do the work — not account managers who pass
+it on. Everyone here has worked in research, so you will not have to explain
+what an ethics approval is or why the grant deadline matters.

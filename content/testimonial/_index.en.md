@@ -1,5 +1,5 @@
 ---
-title: Client testimonials
+title: What people say afterwards
 build:
   render: false
   list: false
@@ -8,4 +8,4 @@ cascade:
     render: false
 ---
 
-Don't take our word for it, listen to our clients!
+From researchers who have worked with us.

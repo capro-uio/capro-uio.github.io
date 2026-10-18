@@ -1,5 +1,6 @@
 ---
-title : Our Works
+title: "Things we have built"
 ---
 
-Explore some of our select works, and see some of what we know best.
+Real projects, and what we actually did on each one. If something here looks
+like your situation, say so when you get in touch.
