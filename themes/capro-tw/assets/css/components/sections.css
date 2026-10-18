@@ -85,19 +85,6 @@
     color: var(--color-secondary);
   }
 
-  /* Skills */
-  .progress-bar-track {
-    @apply w-full rounded-full;
-    height: 6px;
-    background-color: var(--color-border);
-  }
-
-  .progress-bar-fill {
-    @apply h-full rounded-full;
-    background-color: var(--color-primary);
-    transition: width 0.8s ease;
-  }
-
   /* Pricing */
   .price-card {
     @apply h-full;
@@ -292,5 +279,30 @@
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--color-muted);
+  }
+
+  .skill-group__name {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-secondary);
+    margin-bottom: 0.9rem;
+  }
+
+  .skill-tags {
+    @apply flex flex-wrap gap-2 p-0;
+    list-style: none;
+  }
+
+  .skill-tags li {
+    @apply px-3 py-1;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--color-body);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
   }
 }

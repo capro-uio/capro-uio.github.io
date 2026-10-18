@@ -1,25 +1,37 @@
 ---
-title : Våre ferdigheter
-item :
-  - name : Dataflyt & prosessering
-    percent : 90%
+title: Dette jobber vi med
+group:
+  - name: Språk og verktøy
+    item:
+      - R
+      - Python
+      - Bash
+      - SQL
+      - Git
+      - Quarto
+      - Docker og Apptainer
 
-  - name :  Datafanging
-    percent : 70%
+  - name: Systemer ved UiO og nasjonalt
+    item:
+      - Nettskjema
+      - TSD
+      - Educloud
+      - NREC
+      - Saga og andre Sigma2-maskiner
+      - UiO GitLab
 
-  - name :  Datahåndtering
-    percent : 85%
-
-  - name :  Registerdata
-    percent : 55%
-
-  - name :  HPC analyse
-    percent : 75%
+  - name: Typer data
+    item:
+      - Spørreskjema- og surveydata
+      - MR og andre bildedata
+      - Registerdata
+      - Longitudinelle kohortstudier
+      - Sensor- og loggdata
 image_decorative: true
 build:
   render: false
   list: false
 ---
 
-Vi er dyktige på å oversette behovene til samfunnsvitere til tekniske løsninger som hjelper deres arbeid.
-  
+Står ikke det du bruker på listen, så spør likevel. Mye av det vi gjør er å
+lese andres oppsett og finne ut hvordan vi får det til å kjøre.
