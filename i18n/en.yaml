@@ -6,9 +6,8 @@
 - all: All
 
 - skipToContent: Skip to content
+- whatYouGet: What you get
 - emailUs: Email us
-
-- skipToContent: Skip to content
 
 # Months
 - January: January
