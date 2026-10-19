@@ -9,7 +9,8 @@
         {{/* Rendered at 130x48; ship 2x, not the 1624px original. width="auto"
              is not a valid HTML width attribute, so the header reflowed on load. */}}
         {{ $logo := .Resize "260x webp" }}
-        <img src="{{ $logo.Permalink }}" alt="{{ site.Title }}" width="130" height="48" class="h-12">
+        <img src="{{ $logo.Permalink }}" alt="{{ site.Title }}" width="130" height="48"
+             fetchpriority="high" class="h-12">
       {{ else }}
         <span class="text-xl font-bold">{{ site.Title }}</span>
       {{ end }}
