@@ -40,7 +40,7 @@ item:
     content: |
       Cognitive paradigms, questionnaires and response-time tasks written in
       JavaScript, so the same experiment runs in the lab, on a participant's
-      own machine or on a tablet. Our jsPsych Studio assembles one without you
+      own machine or on a tablet. Our tachisto builder assembles one without you
       writing any, and exports a self-contained experiment you can upload to
       Cognition.run, Pavlovia or JATOS, or host on a server of your own. A UiO
       platform to run them on is in development with the IT department.

@@ -27,28 +27,15 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" x-ref="grid">
       {{ range .Pages }}
-      {{ $sch := newScratch }}
-      {{ range first 1 (.Resources.ByType "image") }}
-        {{ $image := (.Resize "600x webp").Fit "400x400 webp" }}
-        {{ $sch.Set "img" $image.RelPermalink }}
-      {{ end }}
       {{ $cats := slice }}
       {{ range .Params.categories }}{{ $cats = $cats | append (. | urlize) }}{{ end }}
       <div data-cats="{{ delimit $cats " " }}"
            x-show="filter === 'all' {{ range $cats }}|| filter === '{{ . }}'{{ end }}" x-transition>
         <div class="portfolio-card">
-          <div class="portfolio-img">
-            {{/* The heading below names the project; repeating it here makes a
-                 screen reader say it twice. */}}
-            <img src="{{ $sch.Get "img" }}" alt="" loading="lazy">
-            {{/* Decorative hover affordance only. It used to hold a second link
-                 to the same URL, which was invisible on touch and still
-                 focusable while transparent. */}}
-            <div class="portfolio-overlay" aria-hidden="true">
-              <span class="search-circle"><i class="ti-new-window"></i></span>
-            </div>
-          </div>
           <div class="portfolio-meta">
+            {{/* Without a logo panel the card needs an anchor of its own, and
+                 the categories are what the filter above is matching on. */}}
+            <p class="portfolio-card__cats">{{ delimit .Params.categories " · " }}</p>
             {{ $tag := cond (eq ($page.Scratch.Get "itemLevel") 2) "h2" "h3" }}
             {{ if eq $tag "h2" }}
               <h2>{{ partial "helpers/portfolio-link.html" . }}</h2>
@@ -59,7 +46,9 @@
                  off mid-clause ("a large collection of …"). */}}
             {{ $blurb := .Description }}
             {{ if not $blurb }}
-              {{ $blurb = index (split .Plain ". ") 0 | strings.TrimSpace }}
+              {{/* .Plain keeps the entities the renderer produced, so an
+                   apostrophe arrived here as the literal "&rsquo;". */}}
+              {{ $blurb = index (split (.Plain | htmlUnescape) ". ") 0 | strings.TrimSpace }}
               {{ if not (strings.HasSuffix $blurb ".") }}{{ $blurb = printf "%s." $blurb }}{{ end }}
             {{ end }}
             <p class="font-serif">{{ $blurb }}</p>
