@@ -10,6 +10,4 @@ build:
 ---
 
 Ask anyway. Describe it in ordinary words — we will work out what it is called.
-The first conversation is free for UiO projects and charged by the hour for
-everyone else. Either way, if it is not something we can help with, we will say
-so.
+If it is not something we can help with, we will say so.
