@@ -1,0 +1,63 @@
+@layer components {
+  /* Two across, so four items read as a short list rather than a grid of
+     products. Collapses before the body text gets too narrow to hold a line. */
+  .offer-grid {
+    @apply grid gap-px p-0;
+    grid-template-columns: 1fr;
+    list-style: none;
+    background-color: var(--color-border);
+    border: 1px solid var(--color-border);
+  }
+
+  @media (min-width: 820px) {
+    .offer-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .offer {
+    background-color: var(--color-grey);
+    padding: 2rem 1.75rem;
+  }
+
+  /* The product name is the thing being scanned for, so it leads — but it is
+     a label, not the heading. The heading is what the thing does. */
+  .offer__label {
+    @apply flex items-center gap-3 mb-3;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-secondary);
+    margin-bottom: 0.75rem;
+  }
+
+  .offer__label i {
+    font-size: 1.15rem;
+    color: var(--color-primary-text);
+  }
+
+  .offer__tagline {
+    font-size: 1.15rem;
+    font-weight: 400;
+    line-height: 1.3;
+    color: var(--color-body);
+    text-wrap: balance;
+  }
+
+  .offer__body {
+    @apply mt-3;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--color-muted);
+    margin-bottom: 0;
+  }
+
+  /* Links in this copy must be distinguishable without colour, same as .prose. */
+  .offer__body a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+}

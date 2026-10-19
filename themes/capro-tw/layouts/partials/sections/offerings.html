@@ -1,0 +1,38 @@
+{{ $page := . }}
+{{ with .Site.GetPage "section" "offerings" }}
+{{ if gt (.Params.item | len) 0 }}
+<section class="section bg-dark" id="offerings">
+  <div class="max-w-6xl mx-auto px-4">
+    {{ partial "helpers/section-title.html" (dict "title" .Title "page" $page) }}
+    {{ partial "helpers/section-intro.html" .Content }}
+    {{/* The services answer "can you help with my problem". These answer "do
+         you do the specific thing I came for" — the named things a visitor
+         already has a word for, which is how most of them arrive. */}}
+    {{ $itemIsH2 := eq ($page.Scratch.Get "itemLevel") 2 }}
+
+    <ul class="offer-grid reveal">
+      {{ range .Params.item }}
+      <li class="offer">
+        <p class="offer__label">
+          {{ with .icon }}<i class="{{ . }}" aria-hidden="true"></i>{{ end }}
+          <span>{{ .name }}</span>
+        </p>
+        {{ if $itemIsH2 }}
+          <h2 class="offer__tagline">{{ .tagline | markdownify }}</h2>
+        {{ else }}
+          <h3 class="offer__tagline">{{ .tagline | markdownify }}</h3>
+        {{ end }}
+        <p class="offer__body">{{ .content | markdownify }}</p>
+      </li>
+      {{ end }}
+    </ul>
+
+    {{ with .Params.button }}
+    <div class="text-center mt-12 reveal">
+      <a href="{{ partial "helpers/link.html" (dict "url" .link "page" $page) }}" class="btn btn-outline">{{ .label }}</a>
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+{{ end }}

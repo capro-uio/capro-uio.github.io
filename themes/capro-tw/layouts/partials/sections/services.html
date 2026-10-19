@@ -41,7 +41,9 @@
             {{ else }}
               <h4>{{ i18n "whatYouGet" }}</h4>
             {{ end }}
-            {{ . | markdownify }}
+            {{/* markdownify returns the text without its wrapping <p>, so the
+                 paragraph the stylesheet targets has to be written here. */}}
+            <p>{{ . | markdownify }}</p>
           </div>
           {{ end }}
 
