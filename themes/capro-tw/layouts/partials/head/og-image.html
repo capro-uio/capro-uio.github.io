@@ -1,0 +1,40 @@
+{{- /* Resolves the social card for a page and returns it as a resource.
+
+       Platforms crop og:image to roughly 1.91:1 and render it large. A bare
+       logo on transparency — which is what this site used to send — arrives as
+       a small mark floating on whatever background the platform picks.
+
+       So every page gets a composed 1200x630 card on the brand's dark ground:
+       the page's own image centred on it when it has one, the CAPRO logo when
+       it does not. Remote images are skipped on purpose; a build should not
+       depend on someone else's host being reachable. */ -}}
+{{- $page := . -}}
+
+{{- $subject := "" -}}
+{{- with $page.Resources.ByType "image" -}}
+  {{- $subject = index . 0 -}}
+{{- end -}}
+{{- if not $subject -}}
+  {{- with $page.Params.image -}}
+    {{- if not (strings.HasPrefix . "http") -}}
+      {{- $subject = resources.GetMatch . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $subject -}}
+  {{- $subject = resources.GetMatch site.Params.logo -}}
+{{- end -}}
+
+{{- $card := "" -}}
+{{- with $subject -}}
+  {{- $fitted := .Fit "620x470 png" -}}
+  {{- $padX := div (sub 1200 $fitted.Width) 2 -}}
+  {{- $padY := div (sub 630 $fitted.Height) 2 -}}
+  {{- /* Padding is rounded down, so top up the last row/column to land on
+         exactly 1200x630 — platforms reject cards that miss their stated size. */ -}}
+  {{- $padR := sub 1200 (add $fitted.Width $padX) -}}
+  {{- $padB := sub 630 (add $fitted.Height $padY) -}}
+  {{- $card = $fitted.Filter (images.Padding $padY $padR $padB $padX "#20242b") -}}
+{{- end -}}
+
+{{- return $card -}}
