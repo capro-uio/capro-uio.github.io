@@ -2,7 +2,7 @@
 {{ with .Site.GetPage "section" "services" }}
 {{ if gt (.Params.item | len) 0 }}
 <section class="section bg-grey" id="services">
-  <div class="max-w-5xl mx-auto px-4">
+  <div class="max-w-6xl mx-auto px-4">
     {{ partial "helpers/section-title.html" (dict "title" .Title "page" $page) }}
     {{ partial "helpers/section-intro.html" .Content }}
     {{/* The problem is the item heading; "What you get" sits one level under
@@ -10,40 +10,45 @@
     {{ $itemIsH2 := eq ($page.Scratch.Get "itemLevel") 2 }}
 
     <div class="svc-list">
-      {{ range .Params.item }}
+      {{ range $i, $item := .Params.item }}
       <article class="svc reveal">
         <header class="svc__head">
-          {{ with .icon }}<i class="{{ . }}" aria-hidden="true"></i>{{ end }}
-          <div>
-            {{ if $itemIsH2 }}
-              <h2 class="svc__problem">{{ .problem | markdownify }}</h2>
-            {{ else }}
-              <h3 class="svc__problem">{{ .problem | markdownify }}</h3>
-            {{ end }}
-            <p class="svc__name">{{ .name }}</p>
-          </div>
+          {{/* The number is rhythm, not information — the items are not a
+               sequence and nothing refers to them by number. */}}
+          <p class="svc__num" aria-hidden="true">
+            {{ with $item.icon }}<i class="{{ . }}"></i>{{ end }}
+            <span>{{ printf "%02d" (add $i 1) }}</span>
+          </p>
+          {{ if $itemIsH2 }}
+            <h2 class="svc__problem">{{ $item.problem | markdownify }}</h2>
+          {{ else }}
+            <h3 class="svc__problem">{{ $item.problem | markdownify }}</h3>
+          {{ end }}
+          <p class="svc__name">{{ $item.name }}</p>
         </header>
 
-        {{ with .symptoms }}
-        <ul class="svc__symptoms">
-          {{ range . }}<li>{{ . | markdownify }}</li>{{ end }}
-        </ul>
-        {{ end }}
-
-        {{ with .deliver }}
-        <div class="svc__deliver">
-          {{ if $itemIsH2 }}
-            <h3>{{ i18n "whatYouGet" }}</h3>
-          {{ else }}
-            <h4>{{ i18n "whatYouGet" }}</h4>
+        <div class="svc__body">
+          {{ with $item.symptoms }}
+          <ul class="svc__symptoms">
+            {{ range . }}<li>{{ . | markdownify }}</li>{{ end }}
+          </ul>
           {{ end }}
-          {{ . | markdownify }}
-        </div>
-        {{ end }}
 
-        {{ with .practical }}
-        <p class="svc__practical">{{ . }}</p>
-        {{ end }}
+          {{ with $item.deliver }}
+          <div class="svc__deliver">
+            {{ if $itemIsH2 }}
+              <h3>{{ i18n "whatYouGet" }}</h3>
+            {{ else }}
+              <h4>{{ i18n "whatYouGet" }}</h4>
+            {{ end }}
+            {{ . | markdownify }}
+          </div>
+          {{ end }}
+
+          {{ with $item.practical }}
+          <p class="svc__practical">{{ . }}</p>
+          {{ end }}
+        </div>
       </article>
       {{ end }}
     </div>

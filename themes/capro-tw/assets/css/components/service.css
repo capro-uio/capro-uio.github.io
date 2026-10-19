@@ -3,34 +3,65 @@
     border-top: 1px solid var(--color-border);
   }
 
+  /* Problem on the left, evidence and payoff on the right, so the seven items
+     read as a catalogue rather than one long column. Collapses to a single
+     column before the two halves get too narrow to hold their own. */
   .svc {
-    padding-block: clamp(2.25rem, 5vw, 3.5rem);
+    @apply grid gap-x-12 gap-y-6;
+    grid-template-columns: 1fr;
+    padding-block: clamp(2.5rem, 5vw, 4rem);
     border-bottom: 1px solid var(--color-border);
+    transition: background-color var(--transition-base);
+  }
+
+  @media (min-width: 900px) {
+    .svc {
+      grid-template-columns: minmax(0, 19rem) minmax(0, 1fr);
+      padding-inline: clamp(1rem, 2vw, 2rem);
+      margin-inline: calc(-1 * clamp(1rem, 2vw, 2rem));
+    }
+
+    .svc:hover {
+      background-color: rgba(236, 239, 241, 0.025);
+    }
   }
 
   .svc__head {
-    @apply flex items-start gap-5;
+    position: relative;
   }
 
-  .svc__head > i {
-    font-size: 1.5rem;
+  .svc__num {
+    @apply flex items-center gap-3 mb-4;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--color-muted);
+  }
+
+  .svc__num i {
+    font-size: 1.15rem;
     color: var(--color-primary-text);
-    line-height: 1.4;
-    flex-shrink: 0;
+  }
+
+  .svc__num::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: var(--color-border);
   }
 
   .svc__problem {
-    font-size: clamp(1.35rem, 3vw, 2rem);
+    font-size: clamp(1.35rem, 3vw, 1.9rem);
     font-weight: 400;
     line-height: 1.2;
     letter-spacing: -0.015em;
     color: var(--color-body);
     text-wrap: balance;
-    max-width: 24ch;
   }
 
   .svc__name {
-    @apply mt-2;
+    @apply mt-3;
     font-family: var(--font-sans);
     font-size: 0.72rem;
     font-weight: 500;
@@ -40,8 +71,8 @@
   }
 
   .svc__symptoms {
-    @apply mt-7 grid gap-x-8 gap-y-3 p-0;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    @apply grid gap-x-8 gap-y-3 p-0;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     list-style: none;
   }
 
@@ -65,12 +96,16 @@
     background-color: var(--color-primary);
   }
 
+  /* The payoff is the thing a reader is scanning for, so it gets the accent
+     rule and the only sans-serif body text in the item. */
   .svc__deliver {
-    @apply mt-8;
-    max-width: 58ch;
+    @apply mt-7 pl-5;
+    border-left: 2px solid var(--color-primary);
   }
 
+  .svc__deliver h3,
   .svc__deliver h4 {
+    font-family: var(--font-sans);
     font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -89,16 +124,10 @@
 
   .svc__practical {
     @apply mt-5;
-    max-width: 58ch;
     font-family: var(--font-sans);
     font-size: 0.88rem;
     line-height: 1.6;
     color: var(--color-muted);
-  }
-
-  .svc__practical strong {
-    color: var(--color-body);
-    font-weight: 500;
   }
 
   /* Links in this copy must be distinguishable without colour, same as .prose. */
