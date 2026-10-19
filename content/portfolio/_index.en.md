@@ -1,6 +1,7 @@
 ---
-title: "Things we have built"
+title : "Open source we have built"
 ---
 
-Real projects, and what we actually did on each one. If something here looks
-like your situation, say so when you get in touch.
+Everything here is open source and free to use, whether or not you ever work
+with us. Most of it came out of a project that needed it, and we released it so
+the next group would not have to build the same thing again.
