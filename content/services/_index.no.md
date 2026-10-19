@@ -95,5 +95,6 @@ item:
 ---
 
 De fleste kommer med ett konkret problem, ikke med en tjeneste i tankene.
-Står ikke ditt på listen, er det likevel verdt å spørre — den første samtalen er
-gratis for UiO-prosjekter.
+Står ikke ditt på listen, er det likevel verdt å spørre. Mesteparten av arbeidet
+vårt er for forskningsgrupper ved UiO, men vi tar også oppdrag fra offentlige
+etater og private bedrifter.

@@ -15,8 +15,8 @@ params:
       We are a data and software team at the University of Oslo. We tidy up
       messy data, set up safe collection, make analyses run the same way twice,
       and get big jobs onto university servers — or teach your group to do it
-      themselves. Mostly social science and humanities, but anyone at UiO can
-      ask.
+      themselves. Mostly for social science and humanities at UiO, though
+      public agencies and private companies hire us too.
     image: images/image-from-rawpixel-id-3337467-jpeg.jpg
     buttons:
       - label: What we can help with
@@ -44,7 +44,8 @@ params:
     intro: |
       Tell us what you are stuck on, in your own words — you do not need to know
       what the technical name for it is. We will tell you honestly whether we
-      can help. The first conversation is free for UiO projects.
+      can help. The first conversation is free for UiO projects, and charged by
+      the hour for everyone else.
     item:
       - icon: ti-location-pin
         info: |

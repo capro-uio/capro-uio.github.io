@@ -2,11 +2,12 @@
 title: Slik er det å jobbe med oss
 
 item:
-  - title: Vi bruker det UiO allerede betaler for
+  - title: Vi bruker det du allerede har
     icon: ti-rocket
     content: |
-      Nettskjema, Educloud, TSD, NREC og Saga har du allerede tilgang til. Vi
-      setter opp prosjektet ditt inne i dem, framfor å selge deg noe nytt.
+      Ved UiO betyr det Nettskjema, Educloud, TSD, NREC og Saga, som du allerede
+      betaler for. Utenfor betyr det dine egne systemer. Uansett jobber vi inne
+      i dem, framfor å selge deg noe nytt.
 
   - title: Du eier alt vi bygger
     icon: ti-package

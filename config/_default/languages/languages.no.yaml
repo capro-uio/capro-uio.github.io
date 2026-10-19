@@ -15,8 +15,8 @@ params:
       Vi er et data- og programvareteam ved Universitetet i Oslo. Vi rydder opp
       i rotete data, setter opp trygg innsamling, får analyser til å gi samme
       svar to ganger, og får store jobber opp på universitetets tjenere — eller
-      lærer gruppa di å gjøre det selv. Mest samfunnsvitenskap og humaniora, men
-      alle ved UiO kan spørre.
+      lærer gruppa di å gjøre det selv. Mest for samfunnsvitenskap og humaniora
+      ved UiO, men offentlige etater og private bedrifter leier oss også inn.
     image: images/image-from-rawpixel-id-3337467-jpeg.jpg
     buttons:
       - label: Dette kan vi hjelpe med
@@ -44,7 +44,8 @@ params:
     intro: |
       Fortell oss hva du står fast på, med dine egne ord — du trenger ikke vite
       hva det heter på fagspråket. Vi sier ærlig fra om vi kan hjelpe. Den
-      første samtalen er gratis for UiO-prosjekter.
+      første samtalen er gratis for UiO-prosjekter, og faktureres per time for
+      alle andre.
     item:
       - icon: ti-location-pin
         info: |

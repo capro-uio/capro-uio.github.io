@@ -97,5 +97,6 @@ item:
 ---
 
 Most people arrive with one specific problem rather than a service in mind.
-If yours isn't listed, it is still worth asking — the first conversation is free
-for UiO projects.
+If yours isn't listed, it is still worth asking. Most of our work is for
+research groups at UiO, but we take projects from public agencies and private
+companies as well.

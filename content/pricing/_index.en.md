@@ -58,7 +58,9 @@ item :
 ---
 
 We charge by the hour, and the rate depends on who you are: the closer to the
-Department of Psychology, the cheaper. Prices below exclude VAT.
+Department of Psychology, the cheaper. Public agencies and private companies
+are welcome too, at the non-commercial and commercial rates. Prices below
+exclude VAT.
 
 The rate covers our working hours, not computing time. If your project needs a
 secure data area like TSD, or time on a large machine like Saga, you apply for

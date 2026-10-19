@@ -65,7 +65,9 @@ item :
 ---
 
 Vi tar betalt per time, og satsen avhenger av hvem du er: jo nærmere
-Psykologisk institutt, jo billigere. Prisene under er uten mva.
+Psykologisk institutt, jo billigere. Offentlige etater og private bedrifter er
+også velkomne, til ikke-kommersiell eller kommersiell sats. Prisene under er
+uten mva.
 
 Satsen dekker vår arbeidstid, ikke regnetid. Trenger prosjektet et sikkert
 dataområde som TSD, eller tid på en stor maskin som Saga, søker og betaler du

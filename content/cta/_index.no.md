@@ -10,5 +10,5 @@ build:
 ---
 
 Spør likevel. Beskriv det med vanlige ord — vi finner ut hva det heter. Den
-første samtalen er gratis for UiO-prosjekter, og er det ikke noe vi kan hjelpe
-med, sier vi fra.
+første samtalen er gratis for UiO-prosjekter og faktureres per time for alle
+andre. Uansett: er det ikke noe vi kan hjelpe med, sier vi fra.
