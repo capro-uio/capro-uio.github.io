@@ -5,52 +5,38 @@
   <div class="max-w-6xl mx-auto px-4">
     {{ partial "helpers/section-title.html" (dict "title" .Title "page" $page) }}
     {{ partial "helpers/section-intro.html" .Content }}
-    {{/* The problem is the item heading; "What you get" sits one level under
-         it, so the pair tracks whether this section owns the page's h1. */}}
+    {{/* The problem is the item heading. Nothing sits above it: the number and
+         the "What you get" label were scaffolding, and seven of each made the
+         page read as a table rather than a list of problems. */}}
     {{ $itemIsH2 := eq ($page.Scratch.Get "itemLevel") 2 }}
 
     <div class="svc-list">
-      {{ range $i, $item := .Params.item }}
+      {{ range .Params.item }}
       <article class="svc reveal">
-        <header class="svc__head">
-          {{/* The number is rhythm, not information — the items are not a
-               sequence and nothing refers to them by number. */}}
-          <p class="svc__num" aria-hidden="true">
-            {{ with $item.icon }}<i class="{{ . }}"></i>{{ end }}
-            <span>{{ printf "%02d" (add $i 1) }}</span>
-          </p>
-          {{ if $itemIsH2 }}
-            <h2 class="svc__problem">{{ $item.problem | markdownify }}</h2>
-          {{ else }}
-            <h3 class="svc__problem">{{ $item.problem | markdownify }}</h3>
-          {{ end }}
-          <p class="svc__name">{{ $item.name }}</p>
-        </header>
+        {{ if $itemIsH2 }}
+          <h2 class="svc__problem">{{ .problem | markdownify }}</h2>
+        {{ else }}
+          <h3 class="svc__problem">{{ .problem | markdownify }}</h3>
+        {{ end }}
+        {{/* Sentence case, not another tracked-uppercase label. Someone who
+             knows the term can still find it; nobody else has to read it. */}}
+        <p class="svc__name">{{ .name }}</p>
 
-        <div class="svc__body">
-          {{ with $item.symptoms }}
-          <ul class="svc__symptoms">
-            {{ range . }}<li>{{ . | markdownify }}</li>{{ end }}
-          </ul>
-          {{ end }}
+        {{ with .symptoms }}
+        <ul class="svc__symptoms">
+          {{ range . }}<li>{{ . | markdownify }}</li>{{ end }}
+        </ul>
+        {{ end }}
 
-          {{ with $item.deliver }}
-          <div class="svc__deliver">
-            {{ if $itemIsH2 }}
-              <h3>{{ i18n "whatYouGet" }}</h3>
-            {{ else }}
-              <h4>{{ i18n "whatYouGet" }}</h4>
-            {{ end }}
-            {{/* markdownify returns the text without its wrapping <p>, so the
-                 paragraph the stylesheet targets has to be written here. */}}
-            <p>{{ . | markdownify }}</p>
-          </div>
-          {{ end }}
+        {{ with .deliver }}
+        {{/* The payoff is the largest body text in the item and the only teal
+             on the page, so it carries the emphasis the filled box used to. */}}
+        <p class="svc__deliver"><span class="svc__arrow" aria-hidden="true">&rarr;</span>{{ . | markdownify }}</p>
+        {{ end }}
 
-          {{ with $item.practical }}
-          <p class="svc__practical">{{ . }}</p>
-          {{ end }}
-        </div>
+        {{ with .practical }}
+        <p class="svc__practical">{{ . }}</p>
+        {{ end }}
       </article>
       {{ end }}
     </div>

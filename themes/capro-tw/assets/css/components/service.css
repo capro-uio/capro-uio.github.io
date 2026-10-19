@@ -1,77 +1,50 @@
 @layer components {
+  /* Seven items in one column, alternating which edge they sit on. The
+     staggered hairlines are what stop the page reading as a table: the rule
+     under each item is as wide as the item, so the rhythm is visible before
+     any of the text is read. */
   .svc-list {
     border-top: 1px solid var(--color-border);
   }
 
-  /* Problem on the left, evidence and payoff on the right, so the seven items
-     read as a catalogue rather than one long column. Collapses to a single
-     column before the two halves get too narrow to hold their own. */
   .svc {
-    @apply grid gap-x-12 gap-y-6;
-    grid-template-columns: 1fr;
-    padding-block: clamp(2.5rem, 5vw, 4rem);
+    padding-block: clamp(2.75rem, 6vw, 5rem);
     border-bottom: 1px solid var(--color-border);
-    transition: background-color var(--transition-base);
   }
 
   @media (min-width: 900px) {
     .svc {
-      grid-template-columns: minmax(0, 19rem) minmax(0, 1fr);
-      padding-inline: clamp(1rem, 2vw, 2rem);
-      margin-inline: calc(-1 * clamp(1rem, 2vw, 2rem));
+      max-width: 48rem;
     }
 
-    .svc:hover {
-      background-color: rgba(236, 239, 241, 0.025);
+    .svc:nth-child(even) {
+      margin-left: auto;
     }
   }
 
-  .svc__head {
-    position: relative;
-  }
-
-  .svc__num {
-    @apply flex items-center gap-3 mb-4;
-    font-family: var(--font-sans);
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    color: var(--color-muted);
-  }
-
-  .svc__num i {
-    font-size: 1.15rem;
-    color: var(--color-primary-text);
-  }
-
-  .svc__num::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background-color: var(--color-border);
-  }
-
+  /* The one piece of scale on the page. Capping the measure forces two or
+     three lines, so the problem reads as a statement rather than a row. */
   .svc__problem {
-    font-size: clamp(1.35rem, 3vw, 1.9rem);
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: -0.015em;
+    font-size: clamp(1.9rem, 5vw, 3.25rem);
+    font-weight: 300;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
     color: var(--color-body);
     text-wrap: balance;
+    max-width: 19ch;
   }
 
   .svc__name {
-    @apply mt-3;
+    @apply mt-4;
     font-family: var(--font-sans);
-    font-size: 0.72rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
+    font-size: 0.88rem;
+    font-weight: 400;
     color: var(--color-secondary);
+    margin-bottom: 0;
   }
 
   .svc__symptoms {
-    @apply grid gap-x-8 gap-y-3 p-0;
+    @apply grid gap-x-10 gap-y-3 p-0 mt-8;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     list-style: none;
   }
@@ -82,7 +55,7 @@
     font-family: var(--font-serif);
     font-size: 0.97rem;
     line-height: 1.55;
-    color: var(--color-body);
+    color: var(--color-muted);
     text-wrap: pretty;
   }
 
@@ -96,40 +69,32 @@
     background-color: var(--color-primary);
   }
 
-  /* The payoff is the thing a reader is scanning for, so it gets the accent
-     rule and the only sans-serif body text in the item. */
-  /* Was a 2px red left stripe. A full hairline and a tinted ground mark the
-     callout without the side-stripe pattern. */
+  /* Was a filled, red-tinted box under a "What you get" label. Seven of them
+     down the page made the heaviest element the most repetitive one, so the
+     emphasis stopped registering. Weight and colour carry it instead. */
   .svc__deliver {
-    @apply mt-7;
-    padding: 1rem 1.15rem;
-    border: 1px solid var(--color-border);
-    background-color: color-mix(in oklch, var(--color-primary) 7%, transparent);
-  }
-
-  .svc__deliver h3,
-  .svc__deliver h4 {
+    @apply mt-8 relative;
+    padding-left: 1.9rem;
     font-family: var(--font-sans);
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.13em;
-    color: var(--color-muted);
-  }
-
-  .svc__deliver p {
-    @apply mt-2;
-    font-family: var(--font-sans);
-    font-size: 1.02rem;
-    line-height: 1.6;
-    color: var(--color-body);
+    font-size: clamp(1.05rem, 1.5vw, 1.28rem);
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+    color: var(--color-secondary);
+    text-wrap: pretty;
+    max-width: 36ch;
     margin-bottom: 0;
   }
 
+  .svc__arrow {
+    position: absolute;
+    left: 0;
+    color: var(--color-primary-text);
+  }
+
   .svc__practical {
-    @apply mt-5;
+    @apply mt-6;
     font-family: var(--font-sans);
-    font-size: 0.88rem;
+    font-size: 0.86rem;
     line-height: 1.6;
     color: var(--color-muted);
   }
