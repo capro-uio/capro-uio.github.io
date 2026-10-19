@@ -36,6 +36,25 @@
     padding: 0;
   }
 
+  /* Five cards in three columns leave an empty cell in the second row, which
+     reads as an unfinished table rather than a deliberate stop. When there are
+     exactly five, run six columns and let the last two take half the final row
+     each. Guarded on the count, so adding a sixth service restores the plain
+     three-up grid instead of breaking it. */
+  @media (min-width: 1024px) {
+    .help-grid:has(> :nth-child(5):last-child) {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .help-grid:has(> :nth-child(5):last-child) > .help-card {
+      grid-column: span 2;
+    }
+
+    .help-grid:has(> :nth-child(5):last-child) > .help-card:nth-child(n + 4) {
+      grid-column: span 3;
+    }
+  }
+
   .help-card {
     @apply flex flex-col;
     background-color: var(--color-dark);

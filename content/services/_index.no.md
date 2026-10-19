@@ -1,57 +1,48 @@
 ---
 title: Dette kan vi hjelpe med
 item:
-  - name: Dataflyt og tilrettelegging
-    icon: "fa-solid fa-hard-drive"
-    problem: Dataene dine er ikke klare til analyse.
-    short: Fra rotete filer til ett dokumentert datasett som bygger seg selv på nytt.
+  - name: Dataforvaltning og deling
+    icon: "fa-solid fa-folder-tree"
+    problem: Finansiøren krever en datahåndteringsplan.
+    short: Datahåndteringsplaner, og strukturer som gjør deling mulig senere.
     symptoms:
-      - Seksti regneark med ulike kolonnenavn.
-      - En Nettskjema-eksport ingen har åpnet ennå.
-      - Data fra skanner eller instrument som må ordnes før noe kan kjøres.
+      - En søknad med en del om datahåndtering du ikke vet hvordan du skal fylle ut.
+      - Du har lovet å dele dataene og aner ikke hvordan.
+      - År med innsamling, i en struktur ingen utenfor prosjektet kan finne fram i.
     deliver: |
-      Ett dokumentert datasett du faktisk kan bruke — og skriptet som lager det,
-      slik at det kan kjøres på nytt når det kommer mer data.
-    practical: Vi kan gjøre det for deg, eller sammen med den som skal eie det etterpå.
+      En plan du kan levere, og en datastruktur som innfrir den når det blir tid
+      for å dele.
+    practical: Billigst å gjøre på søknadsstadiet. Fortsatt mulig senere, bare mer arbeid.
 
-  - name: Datafangst
-    icon: "fa-solid fa-tablet-screen-button"
-    problem: Du skal samle inn data, og det må gjøres riktig.
-    short: Trygg innsamling i Nettskjema, TSD og Educloud — og en vei ut igjen.
+  - name: Datafangst og tilrettelegging
+    icon: "fa-solid fa-hard-drive"
+    problem: Du kan ikke jobbe med dataene dine ennå.
+    short: Trygg innsamling, og rotete filer gjort om til ett dokumentert datasett.
     symptoms:
       - En spørreskjemastudie der dataene må bli liggende i UiOs systemer.
       - Et Nettskjema som allerede går, uten en plan for å få dataene ut.
-      - Deltakerdata som må havne et trygt sted fra første dag.
+      - Seksti regneark med ulike kolonnenavn.
+      - Data fra skanner eller instrument som må ordnes før noe kan kjøres.
     deliver: |
       Et innsamlingsoppsett som plasserer dataene der de har lov til å være, og
-      en dokumentert vei ut av det og inn i analysen din.
+      ett dokumentert datasett du faktisk kan bruke — med skriptet som lager
+      det, slik at det kan kjøres på nytt når det kommer mer data.
     practical: Enklest før du begynner å samle inn, men vi har reddet mange studier underveis.
 
-  - name: Prosessering og analyse
+  - name: Prosessering, analyse og tungregning
     icon: "fa-solid fa-chart-line"
     problem: Analysen din gir ikke samme svar to ganger.
-    short: Analyser som gir samme svar på hvilken som helst maskin.
+    short: Analyser som gir samme svar overalt — og kommer i mål, uansett størrelse.
     symptoms:
       - Resultatene endret seg, og ingen vet hvilken versjon som lagde figurene.
       - Analysen kjører bare på én persons maskin.
-      - En fagfelle har bedt om at analysen skal være reproduserbar, og det er den ikke.
-    deliver: |
-      En analyse som kjører likt på din maskin, en kollegas, og på en tjener —
-      pakket, versjonskontrollert og dokumentert.
-    practical: Du eier koden, og den virker fortsatt etter at vi er ute av prosjektet.
-
-  - name: Tungregning
-    icon: "fa-solid fa-server"
-    problem: Analysen er for stor for laptopen din.
-    short: Få store analyser opp på TSD, Educloud eller Saga — og i mål.
-    symptoms:
       - Tusenvis av bilder eller skanninger, og en løkke som ville tatt uker.
-      - Du har fått beskjed om å søke om regnekraft og vet ikke hvor du begynner.
       - En jobb feiler på TSD eller Saga, og feilmeldingen sier deg ingenting.
     deliver: |
-      Analysen din kjørende på riktig maskin, med jobbskriptene skrevet og
-      tilgangene på plass.
-    practical: Vi kan hjelpe deg med å skaffe ressursene, ikke bare bruke dem.
+      En analyse som kjører likt på din maskin, en kollegas og på en tjener —
+      pakket, versjonskontrollert og dokumentert — og som kjører på en stor
+      maskin når laptopen din ikke er det.
+    practical: Du eier koden, og vi kan hjelpe deg med å skaffe regneressursene, ikke bare bruke dem.
 
   - name: Applikasjoner og databaser
     icon: "fa-solid fa-table-columns"
@@ -65,19 +56,6 @@ item:
       En database eller en liten webapplikasjon som svarer på de spørsmålene når
       som helst, for alle i prosjektet samtidig.
     practical: Bygget rundt måten prosjektet ditt allerede jobber på, ikke et produkt du må tilpasse deg.
-
-  - name: Dataforvaltning og deling
-    icon: "fa-solid fa-folder-tree"
-    problem: Finansiøren krever en datahåndteringsplan.
-    short: Datahåndteringsplaner, og strukturer som gjør deling mulig senere.
-    symptoms:
-      - En søknad med en del om datahåndtering du ikke vet hvordan du skal fylle ut.
-      - Du har lovet å dele dataene og aner ikke hvordan.
-      - År med innsamling, i en struktur ingen utenfor prosjektet kan finne fram i.
-    deliver: |
-      En plan du kan levere, og en datastruktur som innfrir den når det blir tid
-      for å dele.
-    practical: Billigst å gjøre på søknadsstadiet. Fortsatt mulig senere, bare mer arbeid.
 
   - name: Kurs og opplæring
     icon: "fa-solid fa-chalkboard-user"

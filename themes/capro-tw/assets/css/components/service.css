@@ -81,7 +81,7 @@
     letter-spacing: -0.01em;
     color: var(--color-secondary);
     text-wrap: pretty;
-    max-width: 36ch;
+    max-width: 42ch;
     margin-bottom: 0;
   }
 
