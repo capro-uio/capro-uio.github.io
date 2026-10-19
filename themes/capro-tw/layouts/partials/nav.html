@@ -64,10 +64,12 @@
              on every arrow key, so a keyboard user can never reach the second
              option (WCAG 3.2.2 On Input), and it needs JS for two choices. */}}
         <ul class="lang-switch" aria-label="{{ T "selectLanguage" }}">
-          {{/* Walk site.Languages, which is ordered by the configured weight.
-               AllTranslations is not ordered, so the pair swapped between pages. */}}
-          {{ range site.Languages }}
-            {{ $lang := .Lang }}
+          {{/* Walk hugo.Sites, which is ordered by the configured language
+               weight. AllTranslations is not ordered, so the pair swapped
+               between pages. site.Languages did the same job until Hugo
+               0.156 deprecated it; under --panicOnWarning that is an error. */}}
+          {{ range hugo.Sites }}
+            {{ $lang := .Language.Lang }}
             {{ range where $page.AllTranslations "Lang" $lang }}
               <li>
                 <a href="{{ .Permalink }}" hreflang="{{ .Lang }}" lang="{{ .Lang }}"
@@ -100,10 +102,12 @@
       {{ end }}
       {{ if hugo.IsMultilingual }}
         <ul class="lang-switch lang-switch--mobile mt-3" aria-label="{{ T "selectLanguage" }}">
-          {{/* Walk site.Languages, which is ordered by the configured weight.
-               AllTranslations is not ordered, so the pair swapped between pages. */}}
-          {{ range site.Languages }}
-            {{ $lang := .Lang }}
+          {{/* Walk hugo.Sites, which is ordered by the configured language
+               weight. AllTranslations is not ordered, so the pair swapped
+               between pages. site.Languages did the same job until Hugo
+               0.156 deprecated it; under --panicOnWarning that is an error. */}}
+          {{ range hugo.Sites }}
+            {{ $lang := .Language.Lang }}
             {{ range where $page.AllTranslations "Lang" $lang }}
               <li>
                 <a href="{{ .Permalink }}" hreflang="{{ .Lang }}" lang="{{ .Lang }}"
