@@ -5,7 +5,9 @@
   <div class="max-w-5xl mx-auto px-4">
     {{ partial "helpers/section-title.html" (dict "title" .Title "page" $page) }}
     {{ partial "helpers/section-intro.html" .Content }}
-    {{ $heading := cond (eq ($page.Scratch.Get "itemLevel") 2) "h2" "h3" }}
+    {{/* The problem is the item heading; "What you get" sits one level under
+         it, so the pair tracks whether this section owns the page's h1. */}}
+    {{ $itemIsH2 := eq ($page.Scratch.Get "itemLevel") 2 }}
 
     <div class="svc-list">
       {{ range .Params.item }}
@@ -13,7 +15,7 @@
         <header class="svc__head">
           {{ with .icon }}<i class="{{ . }}" aria-hidden="true"></i>{{ end }}
           <div>
-            {{ if eq $heading "h2" }}
+            {{ if $itemIsH2 }}
               <h2 class="svc__problem">{{ .problem | markdownify }}</h2>
             {{ else }}
               <h3 class="svc__problem">{{ .problem | markdownify }}</h3>
@@ -30,7 +32,11 @@
 
         {{ with .deliver }}
         <div class="svc__deliver">
-          <h4>{{ i18n "whatYouGet" }}</h4>
+          {{ if $itemIsH2 }}
+            <h3>{{ i18n "whatYouGet" }}</h3>
+          {{ else }}
+            <h4>{{ i18n "whatYouGet" }}</h4>
+          {{ end }}
           {{ . | markdownify }}
         </div>
         {{ end }}
