@@ -28,7 +28,8 @@
     <hr class="border-border my-6">
     <div class="flex justify-center gap-4">
       {{ range .Params.Social }}
-        <a href="{{ .link | safeURL }}" class="text-xl hover:text-primary-text transition-colors"
+        <a href="{{ .link | safeURL }}"
+           class="text-xl hover:text-primary-text transition-colors inline-flex items-center justify-center min-w-6 min-h-6"
            aria-label="{{ index (split .icon "-") (sub (len (split .icon "-")) 1) }}">
           <i class="{{ .icon }}" aria-hidden="true"></i>
         </a>

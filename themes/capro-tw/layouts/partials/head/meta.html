@@ -10,7 +10,9 @@
     <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
   {{ end }}
 {{ end }}
-<link rel="shortcut icon" href="{{ "images/favicon.png" | absURL }}" type="image/x-icon">
+<link rel="icon" href="{{ "images/capro_favico.svg" | absURL }}" type="image/svg+xml">
+<link rel="icon" href="{{ "images/favicon.png" | absURL }}" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="{{ "images/favicon.png" | absURL }}">
 
 {{/* Open Graph */}}
 {{ $description := cond (ne .Description "") .Description (string site.Params.description) }}

@@ -5,6 +5,9 @@ button:
   link: "#contact"
 image_decorative: true
 build:
+  # Only the .Resize'd derivative is used; the 3500px original was being
+  # copied into /public unreferenced.
+  publishResources: false
   render: false
   list: false
 ---

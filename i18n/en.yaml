@@ -31,3 +31,6 @@
 - prices: Prices
 - news: News
 - contact: Contact
+
+# Accessibility
+- selectLanguage: Language

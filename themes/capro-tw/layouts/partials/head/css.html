@@ -4,8 +4,9 @@
 <link rel="preload" href="{{ "/webfonts/google-fonts/spectral/spectral-latin-300-normal.woff2" | relURL }}"
       as="font" type="font/woff2" crossorigin>
 
-{{/* Preload hero image for LCP */}}
-{{ with site.Params.banner }}
+{{/* Preload hero image for LCP. baseof.html renders the banner only on the home
+     page, so preloading it elsewhere fetched 128 KiB that never painted. */}}
+{{ with and .IsHome site.Params.banner }}
   {{ $image := resources.GetMatch .image }}
   {{ with $image }}
     {{ $resized := .Resize "1600x webp" }}

@@ -1,8 +1,9 @@
 {{ with .Site.GetPage "section" "cta" }}
 {{ $cta := . }}
 {{ range first 1 (.Resources.ByType "image") }}
-<section id="cta" class="relative py-24 bg-cover bg-center" style='background-image: url("{{ .RelPermalink }}")'>
-  <div class="absolute inset-0 bg-black/60"></div>
+{{ $bg := .Resize "1600x webp q82" }}
+<section id="cta" class="relative py-24 bg-cover bg-center" style='background-image: url("{{ $bg.RelPermalink }}")'>
+  <div class="absolute inset-0 bg-black/70"></div>
   <div class="absolute top-0 left-0 right-0 h-20" aria-hidden="true">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
       <path d="M0,20 C360,60 720,10 1080,50 C1260,70 1380,30 1440,40" fill="none" stroke="#E57575" stroke-width="2" opacity="0.45"/>

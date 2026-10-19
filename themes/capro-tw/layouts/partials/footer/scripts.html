@@ -6,8 +6,10 @@
 {{ $alpine := resources.Get "js/vendor/alpine.min.js" | fingerprint }}
 <script src="{{ $alpine.RelPermalink }}" integrity="{{ $alpine.Data.Integrity }}" defer></script>
 
-{{/* Map: only on pages with contact section */}}
-{{ with site.Params.map }}
+{{/* Map: the contact section renders only on the home page, so gate Leaflet on
+     .IsHome too. site.Params.map alone is site-wide and shipped 144 KiB of JS
+     to all 58 pages. */}}
+{{ if and .IsHome site.Params.map }}
   {{ $leafletCss := resources.Get "css/vendor/leaflet.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $leafletCss.RelPermalink }}" integrity="{{ $leafletCss.Data.Integrity }}">
   {{ $leafletJs := resources.Get "js/vendor/leaflet.js" | minify | fingerprint }}

@@ -26,7 +26,8 @@
     </nav>
     <a href="{{ site.Home.Permalink }}">
       {{ with resources.GetMatch site.Params.logo }}
-        <img src="{{ .Permalink }}" alt="{{ site.Title }}" height="42" class="h-10 mx-auto mb-6">
+        {{ $logo := .Resize "260x webp" }}
+        <img src="{{ $logo.Permalink }}" alt="{{ site.Title }}" width="108" height="40" class="h-10 mx-auto mb-6">
       {{ end }}
     </a>
     <p class="text-sm text-light">{{ site.Params.copyright | markdownify }}</p>

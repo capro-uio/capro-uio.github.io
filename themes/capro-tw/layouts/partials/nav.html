@@ -6,7 +6,10 @@
   <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
     <a href="{{ site.Home.RelPermalink }}" class="flex-shrink-0">
       {{ with resources.GetMatch site.Params.logo }}
-        <img src="{{ .Permalink }}" alt="{{ site.Title }}" height="50" width="auto" class="h-12">
+        {{/* Rendered at 130x48; ship 2x, not the 1624px original. width="auto"
+             is not a valid HTML width attribute, so the header reflowed on load. */}}
+        {{ $logo := .Resize "260x webp" }}
+        <img src="{{ $logo.Permalink }}" alt="{{ site.Title }}" width="130" height="48" class="h-12">
       {{ else }}
         <span class="text-xl font-bold">{{ site.Title }}</span>
       {{ end }}
@@ -56,13 +59,22 @@
         {{ end }}
       {{ end }}
       {{ if hugo.IsMultilingual }}
-        <select class="lang-select" aria-label="Select language" onchange="location = this.value;">
-          {{ range $page.AllTranslations }}
-            <option value="{{ .Permalink }}" {{ if eq $page.Lang .Lang }}selected{{ end }}>
-              {{ .Language.Params.languageName }}
-            </option>
+        {{/* Links, not a <select onchange>. A select that navigates fires change
+             on every arrow key, so a keyboard user can never reach the second
+             option (WCAG 3.2.2 On Input), and it needs JS for two choices. */}}
+        <ul class="lang-switch" aria-label="{{ T "selectLanguage" }}">
+          {{/* Walk site.Languages, which is ordered by the configured weight.
+               AllTranslations is not ordered, so the pair swapped between pages. */}}
+          {{ range site.Languages }}
+            {{ $lang := .Lang }}
+            {{ range where $page.AllTranslations "Lang" $lang }}
+              <li>
+                <a href="{{ .Permalink }}" hreflang="{{ .Lang }}" lang="{{ .Lang }}"
+                   {{ if eq $page.Lang .Lang }}aria-current="true"{{ end }}>{{ .Language.Params.languageName }}</a>
+              </li>
+            {{ end }}
           {{ end }}
-        </select>
+        </ul>
       {{ end }}
     </nav>
 
@@ -86,13 +98,19 @@
         {{ end }}
       {{ end }}
       {{ if hugo.IsMultilingual }}
-        <select class="lang-select mt-3" aria-label="Select language" onchange="location = this.value;">
-          {{ range $page.AllTranslations }}
-            <option value="{{ .Permalink }}" {{ if eq $page.Lang .Lang }}selected{{ end }}>
-              {{ .Language.Params.languageName }}
-            </option>
+        <ul class="lang-switch lang-switch--mobile mt-3" aria-label="{{ T "selectLanguage" }}">
+          {{/* Walk site.Languages, which is ordered by the configured weight.
+               AllTranslations is not ordered, so the pair swapped between pages. */}}
+          {{ range site.Languages }}
+            {{ $lang := .Lang }}
+            {{ range where $page.AllTranslations "Lang" $lang }}
+              <li>
+                <a href="{{ .Permalink }}" hreflang="{{ .Lang }}" lang="{{ .Lang }}"
+                   {{ if eq $page.Lang .Lang }}aria-current="true"{{ end }}>{{ .Language.Params.languageName }}</a>
+              </li>
+            {{ end }}
           {{ end }}
-        </select>
+        </ul>
       {{ end }}
     </nav>
   </div>
