@@ -12,11 +12,11 @@ params:
   banner:
     title: Stuck on the data side of your research?
     content: |
-      CAPRO is a team of data and software people at the University of Oslo. We
-      tidy up messy data, set up collection that keeps it safe, make analyses
-      run the same way twice, get big jobs onto university servers, and teach
-      research groups to do all of it themselves. Mostly social science and
-      humanities — but anyone at UiO can ask.
+      We are a data and software team at the University of Oslo. We tidy up
+      messy data, set up safe collection, make analyses run the same way twice,
+      and get big jobs onto university servers — or teach your group to do it
+      themselves. Mostly social science and humanities, but anyone at UiO can
+      ask.
     image: images/image-from-rawpixel-id-3337467-jpeg.jpg
     buttons:
       - label: What we can help with

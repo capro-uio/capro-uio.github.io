@@ -12,11 +12,11 @@ params:
   banner:
     title: Står du fast på datadelen av forskningen?
     content: |
-      CAPRO er et team med data- og programvarefolk ved Universitetet i Oslo. Vi
-      rydder opp i rotete data, setter opp innsamling som holder dem trygge, får
-      analyser til å gi samme svar to ganger, får store jobber opp på
-      universitetets tjenere, og lærer forskningsgrupper å gjøre alt sammen
-      selv. Mest samfunnsvitenskap og humaniora — men alle ved UiO kan spørre.
+      Vi er et data- og programvareteam ved Universitetet i Oslo. Vi rydder opp
+      i rotete data, setter opp trygg innsamling, får analyser til å gi samme
+      svar to ganger, og får store jobber opp på universitetets tjenere — eller
+      lærer gruppa di å gjøre det selv. Mest samfunnsvitenskap og humaniora, men
+      alle ved UiO kan spørre.
     image: images/image-from-rawpixel-id-3337467-jpeg.jpg
     buttons:
       - label: Dette kan vi hjelpe med
