@@ -14,7 +14,8 @@
         width="{{ $s1.Width }}"
         height="{{ $s1.Height }}"
         alt="{{ partial "helpers/img-alt.html" (dict "page" $ "resource" . "fallback" $.Title) }}"
-        class="w-full"
+        class="article-card__img"
+        style="max-width: {{ $s1.Width }}px"
         loading="lazy">
     {{ end }}
     <div class="p-5">

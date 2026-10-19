@@ -35,3 +35,29 @@
 
 # Tilgjengelighet
 - selectLanguage: Språk
+
+# Taksonomi / lister
+- taggedWith: Merket
+- inCategory: Kategori
+- oneItem: 1 innlegg
+- manyItems: "{{ . }} innlegg"
+- backToNews: Alle nyheter
+- filterBy: Filtrer på kategori
+- showingAll: Viser alle prosjekter
+- opensExternally: åpnes i ny fane
+- prevTestimonial: Forrige
+- nextTestimonial: Neste
+- testimonials: Det folk sier
+# 404
+- notFoundTitle: Fant ikke siden
+- notFoundBody: Siden du ba om finnes ikke her. Den kan ha flyttet, eller lenken kan være feil.
+- backHome: Hjem
+# Publikasjoner
+- pubsLoading: Laster publikasjoner…
+- pubsError: Kunne ikke laste publikasjoner.
+- pubsOnOrcid: Se på ORCID
+- pubsYear: År
+- pubsAuthors: Forfattere
+- pubsTitle: Tittel
+- pubsJournal: Tidsskrift
+- pubsFilterYear: Filtrer på år

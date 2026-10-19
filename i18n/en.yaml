@@ -34,3 +34,29 @@
 
 # Accessibility
 - selectLanguage: Language
+
+# Taxonomy / listing
+- taggedWith: Tagged
+- inCategory: Filed under
+- oneItem: 1 post
+- manyItems: "{{ . }} posts"
+- backToNews: All news
+- filterBy: Filter by category
+- showingAll: Showing all projects
+- opensExternally: opens in a new tab
+- prevTestimonial: Previous
+- nextTestimonial: Next
+- testimonials: What people say
+# 404
+- notFoundTitle: Page not found
+- notFoundBody: The page you asked for is not here. It may have moved, or the link may be wrong.
+- backHome: Home
+# Publications
+- pubsLoading: Loading publications…
+- pubsError: Could not load publications.
+- pubsOnOrcid: View on ORCID
+- pubsYear: Year
+- pubsAuthors: Authors
+- pubsTitle: Title
+- pubsJournal: Journal
+- pubsFilterYear: Filter by year

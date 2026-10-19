@@ -44,6 +44,10 @@ params:
       Tell us what you are stuck on, in your own words — you do not need to know
       what the technical name for it is. We will tell you honestly whether we
       can help.
+    reassure:
+      - The first hour is free for anyone at UiO.
+      - You will talk to someone who does the work, not an account manager.
+      - A rough price and timeline, if you want one.
     item:
       - icon: ti-location-pin
         info: |

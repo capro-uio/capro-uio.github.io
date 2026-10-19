@@ -98,9 +98,13 @@
 
   /* The payoff is the thing a reader is scanning for, so it gets the accent
      rule and the only sans-serif body text in the item. */
+  /* Was a 2px red left stripe. A full hairline and a tinted ground mark the
+     callout without the side-stripe pattern. */
   .svc__deliver {
-    @apply mt-7 pl-5;
-    border-left: 2px solid var(--color-primary);
+    @apply mt-7;
+    padding: 1rem 1.15rem;
+    border: 1px solid var(--color-border);
+    background-color: color-mix(in oklch, var(--color-primary) 7%, transparent);
   }
 
   .svc__deliver h3,

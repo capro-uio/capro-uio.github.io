@@ -1,5 +1,6 @@
 ---
 title : "Åpen kildekode vi har bygget"
+accent_from: 2
 ---
 
 Alt her er åpen kildekode og gratis å bruke, enten du jobber med oss eller

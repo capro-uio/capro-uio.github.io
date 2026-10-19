@@ -1,40 +1,68 @@
 {{ $page := . }}
 {{ with .Site.GetPage "section" "portfolio" }}
 {{ if gt (.Pages | len) 0 }}
-<section class="section bg-grey" id="portfolio" x-data="{ filter: 'all' }">
+{{ $total := len .Pages }}
+<section class="section bg-grey" id="portfolio"
+         x-data="{ filter: 'all', total: {{ $total }}, get shown() { return this.filter === 'all' ? this.total : this.$refs.grid.querySelectorAll('[data-cats~=&quot;' + this.filter + '&quot;]').length } }">
   <div class="max-w-7xl mx-auto px-4">
-    {{ partial "helpers/section-title.html" (dict "title" .Title "page" $page) }}
+    {{ partial "helpers/section-title.html" (dict "title" .Title "page" $page "accentFrom" .Params.accent_from) }}
     {{ partial "helpers/section-intro.html" .Content }}
-    <div class="flex flex-wrap justify-center gap-2 mb-8">
-      <button @click="filter = 'all'" :class="filter === 'all' ? 'border-primary bg-primary text-white' : 'border-border text-body'" class="px-5 py-2 text-sm font-bold border bg-dark transition-colors">{{ i18n "all" }}</button>
+
+    {{/* The filters were bare buttons: no group label, no pressed state, and
+         no announcement, so pressing one silently removed cards. */}}
+    <div class="flex flex-wrap justify-center gap-2 mb-4" role="group" aria-label="{{ T "filterBy" }}">
+      <button type="button" @click="filter = 'all'" :aria-pressed="(filter === 'all').toString()"
+              class="portfolio-filter">{{ i18n "all" }}</button>
       {{ $categories := slice }}
       {{ range .Pages }}{{ range .Params.categories }}{{ $categories = $categories | append . }}{{ end }}{{ end }}
-      {{ range ($categories | uniq) }}
-      <button @click="filter = '{{ . | urlize }}'" :class="filter === '{{ . | urlize }}' ? 'border-primary bg-primary text-white' : 'border-border text-body'" class="px-5 py-2 text-sm font-bold border bg-dark transition-colors">{{ . }}</button>
+      {{ range ($categories | uniq | sort) }}
+      <button type="button" @click="filter = '{{ . | urlize }}'" :aria-pressed="(filter === '{{ . | urlize }}').toString()"
+              class="portfolio-filter">{{ . }}</button>
       {{ end }}
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <p class="list-count" aria-live="polite">
+      <span x-text="filter === 'all' ? '{{ T "showingAll" }}' : shown + ' / ' + total">{{ T "showingAll" }}</span>
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" x-ref="grid">
       {{ range .Pages }}
       {{ $sch := newScratch }}
       {{ range first 1 (.Resources.ByType "image") }}
         {{ $image := (.Resize "600x webp").Fit "400x400 webp" }}
         {{ $sch.Set "img" $image.RelPermalink }}
       {{ end }}
-      <div x-show="filter === 'all' {{ range .Params.categories }}|| filter === '{{ . | urlize }}'{{ end }}" x-transition>
+      {{ $cats := slice }}
+      {{ range .Params.categories }}{{ $cats = $cats | append (. | urlize) }}{{ end }}
+      <div data-cats="{{ delimit $cats " " }}"
+           x-show="filter === 'all' {{ range $cats }}|| filter === '{{ . }}'{{ end }}" x-transition>
         <div class="portfolio-card">
           <div class="portfolio-img">
-            <img src="{{ $sch.Get "img" }}" alt="{{ .Title }}" loading="lazy">
-            <div class="portfolio-overlay">
-              {{ if .Params.link }}
-                <a href="{{ .Params.link | safeURL }}" class="search-circle" aria-label="View {{ .Title }}">
-                  <i class="ti-new-window" aria-hidden="true"></i>
-                </a>
-              {{ end }}
+            {{/* The heading below names the project; repeating it here makes a
+                 screen reader say it twice. */}}
+            <img src="{{ $sch.Get "img" }}" alt="" loading="lazy">
+            {{/* Decorative hover affordance only. It used to hold a second link
+                 to the same URL, which was invisible on touch and still
+                 focusable while transparent. */}}
+            <div class="portfolio-overlay" aria-hidden="true">
+              <span class="search-circle"><i class="ti-new-window"></i></span>
             </div>
           </div>
           <div class="portfolio-meta">
-            {{ if eq ($page.Scratch.Get "itemLevel") 2 }}<h2>{{ if .Params.link }}<a href="{{ .Params.link | safeURL }}">{{ .Title }}</a>{{ else }}{{ .Title }}{{ end }}</h2>{{ else }}<h3>{{ if .Params.link }}<a href="{{ .Params.link | safeURL }}">{{ .Title }}</a>{{ else }}{{ .Title }}{{ end }}</h3>{{ end }}
-            <p class="font-serif">{{ .Plain | truncate 120 }}</p>
+            {{ $tag := cond (eq ($page.Scratch.Get "itemLevel") 2) "h2" "h3" }}
+            {{ if eq $tag "h2" }}
+              <h2>{{ partial "helpers/portfolio-link.html" . }}</h2>
+            {{ else }}
+              <h3>{{ partial "helpers/portfolio-link.html" . }}</h3>
+            {{ end }}
+            {{/* First sentence, not a character count: `truncate 120` cut these
+                 off mid-clause ("a large collection of …"). */}}
+            {{ $blurb := .Description }}
+            {{ if not $blurb }}
+              {{ $blurb = index (split .Plain ". ") 0 | strings.TrimSpace }}
+              {{ if not (strings.HasSuffix $blurb ".") }}{{ $blurb = printf "%s." $blurb }}{{ end }}
+            {{ end }}
+            <p class="font-serif">{{ $blurb }}</p>
           </div>
         </div>
       </div>

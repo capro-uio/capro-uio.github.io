@@ -130,30 +130,36 @@
     border-radius: 3px;
   }
 
+  /* Above the track, not overlapping it. */
+  .testimonial-controls {
+    @apply flex justify-end gap-2 mb-4;
+  }
+
   .testimonial-nav {
-    @apply absolute top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center;
+    @apply w-10 h-10 flex items-center justify-center;
     background: var(--color-dark);
     border: 1px solid var(--color-border);
     color: var(--color-body);
-    transition: all var(--transition-fast);
     cursor: pointer;
+    transition:
+      border-color var(--transition-fast),
+      color var(--transition-fast),
+      opacity var(--transition-fast);
   }
 
-  .testimonial-nav:hover {
+  .testimonial-nav:hover:not(:disabled) {
     border-color: var(--color-primary);
     color: var(--color-primary-text);
   }
 
-  .testimonial-nav-left {
-    left: -20px;
+  .testimonial-nav:disabled {
+    opacity: 0.35;
+    cursor: default;
   }
 
-  .testimonial-nav-right {
-    right: -20px;
-  }
-
+  /* The track is swipeable on touch, so the buttons are redundant there. */
   @media (max-width: 768px) {
-    .testimonial-nav {
+    .testimonial-controls {
       display: none;
     }
   }
@@ -215,7 +221,8 @@
     transition: opacity var(--transition-base);
   }
 
-  .portfolio-card:hover .portfolio-overlay {
+  .portfolio-card:hover .portfolio-overlay,
+  .portfolio-card:focus-within .portfolio-overlay {
     opacity: 1;
   }
 
@@ -246,6 +253,44 @@
     margin-top: 8px;
   }
 
+  /* Three groups side by side now the chart is gone, collapsing to one. */
+  .skill-groups {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 2.5rem 3rem;
+  }
+
+  /* Filter buttons carry their state in aria-pressed, so style from that
+     rather than from an Alpine :class binding — the two drifted apart. */
+  .portfolio-filter {
+    @apply px-5 py-2 text-sm font-bold border;
+    min-height: 24px;
+    background-color: var(--color-dark);
+    border-color: var(--color-border);
+    color: var(--color-body);
+    cursor: pointer;
+    transition:
+      background-color var(--transition-fast),
+      border-color var(--transition-fast),
+      color var(--transition-fast);
+  }
+
+  .portfolio-filter:hover {
+    border-color: var(--color-primary);
+  }
+
+  .portfolio-filter[aria-pressed="true"] {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    color: #fff;
+  }
+
+  .portfolio-link__icon {
+    font-size: 0.7em;
+    margin-left: 0.4em;
+    vertical-align: baseline;
+  }
+
   /* Contact */
   .contact-email {
     @apply text-center mb-14;
@@ -273,12 +318,47 @@
   }
 
   .contact-email__note {
-    @apply mt-3;
+    @apply mb-3;
     font-family: var(--font-sans);
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
+    font-size: 0.9rem;
     color: var(--color-muted);
+    margin-top: 0;
+  }
+
+  .contact-reassure {
+    @apply mx-auto mb-14 flex flex-col items-start gap-2;
+    list-style: none;
+    max-width: 34rem;
+    padding: 0;
+  }
+
+  .contact-reassure li {
+    @apply relative;
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color-body);
+    padding-left: 1.6rem;
+  }
+
+  /* A tick, not a bullet: each line is something the reader gets. */
+  .contact-reassure li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.42em;
+    width: 0.5rem;
+    height: 0.85rem;
+    border-right: 2px solid var(--color-secondary);
+    border-bottom: 2px solid var(--color-secondary);
+    transform: rotate(45deg);
+  }
+
+  .contact-reassure li p {
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
   }
 
   .skill-group__name {

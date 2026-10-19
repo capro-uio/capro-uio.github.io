@@ -5,15 +5,41 @@
   <div class="max-w-7xl mx-auto px-4">
     {{ partial "helpers/section-title.html" (dict "title" .Title "page" $page) }}
     {{ partial "helpers/section-intro.html" .Content }}
-    <div class="relative reveal" x-data="{ scroll(dir) { $refs.track.scrollBy({ left: dir * 392, behavior: 'smooth' }) } }">
-    <button @click="scroll(-1)" class="testimonial-nav testimonial-nav-left" aria-label="Previous testimonial">
-      <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
-    </button>
-    <button @click="scroll(1)" class="testimonial-nav testimonial-nav-right" aria-label="Next testimonial">
-      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-    </button>
-    <div class="testimonial-scroll" x-ref="track" role="region" aria-label="Client testimonials" tabindex="0">
-      {{ range .Pages | shuffle }}
+    {{/* The controls used to sit at left/right: -20px, which put them on top of
+         the first and last card's text below ~1480px. They now sit above the
+         track, and they disable at the ends instead of scrolling into nothing.
+         The step is measured from a real card, not a hardcoded 392px. */}}
+    <div class="reveal" x-data="{
+           atStart: true,
+           atEnd: false,
+           update() {
+             const t = this.$refs.track;
+             this.atStart = t.scrollLeft <= 1;
+             this.atEnd = Math.ceil(t.scrollLeft + t.clientWidth) >= t.scrollWidth - 1;
+           },
+           scroll(dir) {
+             const t = this.$refs.track;
+             const card = t.querySelector('.testimonial-modern');
+             const step = card ? card.offsetWidth + 24 : t.clientWidth;
+             t.scrollBy({ left: dir * step, behavior: 'smooth' });
+           }
+         }" x-init="$nextTick(() => update())">
+    <div class="testimonial-controls">
+      <button type="button" @click="scroll(-1)" :disabled="atStart"
+              class="testimonial-nav" aria-controls="testimonial-track"
+              aria-label="{{ T "prevTestimonial" }}">
+        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+      </button>
+      <button type="button" @click="scroll(1)" :disabled="atEnd"
+              class="testimonial-nav" aria-controls="testimonial-track"
+              aria-label="{{ T "nextTestimonial" }}">
+        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="testimonial-scroll" id="testimonial-track" x-ref="track"
+         @scroll.debounce.100ms="update()"
+         role="region" aria-label="{{ T "testimonials" }}" tabindex="0">
+      {{ range sort (sort .Pages "Title") "Weight" }}
       {{ $item := . }}
       {{ $sch := newScratch }}
       {{ range first 1 (.Resources.ByType "image") }}

@@ -43,6 +43,10 @@ params:
     intro: |
       Fortell oss hva du står fast på, med dine egne ord — du trenger ikke vite
       hva det heter på fagspråket. Vi sier ærlig fra om vi kan hjelpe.
+    reassure:
+      - Den første timen er gratis for alle ved UiO.
+      - Du snakker med noen som gjør jobben, ikke en kundeansvarlig.
+      - Et grovt pris- og tidsanslag, hvis du vil ha det.
     item:
       - icon: ti-location-pin
         info: |

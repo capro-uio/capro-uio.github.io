@@ -11,7 +11,9 @@
     {{ partial "helpers/section-intro.html" (.content | markdownify) }}
 
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-      {{ range $team.Pages | shuffle }}
+      {{/* Stable order: shuffle changed the lineup on every build and never
+           matched /team/. Weight first for anyone who sets it, then title. */}}
+      {{ range sort (sort $team.Pages "Title") "Weight" }}
       {{ $member := . }}
       <div class="team-card team-card--compact reveal">
         <div class="team-photo">

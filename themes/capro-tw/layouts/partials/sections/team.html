@@ -6,7 +6,7 @@
     {{ partial "helpers/section-title.html" (dict "title" .Title "page" $page) }}
     {{ partial "helpers/section-intro.html" .Content }}
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      {{ range .Pages | shuffle }}
+      {{ range sort (sort .Pages "Title") "Weight" }}
       {{ $sch := newScratch }}
       <div class="team-card reveal">
         <div class="team-photo">

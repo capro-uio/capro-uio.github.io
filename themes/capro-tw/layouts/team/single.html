@@ -70,27 +70,27 @@
     </div>
 
     <div id="orcid-pubs-loading" class="text-center py-8">
-      <p class="text-muted">Loading publications from OpenAlex...</p>
+      <p class="text-muted">{{ T "pubsLoading" }}</p>
     </div>
 
     <div id="orcid-pubs-error" class="text-center py-8" style="display:none;">
-      <p>Could not load publications. <a href="https://orcid.org/{{ $orcid }}" target="_blank" rel="noopener" class="text-primary-text hover:underline">View on ORCID</a></p>
+      <p>{{ T "pubsError" }} <a href="https://orcid.org/{{ $orcid }}" target="_blank" rel="noopener" class="text-primary-text hover:underline">{{ T "pubsOnOrcid" }}</a></p>
     </div>
 
     <div id="orcid-pubs-content" style="display:none;">
       <div class="mb-6">
-        <label for="orcid-pubs-year-select" class="sr-only">Filter by year</label>
-        <select id="orcid-pubs-year-select" class="year-select" aria-label="Filter publications by year">
+        <label for="orcid-pubs-year-select" class="sr-only">{{ T "pubsFilterYear" }}</label>
+        <select id="orcid-pubs-year-select" class="year-select" aria-label="{{ T "pubsFilterYear" }}">
           <option value="all" selected>{{ i18n "all" }}</option>
         </select>
       </div>
       <table class="pubs-table">
         <thead>
           <tr>
-            <th style="width:10%">Year</th>
-            <th style="width:20%">Authors</th>
-            <th style="width:40%">Title</th>
-            <th>Journal</th>
+            <th style="width:10%">{{ T "pubsYear" }}</th>
+            <th style="width:20%">{{ T "pubsAuthors" }}</th>
+            <th style="width:40%">{{ T "pubsTitle" }}</th>
+            <th>{{ T "pubsJournal" }}</th>
           </tr>
         </thead>
         <tbody id="orcid-pubs-tbody"></tbody>
