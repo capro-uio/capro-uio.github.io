@@ -16,10 +16,15 @@
   }
 
   .section-title h1,
-  .section-title h2,
-  .section-title__label {
+  .section-title h2 {
     @apply text-4xl font-bold capitalize;
     color: var(--color-body);
+  }
+
+  /* A person's name is already cased correctly; `capitalize` would rewrite
+     names like "José-Luis Alatorre-Warren" at the hyphen. */
+  .section-title .section-title__name {
+    text-transform: none;
   }
 
   .section-title .accent {

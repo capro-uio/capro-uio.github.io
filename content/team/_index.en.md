@@ -2,7 +2,6 @@
 title: Our Team
 aliases:
   - /about/
-single: About Member
 ---
 
 We are the people who will actually do the work — not account managers who pass

@@ -8,7 +8,7 @@ params:
     messy research data, set up secure data collection, make analyses
     reproducible, run large jobs on university servers, and teach research
     groups to do it themselves.
-  copyright: Copyright &copy; 2022 Capro
+  copyright: Capro
   banner:
     title: Stuck on the data side of your research?
     content: |

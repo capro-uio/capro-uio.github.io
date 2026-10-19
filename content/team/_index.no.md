@@ -1,6 +1,5 @@
 ---
 title: Våre medarbeidere
-single: Om medarbeider
 ---
 
 Vi er de som faktisk gjør jobben — ikke kundeansvarlige som sender den videre.

@@ -30,7 +30,9 @@
         <img src="{{ $logo.Permalink }}" alt="{{ site.Title }}" width="108" height="40" class="h-10 mx-auto mb-6">
       {{ end }}
     </a>
-    <p class="text-sm text-light">{{ site.Params.copyright | markdownify }}</p>
+    {{/* The year is generated, not translated: the param said 2022 for four
+         years. site.Lastmod, not now.Year, so a rebuilt archive stays honest. */}}
+    <p class="text-sm text-light">&copy; {{ site.Lastmod.Format "2006" }} {{ site.Params.copyright | markdownify }}</p>
   </div>
 </footer>
 
