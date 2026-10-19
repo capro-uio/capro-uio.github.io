@@ -1,14 +1,31 @@
 <article class="reveal">
   <div class="bg-dark overflow-hidden">
     {{ range first 1 (.Resources.ByType "image") }}
-      {{ $image := (.Resize "600x webp").Fit "300x300 webp" }}
-      <img src="{{ $image.RelPermalink }}" alt="{{ partial "helpers/img-alt.html" (dict "page" $ "resource" . "fallback" $.Title) }}" class="w-full" loading="lazy">
+      {{/* Cards are ~400px wide at the three-column breakpoint. Ship a 2x
+           source as well, or the image is upscaled and visibly soft on
+           high-density screens. width/height keep the card from reflowing
+           once the image lands. */}}
+      {{ $s1 := .Fit "400x400 webp" }}
+      {{ $s2 := .Fit "800x800 webp" }}
+      <img
+        src="{{ $s1.RelPermalink }}"
+        srcset="{{ $s1.RelPermalink }} {{ $s1.Width }}w, {{ $s2.RelPermalink }} {{ $s2.Width }}w"
+        sizes="(min-width: 1024px) 400px, (min-width: 768px) 45vw, 92vw"
+        width="{{ $s1.Width }}"
+        height="{{ $s1.Height }}"
+        alt="{{ partial "helpers/img-alt.html" (dict "page" $ "resource" . "fallback" $.Title) }}"
+        class="w-full"
+        loading="lazy">
     {{ end }}
     <div class="p-5">
       {{/* Only rendered from _default/list.html, whose section title is the page h1. */}}
       <h2 class="text-lg mb-2"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
       <p class="text-sm mb-4">{{ .Summary }}</p>
-      <a class="btn btn-outline text-xs" href="{{ .Permalink }}">{{ i18n "readMore" }}</a>
+      {{/* Every card's link says the same thing, so name the destination for
+           anyone tabbing through them out of context. */}}
+      <a class="btn btn-outline text-xs" href="{{ .Permalink }}">
+        {{ i18n "readMore" }}<span class="sr-only">: {{ .Title }}</span>
+      </a>
     </div>
   </div>
 </article>
