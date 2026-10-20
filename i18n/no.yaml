@@ -36,6 +36,12 @@
 
 # Tilgjengelighet
 - selectLanguage: Språk
+- mainNav: Hovedmeny
+- mobileNav: Mobilmeny
+- footerNav: Bunnmeny
+- toggleNav: Vis eller skjul menyen
+- backToTop: Til toppen
+- profileOn: "{{ .name }} på {{ .host }}"
 
 # Taksonomi / lister
 - taggedWith: Merket

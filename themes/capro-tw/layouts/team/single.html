@@ -52,7 +52,7 @@
           <a href="{{ .link | safeURL }}"
              {{/* The label used to be the last hyphen-segment of the icon class,
                   so "ti-twitter-alt" announced as "alt". Use the host instead. */}}
-             aria-label="{{ $.Title }} on {{ (urls.Parse .link).Host | replaceRE `^www\.` `` }}">
+             aria-label="{{ T "profileOn" (dict "name" $.Title "host" ((urls.Parse .link).Host | replaceRE `^www\.` ``)) }}">
             <i class="{{ .icon }}" aria-hidden="true"></i>
           </a>
           {{ end }}

@@ -16,13 +16,13 @@
       {{ end }}
     </a>
 
-    <button @click="open = !open" :aria-expanded="open.toString()" aria-label="Toggle navigation"
+    <button @click="open = !open" :aria-expanded="open.toString()" aria-label="{{ T "toggleNav" }}"
             class="md:hidden p-2">
       <i class="fa-solid fa-bars text-xl" x-show="!open"></i>
       <i class="fa-solid fa-xmark text-xl" x-show="open" x-cloak></i>
     </button>
 
-    <nav class="hidden md:flex items-center gap-7" aria-label="Main navigation">
+    <nav class="hidden md:flex items-center gap-7" aria-label="{{ T "mainNav" }}">
       {{ range site.Menus.main }}
         {{ $label := or (T .Identifier) .Name }}
         {{ if .HasChildren }}
@@ -84,7 +84,7 @@
     {{/* Mobile: groups render open as labelled sections. A tap to reveal three
          links is cost without benefit on a site this small. */}}
     <nav x-show="open" x-transition x-cloak class="nav-mobile md:hidden"
-         aria-label="Mobile navigation">
+         aria-label="{{ T "mobileNav" }}">
       {{ range site.Menus.main }}
         {{ $label := or (T .Identifier) .Name }}
         {{ if .HasChildren }}

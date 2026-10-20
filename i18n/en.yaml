@@ -35,6 +35,12 @@
 
 # Accessibility
 - selectLanguage: Language
+- mainNav: Main navigation
+- mobileNav: Mobile navigation
+- footerNav: Footer navigation
+- toggleNav: Toggle navigation
+- backToTop: Back to top
+- profileOn: "{{ .name }} on {{ .host }}"
 
 # Taxonomy / listing
 - taggedWith: Tagged
