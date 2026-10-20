@@ -195,18 +195,12 @@
     color: var(--color-primary-text);
   }
 
-  .person__uio,
-  .person__back a {
+  .person__uio {
     font-family: var(--font-sans);
     font-size: 0.9rem;
     color: var(--color-secondary);
     text-decoration: underline;
     text-underline-offset: 3px;
-  }
-
-  .person__back {
-    @apply mt-8;
-    margin-bottom: 0;
   }
 
   .person-credit {
