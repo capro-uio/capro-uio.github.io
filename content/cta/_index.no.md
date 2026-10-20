@@ -1,13 +1,16 @@
 ---
-title : "Gi prosjektet ditt starthjelp"
+title: "Usikker på om problemet ditt står på listen?"
 button:
-  label : "Ta kontakt for hjelp"
-  link : "#contact"
+  label: "Fortell oss hva du står fast på"
+  link: "#contact"
 image_decorative: true
 build:
+  # Only the .Resize'd derivative is used; the 3500px original was being
+  # copied into /public unreferenced.
+  publishResources: false
   render: false
   list: false
 ---
 
-Ikke vent med å planlegge dataflyt for ditt prosjekt.
-Med klar dataflyt fra starten kan du raskere jobbe med data når du har fått tilgang til det!
+Spør likevel. Beskriv det med vanlige ord — vi finner ut hva det heter. Er det
+ikke noe vi kan hjelpe med, sier vi fra.

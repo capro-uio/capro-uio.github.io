@@ -9,27 +9,22 @@
 </div>
 <footer class="pt-6 pb-12" style="background-color: var(--color-dark);">
   <div class="max-w-7xl mx-auto px-4 text-center">
-    <div class="flex justify-center gap-4 mb-8">
-      {{ range site.Params.social }}
-        <a href="{{ .link | safeURL }}" class="footer-social-icon"
-           aria-label="{{ index (split .icon "-") (sub (len (split .icon "-")) 1) }}">
-          <i class="{{ .icon }}" aria-hidden="true"></i>
-        </a>
-      {{ end }}
-    </div>
     {{/* The team is not in the main nav; keep /team/ reachable site-wide. */}}
-    <nav class="footer-links" aria-label="Footer navigation">
+    <nav class="footer-links" aria-label="{{ T "footerNav" }}">
       <a href="{{ "team/" | relLangURL }}">{{ i18n "team" }}</a>
       <a href="{{ "services/" | relLangURL }}">{{ i18n "services" }}</a>
       <a href="{{ "news/" | relLangURL }}">{{ i18n "news" }}</a>
       <a href="{{ print site.Home.RelPermalink "#contact" }}">{{ i18n "contact" }}</a>
     </nav>
-    <a href="{{ site.Home.Permalink }}">
+    <a href="{{ site.Home.RelPermalink }}">
       {{ with resources.GetMatch site.Params.logo }}
-        <img src="{{ .Permalink }}" alt="{{ site.Title }}" height="42" class="h-10 mx-auto mb-6">
+        {{ $logo := .Resize "260x webp" }}
+        <img src="{{ $logo.RelPermalink }}" alt="{{ site.Title }}" width="108" height="40" class="h-10 mx-auto mb-6">
       {{ end }}
     </a>
-    <p class="text-sm text-light">{{ site.Params.copyright | markdownify }}</p>
+    {{/* The year is generated, not translated: the param said 2022 for four
+         years. site.Lastmod, not now.Year, so a rebuilt archive stays honest. */}}
+    <p class="text-sm text-light">&copy; {{ site.Lastmod.Format "2006" }} {{ site.Params.copyright | markdownify }}</p>
   </div>
 </footer>
 
@@ -37,7 +32,7 @@
         @scroll.window="show = (window.scrollY > 600)"
         x-show="show" x-transition x-cloak
         @click="window.scrollTo({ top: 0, behavior: 'smooth' })"
-        aria-label="Back to top"
+        aria-label="{{ T "backToTop" }}"
         class="fixed bottom-5 right-5 w-10 h-10 flex items-center justify-center bg-dark border border-border hover:bg-primary hover:border-primary transition-all z-40">
-  <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+  {{ partial "helpers/icon.html" (dict "name" "chevron-up") }}
 </button>

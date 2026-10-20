@@ -1,11 +1,12 @@
 ---
-title : "Emilie Sogn Falch"
-designation : 
-  - Cognitive Neuroscience
-  - Systematisering av datainnsamling
-social :    
-  - icon : ti-github 
-    link : "https://github.com/esfalch"
+title: "Emilie Sogn Falch"
+summary: "Datainnsamling og -forvaltning, ordnet slik at den neste kan følge den."
+designation:
+  - Datainnsamling
+  - Dataforvaltning
+social:
+  - icon: github
+    link: "https://github.com/esfalch"
 draft: true
 ---
 

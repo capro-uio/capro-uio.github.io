@@ -1,31 +1,41 @@
 ---
-title: We specialize in data processing and capture of large life science data for social sciences and humanities
+title: What working with us is like
 
 item:
-  - title: Integrated Solutions
-    icon: ti-rocket
+  - title: We use what you already have
+    icon: rocket
     content: |
-      We offer integrated solutions using the University of Oslo's services, such as Nettskjema, Educloud, TSD, NREC, and GCP to facilitate secure data capture and storage.
-      
-  - title: High-Performance Computing Analyses
-    icon: ti-server
+      At UiO that means Nettskjema, Educloud, TSD, NREC and Saga, which you are
+      already paying for. Elsewhere it means your own systems. Either way we
+      work inside them rather than selling you something new.
+
+  - title: You own everything we build
+    icon: box
     content: |
-      Complex and large data often require the use of High-Performance Computing for efficiency and speed. We have expertise in utilizing HPC resources to handle your data needs.
-      
-  - title: Standardized Data Output
-    icon: ti-package
+      Code, documentation and workflows are handed over to you. Nothing we write
+      needs us around to keep working.
+
+  - title: We can do it, or teach it
+    icon: chalkboard
     content: |
-      We can provide standardized output from various data sources to ensure clean and interoperable data for you to work with, making it easier to integrate into your existing workflow.
-      
-  - title: Customization on Demand
-    icon: ti-announcement
+      Some groups want the work done for them. Others want someone to sit with
+      their student for a week. Both are normal.
+
+  - title: You can start very small
+    icon: square-check
     content: |
-      Our team offers custom solutions tailored to your project's specific needs and existing infrastructure, ensuring a workflow that best suits you and your team
-      
+      An hour to work out whether a thing is even possible is a perfectly
+      sensible first job. Most collaborations start that way.
+
 image_decorative: true
 build:
+  # Only the .Resize'd derivative is used; the 3500px original was being
+  # copied into /public unreferenced.
+  publishResources: false
   render: false
   list: false
 ---
 
-Capturing and processing large data sets is becoming increasingly important in social sciences and humanities, but project leaders can struggle with implementing the necessary technical solutions. We provide both standardized and customized solutions to meet your project needs and help set you and your team up for success.
+You do not need to know which of these services you need, or what any of it is
+called. Describe the problem and we will tell you which one it is — and whether
+it is something we can actually help with.

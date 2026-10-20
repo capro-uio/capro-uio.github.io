@@ -15,15 +15,44 @@
     @apply text-center mb-12;
   }
 
-  .section-title h1,
-  .section-title h2,
-  .section-title__label {
-    @apply text-4xl font-bold capitalize;
+  .section-title h1 {
+    @apply text-5xl font-bold;
+    color: var(--color-body);
+  }
+
+  .section-title h2 {
+    @apply text-3xl font-bold;
     color: var(--color-body);
   }
 
   .section-title .accent {
     color: var(--color-primary-text);
+  }
+
+  /* Never wider than the source: `w-full` stretched a 262px image across a
+     400px card and Lighthouse flagged it as served at low resolution. */
+  .article-card__img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-inline: auto;
+  }
+
+  .notfound-code {
+    font-family: var(--font-sans);
+    font-size: clamp(4rem, 14vw, 7rem);
+    font-weight: 300;
+    line-height: 1;
+    color: var(--color-primary-text);
+    margin-bottom: 0.25em;
+  }
+
+  .list-count {
+    @apply text-center mb-8;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--color-muted);
   }
 
   .section-intro {
@@ -58,7 +87,7 @@
     background-color: var(--color-grey);
   }
 
-  .reveal {
+  .js .reveal {
     opacity: 0;
     transform: translateY(24px);
     transition:
@@ -66,7 +95,7 @@
       transform var(--transition-slow);
   }
 
-  .reveal.visible {
+  .js .reveal.visible {
     opacity: 1;
     transform: translateY(0);
   }
@@ -86,18 +115,37 @@
   }
 
   /* Links in running prose must be distinguishable without colour. */
-  .prose a,
-  .section-intro a {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-thickness: 1px;
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    margin-bottom: 0.4em;
+    text-wrap: balance;
   }
 
-  /* .reveal starts hidden and is shown by scroll-reveal.js. If motion is
-     reduced the animation has no purpose, so show everything immediately
-     rather than making visibility depend on the observer firing. */
+  .prose h2 {
+    font-size: 1.6rem;
+    margin-top: 2.2em;
+    color: var(--color-body);
+  }
+
+  .prose h3 {
+    font-size: 1.2rem;
+    margin-top: 1.8em;
+    color: var(--color-secondary);
+  }
+
+  .prose h4 {
+    font-size: 1.05rem;
+    margin-top: 1.5em;
+    color: var(--color-secondary);
+  }
+
+  .prose > :first-child {
+    margin-top: 0;
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .reveal {
+    .js .reveal {
       opacity: 1;
       transform: none;
     }

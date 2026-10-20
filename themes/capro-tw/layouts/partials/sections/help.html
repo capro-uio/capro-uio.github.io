@@ -8,10 +8,15 @@
     {{ with $services }}
     <ul class="help-grid reveal">
       {{ range .Params.item }}
+      {{ $item := . }}
+      {{/* Lead with `problem`, the same plain-language line /services/ uses as
+           its headline. The hero promises you do not need the technical name
+           for it, so the technical name is the subtitle, not the heading. */}}
       <li class="help-card">
-        <i class="{{ .icon }}" aria-hidden="true"></i>
-        <h3>{{ .name | markdownify }}</h3>
-        <p>{{ with .short }}{{ . | markdownify }}{{ else }}{{ .content | markdownify | plainify | truncate 90 }}{{ end }}</p>
+        {{ partial "helpers/icon.html" (dict "name" .icon) }}
+        <h3>{{ with .problem }}{{ . | markdownify }}{{ else }}{{ .name | markdownify }}{{ end }}</h3>
+        {{ with .problem }}<p class="help-card__name">{{ $item.name }}</p>{{ end }}
+        <p class="help-card__short">{{ with .short }}{{ . | markdownify }}{{ else }}{{ .content | markdownify | plainify | truncate 90 }}{{ end }}</p>
       </li>
       {{ end }}
     </ul>

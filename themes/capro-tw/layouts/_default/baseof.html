@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Lang }}">
   <head>
+    {{/* Inlined and in <head>: a separate request can fail after the page
+         has already committed to hiding .reveal. */}}
+    {{ with resources.Get "js/scroll-reveal.js" | minify }}
+    <script>{{ .Content | safeJS }}</script>
+    {{ end }}
     {{ partial "head/meta.html" . }}
     {{ partial "head/css.html" . }}
     {{ block "head" . }}{{ end }}
@@ -8,6 +13,11 @@
   <body class="bg-grey text-body">
     <a class="skip-link" href="#main">{{ i18n "skipToContent" }}</a>
     {{ partial "nav.html" . }}
+    {{/* section-title.html promotes the first section heading on a page to
+         h1 via Scratch. Scratch outlives a render, so under `hugo server` the
+         flag stayed set from the previous rebuild and no h1 was emitted on the
+         second render onward. Clear it where each render starts. */}}
+    {{ .Scratch.Set "sectionH1Used" false }}
     <main id="main">
       {{ if .IsHome }}
         {{ partial "sections/banner.html" . }}

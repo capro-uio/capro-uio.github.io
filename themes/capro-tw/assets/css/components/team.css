@@ -1,4 +1,17 @@
 @layer components {
+  /* Wrap rather than a fixed column count, so a final row of one or two sits
+     centred instead of against the left edge. The team is five people; a
+     four-up grid left a hole the width of a card. */
+  .people-grid {
+    @apply flex flex-wrap justify-center;
+    gap: 1.5rem;
+  }
+
+  .people-grid > * {
+    flex: 1 1 15rem;
+    max-width: 20rem;
+  }
+
   .team-card {
     @apply overflow-hidden h-full flex flex-col;
     background-color: transparent;
@@ -88,5 +101,107 @@
   /* Whole photo is the link when there is no social overlay to compete with. */
   .team-photo__link {
     @apply absolute inset-0;
+  }
+}
+
+@layer components {
+  /* What the person works on, on their own page. The grid showed these and
+     the page about them did not. */
+  .person-roles {
+    @apply flex flex-wrap gap-2 p-0 mt-5;
+    list-style: none;
+  }
+
+  .person-roles li {
+    @apply px-3 py-1;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--color-body);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+  }
+
+  /* Photo beside the text. One column until there is room for two, so the
+     portrait never shrinks to a thumbnail beside a wall of prose. */
+  .person {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  @media (min-width: 760px) {
+    .person {
+      grid-template-columns: minmax(0, 17rem) minmax(0, 1fr);
+      gap: 3rem;
+      align-items: start;
+    }
+  }
+
+  .person__photo {
+    margin: 0;
+    max-width: 17rem;
+  }
+
+  .person__photo img {
+    @apply block w-full h-auto;
+    border: 1px solid var(--color-border);
+  }
+
+  .person__name {
+    font-size: clamp(1.9rem, 4vw, 2.75rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--color-body);
+    text-wrap: balance;
+  }
+
+  .person__role {
+    @apply mt-2;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--color-secondary);
+    margin-bottom: 0;
+  }
+
+  .person__bio {
+    @apply mt-7;
+    max-width: 62ch;
+  }
+
+  .person__bio p {
+    font-size: 1.02rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  .person__links {
+    @apply flex flex-wrap items-center gap-4 mt-8;
+  }
+
+  .person__links a {
+    @apply inline-flex items-center justify-center text-xl;
+    min-width: 1.5rem;
+    min-height: 1.5rem;
+    transition: color var(--transition-fast);
+  }
+
+  .person__links a:hover {
+    color: var(--color-primary-text);
+  }
+
+  /* Drawn, not an icon font, so it inherits colour like its neighbours. */
+  .person__uio svg {
+    width: 1.25em;
+    height: 1.25em;
+    fill: currentColor;
+  }
+
+  .person-credit {
+    @apply mt-3;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--color-muted);
   }
 }

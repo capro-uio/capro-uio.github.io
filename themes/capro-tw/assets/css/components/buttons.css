@@ -1,7 +1,12 @@
 @layer components {
   .btn {
     @apply inline-block px-8 py-3 text-sm font-semibold uppercase tracking-wider;
-    transition: all var(--transition-fast);
+    /* Named properties, not `all`: `all` animated the focus ring in too, so a
+       keyboard user saw the UA default ring for the first 200ms. */
+    transition:
+      background-color var(--transition-fast),
+      border-color var(--transition-fast),
+      color var(--transition-fast);
   }
 
   .btn-primary {

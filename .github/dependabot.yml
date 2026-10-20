@@ -1,0 +1,28 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /themes/capro-tw
+    schedule:
+      interval: monthly
+    groups:
+      theme-deps:
+        patterns:
+          - "*"
+
+  - package-ecosystem: npm
+    directory: /scripts/a11y
+    schedule:
+      interval: monthly
+    groups:
+      a11y-deps:
+        patterns:
+          - "*"
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns:
+          - "*"

@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
 
 @source "../../layouts";
 
@@ -121,19 +121,52 @@
     line-height: 1.7;
   }
 
+  /* Teal on body text is 1.36:1, so colour alone cannot mark a link inside a
+     paragraph (WCAG 1.4.1). Underline is the default; the exceptions below are
+     links whose surroundings already make them unmistakable. */
   a {
     color: var(--color-secondary);
-    text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
     transition: color var(--transition-fast);
+  }
+
+  .btn,
+  .skip-link,
+  .site-nav a,
+  .nav-mobile a,
+  .lang-switch a,
+  .footer-links a,
+  .team-meta a,
+  .portfolio-meta h2 a,
+  .portfolio-meta h3 a,
+  .person__links a,
+  .contact-email a {
+    text-decoration: none;
   }
 
   a:hover {
     color: var(--color-body);
   }
 
+  /* The fill red is 1.0:1 against .btn-primary and 2.68:1 against the page, so
+     it cannot carry the ring. White clears 3:1 on every surface the ring lands
+     on; the dark halo keeps it readable over the banner and CTA photographs. */
   :focus-visible {
-    outline: 2px solid var(--color-primary);
+    outline: 2px solid #fff;
     outline-offset: 2px;
+    box-shadow: 0 0 0 4px var(--color-dark);
+  }
+
+  /* Sized by font-size, so the text-xl / text-2xl utilities and the
+     component rules that used to set font-size on <i> still apply. */
+  .icon {
+    display: inline-block;
+    height: 1em;
+    width: auto;
+    vertical-align: -0.125em;
+    flex: none;
   }
 
   ::selection {
@@ -147,6 +180,8 @@
 @import "./components/buttons.css";
 @import "./components/hero.css";
 @import "./components/sections.css";
+@import "./components/service.css";
+@import "./components/offerings.css";
 @import "./components/team.css";
 @import "./components/pubs.css";
 @import "./components/footer-waves.css";

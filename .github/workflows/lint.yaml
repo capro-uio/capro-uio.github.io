@@ -22,11 +22,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
+          cache-dependency-path: themes/capro-tw/package-lock.json
 
       - name: Formatting
         run: npx --yes prettier@3 --check .
@@ -43,13 +45,11 @@ jobs:
           extended: true
 
       - name: Install theme dependencies
-        run: npm install --prefix themes/capro-tw
+        run: npm ci --prefix themes/capro-tw
 
       # Hugo exits 0 on a broken ref or a missing layout by default, so a page
       # can silently render empty. Treat those warnings as failures.
       - name: Build strictly
-        env:
-          HUGO_GMAP_API: ${{ secrets.HUGO_GMAP_API }}
         run: hugo --minify --panicOnWarning --printPathWarnings
 
       # The CSS bundle is committed, so a change to a source file without a

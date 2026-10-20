@@ -6,9 +6,9 @@
 - all: All
 
 - skipToContent: Skip to content
+- photoBy: Photo
+- uioProfile: Employee page at the University of Oslo
 - emailUs: Email us
-
-- skipToContent: Skip to content
 
 # Months
 - January: January
@@ -27,8 +27,43 @@
 # Menu
 - whatwedo: What we do
 - services: Services
-- portfolio: Our work
+- portfolio: Open source
 - team: The team
 - prices: Prices
 - news: News
 - contact: Contact
+
+# Accessibility
+- selectLanguage: Language
+- mainNav: Main navigation
+- mobileNav: Mobile navigation
+- footerNav: Footer navigation
+- toggleNav: Toggle navigation
+- backToTop: Back to top
+- profileOn: "{{ .name }} on {{ .host }}"
+
+# Taxonomy / listing
+- taggedWith: Tagged
+- inCategory: Filed under
+- oneItem: 1 post
+- manyItems: "{{ . }} posts"
+- backToNews: All news
+- filterBy: Filter by category
+- showingAll: Showing all projects
+- opensExternally: opens in a new tab
+- prevTestimonial: Previous
+- nextTestimonial: Next
+- testimonials: What people say
+# 404
+- notFoundTitle: Page not found
+- notFoundBody: The page you asked for is not here. It may have moved, or the link may be wrong.
+- backHome: Home
+# Publications
+- pubsLoading: Loading publications…
+- pubsError: Could not load publications.
+- pubsOnOrcid: View on ORCID
+- pubsYear: Year
+- pubsAuthors: Authors
+- pubsTitle: Title
+- pubsJournal: Journal
+- pubsFilterYear: Filter by year

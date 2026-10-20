@@ -1,11 +1,13 @@
 ---
-title: Client testimonials
+title: What people say afterwards
 build:
   render: false
   list: false
+  publishResources: false
 cascade:
   build:
     render: false
+    publishResources: false
 ---
 
-Don't take our word for it, listen to our clients!
+From researchers who have worked with us.

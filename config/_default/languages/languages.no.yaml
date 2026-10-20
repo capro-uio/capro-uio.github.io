@@ -4,31 +4,33 @@ params:
   weight: 2
   home: Hjem
   description: |
-    CAPRO hjelper prosjekter innen samfunnsvitenskap og humaniora ved
-    Universitetet i Oslo med å samle inn, prosessere, forvalte og analysere
-    store og komplekse data.
-  copyright: Opphavsrett &copy; 2022 Capro
+    CAPRO er et data- og programvareteam ved Universitetet i Oslo. Vi rydder
+    opp i rotete forskningsdata, setter opp trygg datainnsamling, gjør analyser
+    reproduserbare, kjører store jobber på universitetets tjenere, og lærer
+    forskningsgrupper å gjøre det selv.
+  copyright: Capro
   banner:
-    title: Vi bygger dataflyten bak forskningen din
+    title: Står du fast på datadelen av forskningen?
     content: |
-      CAPRO er et team for dataflyt og dataanalyse ved Universitetet i Oslo. Vi
-      hjelper prosjekter innen samfunnsvitenskap og humaniora med å samle inn,
-      prosessere, forvalte og analysere store og komplekse data.
+      Vi er et data- og programvareteam ved Universitetet i Oslo. Vi rydder opp
+      i rotete data, setter opp trygg innsamling, får analyser til å gi samme
+      svar to ganger, og får store jobber opp på universitetets tjenere — eller
+      lærer gruppa di å gjøre det selv.
     image: images/image-from-rawpixel-id-3337467-jpeg.jpg
     buttons:
-      - label: Dette kan vi gjøre
+      - label: Dette kan vi hjelpe med
         link: /services/
         style: primary
-      - label: Ta kontakt
+      - label: Spør oss om prosjektet ditt
         link: "#contact"
         style: outline
   help:
     title: Slik kan vi hjelpe
     content: |
-      Seks ting vi gjør for forskningsprosjekter. Hver av dem kan være et enkelt
-      råd, et kurs, eller et fullt prosjektsamarbeid.
+      Dette er problemene folk faktisk kommer med. Hvert av dem kan være én
+      samtale, et kurs, eller et prosjekt vi kjører sammen med deg.
     button:
-      label: Se alle tjenestene i detalj
+      label: Se hva hvert av dem innebærer
       link: /services/
   people:
     title: Teamet
@@ -36,13 +38,17 @@ params:
       label: Mer om teamet
       link: /team/
   contact:
-    title: Kontakt oss
+    title: Ta kontakt
     email: capro-contact@psykologi.uio.no
     intro: |
-      Fortell oss hva du står fast på, så sier vi ærlig fra om vi kan hjelpe.
-      Den første samtalen er gratis for UiO-prosjekter.
+      Fortell oss hva du står fast på, med dine egne ord — du trenger ikke vite
+      hva det heter på fagspråket. Vi sier ærlig fra om vi kan hjelpe.
+    reassure:
+      - Den første timen er gratis for alle ved UiO.
+      - Du snakker med noen som gjør jobben, ikke en kundeansvarlig.
+      - Et grovt pris- og tidsanslag, hvis du vil ha det.
     item:
-      - icon: ti-location-pin
+      - icon: location-dot
         info: |
           Harald Schjelderups hus,\
           Forskningsveien 3A,\

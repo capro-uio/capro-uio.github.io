@@ -1,22 +1,28 @@
 {{ $page := . }}
 {{ with site.Params.contact }}
-<section class="section bg-dark" id="contact">
+<section class="section bg-grey" id="contact">
   <div class="max-w-5xl mx-auto px-4">
     {{ partial "helpers/section-title.html" (dict "title" .title "page" $page) }}
     {{ partial "helpers/section-intro.html" (.intro | markdownify) }}
     {{ with .email }}
       {{/* The address is the label: people want to read and copy it, not just
-           fire a mail client they may not use. */}}
+           fire a mail client they may not use. The note goes above it — it read
+           value-then-label, which is backwards. */}}
       <div class="contact-email reveal">
-        <a href="mailto:{{ . }}">{{ . }}</a>
         <p class="contact-email__note">{{ i18n "emailUs" }}</p>
+        <a href="mailto:{{ . }}">{{ . }}</a>
       </div>
+    {{ end }}
+    {{ with .reassure }}
+      <ul class="contact-reassure reveal">
+        {{ range . }}<li>{{ . | markdownify }}</li>{{ end }}
+      </ul>
     {{ end }}
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start reveal">
       <div class="space-y-5">
         {{ range .item }}
         <div class="flex items-start gap-4">
-          <i class="{{ .icon }} text-primary mt-1" aria-hidden="true"></i>
+          {{ partial "helpers/icon.html" (dict "name" .icon "class" "text-primary-text mt-1") }}
           <div class="text-sm font-serif">{{ .info | markdownify }}</div>
         </div>
         {{ end }}

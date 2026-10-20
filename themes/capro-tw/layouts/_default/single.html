@@ -6,7 +6,7 @@
       <div class="flex flex-wrap justify-center gap-3 text-sm text-muted mb-4">
         {{ range .Params.author }}
           {{ with $.Site.GetPage "taxonomyTerm" (printf "team/%s" (urlize .)) }}
-            <a href="{{ .Permalink }}">{{ .Title }}</a>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
           {{ end }}
         {{ end }}
         <span>{{ .Date.Day }} {{ i18n .Date.Month }} {{ .Date.Year }}</span>
@@ -18,8 +18,14 @@
         </div>
       {{ end }}
       {{ range first 1 (.Resources.ByType "image") }}
-        {{ $image := .Fit "400x400 webp" }}
-        <img src="{{ $image.RelPermalink }}" alt="{{ partial "helpers/img-alt.html" (dict "page" $ "resource" . "fallback" $.Title) }}" class="mx-auto mt-4 rounded" loading="lazy" width="{{ $image.Width }}" height="{{ $image.Height }}">
+        {{ $alt := partial "helpers/img-alt.html" (dict "page" $ "resource" . "fallback" $.Title) }}
+        {{ if reflect.IsImageResourceProcessable . }}
+          {{ $image := .Fit "400x400 webp" }}
+          <img src="{{ $image.RelPermalink }}" alt="{{ $alt }}" class="mx-auto mt-4 rounded" loading="lazy" width="{{ $image.Width }}" height="{{ $image.Height }}">
+        {{ else }}
+          {{/* A vector needs no derivative; cap it in CSS instead. */}}
+          <img src="{{ .RelPermalink }}" alt="{{ $alt }}" class="mx-auto mt-4 rounded max-w-[400px] w-full" loading="lazy">
+        {{ end }}
       {{ end }}
     </div>
     <div class="prose prose-invert max-w-none font-serif">
