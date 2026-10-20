@@ -1,7 +1,7 @@
 ---
 title: Project management in R - workshop
 categories: ["Teaching"]
-link: "https://www.capro.dev/workshop_rproj/"
+link: "https://capro.dev/workshop_rproj/"
 date: 2023-11-02
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: uiothemes - UiO-profil i R
 categories: ["R-pakker"]
-link: "https://www.capro.dev/uiothemes/"
+link: "https://capro.dev/uiothemes/"
 date: 2020-10-26
 ---
 

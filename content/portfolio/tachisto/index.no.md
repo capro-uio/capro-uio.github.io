@@ -1,7 +1,7 @@
 ---
 title: tachisto - byggeverktøy for jsPsych-eksperimenter
 categories: ["Webapper"]
-link: "https://www.capro.dev/tachisto/"
+link: "https://capro.dev/tachisto/"
 date: 2026-10-14
 ---
 

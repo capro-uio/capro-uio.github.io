@@ -1,7 +1,7 @@
 ---
 title: tsdrtools - R packages inside TSD
 categories: ["R-packages"]
-link: "https://www.capro.dev/tsdrtools/"
+link: "https://capro.dev/tsdrtools/"
 date: 2020-08-13
 ---
 

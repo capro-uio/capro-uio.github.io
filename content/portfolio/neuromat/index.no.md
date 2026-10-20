@@ -1,7 +1,7 @@
 ---
 title: neuromat - Modellmatriser for hjerneavbildning
 categories: ["R-pakker", "MR"]
-link: "https://www.capro.dev/neuromat/"
+link: "https://capro.dev/neuromat/"
 date: 2024-02-26
 ---
 
