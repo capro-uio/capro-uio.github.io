@@ -1,22 +1,29 @@
+/* Publications come from OpenAlex, not from ORCID. The ORCID id on the
+   container is only the lookup key: OpenAlex indexes the whole career,
+   including work published before the person came to UiO, which the
+   institutional list does not.
+
+   The mailto is OpenAlex's polite-pool contact and belongs to the shared
+   inbox, not to a person: it ships in the bundle on every page load. */
 (function () {
-  var container = document.getElementById('orcid-pubs');
+  var container = document.getElementById('pubs');
   if (!container) return;
 
   var orcidId = container.dataset.orcid;
   if (!orcidId) return;
 
-  var loading = document.getElementById('orcid-pubs-loading');
-  var error = document.getElementById('orcid-pubs-error');
-  var content = document.getElementById('orcid-pubs-content');
-  var yearSelect = document.getElementById('orcid-pubs-year-select');
-  var tbody = document.getElementById('orcid-pubs-tbody');
+  var loading = document.getElementById('pubs-loading');
+  var error = document.getElementById('pubs-error');
+  var content = document.getElementById('pubs-content');
+  var yearSelect = document.getElementById('pubs-year-select');
+  var tbody = document.getElementById('pubs-tbody');
 
   var apiBase =
     'https://api.openalex.org/works?filter=author.orcid:' +
     orcidId +
     '&select=title,publication_year,primary_location,doi,authorships' +
     '&sort=publication_year:desc&per_page=200' +
-    '&mailto=a.m.mowinckel@psykologi.uio.no';
+    '&mailto=capro-contact@psykologi.uio.no';
 
   function formatAuthors(authorships) {
     var names = authorships.map(function (a) {

@@ -97,18 +97,18 @@
 {{ end }}
 
 {{ if $orcid }}
-<section class="section" id="orcid-pubs" data-orcid="{{ $orcid }}">
+<section class="section" id="pubs" data-orcid="{{ $orcid }}">
   <div class="max-w-5xl mx-auto px-4">
     <div class="section-title">
       <h2>{{ i18n "authorsPubs" }} <span class="accent">{{ .Title }}</span></h2>
       <div class="border-accent"></div>
     </div>
 
-    <div id="orcid-pubs-loading" class="text-center py-8">
+    <div id="pubs-loading" class="text-center py-8">
       <p class="text-muted">{{ T "pubsLoading" }}</p>
     </div>
 
-    <div id="orcid-pubs-error" class="text-center py-8" style="display:none;">
+    <div id="pubs-error" class="text-center py-8" style="display:none;">
       {{/* Underlined, not just coloured: the accent is 1.94:1 against body
            text, so colour alone cannot distinguish this link (WCAG 1.4.1).
            It only renders when the ORCID fetch fails, which is why it took a
@@ -116,10 +116,10 @@
       <p>{{ T "pubsError" }} <a href="https://orcid.org/{{ $orcid }}" target="_blank" rel="noopener" class="text-primary-text underline underline-offset-2">{{ T "pubsOnOrcid" }}</a></p>
     </div>
 
-    <div id="orcid-pubs-content" style="display:none;">
+    <div id="pubs-content" style="display:none;">
       <div class="mb-6">
-        <label for="orcid-pubs-year-select" class="sr-only">{{ T "pubsFilterYear" }}</label>
-        <select id="orcid-pubs-year-select" class="year-select" aria-label="{{ T "pubsFilterYear" }}">
+        <label for="pubs-year-select" class="sr-only">{{ T "pubsFilterYear" }}</label>
+        <select id="pubs-year-select" class="year-select" aria-label="{{ T "pubsFilterYear" }}">
           <option value="all" selected>{{ i18n "all" }}</option>
         </select>
       </div>
@@ -132,7 +132,7 @@
             <th>{{ T "pubsJournal" }}</th>
           </tr>
         </thead>
-        <tbody id="orcid-pubs-tbody"></tbody>
+        <tbody id="pubs-tbody"></tbody>
       </table>
     </div>
   </div>
@@ -141,6 +141,6 @@
 {{ end }}
 
 {{ define "scripts" }}
-{{ $orcid := resources.Get "js/orcid-pubs.js" | minify | fingerprint }}
-<script src="{{ $orcid.RelPermalink }}" integrity="{{ $orcid.Data.Integrity }}" defer></script>
+{{ $pubs := resources.Get "js/publications.js" | minify | fingerprint }}
+<script src="{{ $pubs.RelPermalink }}" integrity="{{ $pubs.Data.Integrity }}" defer></script>
 {{ end }}
