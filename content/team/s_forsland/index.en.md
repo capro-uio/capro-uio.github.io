@@ -1,5 +1,6 @@
 ---
 title: "Silje Forsland"
+role: "Research adviser"
 summary: "Plans data collection end to end, and looks after the people being tested."
 designation:
   - Data collection

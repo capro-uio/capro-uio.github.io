@@ -1,5 +1,6 @@
 ---
 title: "Inge Kasbohm Amlien"
+role: "Chief engineer"
 summary: "Containers, cloud, and the secure setups that keep participant data where it belongs."
 designation:
   - Infrastructure

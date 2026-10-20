@@ -1,5 +1,6 @@
 ---
 title: "José-Luis Alatorre-Warren"
+role: "Senior engineer"
 summary: "Structural and diffusion MRI, and the analysis that makes sense of the scans."
 designation:
   - Neuroimaging

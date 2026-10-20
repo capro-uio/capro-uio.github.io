@@ -1,16 +1,10 @@
 {{ define "main" }}
 <section class="section bg-grey">
-  <div class="max-w-3xl mx-auto px-4 text-center">
-    {{/* The person's name is this page's heading. It used to sit at text-xl
-         inside the figcaption, under a decorative label that rendered the
-         literal word "Member" at 36px on every team page. */}}
-    <div class="section-title">
-      <h1 class="section-title__name">{{ .Title }}</h1>
-      <div class="border-accent"></div>
-    </div>
-    <figure class="mb-6">
-      {{/* The same no-upscale crop the grid uses, and the attributes report
-           the size actually emitted rather than a hard-coded 300. */}}
+  <div class="max-w-5xl mx-auto px-4">
+    {{/* Photo beside the text rather than above it. A centred column put the
+         bio in centred serif, which is fine for a line and poor for a
+         paragraph, and left the page as a narrow strip on a wide screen. */}}
+    <div class="person reveal">
       {{ $photo := false }}
       {{ if isset .Params "photo" }}
         {{ $photo = resources.GetRemote .Params.photo }}
@@ -18,47 +12,62 @@
         {{ range first 1 (.Resources.ByType "image") }}{{ $photo = . }}{{ end }}
       {{ end }}
       {{ with $photo }}
+      <figure class="person__photo">
+        {{/* Square and grey, the same treatment as the card that links here,
+             so the page looks like the thing that was clicked. Never
+             upscaled, and the anchor is overridable per person. */}}
         {{ $side := 600 }}
         {{ $shorter := int (math.Min .Width .Height) }}
         {{ if lt $shorter $side }}{{ $side = $shorter }}{{ end }}
         {{ $anchor := default "Smart" $.Params.photo_anchor }}
-        {{ $square := .Fill (printf "%dx%d webp %s" $side $side $anchor) }}
-        <img class="rounded-full w-48 h-48 mx-auto object-cover" src="{{ $square.RelPermalink }}" alt="" width="{{ $side }}" height="{{ $side }}">
+        {{ $square := .Fill (printf "%dx%d webp %s" $side $side $anchor) | images.Filter (images.Grayscale) }}
+        <img src="{{ $square.RelPermalink }}" alt="" width="{{ $side }}" height="{{ $side }}">
+        {{/* Photographers have a right to be named, and a staff portrait is
+             someone's work. Rendered only where a credit is recorded. */}}
+        {{ with $.Params.photo_credit }}
+        <figcaption class="person-credit">{{ T "photoBy" }}: {{ . }}</figcaption>
+        {{ end }}
+      </figure>
       {{ end }}
-      {{/* Photographers have a right to be named, and a staff portrait is
-           someone's work. Rendered only where a credit is recorded. */}}
-      {{ with $.Params.photo_credit }}
-      <figcaption class="person-credit">{{ T "photoBy" }}: {{ . }}</figcaption>
-      {{ end }}
-    </figure>
-    {{/* The roles only ever appeared on the grid; the page about the person
-         did not say what they work on. */}}
-    {{ with .Params.designation }}
-    <ul class="person-roles">
-      {{ range . }}<li>{{ . | markdownify }}</li>{{ end }}
-    </ul>
-    {{ end }}
-    <hr class="border-border my-6">
-    <div class="font-serif mb-6">{{ .Content }}</div>
-    <hr class="border-border my-6">
-    <div class="flex justify-center gap-4">
-      {{ range .Params.Social }}
-        <a href="{{ .link | safeURL }}"
-           class="text-xl hover:text-primary-text transition-colors inline-flex items-center justify-center min-w-6 min-h-6"
-           {{/* The label used to be the last hyphen-segment of the icon class,
-                so "ti-twitter-alt" announced as "alt". Use the host instead. */}}
-           aria-label="{{ $.Title }} on {{ (urls.Parse .link).Host | replaceRE `^www\.` `` }}">
-          <i class="{{ .icon }}" aria-hidden="true"></i>
-        </a>
-      {{ end }}
+
+      <div class="person__body">
+        <h1 class="person__name">{{ .Title }}</h1>
+        {{ with .Params.role }}<p class="person__role">{{ . }}</p>{{ end }}
+
+        {{/* The roles only ever appeared on the grid; the page about the
+             person did not say what they work on. */}}
+        {{ with .Params.designation }}
+        <ul class="person-roles">
+          {{ range . }}<li>{{ . | markdownify }}</li>{{ end }}
+        </ul>
+        {{ end }}
+
+        <div class="person__bio">{{ .Content }}</div>
+
+        <div class="person__links">
+          {{ with .Params.Social }}
+          <div class="person__social">
+            {{ range . }}
+            <a href="{{ .link | safeURL }}"
+               {{/* The label used to be the last hyphen-segment of the icon class,
+                    so "ti-twitter-alt" announced as "alt". Use the host instead. */}}
+               aria-label="{{ $.Title }} on {{ (urls.Parse .link).Host | replaceRE `^www\.` `` }}">
+              <i class="{{ .icon }}" aria-hidden="true"></i>
+            </a>
+            {{ end }}
+          </div>
+          {{ end }}
+          {{/* A named link, not another icon: an employee page is a different
+               kind of destination from a social profile, and the label says so. */}}
+          {{ with .Params.uio_profile }}
+          <a class="person__uio" href="{{ . | safeURL }}" target="_blank" rel="noopener">{{ T "uioProfile" }}<span class="sr-only"> ({{ T "opensExternally" }})</span><i class="ti-new-window portfolio-link__icon" aria-hidden="true"></i></a>
+          {{ end }}
+        </div>
+
+        {{/* The page used to be a dead end. */}}
+        <p class="person__back"><a href="{{ "/team/" | relLangURL }}">&larr; {{ T "team" }}</a></p>
+      </div>
     </div>
-    {{/* A named link, not another icon: an employee page is a different kind
-         of destination from a social profile, and the label says so. */}}
-    {{ with .Params.uio_profile }}
-    <p class="person-uio">
-      <a href="{{ . | safeURL }}" target="_blank" rel="noopener">{{ T "uioProfile" }}<span class="sr-only"> ({{ T "opensExternally" }})</span><i class="ti-new-window portfolio-link__icon" aria-hidden="true"></i></a>
-    </p>
-    {{ end }}
   </div>
 </section>
 

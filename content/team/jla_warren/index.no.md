@@ -1,5 +1,6 @@
 ---
 title: "José-Luis Alatorre-Warren"
+role: "Senioringeniør"
 summary: "Strukturell MR og diffusjons-MR, og analysen som gir mening til skanningene."
 designation:
   - Hjerneavbildning

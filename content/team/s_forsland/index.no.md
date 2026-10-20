@@ -1,5 +1,6 @@
 ---
 title: "Silje Forsland"
+role: "Forskningsrådgiver"
 summary: "Planlegger datainnsamling fra start til slutt, og tar vare på dem som testes."
 designation:
   - Datainnsamling

@@ -1,5 +1,6 @@
 ---
 title: "Markus Handal Sneve"
+role: "Sjefsingeniør"
 summary: "Setter opp MR-delen av en studie, og kjører analysen etterpå."
 designation:
   - MR-protokoller

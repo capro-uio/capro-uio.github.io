@@ -1,5 +1,6 @@
 ---
 title: "Inge Kasbohm Amlien"
+role: "Sjefsingeniør"
 summary: "Containere, sky, og de sikre oppsettene som holder deltakerdata der de hører hjemme."
 designation:
   - Infrastruktur

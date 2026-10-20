@@ -1,5 +1,6 @@
 ---
 title: "Markus Handal Sneve"
+role: "Chief engineer"
 summary: "Sets up the MRI side of a study, then runs the analysis."
 designation:
   - MRI protocols

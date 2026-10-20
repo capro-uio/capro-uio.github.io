@@ -1,5 +1,6 @@
 ---
 title: "Athanasia Mo Mowinckel"
+role: "Forsker"
 summary: "Leder CAPRO, skriver R-pakkene, og lærer forskningsgrupper å jobbe reproduserbart."
 designation:
   - Dataflyt

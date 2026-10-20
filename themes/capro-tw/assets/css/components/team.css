@@ -108,7 +108,7 @@
   /* What the person works on, on their own page. The grid showed these and
      the page about them did not. */
   .person-roles {
-    @apply flex flex-wrap justify-center gap-2 p-0 mt-5;
+    @apply flex flex-wrap gap-2 p-0 mt-5;
     list-style: none;
   }
 
@@ -120,6 +120,93 @@
     color: var(--color-body);
     border: 1px solid var(--color-border);
     border-radius: 999px;
+  }
+
+  /* Photo beside the text. One column until there is room for two, so the
+     portrait never shrinks to a thumbnail beside a wall of prose. */
+  .person {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  @media (min-width: 760px) {
+    .person {
+      grid-template-columns: minmax(0, 17rem) minmax(0, 1fr);
+      gap: 3rem;
+      align-items: start;
+    }
+  }
+
+  .person__photo {
+    margin: 0;
+    max-width: 17rem;
+  }
+
+  .person__photo img {
+    @apply block w-full h-auto;
+    border: 1px solid var(--color-border);
+  }
+
+  .person__name {
+    font-size: clamp(1.9rem, 4vw, 2.75rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--color-body);
+    text-wrap: balance;
+  }
+
+  .person__role {
+    @apply mt-2;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--color-secondary);
+    margin-bottom: 0;
+  }
+
+  .person__bio {
+    @apply mt-7;
+    max-width: 62ch;
+  }
+
+  .person__bio p {
+    font-size: 1.02rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  .person__links {
+    @apply flex flex-wrap items-center gap-x-6 gap-y-3 mt-8;
+  }
+
+  .person__social {
+    @apply flex items-center gap-4;
+  }
+
+  .person__social a {
+    @apply inline-flex items-center justify-center text-xl;
+    min-width: 1.5rem;
+    min-height: 1.5rem;
+    transition: color var(--transition-fast);
+  }
+
+  .person__social a:hover {
+    color: var(--color-primary-text);
+  }
+
+  .person__uio,
+  .person__back a {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .person__back {
+    @apply mt-8;
+    margin-bottom: 0;
   }
 
   .person-credit {

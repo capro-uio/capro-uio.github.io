@@ -1,5 +1,6 @@
 ---
 title: "Athanasia Mo Mowinckel"
+role: "Researcher"
 summary: "Leads CAPRO, writes the R packages, and teaches research groups to work reproducibly."
 designation:
   - Data engineering
