@@ -1,6 +1,6 @@
 ---
 title: Prosjektstyring i R - kurs
-categories: ["Teaching"]
+categories: ["Undervisning"]
 link: "https://www.capro.dev/workshop_rproj/"
 date: 2023-11-02
 ---

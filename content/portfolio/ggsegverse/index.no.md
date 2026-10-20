@@ -1,7 +1,7 @@
 ---
-title : ggsegverse - Hjerneatlas i R
-categories : ["R-pakke"]
-link : "https://ggsegverse.r-universe.dev/"
+title: ggsegverse - Hjerneatlas i R
+categories: ["R-pakker"]
+link: "https://ggsegverse.r-universe.dev/"
 date: 2020-11-30
 aliases:
   - /portfolio/ggseg/

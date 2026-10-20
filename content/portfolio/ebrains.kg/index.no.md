@@ -1,6 +1,6 @@
 ---
 title: ebrains.kg - EBRAINS Knowledge Graph i R
-categories: ["R-packages"]
+categories: ["R-pakker"]
 link: "https://github.com/capro-uio/ebrains.kg"
 date: 2026-03-28
 ---

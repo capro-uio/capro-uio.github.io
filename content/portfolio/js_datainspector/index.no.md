@@ -1,6 +1,6 @@
 ---
 title: Datainspektør for Nettskjema
-categories: ["Web apps"]
+categories: ["Webapper"]
 link: "https://github.com/capro-uio/js_datainspector"
 date: 2021-12-08
 ---

@@ -1,7 +1,7 @@
 ---
-title : ggsegverse - Brain atlases in R
-categories : ["R-packages"]
-link : "https://ggsegverse.r-universe.dev/"
+title: ggsegverse - Brain atlases in R
+categories: ["R-packages"]
+link: "https://ggsegverse.r-universe.dev/"
 date: 2020-11-30
 aliases:
   - /portfolio/ggseg/

@@ -1,6 +1,6 @@
 ---
 title: nva - Nasjonalt Vitenarkiv i R
-categories: ["R-packages"]
+categories: ["R-pakker"]
 link: "https://github.com/capro-uio/nva"
 date: 2026-03-23
 ---
