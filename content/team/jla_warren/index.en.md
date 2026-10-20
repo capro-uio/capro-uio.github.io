@@ -1,11 +1,11 @@
 ---
 title: "José-Luis Alatorre-Warren"
 role: "Senior engineer"
-summary: "Diffusion MRI, and how the brain changes in the first years of life."
+summary: "Statistical modelling for complex, longitudinal data — and the MRI underneath it."
 designation:
-  - Neuroimaging
-  - Diffusion MRI
   - Statistics
+  - Diffusion MRI
+  - Neuroimaging
 photo_credit: "Erik Engblad"
 uio_profile: "https://www.sv.uio.no/psi/english/people/admin/jlwarren/"
 social:
@@ -17,9 +17,11 @@ social:
     link: "https://orcid.org/0000-0002-3638-9957"
 ---
 
-José Luis is a senior engineer at LCBC, with a PhD in evolutionary biology on
-top of degrees in applied physics and mechatronics engineering. He works on
-diffusion MRI — in humans, and in the animal samples that put human brains in
-context — and on how the brain changes in the first years of life, with
-collaborators at Harvard Medical School and Boston Children's Hospital. If
-your MRI study needs a pipeline and a statistical plan, he is the one to ask.
+José Luis is the one to send a statistics question to. He works on the
+modelling — longitudinal data, and working out which analysis the question
+actually calls for — and on the diffusion MRI it sits on top of. He came to it
+through a PhD in evolutionary biology on top of applied physics and
+mechatronics, and works on how the brain changes in the first years of life
+with collaborators at Harvard Medical School and Boston Children's Hospital.
+If your study needs a statistical plan, before you collect or on data you
+already have, he is the one to ask.
