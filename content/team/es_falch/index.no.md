@@ -1,8 +1,9 @@
 ---
 title: "Emilie Sogn Falch"
+summary: "Datainnsamling og -forvaltning, ordnet slik at den neste kan følge den."
 designation:
-  - Kognitiv nevrovitenskap
-  - Systematisering av datainnsamling
+  - Datainnsamling
+  - Dataforvaltning
 social:
   - icon: "fa-brands fa-github"
     link: "https://github.com/esfalch"

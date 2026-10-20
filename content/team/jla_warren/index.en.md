@@ -1,9 +1,10 @@
 ---
 title: "José-Luis Alatorre-Warren"
+summary: "Structural and diffusion MRI, and the analysis that makes sense of the scans."
 designation:
-  - Computational neuroimaging
-  - Structural and diffusion MRI
-  - Developmental and evolutionary neuroscience
+  - Neuroimaging
+  - Diffusion MRI
+  - Statistics
 photo_credit: "Erik Engblad"
 uio_profile: "https://www.sv.uio.no/psi/english/people/admin/jlwarren/"
 social:

@@ -24,7 +24,8 @@
             {{ $side := 500 }}
             {{ $shorter := int (math.Min $src.Width $src.Height) }}
             {{ if lt $shorter $side }}{{ $side = $shorter }}{{ end }}
-            {{ $img := $src.Fill (printf "%dx%d webp q82" $side $side) | images.Filter images.Grayscale }}
+            {{ $anchor := default "Smart" $member.Params.photo_anchor }}
+            {{ $img := $src.Fill (printf "%dx%d webp q82 %s" $side $side $anchor) | images.Filter images.Grayscale }}
             <img src="{{ $img.RelPermalink }}" width="{{ $side }}" height="{{ $side }}"
                  alt="{{ $member.Title }}" loading="lazy" decoding="async">
           {{ end }}

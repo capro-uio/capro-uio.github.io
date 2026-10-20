@@ -1,9 +1,10 @@
 ---
 title: "Markus Handal Sneve"
+summary: "Sets up the MRI side of a study, then runs the analysis."
 designation:
   - MRI protocols
-  - fMRI analyses
-  - HPC
+  - fMRI analysis
+  - Large-scale computing
 uio_profile: "https://www.sv.uio.no/psi/english/people/academic/markushs/"
 social:
   - icon: "fa-brands fa-orcid"

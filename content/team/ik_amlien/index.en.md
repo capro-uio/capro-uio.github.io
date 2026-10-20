@@ -1,10 +1,11 @@
 ---
 title: "Inge Kasbohm Amlien"
+summary: "Containers, cloud, and the secure setups that keep participant data where it belongs."
 designation:
-  - Data engineering
-  - Cloud
+  - Infrastructure
+  - Secure data
   - Containers
-  - HPC
+  - Large-scale computing
 uio_profile: "https://www.sv.uio.no/psi/english/people/academic/ingeam/"
 social:
   - icon: "fa-brands fa-orcid"

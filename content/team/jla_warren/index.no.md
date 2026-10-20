@@ -1,9 +1,10 @@
 ---
 title: "José-Luis Alatorre-Warren"
+summary: "Strukturell MR og diffusjons-MR, og analysen som gir mening til skanningene."
 designation:
-  - Komputasjonell hjerneavbildning
-  - Strukturell MR og diffusjons-MR
-  - Utviklings- og evolusjonær nevrovitenskap
+  - Hjerneavbildning
+  - Diffusjons-MR
+  - Statistikk
 photo_credit: "Erik Engblad"
 uio_profile: "https://www.sv.uio.no/psi/english/people/admin/jlwarren/"
 social:

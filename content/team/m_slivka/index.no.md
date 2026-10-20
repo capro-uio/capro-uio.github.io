@@ -1,8 +1,8 @@
 ---
 title: "Maksim Slivka"
+summary: "Prosessering av hjerneavbildningsdata, maskinlæring, og analyser som er for store for en laptop."
 designation:
-  - Prosessering av hjerneavbildningsdata
-  - Optimalisering og standardisering
+  - Hjerneavbildning
   - Maskinlæring
   - Tungregning
 social:

@@ -1,8 +1,9 @@
 ---
 title: "Inge Kasbohm Amlien"
+summary: "Containere, sky, og de sikre oppsettene som holder deltakerdata der de hører hjemme."
 designation:
-  - Dataingeniør
-  - Sky
+  - Infrastruktur
+  - Sikker datalagring
   - Containere
   - Tungregning
 uio_profile: "https://www.sv.uio.no/psi/english/people/academic/ingeam/"

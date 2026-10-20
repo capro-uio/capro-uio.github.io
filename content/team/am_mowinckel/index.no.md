@@ -1,10 +1,11 @@
 ---
 title: "Athanasia Mo Mowinckel"
+summary: "Leder CAPRO, skriver R-pakkene, og lærer forskningsgrupper å jobbe reproduserbart."
 designation:
-  - Arbeidsflyt
-  - Databehandling
-  - Nettapplikasjoner
+  - Dataflyt
   - R
+  - Nettapplikasjoner
+  - Kurs
 uio_profile: "https://www.sv.uio.no/psi/english/people/academic/athanasm/"
 social:
   - icon: "fa-brands fa-github"

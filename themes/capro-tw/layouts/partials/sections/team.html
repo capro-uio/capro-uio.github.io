@@ -27,7 +27,8 @@
           {{ $side := 600 }}
           {{ $shorter := int (math.Min .Width .Height) }}
           {{ if lt $shorter $side }}{{ $side = $shorter }}{{ end }}
-          {{ $square := .Fill (printf "%dx%d webp" $side $side) | images.Filter (images.Grayscale) }}
+          {{ $anchor := default "Smart" $member.Params.photo_anchor }}
+          {{ $square := .Fill (printf "%dx%d webp %s" $side $side $anchor) | images.Filter (images.Grayscale) }}
           <img src="{{ $square.RelPermalink }}" alt="{{ $member.Title }}" width="{{ $side }}" height="{{ $side }}" loading="lazy">
           {{ end }}
           <div class="social-overlay">

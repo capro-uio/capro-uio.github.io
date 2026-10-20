@@ -1,10 +1,10 @@
 ---
 title: "Maksim Slivka"
+summary: "Neuroimaging data processing, machine learning, and analyses too big for a laptop."
 designation:
-  - Neuroimaging data processing
-  - Optimization and standardization
+  - Neuroimaging
   - Machine learning
-  - HPC
+  - Large-scale computing
 social:
   - icon: "fa-brands fa-github"
     link: "https://github.com/Mak2055"

@@ -1,10 +1,11 @@
 ---
 title: "Athanasia Mo Mowinckel"
+summary: "Leads CAPRO, writes the R packages, and teaches research groups to work reproducibly."
 designation:
-  - Workflow
-  - Data processing
-  - Web applications
+  - Data engineering
   - R
+  - Web apps
+  - Workshops
 uio_profile: "https://www.sv.uio.no/psi/english/people/academic/athanasm/"
 social:
   - icon: "fa-brands fa-github"

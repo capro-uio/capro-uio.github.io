@@ -1,8 +1,9 @@
 ---
 title: "Markus Handal Sneve"
+summary: "Setter opp MR-delen av en studie, og kjører analysen etterpå."
 designation:
   - MR-protokoller
-  - fMRI-analyser
+  - fMRI-analyse
   - Tungregning
 uio_profile: "https://www.sv.uio.no/psi/english/people/academic/markushs/"
 social:

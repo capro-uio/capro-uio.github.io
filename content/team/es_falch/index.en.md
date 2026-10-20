@@ -1,8 +1,9 @@
 ---
 title: "Emilie Sogn Falch"
+summary: "Data collection and management, organised so the next person can follow it."
 designation:
-  - Cognitive neuroscience
-  - Systematization of data collection
+  - Data collection
+  - Data management
 social:
   - icon: "fa-brands fa-github"
     link: "https://github.com/esfalch"
