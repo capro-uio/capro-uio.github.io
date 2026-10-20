@@ -25,12 +25,6 @@
     color: var(--color-body);
   }
 
-  /* A person's name is already cased correctly; `capitalize` would rewrite
-     names like "José-Luis Alatorre-Warren" at the hyphen. */
-  .section-title .section-title__name {
-    text-transform: none;
-  }
-
   .section-title .accent {
     color: var(--color-primary-text);
   }

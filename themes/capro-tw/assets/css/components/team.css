@@ -204,18 +204,4 @@
     font-size: 0.75rem;
     color: var(--color-muted);
   }
-
-  .person-uio {
-    @apply mt-6;
-    font-family: var(--font-sans);
-    font-size: 0.9rem;
-  }
-
-  /* Underlined, not colour alone: this sits on its own but still reads as
-     body text, and the accent is under 3:1 against it. */
-  .person-uio a {
-    color: var(--color-secondary);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
 }

@@ -62,29 +62,6 @@
     border-left: 2px solid var(--color-secondary);
   }
 
-  /* Services */
-  .service-block {
-    @apply text-center h-full;
-    padding: 60px 32px;
-    background-color: var(--color-dark);
-    border-left: 1px solid var(--color-border);
-    border-top: 1px solid var(--color-border);
-    box-shadow:
-      2px 2px 5px rgba(44, 44, 44, 0.3),
-      13px 13px 0 rgba(255, 255, 255, 0.12);
-  }
-
-  .service-block i {
-    @apply mb-6 block;
-    font-size: 50px;
-    color: var(--color-light);
-  }
-
-  .service-block h3 {
-    @apply text-xl font-medium mb-3;
-    color: var(--color-secondary);
-  }
-
   /* Pricing */
   .price-card {
     @apply h-full;

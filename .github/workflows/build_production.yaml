@@ -40,8 +40,6 @@ jobs:
         run: npm ci --prefix themes/capro-tw
 
       - name: Build 🔧
-        env:
-          HUGO_GMAP_API: ${{ secrets.HUGO_GMAP_API }}
         run: hugo --minify
 
       - name: Deploy 🚀
