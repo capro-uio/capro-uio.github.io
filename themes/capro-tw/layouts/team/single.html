@@ -74,7 +74,11 @@
     </div>
 
     <div id="orcid-pubs-error" class="text-center py-8" style="display:none;">
-      <p>{{ T "pubsError" }} <a href="https://orcid.org/{{ $orcid }}" target="_blank" rel="noopener" class="text-primary-text hover:underline">{{ T "pubsOnOrcid" }}</a></p>
+      {{/* Underlined, not just coloured: the accent is 1.94:1 against body
+           text, so colour alone cannot distinguish this link (WCAG 1.4.1).
+           It only renders when the ORCID fetch fails, which is why it took a
+           flaky upstream to surface it. */}}
+      <p>{{ T "pubsError" }} <a href="https://orcid.org/{{ $orcid }}" target="_blank" rel="noopener" class="text-primary-text underline underline-offset-2">{{ T "pubsOnOrcid" }}</a></p>
     </div>
 
     <div id="orcid-pubs-content" style="display:none;">
