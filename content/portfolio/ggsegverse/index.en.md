@@ -1,14 +1,12 @@
 ---
-title: ggsegverse - Brain atlases in R
+title: "ggsegverse - Brain atlases in R"
 categories: ["R-packages"]
-link: "https://ggsegverse.r-universe.dev/"
+link: "https://ggsegverse.github.io/"
 date: 2020-11-30
 aliases:
   - /portfolio/ggseg/
 ---
 
-A family of R packages for plotting brain atlas data with ggplot2, covering 2D
-and 3D plots and a large collection of ready-made atlases.
-Open source, and free to install whether or not you ever work with us.
-
-<!-- read more -->
+Brain atlas data plotted in R — ggseg for 2D with ggplot2, ggseg3d for 3D with
+Three.js, and atlas packages covering a range of parcellations. The site runs a
+real R session in the browser, so you can try it before installing anything.

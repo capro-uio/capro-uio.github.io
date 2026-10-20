@@ -1,14 +1,12 @@
 ---
-title: ggsegverse - Hjerneatlas i R
+title: "ggsegverse - Hjerneatlas i R"
 categories: ["R-pakker"]
-link: "https://ggsegverse.r-universe.dev/"
+link: "https://ggsegverse.github.io/"
 date: 2020-11-30
 aliases:
   - /portfolio/ggseg/
 ---
 
-En familie av R-pakker for å visualisere hjerneatlasdata med ggplot2, med både
-2D- og 3D-plott og en stor samling ferdige atlas.
-Åpen kildekode, og gratis å installere enten du jobber med oss eller ikke.
-
-<!-- read more -->
+Hjerneatlasdata plottet i R — ggseg for 2D med ggplot2, ggseg3d for 3D med
+Three.js, og atlaspakker for en rekke parselleringer. Nettstedet kjører en ekte
+R-sesjon i nettleseren, så du kan prøve det før du installerer noe.
