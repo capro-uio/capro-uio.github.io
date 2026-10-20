@@ -9,16 +9,29 @@
       <div class="border-accent"></div>
     </div>
     <figure class="mb-6">
+      {{/* The same no-upscale crop the grid uses, and the attributes report
+           the size actually emitted rather than a hard-coded 300. */}}
+      {{ $photo := false }}
       {{ if isset .Params "photo" }}
-        {{ $image := resources.GetRemote .Params.photo | .Fill "600x600" }}
-        <img class="rounded-full w-48 h-48 mx-auto object-cover" src="{{ $image.RelPermalink }}" alt="" width="300" height="300">
+        {{ $photo = resources.GetRemote .Params.photo }}
       {{ else }}
-        {{ range first 1 (.Resources.ByType "image") }}
-          {{ $image := .Fill "600x600" }}
-          <img class="rounded-full w-48 h-48 mx-auto object-cover" src="{{ $image.RelPermalink }}" alt="" width="300" height="300">
-        {{ end }}
+        {{ range first 1 (.Resources.ByType "image") }}{{ $photo = . }}{{ end }}
+      {{ end }}
+      {{ with $photo }}
+        {{ $side := 600 }}
+        {{ $shorter := int (math.Min .Width .Height) }}
+        {{ if lt $shorter $side }}{{ $side = $shorter }}{{ end }}
+        {{ $square := .Fill (printf "%dx%d webp" $side $side) }}
+        <img class="rounded-full w-48 h-48 mx-auto object-cover" src="{{ $square.RelPermalink }}" alt="" width="{{ $side }}" height="{{ $side }}">
       {{ end }}
     </figure>
+    {{/* The roles only ever appeared on the grid; the page about the person
+         did not say what they work on. */}}
+    {{ with .Params.designation }}
+    <ul class="person-roles">
+      {{ range . }}<li>{{ . | markdownify }}</li>{{ end }}
+    </ul>
+    {{ end }}
     <hr class="border-border my-6">
     <div class="font-serif mb-6">{{ .Content }}</div>
     <hr class="border-border my-6">
@@ -33,6 +46,13 @@
         </a>
       {{ end }}
     </div>
+    {{/* A named link, not another icon: an employee page is a different kind
+         of destination from a social profile, and the label says so. */}}
+    {{ with .Params.uio_profile }}
+    <p class="person-uio">
+      <a href="{{ . | safeURL }}" target="_blank" rel="noopener">{{ T "uioProfile" }}<span class="sr-only"> ({{ T "opensExternally" }})</span><i class="ti-new-window portfolio-link__icon" aria-hidden="true"></i></a>
+    </p>
+    {{ end }}
   </div>
 </section>
 

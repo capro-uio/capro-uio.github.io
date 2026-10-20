@@ -90,3 +90,36 @@
     @apply absolute inset-0;
   }
 }
+
+@layer components {
+  /* What the person works on, on their own page. The grid showed these and
+     the page about them did not. */
+  .person-roles {
+    @apply flex flex-wrap justify-center gap-2 p-0 mt-5;
+    list-style: none;
+  }
+
+  .person-roles li {
+    @apply px-3 py-1;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--color-body);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+  }
+
+  .person-uio {
+    @apply mt-6;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+  }
+
+  /* Underlined, not colour alone: this sits on its own but still reads as
+     body text, and the accent is under 3:1 against it. */
+  .person-uio a {
+    color: var(--color-secondary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}

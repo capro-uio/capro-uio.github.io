@@ -1,13 +1,18 @@
 ---
-title : Inge Amlien
-designation : ["Senioringeniør", "Skyløsninger",
-  "Containers", "HPC", "Python"]
-social :
-  - icon : "fa-brands fa-orcid"
-    link : "https://orcid.org/0000-0002-8508-9088"
+title: "Inge Kasbohm Amlien"
+designation:
+  - Dataingeniør
+  - Sky
+  - Containere
+  - Tungregning
+# Employee page at the Department of Psychology.
+uio_profile: "https://www.sv.uio.no/psi/english/people/academic/ingeam/"
+social:
+  - icon: "fa-brands fa-orcid"
+    link: "https://orcid.org/0000-0002-8508-9088"
 ---
 
-IT-bakgrunn og PhD i psykologi / nevrovitenskap.
-Inge har en lidenskap for å bygge robuste og skalerbare løsninger som tillager forskere å fokusere på deres forskning, mens de samtidig holder høye standardere for datasikkerhet og -privacy.
-
-<!-- more -->
+Inge har teknisk bakgrunn og en doktorgrad i psykologi og nevrovitenskap. Han
+bygger infrastrukturen alt det andre kjører på: containere, sky, og de sikre
+oppsettene som holder deltakerdata der de har lov til å være. Feiler en jobb
+på TSD og feilmeldingen sier deg ingenting, er det ham du skal spørre.

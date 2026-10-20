@@ -1,16 +1,22 @@
 ---
-title : "José-Luis Alatorre-Warren" 
-designation : 
-  - Computational neuroimaging
-  - Structural and diffusion MRI
-  - Developmental and evolutionary neuroscience
-social : # themify icon pack : https://themify.me/themify-icons or fontawesome (https://fontawesome.com/icons)
-  - icon : ti-twitter-alt
-    link : "https://twitter.com/alatwarren"
-  - icon : ti-github 
-    link : "https://github.com/jlawarren"
+title: "José-Luis Alatorre-Warren"
+designation:
+  - Komputasjonell hjerneavbildning
+  - Strukturell MR og diffusjons-MR
+  - Utviklings- og evolusjonær nevrovitenskap
+# Employee page at the Department of Psychology.
+uio_profile: "https://www.sv.uio.no/psi/english/people/admin/jlwarren/"
+social:
+  - icon: "fa-brands fa-twitter"
+    link: "https://twitter.com/alatwarren"
+  - icon: "fa-brands fa-github"
+    link: "https://github.com/jlawarren"
   - icon: "fa-brands fa-orcid"
     link: "https://orcid.org/0000-0002-3638-9957"
 ---
 
-José Luis har en mangfoldig bakgrunn innen ingeniørfag (BSc), anvendt fysikk (MSc) og evolusjonsbiologi (PhD). Han liker å skape og implementere avanserte verktøy som hjelper til med å forstå komplekse mønstre innen biologi og nevrovitenskap.
+José Luis har en bachelor i ingeniørfag, en mastergrad i anvendt fysikk og en
+doktorgrad i evolusjonsbiologi, og bruker alle tre på hjerneavbildningsdata.
+Han jobber med strukturell MR og diffusjons-MR, og med analysen som gjør en
+haug med skanninger om til noe du kan skrive om. Trenger MR-studien din en
+analysekjede og en statistisk plan, er det ham du skal spørre.

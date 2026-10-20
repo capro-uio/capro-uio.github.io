@@ -1,11 +1,11 @@
 ---
-title : "Emilie Sogn Falch"
-designation : 
-  - Cognitive Neuroscience
-  - Systematization of data collection 
-social :
-  - icon : ti-github 
-    link : "https://github.com/esfalch"
+title: "Emilie Sogn Falch"
+designation:
+  - Cognitive neuroscience
+  - Systematization of data collection
+social:
+  - icon: "fa-brands fa-github"
+    link: "https://github.com/esfalch"
 draft: true
 ---
 
