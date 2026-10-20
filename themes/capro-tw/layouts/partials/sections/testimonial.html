@@ -55,7 +55,7 @@
         </blockquote>
         <div class="mt-auto flex items-center gap-4 pt-4 border-t border-border">
           {{ with $sch.Get "img" }}
-            <img src="{{ . }}" alt="{{ $item.Params.author.name }}" class="w-12 h-12 rounded-full object-cover flex-shrink-0" loading="lazy">
+            <img src="{{ . }}" alt="" class="w-12 h-12 rounded-full object-cover flex-shrink-0" loading="lazy">
           {{ end }}
           <div>
             {{ with .Params.author }}
