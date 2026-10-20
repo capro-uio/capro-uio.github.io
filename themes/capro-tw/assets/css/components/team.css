@@ -177,30 +177,25 @@
   }
 
   .person__links {
-    @apply flex flex-wrap items-center gap-x-6 gap-y-3 mt-8;
+    @apply flex flex-wrap items-center gap-4 mt-8;
   }
 
-  .person__social {
-    @apply flex items-center gap-4;
-  }
-
-  .person__social a {
+  .person__links a {
     @apply inline-flex items-center justify-center text-xl;
     min-width: 1.5rem;
     min-height: 1.5rem;
     transition: color var(--transition-fast);
   }
 
-  .person__social a:hover {
+  .person__links a:hover {
     color: var(--color-primary-text);
   }
 
-  .person__uio {
-    font-family: var(--font-sans);
-    font-size: 0.9rem;
-    color: var(--color-secondary);
-    text-decoration: underline;
-    text-underline-offset: 3px;
+  /* Drawn, not an icon font, so it inherits colour like its neighbours. */
+  .person__uio svg {
+    width: 1.25em;
+    height: 1.25em;
+    fill: currentColor;
   }
 
   .person-credit {

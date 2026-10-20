@@ -44,24 +44,31 @@
 
         <div class="person__bio">{{ .Content }}</div>
 
+        {{/* The row renders when there is anything to put in it: Silje has a
+             UiO page and no social accounts. */}}
+        {{ if or .Params.Social .Params.uio_profile }}
         <div class="person__links">
-          {{ with .Params.Social }}
-          <div class="person__social">
-            {{ range . }}
-            <a href="{{ .link | safeURL }}"
-               {{/* The label used to be the last hyphen-segment of the icon class,
-                    so "ti-twitter-alt" announced as "alt". Use the host instead. */}}
-               aria-label="{{ $.Title }} on {{ (urls.Parse .link).Host | replaceRE `^www\.` `` }}">
-              <i class="{{ .icon }}" aria-hidden="true"></i>
-            </a>
-            {{ end }}
-          </div>
+          {{ range .Params.Social }}
+          <a href="{{ .link | safeURL }}"
+             {{/* The label used to be the last hyphen-segment of the icon class,
+                  so "ti-twitter-alt" announced as "alt". Use the host instead. */}}
+             aria-label="{{ $.Title }} on {{ (urls.Parse .link).Host | replaceRE `^www\.` `` }}">
+            <i class="{{ .icon }}" aria-hidden="true"></i>
+          </a>
           {{ end }}
-          {{/* A named link, not another icon: an employee page is a different
-               kind of destination from a social profile, and the label says so. */}}
           {{ with .Params.uio_profile }}
-          <a class="person__uio" href="{{ . | safeURL }}" target="_blank" rel="noopener">{{ T "uioProfile" }}<span class="sr-only"> ({{ T "opensExternally" }})</span><i class="ti-new-window portfolio-link__icon" aria-hidden="true"></i></a>
+          {{/* The colon from the UiO lockup, the same mark the CAPRO logo
+               carries. There is no icon font for it, so it is drawn here. */}}
+          <a class="person__uio" href="{{ . | safeURL }}" target="_blank" rel="noopener"
+             aria-label="{{ T "uioProfile" }} ({{ T "opensExternally" }})">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="6.5" r="4.2" />
+              <circle cx="12" cy="17.5" r="4.2" />
+            </svg>
+          </a>
           {{ end }}
+        </div>
+        {{ end }}
         </div>
       </div>
     </div>
