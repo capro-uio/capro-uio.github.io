@@ -1,6 +1,7 @@
 ---
 title: "Markus Handal Sneve"
 designation:
+  - MR-protokoller
   - fMRI-analyser
   - Tungregning
 # Employee page at the Department of Psychology.
@@ -10,7 +11,9 @@ social:
     link: "https://orcid.org/0000-0001-7644-7915"
 ---
 
-Markus har en doktorgrad i psykologi og er sjefsingeniør ved LCBC. Han jobber
-med fMRI-analyse, og med å få den til å kjøre på maskiner som er større enn en
-laptop. Har bildebehandlingen din hundrevis av skanninger å gå gjennom, er det
-han som får den i mål.
+Markus har en doktorgrad i psykologi og er sjefsingeniør ved LCBC. Han setter
+opp MR-delen av en studie — samarbeider med fysikerne på sykehuset for å holde
+protokollene gyldige og oppdaterte, og passer på at innsamlingen går som den
+skal — og gjør deretter fMRI-analysen, på maskiner større enn en laptop når
+det trengs. Trenger bildestudien din en protokoll som fortsatt holder når du
+skal analysere, er det ham du skal spørre.
