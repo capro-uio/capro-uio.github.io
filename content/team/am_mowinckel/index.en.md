@@ -5,7 +5,6 @@ designation:
   - Data processing
   - Web applications
   - R
-# Employee page at the Department of Psychology.
 uio_profile: "https://www.sv.uio.no/psi/english/people/academic/athanasm/"
 social:
   - icon: "fa-brands fa-github"
@@ -20,8 +19,8 @@ social:
     link: "https://twitter.com/DrMowinckels"
 ---
 
-Mo has a PhD in psychology and moved into research software when she saw how
-much of it her colleagues were going without. She writes the R packages —
-nettskjemar, ggsegverse, uiothemes — and runs the workshops. If your data is
-spread across sixty files and you want one documented script that pulls it
-together, that is her work.
+Mo is a researcher at LCBC, where she has run data processing and management
+for the EU Lifebrain consortium, and she leads CAPRO. She writes the R
+packages the work runs on — ggseg, ggseg3d, nettskjemar — and teaches research
+methods at the department. If your data is spread across sixty files and you
+want one documented script that pulls it together, that is her work.

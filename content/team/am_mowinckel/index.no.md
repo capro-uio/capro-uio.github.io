@@ -5,7 +5,6 @@ designation:
   - Databehandling
   - Nettapplikasjoner
   - R
-# Employee page at the Department of Psychology.
 uio_profile: "https://www.sv.uio.no/psi/english/people/academic/athanasm/"
 social:
   - icon: "fa-brands fa-github"
@@ -20,8 +19,8 @@ social:
     link: "https://twitter.com/DrMowinckels"
 ---
 
-Mo har en doktorgrad i psykologi og gikk over til forskningsprogramvare da hun
-så hvor mye av den kollegene hennes manglet. Hun skriver R-pakkene —
-nettskjemar, ggsegverse, uiothemes — og holder kursene. Er dataene dine spredt
-over seksti filer og du vil ha ett dokumentert skript som samler dem, er det
-dette hun gjør.
+Mo er forsker ved LCBC, der hun har hatt ansvaret for databehandling og
+-forvaltning i EU-konsortiet Lifebrain, og hun leder CAPRO. Hun skriver
+R-pakkene arbeidet hviler på — ggseg, ggseg3d, nettskjemar — og underviser i
+forskningsmetode ved instituttet. Er dataene dine spredt over seksti filer og
+du vil ha ett dokumentert skript som samler dem, er det dette hun gjør.
