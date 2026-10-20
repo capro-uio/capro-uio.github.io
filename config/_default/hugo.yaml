@@ -4,6 +4,7 @@ theme: capro-tw
 pagination.pagerSize: "6"
 summaryLength: "15"
 enableGitInfo: true
+enableRobotsTXT: true
 defaultContentLanguage: en
 
 # Monokai's comment colour is 3.03:1 on its own background, below AA for body

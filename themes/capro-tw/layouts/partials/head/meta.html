@@ -9,6 +9,11 @@
   {{ range .AllTranslations }}
     <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
   {{ end }}
+  {{ with index hugo.Sites 0 }}
+    {{ range where $.AllTranslations "Lang" .Language.Lang }}
+      <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+    {{ end }}
+  {{ end }}
 {{ end }}
 <link rel="icon" href="{{ "images/capro_favico.svg" | absURL }}" type="image/svg+xml">
 <link rel="icon" href="{{ "images/favicon.png" | absURL }}" type="image/png" sizes="192x192">
