@@ -5,6 +5,7 @@
            source as well, or the image is upscaled and visibly soft on
            high-density screens. width/height keep the card from reflowing
            once the image lands. */}}
+      {{ if reflect.IsImageResourceProcessable . }}
       {{ $s1 := .Fit "400x400 webp" }}
       {{ $s2 := .Fit "800x800 webp" }}
       <img
@@ -17,6 +18,14 @@
         class="article-card__img"
         style="max-width: {{ $s1.Width }}px"
         loading="lazy">
+      {{ else }}
+      {{/* A vector scales on its own; there is no 2x of an SVG. */}}
+      <img
+        src="{{ .RelPermalink }}"
+        alt="{{ partial "helpers/img-alt.html" (dict "page" $ "resource" . "fallback" $.Title) }}"
+        class="article-card__img"
+        loading="lazy">
+      {{ end }}
     {{ end }}
     <div class="p-5">
       {{/* Only rendered from _default/list.html, whose section title is the page h1. */}}

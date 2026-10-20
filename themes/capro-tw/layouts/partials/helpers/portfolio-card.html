@@ -10,11 +10,19 @@
      x-show="filter === 'all' {{ range $cats }}|| filter === '{{ . }}'{{ end }}" x-transition>
   <div class="portfolio-card">
     {{ with (.Resources.ByType "image") }}
-    {{ $logo := (index . 0).Fit "600x440 webp q82" }}
+    {{ $src := index . 0 }}
     <div class="portfolio-img">
       {{/* The heading below names the project; repeating it here makes a
            screen reader say it twice. */}}
-      <img src="{{ $logo.RelPermalink }}" alt="" width="{{ $logo.Width }}" height="{{ $logo.Height }}" loading="lazy">
+      {{ if reflect.IsImageResourceProcessable $src }}
+        {{ $logo := $src.Fit "600x440 webp q82" }}
+        <img src="{{ $logo.RelPermalink }}" alt="" width="{{ $logo.Width }}" height="{{ $logo.Height }}" loading="lazy">
+      {{ else }}
+        {{/* A vector mark needs no raster derivative, and Hugo cannot make
+             one. The panel is a fixed height, so omitting the attributes
+             costs no layout shift. */}}
+        <img src="{{ $src.RelPermalink }}" alt="" loading="lazy">
+      {{ end }}
     </div>
     {{ end }}
     <div class="portfolio-meta">

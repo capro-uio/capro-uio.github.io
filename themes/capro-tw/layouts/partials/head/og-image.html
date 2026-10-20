@@ -21,6 +21,11 @@
     {{- end -}}
   {{- end -}}
 {{- end -}}
+{{- /* A social card has to be a raster at an exact size, so a vector page
+       image cannot be the subject. Fall back to the logo rather than fail. */ -}}
+{{- if and $subject (not (reflect.IsImageResourceProcessable $subject)) -}}
+  {{- $subject = false -}}
+{{- end -}}
 {{- if not $subject -}}
   {{- $subject = resources.GetMatch site.Params.logo -}}
 {{- end -}}
