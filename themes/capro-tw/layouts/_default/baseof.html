@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Lang }}">
   <head>
+    {{/* Inlined and in <head>: a separate request can fail after the page
+         has already committed to hiding .reveal. */}}
+    {{ with resources.Get "js/scroll-reveal.js" | minify }}
+    <script>{{ .Content | safeJS }}</script>
+    {{ end }}
     {{ partial "head/meta.html" . }}
     {{ partial "head/css.html" . }}
     {{ block "head" . }}{{ end }}

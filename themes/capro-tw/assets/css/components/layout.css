@@ -93,7 +93,7 @@
     background-color: var(--color-grey);
   }
 
-  .reveal {
+  .js .reveal {
     opacity: 0;
     transform: translateY(24px);
     transition:
@@ -101,7 +101,7 @@
       transform var(--transition-slow);
   }
 
-  .reveal.visible {
+  .js .reveal.visible {
     opacity: 1;
     transform: translateY(0);
   }
@@ -157,11 +157,8 @@
     text-decoration-thickness: 1px;
   }
 
-  /* .reveal starts hidden and is shown by scroll-reveal.js. If motion is
-     reduced the animation has no purpose, so show everything immediately
-     rather than making visibility depend on the observer firing. */
   @media (prefers-reduced-motion: reduce) {
-    .reveal {
+    .js .reveal {
       opacity: 1;
       transform: none;
     }

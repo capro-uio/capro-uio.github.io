@@ -28,6 +28,3 @@
             media="print" onload="this.media='screen'">
       <noscript><link rel="stylesheet" href="{{ .RelPermalink }}"></noscript>
 {{ end }}
-
-{{/* Content must not depend on the scroll observer running. */}}
-<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript>
