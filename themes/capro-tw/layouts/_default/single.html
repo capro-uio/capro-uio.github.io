@@ -6,7 +6,7 @@
       <div class="flex flex-wrap justify-center gap-3 text-sm text-muted mb-4">
         {{ range .Params.author }}
           {{ with $.Site.GetPage "taxonomyTerm" (printf "team/%s" (urlize .)) }}
-            <a href="{{ .Permalink }}">{{ .Title }}</a>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
           {{ end }}
         {{ end }}
         <span>{{ .Date.Day }} {{ i18n .Date.Month }} {{ .Date.Year }}</span>

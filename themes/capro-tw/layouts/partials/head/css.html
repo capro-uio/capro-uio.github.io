@@ -10,7 +10,7 @@
   {{ $image := resources.GetMatch .image }}
   {{ with $image }}
     {{ $resized := .Resize "1600x webp" }}
-    <link rel="preload" href="{{ $resized.Permalink }}" as="image">
+    <link rel="preload" href="{{ $resized.RelPermalink }}" as="image">
   {{ end }}
 {{ end }}
 

@@ -9,7 +9,7 @@
         {{/* Rendered at 130x48; ship 2x, not the 1624px original. width="auto"
              is not a valid HTML width attribute, so the header reflowed on load. */}}
         {{ $logo := .Resize "260x webp" }}
-        <img src="{{ $logo.Permalink }}" alt="{{ site.Title }}" width="130" height="48"
+        <img src="{{ $logo.RelPermalink }}" alt="{{ site.Title }}" width="130" height="48"
              fetchpriority="high" class="h-12">
       {{ else }}
         <span class="text-xl font-bold">{{ site.Title }}</span>
@@ -72,7 +72,7 @@
             {{ $lang := .Language.Lang }}
             {{ range where $page.AllTranslations "Lang" $lang }}
               <li>
-                <a href="{{ .Permalink }}" hreflang="{{ .Lang }}" lang="{{ .Lang }}"
+                <a href="{{ .RelPermalink }}" hreflang="{{ .Lang }}" lang="{{ .Lang }}"
                    {{ if eq $page.Lang .Lang }}aria-current="true"{{ end }}>{{ .Language.Params.languageName }}</a>
               </li>
             {{ end }}
@@ -110,7 +110,7 @@
             {{ $lang := .Language.Lang }}
             {{ range where $page.AllTranslations "Lang" $lang }}
               <li>
-                <a href="{{ .Permalink }}" hreflang="{{ .Lang }}" lang="{{ .Lang }}"
+                <a href="{{ .RelPermalink }}" hreflang="{{ .Lang }}" lang="{{ .Lang }}"
                    {{ if eq $page.Lang .Lang }}aria-current="true"{{ end }}>{{ .Language.Params.languageName }}</a>
               </li>
             {{ end }}

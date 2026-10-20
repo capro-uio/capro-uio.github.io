@@ -24,10 +24,10 @@
       <a href="{{ "news/" | relLangURL }}">{{ i18n "news" }}</a>
       <a href="{{ print site.Home.RelPermalink "#contact" }}">{{ i18n "contact" }}</a>
     </nav>
-    <a href="{{ site.Home.Permalink }}">
+    <a href="{{ site.Home.RelPermalink }}">
       {{ with resources.GetMatch site.Params.logo }}
         {{ $logo := .Resize "260x webp" }}
-        <img src="{{ $logo.Permalink }}" alt="{{ site.Title }}" width="108" height="40" class="h-10 mx-auto mb-6">
+        <img src="{{ $logo.RelPermalink }}" alt="{{ site.Title }}" width="108" height="40" class="h-10 mx-auto mb-6">
       {{ end }}
     </a>
     {{/* The year is generated, not translated: the param said 2022 for four

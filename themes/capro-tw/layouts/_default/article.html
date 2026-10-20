@@ -29,11 +29,11 @@
     {{ end }}
     <div class="p-5">
       {{/* Only rendered from _default/list.html, whose section title is the page h1. */}}
-      <h2 class="text-lg mb-2"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+      <h2 class="text-lg mb-2"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
       <p class="text-sm mb-4">{{ .Summary }}</p>
       {{/* Every card's link says the same thing, so name the destination for
            anyone tabbing through them out of context. */}}
-      <a class="btn btn-outline text-xs" href="{{ .Permalink }}">
+      <a class="btn btn-outline text-xs" href="{{ .RelPermalink }}">
         {{ i18n "readMore" }}<span class="sr-only">: {{ .Title }}</span>
       </a>
     </div>
