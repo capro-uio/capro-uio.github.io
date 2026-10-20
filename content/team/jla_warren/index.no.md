@@ -4,6 +4,7 @@ designation:
   - Komputasjonell hjerneavbildning
   - Strukturell MR og diffusjons-MR
   - Utviklings- og evolusjonær nevrovitenskap
+photo_credit: "Erik Engblad"
 uio_profile: "https://www.sv.uio.no/psi/english/people/admin/jlwarren/"
 social:
   - icon: "fa-brands fa-twitter"

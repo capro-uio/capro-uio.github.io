@@ -1,4 +1,17 @@
 @layer components {
+  /* Wrap rather than a fixed column count, so a final row of one or two sits
+     centred instead of against the left edge. The team is five people; a
+     four-up grid left a hole the width of a card. */
+  .people-grid {
+    @apply flex flex-wrap justify-center;
+    gap: 1.5rem;
+  }
+
+  .people-grid > * {
+    flex: 1 1 15rem;
+    max-width: 20rem;
+  }
+
   .team-card {
     @apply overflow-hidden h-full flex flex-col;
     background-color: transparent;
@@ -107,6 +120,13 @@
     color: var(--color-body);
     border: 1px solid var(--color-border);
     border-radius: 999px;
+  }
+
+  .person-credit {
+    @apply mt-3;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--color-muted);
   }
 
   .person-uio {

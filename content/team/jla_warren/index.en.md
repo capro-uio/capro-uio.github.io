@@ -4,6 +4,7 @@ designation:
   - Computational neuroimaging
   - Structural and diffusion MRI
   - Developmental and evolutionary neuroscience
+photo_credit: "Erik Engblad"
 uio_profile: "https://www.sv.uio.no/psi/english/people/admin/jlwarren/"
 social:
   - icon: "fa-brands fa-twitter"

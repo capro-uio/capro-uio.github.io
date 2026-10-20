@@ -24,6 +24,11 @@
         {{ $square := .Fill (printf "%dx%d webp" $side $side) }}
         <img class="rounded-full w-48 h-48 mx-auto object-cover" src="{{ $square.RelPermalink }}" alt="" width="{{ $side }}" height="{{ $side }}">
       {{ end }}
+      {{/* Photographers have a right to be named, and a staff portrait is
+           someone's work. Rendered only where a credit is recorded. */}}
+      {{ with $.Params.photo_credit }}
+      <figcaption class="person-credit">{{ T "photoBy" }}: {{ . }}</figcaption>
+      {{ end }}
     </figure>
     {{/* The roles only ever appeared on the grid; the page about the person
          did not say what they work on. */}}
