@@ -1,0 +1,41 @@
+{{/* One portfolio card. Called twice by the section: once for the projects
+     that ship a mark, once for the rest, so the grid does not alternate tall
+     and short cards down the page. */}}
+{{ $page := .page }}
+{{ $item := .item }}
+{{ with $item }}
+{{ $cats := slice }}
+{{ range .Params.categories }}{{ $cats = $cats | append (. | urlize) }}{{ end }}
+<div data-cats="{{ delimit $cats " " }}"
+     x-show="filter === 'all' {{ range $cats }}|| filter === '{{ . }}'{{ end }}" x-transition>
+  <div class="portfolio-card">
+    {{ with (.Resources.ByType "image") }}
+    {{ $logo := (index . 0).Fit "600x440 webp q82" }}
+    <div class="portfolio-img">
+      {{/* The heading below names the project; repeating it here makes a
+           screen reader say it twice. */}}
+      <img src="{{ $logo.RelPermalink }}" alt="" width="{{ $logo.Width }}" height="{{ $logo.Height }}" loading="lazy">
+    </div>
+    {{ end }}
+    <div class="portfolio-meta">
+      {{/* Without a logo panel the card needs an anchor of its own, and
+           the categories are what the filter above is matching on. */}}
+      <p class="portfolio-card__cats">{{ delimit .Params.categories " · " }}</p>
+      {{ $tag := cond (eq ($page.Scratch.Get "itemLevel") 2) "h2" "h3" }}
+      {{ if eq $tag "h2" }}
+        <h2>{{ partial "helpers/portfolio-link.html" . }}</h2>
+      {{ else }}
+        <h3>{{ partial "helpers/portfolio-link.html" . }}</h3>
+      {{ end }}
+      {{ $blurb := .Description }}
+      {{ if not $blurb }}
+        {{/* .Plain keeps the entities the renderer produced, so an
+             apostrophe arrived here as the literal "&rsquo;". */}}
+        {{ $blurb = index (split (.Plain | htmlUnescape) ". ") 0 | strings.TrimSpace }}
+        {{ if not (strings.HasSuffix $blurb ".") }}{{ $blurb = printf "%s." $blurb }}{{ end }}
+      {{ end }}
+      <p class="font-serif">{{ $blurb }}</p>
+    </div>
+  </div>
+</div>
+{{ end }}

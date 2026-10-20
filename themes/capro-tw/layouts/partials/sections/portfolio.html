@@ -25,37 +25,22 @@
       <span x-text="filter === 'all' ? '{{ T "showingAll" }}' : shown + ' / ' + total">{{ T "showingAll" }}</span>
     </p>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" x-ref="grid">
-      {{ range .Pages }}
-      {{ $cats := slice }}
-      {{ range .Params.categories }}{{ $cats = $cats | append (. | urlize) }}{{ end }}
-      <div data-cats="{{ delimit $cats " " }}"
-           x-show="filter === 'all' {{ range $cats }}|| filter === '{{ . }}'{{ end }}" x-transition>
-        <div class="portfolio-card">
-          <div class="portfolio-meta">
-            {{/* Without a logo panel the card needs an anchor of its own, and
-                 the categories are what the filter above is matching on. */}}
-            <p class="portfolio-card__cats">{{ delimit .Params.categories " · " }}</p>
-            {{ $tag := cond (eq ($page.Scratch.Get "itemLevel") 2) "h2" "h3" }}
-            {{ if eq $tag "h2" }}
-              <h2>{{ partial "helpers/portfolio-link.html" . }}</h2>
-            {{ else }}
-              <h3>{{ partial "helpers/portfolio-link.html" . }}</h3>
-            {{ end }}
-            {{/* First sentence, not a character count: `truncate 120` cut these
-                 off mid-clause ("a large collection of …"). */}}
-            {{ $blurb := .Description }}
-            {{ if not $blurb }}
-              {{/* .Plain keeps the entities the renderer produced, so an
-                   apostrophe arrived here as the literal "&rsquo;". */}}
-              {{ $blurb = index (split (.Plain | htmlUnescape) ". ") 0 | strings.TrimSpace }}
-              {{ if not (strings.HasSuffix $blurb ".") }}{{ $blurb = printf "%s." $blurb }}{{ end }}
-            {{ end }}
-            <p class="font-serif">{{ $blurb }}</p>
-          </div>
-        </div>
-      </div>
+    {{/* Projects with a mark first, then the rest. Interleaving them left
+         holes in the grid wherever a tall image card sat beside a short text
+         one. */}}
+    {{ $withMark := slice }}
+    {{ $textOnly := slice }}
+    {{ range .Pages }}
+      {{ if .Resources.ByType "image" }}
+        {{ $withMark = $withMark | append . }}
+      {{ else }}
+        {{ $textOnly = $textOnly | append . }}
       {{ end }}
+    {{ end }}
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" x-ref="grid">
+      {{ range $withMark }}{{ partial "helpers/portfolio-card.html" (dict "item" . "page" $page) }}{{ end }}
+      {{ range $textOnly }}{{ partial "helpers/portfolio-card.html" (dict "item" . "page" $page) }}{{ end }}
     </div>
   </div>
 </section>

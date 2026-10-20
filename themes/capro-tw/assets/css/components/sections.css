@@ -198,6 +198,37 @@
     border-color: var(--color-primary);
   }
 
+  /* Logos are drawn for light backgrounds, so the panel is white. Grey by
+     default and colour on hover: the grid reads as one surface until you
+     point at something, and the mark is still legible either way. The
+     filter is CSS, not a Hugo images.Grayscale, because a build-time
+     greyscale image cannot be put back into colour on hover. */
+  .portfolio-card .portfolio-img {
+    @apply flex items-center justify-center overflow-hidden;
+    background: #fff;
+    padding: 32px;
+    height: 13rem;
+  }
+
+  .portfolio-card .portfolio-img img {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(1);
+    transition: filter var(--transition-base);
+  }
+
+  .portfolio-card:hover .portfolio-img img,
+  .portfolio-card:focus-within .portfolio-img img {
+    filter: grayscale(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .portfolio-card .portfolio-img img {
+      transition: none;
+    }
+  }
+
   .portfolio-card .portfolio-meta {
     padding: 28px 24px;
   }

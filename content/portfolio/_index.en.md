@@ -1,6 +1,11 @@
 ---
 title : "Open source we have built"
 accent_from: 2
+cascade:
+  # Only the .Fit derivative of each logo is used; the originals were being
+  # copied into /public unreferenced, 388K of them.
+  build:
+    publishResources: false
 ---
 
 Everything here is open source and free to use, whether or not you ever work
