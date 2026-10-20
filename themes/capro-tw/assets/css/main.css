@@ -121,10 +121,29 @@
     line-height: 1.7;
   }
 
+  /* Teal on body text is 1.36:1, so colour alone cannot mark a link inside a
+     paragraph (WCAG 1.4.1). Underline is the default; the exceptions below are
+     links whose surroundings already make them unmistakable. */
   a {
     color: var(--color-secondary);
-    text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
     transition: color var(--transition-fast);
+  }
+
+  .btn,
+  .skip-link,
+  .site-nav a,
+  .nav-mobile a,
+  .lang-switch a,
+  .footer-links a,
+  .team-meta a,
+  .portfolio-meta h2 a,
+  .portfolio-meta h3 a,
+  .person__links a,
+  .contact-email a {
+    text-decoration: none;
   }
 
   a:hover {

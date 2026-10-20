@@ -144,13 +144,6 @@
     margin-top: 0;
   }
 
-  .prose a,
-  .section-intro a {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-thickness: 1px;
-  }
-
   @media (prefers-reduced-motion: reduce) {
     .js .reveal {
       opacity: 1;

@@ -98,13 +98,4 @@
     line-height: 1.6;
     color: var(--color-muted);
   }
-
-  /* Links in this copy must be distinguishable without colour, same as .prose. */
-  .svc__deliver a,
-  .svc__symptoms a,
-  .svc__practical a {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-thickness: 1px;
-  }
 }

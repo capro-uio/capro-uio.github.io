@@ -53,11 +53,4 @@
     color: var(--color-muted);
     margin-bottom: 0;
   }
-
-  /* Links in this copy must be distinguishable without colour, same as .prose. */
-  .offer__body a {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-thickness: 1px;
-  }
 }
