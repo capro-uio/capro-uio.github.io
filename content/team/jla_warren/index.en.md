@@ -1,7 +1,7 @@
 ---
 title: "José-Luis Alatorre-Warren"
 role: "Senior engineer"
-summary: "Structural and diffusion MRI, and the analysis that makes sense of the scans."
+summary: "Diffusion MRI, and how the brain changes in the first years of life."
 designation:
   - Neuroimaging
   - Diffusion MRI
@@ -17,8 +17,9 @@ social:
     link: "https://orcid.org/0000-0002-3638-9957"
 ---
 
-José Luis is a senior engineer at LCBC, with a BSc in engineering, an MSc in
-applied physics and a PhD in evolutionary biology, and he uses all three on
-neuroimaging data. He works on structural and diffusion MRI, and on the
-analysis that turns a pile of scans into something you can write about. If
+José Luis is a senior engineer at LCBC, with a PhD in evolutionary biology on
+top of degrees in applied physics and mechatronics engineering. He works on
+diffusion MRI — in humans, and in the animal samples that put human brains in
+context — and on how the brain changes in the first years of life, with
+collaborators at Harvard Medical School and Boston Children's Hospital. If
 your MRI study needs a pipeline and a statistical plan, he is the one to ask.
