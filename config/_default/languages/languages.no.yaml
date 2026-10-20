@@ -48,7 +48,7 @@ params:
       - Du snakker med noen som gjør jobben, ikke en kundeansvarlig.
       - Et grovt pris- og tidsanslag, hvis du vil ha det.
     item:
-      - icon: ti-location-pin
+      - icon: location-dot
         info: |
           Harald Schjelderups hus,\
           Forskningsveien 3A,\

@@ -9,7 +9,7 @@ designation:
   - Large-scale computing
 uio_profile: "https://www.sv.uio.no/psi/english/people/academic/ingeam/"
 social:
-  - icon: "fa-brands fa-orcid"
+  - icon: orcid
     link: "https://orcid.org/0000-0002-8508-9088"
 ---
 

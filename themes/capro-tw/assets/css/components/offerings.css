@@ -33,7 +33,7 @@
     margin-bottom: 0.75rem;
   }
 
-  .offer__label i {
+  .offer__label .icon {
     font-size: 1.15rem;
     color: var(--color-primary-text);
   }

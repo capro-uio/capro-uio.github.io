@@ -3,26 +3,26 @@ title: What working with us is like
 
 item:
   - title: We use what you already have
-    icon: ti-rocket
+    icon: rocket
     content: |
       At UiO that means Nettskjema, Educloud, TSD, NREC and Saga, which you are
       already paying for. Elsewhere it means your own systems. Either way we
       work inside them rather than selling you something new.
 
   - title: You own everything we build
-    icon: ti-package
+    icon: box
     content: |
       Code, documentation and workflows are handed over to you. Nothing we write
       needs us around to keep working.
 
   - title: We can do it, or teach it
-    icon: ti-blackboard
+    icon: chalkboard
     content: |
       Some groups want the work done for them. Others want someone to sit with
       their student for a week. Both are normal.
 
   - title: You can start very small
-    icon: ti-check-box
+    icon: square-check
     content: |
       An hour to work out whether a thing is even possible is a perfectly
       sensible first job. Most collaborations start that way.

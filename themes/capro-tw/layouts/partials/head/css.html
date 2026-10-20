@@ -14,17 +14,7 @@
   {{ end }}
 {{ end }}
 
-{{/* Main CSS: pre-built Tailwind + Themify icons */}}
-{{ $tw := resources.Get "css/vendor/tailwind.css" }}
-{{ $ti := resources.Get "css/vendor/themify-icons.css" }}
-{{ $css := slice $tw $ti | resources.Concat "capro.min.css" | minify | fingerprint }}
+{{/* Main CSS. Icons are inline SVG, so there is no icon-font stylesheet to
+     either block on or defer. */}}
+{{ $css := resources.Get "css/vendor/tailwind.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
-
-{{/* FontAwesome: deferred loading (self-hosted via SCSS) */}}
-{{ $fa := resources.Get "scss/fontawesome.scss" | toCSS | minify | fingerprint }}
-{{ with $fa }}
-      <link rel="stylesheet" href="{{ .RelPermalink }}"
-            integrity="{{ .Data.Integrity }}"
-            media="print" onload="this.media='screen'">
-      <noscript><link rel="stylesheet" href="{{ .RelPermalink }}"></noscript>
-{{ end }}

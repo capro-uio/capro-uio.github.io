@@ -6,7 +6,7 @@ designation:
   - Machine learning
   - Large-scale computing
 social:
-  - icon: "fa-brands fa-github"
+  - icon: github
     link: "https://github.com/Mak2055"
 draft: true
 ---

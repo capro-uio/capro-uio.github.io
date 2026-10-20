@@ -36,7 +36,7 @@
               {{ if .link }}
                 <a href="{{ .link | safeURL }}"
                    aria-label="{{ T "profileOn" (dict "name" $member.Title "host" ((urls.Parse .link).Host | replaceRE `^www\.` ``)) }}">
-                  <i class="{{ .icon }}" aria-hidden="true"></i>
+                  {{ partial "helpers/icon.html" (dict "name" .icon) }}
                 </a>
               {{ end }}
             {{ end }}

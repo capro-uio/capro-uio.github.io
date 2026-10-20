@@ -8,7 +8,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {{ range .Params.item }}
         <div class="flex gap-3">
-          {{ with .icon }}<i class="{{ . }} text-xl text-primary-text mt-1" aria-hidden="true"></i>{{ end }}
+          {{ with .icon }}{{ partial "helpers/icon.html" (dict "name" . "class" "text-xl text-primary-text mt-1") }}{{ end }}
           <div>
             <h3 class="text-base font-medium mb-1">{{ .title | markdownify }}</h3>
             <p class="text-sm">{{ .content | markdownify }}</p>

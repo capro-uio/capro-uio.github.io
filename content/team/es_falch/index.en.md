@@ -5,7 +5,7 @@ designation:
   - Data collection
   - Data management
 social:
-  - icon: "fa-brands fa-github"
+  - icon: github
     link: "https://github.com/esfalch"
 draft: true
 ---

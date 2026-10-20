@@ -8,7 +8,7 @@ designation:
   - Large-scale computing
 uio_profile: "https://www.sv.uio.no/psi/english/people/academic/markushs/"
 social:
-  - icon: "fa-brands fa-orcid"
+  - icon: orcid
     link: "https://orcid.org/0000-0001-7644-7915"
 ---
 

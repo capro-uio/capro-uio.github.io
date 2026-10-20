@@ -18,8 +18,8 @@
 
     <button @click="open = !open" :aria-expanded="open.toString()" aria-label="{{ T "toggleNav" }}"
             class="md:hidden p-2">
-      <i class="fa-solid fa-bars text-xl" x-show="!open"></i>
-      <i class="fa-solid fa-xmark text-xl" x-show="open" x-cloak></i>
+      <span x-show="!open">{{ partial "helpers/icon.html" (dict "name" "bars" "class" "text-xl") }}</span>
+      <span x-show="open" x-cloak>{{ partial "helpers/icon.html" (dict "name" "xmark" "class" "text-xl") }}</span>
     </button>
 
     <nav class="hidden md:flex items-center gap-7" aria-label="{{ T "mainNav" }}">

@@ -34,5 +34,5 @@
         @click="window.scrollTo({ top: 0, behavior: 'smooth' })"
         aria-label="{{ T "backToTop" }}"
         class="fixed bottom-5 right-5 w-10 h-10 flex items-center justify-center bg-dark border border-border hover:bg-primary hover:border-primary transition-all z-40">
-  <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+  {{ partial "helpers/icon.html" (dict "name" "chevron-up") }}
 </button>

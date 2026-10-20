@@ -2,7 +2,7 @@
 title: Dette kan vi hjelpe med
 item:
   - name: Dataforvaltning og deling
-    icon: "fa-solid fa-folder-tree"
+    icon: folder-tree
     problem: Finansiøren krever en datahåndteringsplan.
     short: Datahåndteringsplaner, og strukturer som gjør deling mulig senere.
     symptoms:
@@ -15,7 +15,7 @@ item:
     practical: Billigst å gjøre på søknadsstadiet. Fortsatt mulig senere, bare mer arbeid.
 
   - name: Datafangst og tilrettelegging
-    icon: "fa-solid fa-hard-drive"
+    icon: hard-drive
     problem: Du kan ikke jobbe med dataene dine ennå.
     short: Trygg innsamling, og rotete filer gjort om til ett dokumentert datasett.
     symptoms:
@@ -30,7 +30,7 @@ item:
     practical: Enklest før du begynner å samle inn, men vi har reddet mange studier underveis.
 
   - name: Prosessering, analyse og tungregning
-    icon: "fa-solid fa-chart-line"
+    icon: chart-line
     problem: Analysen din gir ikke samme svar to ganger.
     short: Analyser som gir samme svar overalt — og kommer i mål, uansett størrelse.
     symptoms:
@@ -45,7 +45,7 @@ item:
     practical: Du eier koden, og vi kan hjelpe deg med å skaffe regneressursene, ikke bare bruke dem.
 
   - name: Applikasjoner og databaser
-    icon: "fa-solid fa-table-columns"
+    icon: table-columns
     problem: Ingen ser hvor prosjektet faktisk står.
     short: Databaser og små webapplikasjoner som viser tilstanden i prosjektet.
     symptoms:
@@ -58,7 +58,7 @@ item:
     practical: Bygget rundt måten prosjektet ditt allerede jobber på, ikke et produkt du må tilpasse deg.
 
   - name: Kurs og opplæring
-    icon: "fa-solid fa-chalkboard-user"
+    icon: chalkboard-user
     problem: Gruppa di skal lære dette selv, ikke sette det bort.
     short: Praktiske kurs i R, Python og Quarto, bygget rundt deres egne data.
     symptoms:

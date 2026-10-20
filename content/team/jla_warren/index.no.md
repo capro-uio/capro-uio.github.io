@@ -9,11 +9,11 @@ designation:
 photo_credit: "Erik Engblad"
 uio_profile: "https://www.sv.uio.no/psi/english/people/admin/jlwarren/"
 social:
-  - icon: "fa-brands fa-twitter"
+  - icon: twitter
     link: "https://twitter.com/alatwarren"
-  - icon: "fa-brands fa-github"
+  - icon: github
     link: "https://github.com/jlawarren"
-  - icon: "fa-brands fa-orcid"
+  - icon: orcid
     link: "https://orcid.org/0000-0002-3638-9957"
 ---
 

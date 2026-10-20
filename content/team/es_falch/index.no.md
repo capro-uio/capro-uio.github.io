@@ -5,7 +5,7 @@ designation:
   - Datainnsamling
   - Dataforvaltning
 social:
-  - icon: "fa-brands fa-github"
+  - icon: github
     link: "https://github.com/esfalch"
 draft: true
 ---

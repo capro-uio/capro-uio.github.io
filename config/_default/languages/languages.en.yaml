@@ -49,7 +49,7 @@ params:
       - You will talk to someone who does the work, not an account manager.
       - A rough price and timeline, if you want one.
     item:
-      - icon: ti-location-pin
+      - icon: location-dot
         info: |
           Harald Schjelderups hus,\
           Forskningsveien 3A,\

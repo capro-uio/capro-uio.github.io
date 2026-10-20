@@ -4,7 +4,7 @@ aliases:
   - /service/
 item:
   - name: Data management and sharing
-    icon: "fa-solid fa-folder-tree"
+    icon: folder-tree
     problem: Your funder wants a data management plan.
     short: Data management plans, and structures that make sharing possible later.
     symptoms:
@@ -17,7 +17,7 @@ item:
     practical: Cheapest to do at application stage. Still possible later, just more work.
 
   - name: Data capture and engineering
-    icon: "fa-solid fa-hard-drive"
+    icon: hard-drive
     problem: You can't work with your data yet.
     short: Secure collection, and messy files turned into one documented dataset.
     symptoms:
@@ -32,7 +32,7 @@ item:
     practical: Easiest before you start collecting, but we have rescued plenty of studies mid-flight.
 
   - name: Processing, analysis and computing
-    icon: "fa-solid fa-chart-line"
+    icon: chart-line
     problem: Your analysis won't run the same way twice.
     short: Analyses that give the same answer anywhere — and finish, however large.
     symptoms:
@@ -47,7 +47,7 @@ item:
     practical: You keep the code, and we can help you get the computing resources as well as use them.
 
   - name: Applications and databases
-    icon: "fa-solid fa-table-columns"
+    icon: table-columns
     problem: Nobody can see where the project actually stands.
     short: Databases and small web apps that show the state of a project.
     symptoms:
@@ -60,7 +60,7 @@ item:
     practical: Built around how your project already works, not a product you have to adapt to.
 
   - name: Workshops and training
-    icon: "fa-solid fa-chalkboard-user"
+    icon: chalkboard-user
     problem: Your group needs to learn this, not outsource it.
     short: Hands-on training in R, Python and Quarto, built around your own data.
     symptoms:

@@ -5,7 +5,7 @@ button:
   link: "#contact"
 item:
   - name: GOAT
-    icon: "fa-solid fa-database"
+    icon: database
     tagline: A research database that keeps its own history
     content: |
       Every value is versioned and timestamped, so you can see what changed,
@@ -14,7 +14,7 @@ item:
       around your project, and train the people who will use it.
 
   - name: Nettskjema
-    icon: "fa-solid fa-clipboard-list"
+    icon: clipboard-list
     tagline: Surveys, from the form to the dataset
     content: |
       Nettskjema is UiO's survey tool, and we work at both ends of it. We help
@@ -25,7 +25,7 @@ item:
       themselves.
 
   - name: MRI
-    icon: "fa-solid fa-brain"
+    icon: brain
     tagline: From protocol to published figure
     content: |
       Protocol development, study design and feasibility up front. Once the
@@ -35,7 +35,7 @@ item:
       methods text the paper needs.
 
   - name: Behavioural experiments
-    icon: "fa-solid fa-flask"
+    icon: flask
     tagline: Tasks that run in any browser
     content: |
       Cognitive paradigms, questionnaires and response-time tasks written in

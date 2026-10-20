@@ -4,7 +4,7 @@
   <a href="{{ .Params.link | safeURL }}" target="_blank" rel="noopener">
     {{- .Title -}}
     <span class="sr-only"> ({{ T "opensExternally" }})</span>
-    <i class="ti-new-window portfolio-link__icon" aria-hidden="true"></i>
+    {{ partial "helpers/icon.html" (dict "name" "arrow-up-right-from-square" "class" "portfolio-link__icon") }}
   </a>
 {{- else -}}
   {{- .Title -}}

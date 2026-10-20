@@ -6,7 +6,7 @@ designation:
   - Maskinlæring
   - Tungregning
 social:
-  - icon: "fa-brands fa-github"
+  - icon: github
     link: "https://github.com/Mak2055"
 draft: true
 ---

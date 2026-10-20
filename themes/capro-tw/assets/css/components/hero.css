@@ -68,8 +68,10 @@
     background-color: var(--color-grey);
   }
 
-  .help-card i {
-    @apply mb-4 block;
+  /* The card is a flex column, so an auto-width SVG would stretch across it. */
+  .help-card .icon {
+    @apply mb-4;
+    align-self: start;
     font-size: 28px;
     color: var(--color-primary-text);
   }

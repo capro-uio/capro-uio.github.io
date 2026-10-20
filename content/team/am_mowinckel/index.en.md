@@ -9,15 +9,15 @@ designation:
   - Workshops
 uio_profile: "https://www.sv.uio.no/psi/english/people/academic/athanasm/"
 social:
-  - icon: "fa-brands fa-github"
+  - icon: github
     link: "https://github.com/drmowinckels"
-  - icon: "fa-brands fa-linkedin"
+  - icon: linkedin
     link: "https://www.linkedin.com/in/drmowinckels"
-  - icon: "fa-brands fa-orcid"
+  - icon: orcid
     link: "https://orcid.org/0000-0002-5756-0223"
-  - icon: "fa-brands fa-mastodon"
+  - icon: mastodon
     link: "https://fosstodon.org/@Drmowinckels"
-  - icon: "fa-brands fa-twitter"
+  - icon: twitter
     link: "https://twitter.com/DrMowinckels"
 ---
 

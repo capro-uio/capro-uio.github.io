@@ -5,7 +5,7 @@ button:
   link: "#contact"
 item:
   - name: GOAT
-    icon: "fa-solid fa-database"
+    icon: database
     tagline: En forskningsdatabase som husker sin egen historie
     content: |
       Hver verdi får versjon og tidsstempel, så du kan se hva som ble endret,
@@ -14,7 +14,7 @@ item:
       tilpasser det til prosjektet ditt, og lærer opp dem som skal bruke det.
 
   - name: Nettskjema
-    icon: "fa-solid fa-clipboard-list"
+    icon: clipboard-list
     tagline: Spørreundersøkelser, fra skjema til datasett
     content: |
       Nettskjema er UiOs verktøy for spørreundersøkelser, og vi jobber i begge
@@ -25,7 +25,7 @@ item:
       å bruke den selv.
 
   - name: MRI
-    icon: "fa-solid fa-brain"
+    icon: brain
     tagline: Fra protokoll til ferdig figur
     content: |
       Protokollutvikling, studiedesign og gjennomførbarhet først. Når bildene
@@ -35,7 +35,7 @@ item:
       figurene og metodeteksten artikkelen trenger.
 
   - name: Atferdseksperimenter
-    icon: "fa-solid fa-flask"
+    icon: flask
     tagline: Oppgaver som kjører i en hvilken som helst nettleser
     content: |
       Kognitive paradigmer, spørreskjema og reaksjonstidsoppgaver skrevet i

@@ -28,12 +28,12 @@
       <button type="button" @click="scroll(-1)" :disabled="atStart"
               class="testimonial-nav" aria-controls="testimonial-track"
               aria-label="{{ T "prevTestimonial" }}">
-        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+        {{ partial "helpers/icon.html" (dict "name" "chevron-left") }}
       </button>
       <button type="button" @click="scroll(1)" :disabled="atEnd"
               class="testimonial-nav" aria-controls="testimonial-track"
               aria-label="{{ T "nextTestimonial" }}">
-        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        {{ partial "helpers/icon.html" (dict "name" "chevron-right") }}
       </button>
     </div>
     <div class="testimonial-scroll" id="testimonial-track" x-ref="track"
@@ -48,7 +48,7 @@
       {{ end }}
       <div class="testimonial-modern">
         <div class="mb-4">
-          <i class="fa-solid fa-quote-left text-2xl text-primary-text opacity-60" aria-hidden="true"></i>
+          {{ partial "helpers/icon.html" (dict "name" "quote-left" "class" "text-2xl text-primary-text opacity-60") }}
         </div>
         <blockquote class="font-serif text-body mb-6 leading-relaxed">
           {{ .Content }}

@@ -53,7 +53,7 @@
              {{/* The label used to be the last hyphen-segment of the icon class,
                   so "ti-twitter-alt" announced as "alt". Use the host instead. */}}
              aria-label="{{ T "profileOn" (dict "name" $.Title "host" ((urls.Parse .link).Host | replaceRE `^www\.` ``)) }}">
-            <i class="{{ .icon }}" aria-hidden="true"></i>
+            {{ partial "helpers/icon.html" (dict "name" .icon) }}
           </a>
           {{ end }}
           {{ with .Params.uio_profile }}

@@ -14,7 +14,7 @@
       {{ range .Params.item }}
       <li class="offer">
         <p class="offer__label">
-          {{ with .icon }}<i class="{{ . }}" aria-hidden="true"></i>{{ end }}
+          {{ with .icon }}{{ partial "helpers/icon.html" (dict "name" .) }}{{ end }}
           <span>{{ .name }}</span>
         </p>
         {{ if $itemIsH2 }}

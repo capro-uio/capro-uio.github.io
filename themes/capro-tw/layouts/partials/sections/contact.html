@@ -22,7 +22,7 @@
       <div class="space-y-5">
         {{ range .item }}
         <div class="flex items-start gap-4">
-          <i class="{{ .icon }} text-primary-text mt-1" aria-hidden="true"></i>
+          {{ partial "helpers/icon.html" (dict "name" .icon "class" "text-primary-text mt-1") }}
           <div class="text-sm font-serif">{{ .info | markdownify }}</div>
         </div>
         {{ end }}
