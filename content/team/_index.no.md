@@ -1,5 +1,8 @@
 ---
 title: Våre medarbeidere
+cascade:
+  build:
+    publishResources: false
 ---
 
 Vi er de som faktisk gjør jobben — ikke kundeansvarlige som sender den videre.

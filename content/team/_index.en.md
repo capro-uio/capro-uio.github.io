@@ -2,6 +2,9 @@
 title: Our Team
 aliases:
   - /about/
+cascade:
+  build:
+    publishResources: false
 ---
 
 We are the people who will actually do the work — not account managers who pass
