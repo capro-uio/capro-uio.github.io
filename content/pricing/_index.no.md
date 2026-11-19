@@ -1,73 +1,42 @@
 ---
 title : Hva det koster
-entities:
-  - name: PSI UiO
-    id: psi
-    percent: 1
-  - name: SV UiO
-    id: sv
-    percent: 1.1
-  - name: UiO
-    id: uio
-    percent: 1.2
-  - name: Ikke-kommersiell
-    id: nc
-    percent: 1.3
-  - name: Kommersiell
-    id: com
-    percent: 2
 item :
-  - name : Uforpliktende samtale
-    price :
-      - id: uio
-        price: 0
-      - id: nc
-        price: 1100
-      - id: com
-        price: 2000
-    unit: 1 time
-    services:
-      - En time med en som gjør jobben selv
-      - Et ærlig svar på om vi kan hjelpe
-      - Et grovt pris- og tidsoverslag, om du vil ha det
-    button:
-      label : "Book en tid"
-      link : "#contact"
-
   - name : Prosjekt
+    unit : pr time
     price :
-      - id: base
-        price: 880
-    unit: pr time
+      - label: Eksternfinansiert bidragsprosjekt
+        amount: 1515
+      - label: Oppdragsprosjekt
+        amount: 1600
+      - label: Privat sektor
+        text: Etter avtale
     services:
       - En person på prosjektet ditt, ikke en sakskø
       - Kode og dokumentasjon du eier og beholder
       - Noen regnetimer inkludert
       - Direkte kontakt, ikke en support-adresse
-#     button:
-#       label : "Signup"
-#       link : "#"
+    button:
+      label : "Spør hva det vil koste"
+      link : "#contact"
 
-  # pricing table loop
   - name : Kurs
     price :
-      - id: base
-        price: 2000
-    unit : pr time
+      - text: Etter avtale
     services:
+      - Pris settes per kurs, ut fra hvor mange av oss som bidrar
       - Bygget rundt gruppas egne data
       - To timer forberedelse per undervisningstime
       - Materiell dere beholder og kan gjenbruke
       - På nett eller på stedet
-#     button:
-#       label : "Signup"
-#       link : "#"
+    button:
+      label : "Be om et tilbud"
+      link : "#contact"
 ---
 
-Vi tar betalt per time, og satsen avhenger av hvem du er: jo nærmere
-Psykologisk institutt, jo billigere. Offentlige etater og private bedrifter er
-også velkomne, til ikke-kommersiell eller kommersiell sats. Prisene under er
-uten mva.
+Vi tar betalt per time, og satsen avhenger av hva slags prosjekt det er, ikke
+av hvem du er. Skillet går mellom bidragsprosjekter, der vi er partner i et
+eksternfinansiert prosjekt, og oppdragsprosjekter, der vi er leverandør. Alt
+annet er etter avtale. Satsene under er 2026-satser og er uten mva.
 
 Satsen dekker vår arbeidstid, ikke regnetid. Trenger prosjektet et sikkert
 dataområde som TSD, eller tid på en stor maskin som Saga, søker og betaler du

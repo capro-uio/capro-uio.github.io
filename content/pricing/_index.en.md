@@ -1,66 +1,43 @@
 ---
 title : What it costs
-entities:
-  - name: PSI UiO
-    id: psi
-    percent: 1
-  - name: SV UiO
-    id: sv
-    percent: 1.1
-  - name: UiO
-    id: uio
-    percent: 1.2
-  - name: Non-commercial
-    id: nc
-    percent: 1.3
-  - name: Commercial
-    id: com
-    percent: 2
 item :
-  - name : A first conversation
-    price : 
-      - id: uio
-        price: 0
-      - id: nc
-        price: 1100
-      - id: com
-        price: 2000
-    unit : 1 hour
-    services:
-      - An hour with someone who does the work
-      - An honest answer on whether we can help
-      - A rough price and timeline, if you want one
-    button:
-      label : "Book a time"
-      link : "#contact"
-    
   - name : Project work
-    price : 
-      - id: base
-        price: 880
     unit : hour
+    price :
+      - label: Externally funded grant project
+        amount: 1515
+      - label: Commissioned research project
+        amount: 1600
+      - label: Private sector
+        text: By agreement
     services:
       - Someone on your project, not a ticket queue
       - Code and documentation you own and keep
       - Some computing hours included
       - Direct contact, not a support address
+    button:
+      label : "Ask what it would cost"
+      link : "#contact"
 
   - name : Workshop
-    price : 
-      - id: base
-        price: 2000
-    unit : hour
+    price :
+      - text: By agreement
     services:
+      - Quoted per workshop, depending on how many of us teach
       - Built around your group's own data
       - Two hours of preparation per teaching hour
       - Materials you keep and can reuse
       - Online or in person
+    button:
+      label : "Ask for a quote"
+      link : "#contact"
 ---
 
-We charge by the hour, and the rate depends on who you are: the closer to the
-Department of Psychology, the cheaper. Public agencies and private companies
-are welcome too, at the non-commercial and commercial rates. Prices below
-exclude VAT.
+We charge by the hour, and the rate depends on the kind of project rather than
+on who you are. The line goes between projects where we are a partner on an
+externally funded grant, and commissioned work where we are a supplier.
+Everything else is by agreement. The rates below are 2026 rates and exclude
+VAT.
 
 The rate covers our working hours, not computing time. If your project needs a
 secure data area like TSD, or time on a large machine like Saga, you apply for
