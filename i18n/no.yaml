@@ -51,6 +51,7 @@
 - backToNews: Alle nyheter
 - filterBy: Filtrer på kategori
 - showingAll: Viser alle prosjekter
+- metaTerm: "Åpen kildekode og nyheter fra CAPRO merket {{ .term }}."
 - opensExternally: åpnes i ny fane
 - prevTestimonial: Forrige
 - nextTestimonial: Neste

@@ -1,7 +1,19 @@
 <meta charset="utf-8">
 <title>{{ .Title }}{{ if not .IsHome }} - {{ .Site.Title }}{{ end }}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with site.Params.description }}{{ . }}{{ end }}{{ end }}">
+{{/* One description, reused by <meta name=description>, Open Graph and Twitter.
+     Falling straight back to the site description gave all 74 pages the same
+     text, 256 characters long and carrying the newlines of its YAML block.
+     The page's own summary is unique and already on topic. */}}
+{{- $description := .Description -}}
+{{- if and (not $description) (eq .Kind "term") -}}
+  {{- $description = i18n "metaTerm" (dict "term" .Title) -}}
+{{- end -}}
+{{- if not $description }}{{ $description = .Summary }}{{ end -}}
+{{- if not $description }}{{ $description = site.Params.description }}{{ end -}}
+{{- $description = $description | plainify | htmlUnescape | replaceRE `\s+` " " -}}
+{{- $description = trim $description " " | truncate 155 }}
+<meta name="description" content="{{ $description }}">
 {{ with site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
 {{ hugo.Generator }}
 <link rel="canonical" href="{{ .Permalink }}">
@@ -20,7 +32,6 @@
 <link rel="apple-touch-icon" href="{{ "images/favicon.png" | absURL }}">
 
 {{/* Open Graph */}}
-{{ $description := cond (ne .Description "") .Description (string site.Params.description) }}
 <meta property="og:site_name" content="{{ site.Title }}">
 <meta property="og:title" content="{{ .Title }}">
 <meta property="og:description" content="{{ $description }}">

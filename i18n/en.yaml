@@ -50,6 +50,7 @@
 - backToNews: All news
 - filterBy: Filter by category
 - showingAll: Showing all projects
+- metaTerm: "Open-source projects and news from CAPRO filed under {{ .term }}."
 - opensExternally: opens in a new tab
 - prevTestimonial: Previous
 - nextTestimonial: Next

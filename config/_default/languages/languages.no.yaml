@@ -3,7 +3,7 @@ params:
   languageCode: "no"
   weight: 2
   home: Hjem
-  description: |
+  description: >-
     CAPRO er et data- og programvareteam ved Universitetet i Oslo. Vi rydder
     opp i rotete forskningsdata, setter opp trygg datainnsamling, gjør analyser
     reproduserbare, kjører store jobber på universitetets tjenere, og lærer
