@@ -20,6 +20,20 @@
     {{ end }}
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start reveal">
       <div class="space-y-5">
+        {{/* The address comes from site.Params.organization so that this and the
+             JSON-LD in head/schema.html cannot drift apart. `item` stays for
+             anything else worth listing here. */}}
+        {{ with site.Params.organization.address }}
+        <div class="flex items-start gap-4">
+          {{ partial "helpers/icon.html" (dict "name" "location-dot" "class" "text-primary-text mt-1") }}
+          <address class="text-sm font-serif not-italic">
+            {{ with .building }}{{ . }}<br>{{ end }}
+            {{ with .street }}{{ . }}<br>{{ end }}
+            {{ .postalCode }} {{ .city }}<br>
+            {{ i18n "country" }}
+          </address>
+        </div>
+        {{ end }}
         {{ range .item }}
         <div class="flex items-start gap-4">
           {{ partial "helpers/icon.html" (dict "name" .icon "class" "text-primary-text mt-1") }}

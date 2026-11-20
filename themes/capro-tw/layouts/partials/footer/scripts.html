@@ -4,12 +4,19 @@
 
 {{/* Map: the contact section renders only on the home page, so gate Leaflet on
      .IsHome too. site.Params.map alone is site-wide and shipped 144 KiB of JS
-     to all 58 pages. */}}
+     to all 58 pages.
+
+     Only the loader ships with the page. It fetches Leaflet and its stylesheet
+     from these URLs when the map nears the viewport, which keeps three
+     third-party tile origins out of the initial load. */}}
 {{ if and .IsHome site.Params.map }}
   {{ $leafletCss := resources.Get "css/vendor/leaflet.css" | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $leafletCss.RelPermalink }}" integrity="{{ $leafletCss.Data.Integrity }}">
   {{ $leafletJs := resources.Get "js/vendor/leaflet.js" | minify | fingerprint }}
-  <script src="{{ $leafletJs.RelPermalink }}" integrity="{{ $leafletJs.Data.Integrity }}" defer></script>
   {{ $map := resources.Get "js/map.js" | minify | fingerprint }}
-  <script src="{{ $map.RelPermalink }}" integrity="{{ $map.Data.Integrity }}" defer></script>
+  <script src="{{ $map.RelPermalink }}" integrity="{{ $map.Data.Integrity }}"
+          data-leaflet-css="{{ $leafletCss.RelPermalink }}"
+          data-leaflet-css-integrity="{{ $leafletCss.Data.Integrity }}"
+          data-leaflet-js="{{ $leafletJs.RelPermalink }}"
+          data-leaflet-js-integrity="{{ $leafletJs.Data.Integrity }}"
+          defer></script>
 {{ end }}

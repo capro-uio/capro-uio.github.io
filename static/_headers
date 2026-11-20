@@ -1,0 +1,22 @@
+# Netlify reads this from the root of the publish directory. Hugo copies
+# static/ there verbatim, so this file is the deployed one.
+#
+# About script-src: Alpine.js evaluates its x- expressions through the Function
+# constructor, so it needs 'unsafe-eval' unless we switch to Alpine's CSP
+# build, and the scroll-reveal script is inlined deliberately — it has to run
+# before first paint or every .reveal section flashes. So script-src cannot be
+# strict today. Everything else can be, and frame-ancestors still rules out
+# clickjacking regardless.
+#
+# connect-src carries api.openalex.org because publications.js fetches each team
+# member's publication list from there. img-src carries the OpenStreetMap tile
+# hosts for the contact map. Those are the only subresources we load off-site —
+# every other external URL on the site is a plain link, which CSP does not
+# govern.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=(), payment=(), usb=()
+  Cross-Origin-Opener-Policy: same-origin
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.tile.openstreetmap.org; font-src 'self'; connect-src 'self' https://api.openalex.org; frame-ancestors 'none'; form-action 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests

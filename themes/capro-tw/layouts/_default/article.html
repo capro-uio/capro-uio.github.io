@@ -7,10 +7,17 @@
            once the image lands. */}}
       {{ if reflect.IsImageResourceProcessable . }}
       {{ $s1 := .Fit "400x400 webp" }}
-      {{ $s2 := .Fit "800x800 webp" }}
+      {{ $srcset := printf "%s %dw" $s1.RelPermalink $s1.Width }}
+      {{/* Fit never upscales. A source that already fits inside 400x400 comes
+           back unchanged, so asking for a 2x of it produced a second identical
+           rendition and a srcset with a duplicate width descriptor. */}}
+      {{ if or (gt .Width $s1.Width) (gt .Height $s1.Height) }}
+        {{ $s2 := .Fit "800x800 webp" }}
+        {{ $srcset = printf "%s, %s %dw" $srcset $s2.RelPermalink $s2.Width }}
+      {{ end }}
       <img
         src="{{ $s1.RelPermalink }}"
-        srcset="{{ $s1.RelPermalink }} {{ $s1.Width }}w, {{ $s2.RelPermalink }} {{ $s2.Width }}w"
+        srcset="{{ $srcset }}"
         sizes="(min-width: 1024px) 400px, (min-width: 768px) 45vw, 92vw"
         width="{{ $s1.Width }}"
         height="{{ $s1.Height }}"
