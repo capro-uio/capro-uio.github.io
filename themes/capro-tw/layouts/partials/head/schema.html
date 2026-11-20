@@ -6,12 +6,17 @@
 {{- $logo := "" -}}
 {{- with resources.GetMatch site.Params.logo }}{{ $logo = .Permalink }}{{ end -}}
 
+{{/* ResearchOrganization rather than plain Organization: CAPRO is a core
+     facility at the University of Oslo, not a company. */}}
 {{- $organization := dict
-      "@type" "Organization"
+      "@type" "ResearchOrganization"
       "name" site.Title
       "url" site.Home.Permalink
       "description" (site.Params.description | plainify | replaceRE `\s+` " " | strings.TrimSpace)
 -}}
+{{/* alternateName, not legalName: UiO is the legal entity, CAPRO is a
+     facility within it. */}}
+{{- with $org.fullName }}{{ $organization = merge $organization (dict "alternateName" .) }}{{ end -}}
 {{- with $logo }}{{ $organization = merge $organization (dict "logo" .) }}{{ end -}}
 {{- with site.Params.contact.email }}{{ $organization = merge $organization (dict "email" .) }}{{ end -}}
 {{- with $org.sameAs }}{{ $organization = merge $organization (dict "sameAs" .) }}{{ end -}}

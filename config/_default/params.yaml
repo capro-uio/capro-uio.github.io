@@ -9,6 +9,7 @@ map:
 # and head/schema.html publishes the same values as JSON-LD. A street address
 # does not translate, so it lives here rather than in the language files.
 organization:
+  fullName: Capture and Processing of Life Science Big Data for the Social Sciences and Humanities
   parent:
     name: University of Oslo
     url: https://www.uio.no/
