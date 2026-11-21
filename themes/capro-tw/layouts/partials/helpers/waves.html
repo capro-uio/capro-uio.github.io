@@ -1,0 +1,39 @@
+{{- /* Drifting hairline waves.
+
+       Takes a dict {variant, class}. The variant selects which of the five
+       wave layers are drawn and, via components/waves.css, how the block is
+       positioned; `class` is appended for one-off placement.
+
+       The path data is not hand-written. Each layer is a sine approximated by
+       one cubic per half period, with an integer number of periods across the
+       1440-unit viewBox, so translating a layer by exactly 1440 maps it onto
+       itself and the drift loops with no visible seam. Each path is also drawn
+       a full tile beyond the viewBox on its drifting side, so the trailing
+       edge never enters the viewport. Both properties break if the `d`
+       attributes are edited by eye -- regenerate them instead. */ -}}
+{{- $variant := .variant -}}
+{{- $class := .class | default "" -}}
+{{- $sets := dict
+      "banner"     (slice "a" "c" "d")
+      "cta-top"    (slice "c" "d")
+      "cta-bottom" (slice "c" "d")
+      "footer"     (slice "a" "b" "c" "d" "e")
+-}}
+{{- $paths := dict
+      "a" "M-720,114 C-360,114 -360,70 0,70 C360,70 360,114 720,114 C1080,114 1080,70 1440,70 C1800,70 1800,114 2160,114 C2520,114 2520,70 2880,70"
+      "b" "M-1980,102 C-1620,102 -1620,46 -1260,46 C-900,46 -900,102 -540,102 C-180,102 -180,46 180,46 C540,46 540,102 900,102 C1260,102 1260,46 1620,46"
+      "c" "M-270,80 C-90,80 -90,44 90,44 C270,44 270,80 450,80 C630,80 630,44 810,44 C990,44 990,80 1170,80 C1350,80 1350,44 1530,44 C1710,44 1710,80 1890,80 C2070,80 2070,44 2250,44 C2430,44 2430,80 2610,80 C2790,80 2790,44 2970,44"
+      "d" "M-1760,72 C-1400,72 -1400,24 -1040,24 C-680,24 -680,72 -320,72 C40,72 40,24 400,24 C760,24 760,72 1120,72 C1480,72 1480,24 1840,24"
+      "e" "M-100,48 C80,48 80,20 260,20 C440,20 440,48 620,48 C800,48 800,20 980,20 C1160,20 1160,48 1340,48 C1520,48 1520,20 1700,20 C1880,20 1880,48 2060,48 C2240,48 2240,20 2420,20 C2600,20 2600,48 2780,48 C2960,48 2960,20 3140,20"
+-}}
+{{- $layers := index $sets $variant -}}
+{{- if not $layers -}}
+  {{- errorf "waves.html: unknown variant %q (expected one of banner, cta-top, cta-bottom, footer)" $variant -}}
+{{- end -}}
+<div class="waves waves--{{ $variant }}{{ with $class }} {{ . }}{{ end }}" aria-hidden="true">
+  <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    {{- range $layers }}
+    <path class="wave wave--{{ . }}" d="{{ index $paths . }}" fill="none" />
+    {{- end }}
+  </svg>
+</div>

@@ -15,12 +15,6 @@
     </div>
   </div>
 </section>
-<div class="absolute bottom-0 left-0 right-0 h-24 z-10 pointer-events-none" aria-hidden="true">
-  <svg viewBox="0 0 1440 96" preserveAspectRatio="none" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,70 C240,20 480,80 720,40 C960,0 1200,60 1440,30" fill="none" stroke="#c04545" stroke-width="2" opacity="0.5"/>
-    <path d="M0,50 C200,80 440,10 720,60 C1000,110 1240,30 1440,50" fill="none" stroke="#E57575" stroke-width="2" opacity="0.4"/>
-    <path d="M0,85 C300,50 500,90 720,55 C940,20 1140,70 1440,45" fill="none" stroke="#c04545" stroke-width="2.5" opacity="0.6"/>
-  </svg>
-</div>
+{{ partial "helpers/waves.html" (dict "variant" "banner") }}
 </div>
 {{ end }}
