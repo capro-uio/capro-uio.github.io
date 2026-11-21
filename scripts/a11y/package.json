@@ -9,7 +9,7 @@
     "audit:all": "node run.mjs --all"
   },
   "dependencies": {
-    "axe-core": "^4.14.0",
-    "puppeteer": "^25.14.0"
+    "axe-core": "^4.14.1",
+    "puppeteer": "^25.18.1"
   }
 }
