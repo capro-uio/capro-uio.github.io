@@ -1,0 +1,83 @@
+{{/* JSON-LD. Built as Go maps and emitted with `jsonify` so the output is
+     always valid JSON — hand-written braces in a template break the moment a
+     value contains a quote or an apostrophe, and several of ours do. */}}
+
+{{- $org := site.Params.organization -}}
+{{- $logo := "" -}}
+{{- with resources.GetMatch site.Params.logo }}{{ $logo = .Permalink }}{{ end -}}
+
+{{/* ResearchOrganization rather than plain Organization: CAPRO is a core
+     facility at the University of Oslo, not a company. */}}
+{{- $organization := dict
+      "@type" "ResearchOrganization"
+      "name" site.Title
+      "url" site.Home.Permalink
+      "description" (site.Params.description | plainify | replaceRE `\s+` " " | strings.TrimSpace)
+-}}
+{{/* alternateName, not legalName: UiO is the legal entity, CAPRO is a
+     facility within it. */}}
+{{- with $org.fullName }}{{ $organization = merge $organization (dict "alternateName" .) }}{{ end -}}
+{{- with $logo }}{{ $organization = merge $organization (dict "logo" .) }}{{ end -}}
+{{- with site.Params.contact.email }}{{ $organization = merge $organization (dict "email" .) }}{{ end -}}
+{{- with $org.sameAs }}{{ $organization = merge $organization (dict "sameAs" .) }}{{ end -}}
+{{- with $org.parent }}
+  {{- $organization = merge $organization (dict "parentOrganization" (dict
+        "@type" "CollegeOrUniversity" "name" .name "url" .url)) -}}
+{{- end -}}
+{{- with $org.address }}
+  {{- $organization = merge $organization (dict "address" (dict
+        "@type" "PostalAddress"
+        "name" .building
+        "streetAddress" .street
+        "postalCode" (string .postalCode)
+        "addressLocality" .city
+        "addressCountry" .country)) -}}
+{{- end -}}
+{{- with site.Params.map }}
+  {{- $organization = merge $organization (dict "geo" (dict
+        "@type" "GeoCoordinates"
+        "latitude" .map_latitude
+        "longitude" .map_longitude)) -}}
+{{- end -}}
+
+{{- $schema := slice -}}
+
+{{- if .IsHome -}}
+  {{- $schema = $schema | append $organization -}}
+{{- end -}}
+
+{{- if and .IsPage (eq .Section "team") -}}
+  {{- $person := dict
+        "@type" "Person"
+        "name" .Title
+        "url" .Permalink
+        "worksFor" (dict "@type" "Organization" "name" site.Title "url" site.Home.Permalink)
+  -}}
+  {{- with .Params.role }}{{ $person = merge $person (dict "jobTitle" .) }}{{ end -}}
+  {{- with .Params.summary }}{{ $person = merge $person (dict "description" .) }}{{ end -}}
+  {{- $sameAs := slice -}}
+  {{- with .Params.uio_profile }}{{ $sameAs = $sameAs | append . }}{{ end -}}
+  {{- range .Params.social }}{{ with .link }}{{ $sameAs = $sameAs | append . }}{{ end }}{{ end -}}
+  {{- with $sameAs }}{{ $person = merge $person (dict "sameAs" .) }}{{ end -}}
+  {{- $schema = $schema | append $person -}}
+{{- end -}}
+
+{{- if and .IsPage (eq .Section "news") -}}
+  {{- $article := dict
+        "@type" "BlogPosting"
+        "headline" .Title
+        "url" .Permalink
+        "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
+        "inLanguage" .Lang
+        "publisher" (dict "@type" "Organization" "name" site.Title "url" site.Home.Permalink)
+        "author" (dict "@type" "Organization" "name" site.Title "url" site.Home.Permalink)
+  -}}
+  {{- with .PublishDate }}{{ $article = merge $article (dict "datePublished" (.Format "2006-01-02")) }}{{ end -}}
+  {{- with .Lastmod }}{{ $article = merge $article (dict "dateModified" (.Format "2006-01-02")) }}{{ end -}}
+  {{- with partial "head/og-image.html" . }}{{ $article = merge $article (dict "image" .Permalink) }}{{ end -}}
+  {{- $schema = $schema | append $article -}}
+{{- end -}}
+
+{{- range $schema }}
+<script type="application/ld+json">{{ (merge (dict "@context" "https://schema.org") .) | jsonify | safeJS }}</script>
+{{- end }}

@@ -16,7 +16,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
           fetch-depth: 0
 
       - name: Set env parameters
@@ -34,13 +33,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
+          cache-dependency-path: themes/capro-tw/package-lock.json
 
       - name: Install theme dependencies
-        run: npm install --prefix themes/capro-tw
+        run: npm ci --prefix themes/capro-tw
 
       - name: Build 🔧
-        env:
-          HUGO_GMAP_API: ${{ secrets.HUGO_GMAP_API }}
         run: hugo --minify
 
       - name: Deploy 🚀

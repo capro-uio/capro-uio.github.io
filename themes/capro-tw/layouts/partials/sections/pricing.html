@@ -1,33 +1,28 @@
 {{ $page := . }}
 {{ with .Site.GetPage "section" "pricing" }}
 {{ if and (.Params.item) (gt (.Params.item | len) 0) }}
+{{ $wide := gt (len .Params.item) 2 }}
 <section class="section bg-grey" id="pricing">
-  <div class="max-w-7xl mx-auto px-4">
+  <div class="{{ cond $wide "max-w-7xl" "max-w-4xl" }} mx-auto px-4">
     {{ partial "helpers/section-title.html" (dict "title" .Title "page" $page) }}
     {{ partial "helpers/section-intro.html" .Content }}
-    {{ $data := newScratch }}
-    {{ $data.Set "entities" .Params.entities }}
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 {{ if $wide }}lg:grid-cols-3{{ end }} gap-6">
       {{ range .Params.item }}
       <div class="price-card text-center reveal">
         {{ if eq ($page.Scratch.Get "itemLevel") 2 }}<h2 class="text-xl uppercase mb-4">{{ .name }}</h2>{{ else }}<h3 class="text-xl uppercase mb-4">{{ .name }}</h3>{{ end }}
         <table class="w-full mb-4 text-sm">
           {{ $unit := .unit }}
           {{ range .price }}
-            {{ $id := .id }}
-            {{ $price := .price }}
-            {{ if eq $id "base" }}
-              {{ range ($data.Get "entities") }}
-              <tr><td class="text-right pr-2 border-r border-border py-1">{{ .name }}</td>
-                  <td class="text-left pl-2 py-1"><span class="text-secondary font-medium">{{ lang.FormatNumberCustom 0 (mul .percent $price) "-|.| " "|" }}</span> / {{ $unit }}</td></tr>
+          <tr>
+            {{ with .label }}<td class="text-right pr-2 border-r border-border py-1">{{ . }}</td>{{ end }}
+            <td class="{{ if .label }}text-left pl-2{{ else }}text-center{{ end }} py-1" {{ if not .label }}colspan="2"{{ end }}>
+              {{ with .amount }}
+                <span class="text-secondary font-medium">{{ lang.FormatNumberCustom 0 . "-|.| " "|" }}</span>{{ with $unit }} / {{ . }}{{ end }}
+              {{ else }}
+                <span class="text-secondary font-medium">{{ .text }}</span>
               {{ end }}
-            {{ end }}
-            {{ range ($data.Get "entities") }}
-              {{ if eq .id $id }}
-              <tr><td class="text-right pr-2 border-r border-border py-1">{{ .name }}</td>
-                  <td class="text-left pl-2 py-1"><span class="text-secondary font-medium">{{ lang.FormatNumberCustom 0 $price "-|.| " "|" }}</span> / {{ $unit }}</td></tr>
-              {{ end }}
-            {{ end }}
+            </td>
+          </tr>
           {{ end }}
         </table>
         <ul class="text-sm space-y-1 mb-6">

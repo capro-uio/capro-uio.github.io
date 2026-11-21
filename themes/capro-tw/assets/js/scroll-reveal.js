@@ -1,20 +1,38 @@
-document.addEventListener('DOMContentLoaded', function () {
-  var els = document.querySelectorAll('.reveal');
-  if (!els.length || !('IntersectionObserver' in window)) return;
+(function () {
+  var root = document.documentElement;
+  try {
+    if (!('IntersectionObserver' in window)) return;
 
-  var observer = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1 },
-  );
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
 
-  els.forEach(function (el) {
-    observer.observe(el);
-  });
-});
+    root.classList.add('js');
+
+    var arm = function () {
+      try {
+        document.querySelectorAll('.reveal').forEach(function (el) {
+          observer.observe(el);
+        });
+      } catch (e) {
+        root.classList.remove('js');
+      }
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', arm);
+    } else {
+      arm();
+    }
+  } catch (e) {
+    root.classList.remove('js');
+  }
+})();

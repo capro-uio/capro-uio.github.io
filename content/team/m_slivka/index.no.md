@@ -1,13 +1,13 @@
 ---
-title : "Maksim Slivka"
-designation : 
-  - Neuroimaging data prosessering
-  - Optimalisering og standardisering
+title: "Maksim Slivka"
+summary: "Prosessering av hjerneavbildningsdata, maskinlæring, og analyser som er for store for en laptop."
+designation:
+  - Hjerneavbildning
   - Maskinlæring
-  - HPC
-social :  
-- icon : ti-github 
-  link : "https://github.com/Mak2055"
+  - Tungregning
+social:
+  - icon: github
+    link: "https://github.com/Mak2055"
 draft: true
 ---
 

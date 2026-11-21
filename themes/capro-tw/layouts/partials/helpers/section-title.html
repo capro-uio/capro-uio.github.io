@@ -10,9 +10,14 @@
        element name and silently renders nothing. */ -}}
 {{- $title := . -}}
 {{- $page := false -}}
+{{- /* How many leading words stay plain. Splitting after word 1 unconditionally
+       produced "Open | Source we have built", breaking the compound term, so a
+       caller can move the split. */ -}}
+{{- $accentFrom := 1 -}}
 {{- if reflect.IsMap . -}}
   {{- $title = .title -}}
   {{- $page = .page -}}
+  {{- with .accentFrom -}}{{- $accentFrom = . -}}{{- end -}}
 {{- end -}}
 {{- with $title -}}
 {{- $promote := false -}}
@@ -24,14 +29,19 @@
 {{- end -}}
 {{- if $page -}}{{- $page.Scratch.Set "itemLevel" (cond $promote 2 3) -}}{{- end -}}
 {{- $words := split . " " -}}
-{{- $head := index $words 0 -}}
-{{- $rest := "" -}}
-{{- if gt (len $words) 1 -}}{{- $rest = delimit (after 1 $words) " " -}}{{- end -}}
+{{- $head := "" -}}
+{{- $rest := . -}}
+{{- /* A one-word title used to render entirely plain beside an empty accent
+       span — "R" on a tag page was a lone grey letter. Accent all of it. */ -}}
+{{- if gt (len $words) $accentFrom -}}
+  {{- $head = delimit (first $accentFrom $words) " " -}}
+  {{- $rest = delimit (after $accentFrom $words) " " -}}
+{{- end -}}
 <div class="section-title reveal">
   {{ if $promote -}}
-  <h1>{{ $head | safeHTML }}{{ with $rest }} <span class="accent">{{ . | safeHTML }}</span>{{ end }}</h1>
+  <h1>{{ with $head }}{{ . | safeHTML }} {{ end }}<span class="accent">{{ $rest | safeHTML }}</span></h1>
   {{- else -}}
-  <h2>{{ $head | safeHTML }}{{ with $rest }} <span class="accent">{{ . | safeHTML }}</span>{{ end }}</h2>
+  <h2>{{ with $head }}{{ . | safeHTML }} {{ end }}<span class="accent">{{ $rest | safeHTML }}</span></h2>
   {{- end }}
   <div class="border-accent"></div>
 </div>

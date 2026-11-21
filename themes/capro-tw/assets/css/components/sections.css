@@ -62,42 +62,6 @@
     border-left: 2px solid var(--color-secondary);
   }
 
-  /* Services */
-  .service-block {
-    @apply text-center h-full;
-    padding: 60px 32px;
-    background-color: var(--color-dark);
-    border-left: 1px solid var(--color-border);
-    border-top: 1px solid var(--color-border);
-    box-shadow:
-      2px 2px 5px rgba(44, 44, 44, 0.3),
-      13px 13px 0 rgba(255, 255, 255, 0.12);
-  }
-
-  .service-block i {
-    @apply mb-6 block;
-    font-size: 50px;
-    color: var(--color-light);
-  }
-
-  .service-block h3 {
-    @apply text-xl font-medium mb-3;
-    color: var(--color-secondary);
-  }
-
-  /* Skills */
-  .progress-bar-track {
-    @apply w-full rounded-full;
-    height: 6px;
-    background-color: var(--color-border);
-  }
-
-  .progress-bar-fill {
-    @apply h-full rounded-full;
-    background-color: var(--color-primary);
-    transition: width 0.8s ease;
-  }
-
   /* Pricing */
   .price-card {
     @apply h-full;
@@ -143,30 +107,36 @@
     border-radius: 3px;
   }
 
+  /* Above the track, not overlapping it. */
+  .testimonial-controls {
+    @apply flex justify-end gap-2 mb-4;
+  }
+
   .testimonial-nav {
-    @apply absolute top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center;
+    @apply w-10 h-10 flex items-center justify-center;
     background: var(--color-dark);
     border: 1px solid var(--color-border);
     color: var(--color-body);
-    transition: all var(--transition-fast);
     cursor: pointer;
+    transition:
+      border-color var(--transition-fast),
+      color var(--transition-fast),
+      opacity var(--transition-fast);
   }
 
-  .testimonial-nav:hover {
+  .testimonial-nav:hover:not(:disabled) {
     border-color: var(--color-primary);
     color: var(--color-primary-text);
   }
 
-  .testimonial-nav-left {
-    left: -20px;
+  .testimonial-nav:disabled {
+    opacity: 0.35;
+    cursor: default;
   }
 
-  .testimonial-nav-right {
-    right: -20px;
-  }
-
+  /* The track is swipeable on touch, so the buttons are redundant there. */
   @media (max-width: 768px) {
-    .testimonial-nav {
+    .testimonial-controls {
       display: none;
     }
   }
@@ -205,47 +175,51 @@
     border-color: var(--color-primary);
   }
 
+  /* Logos are drawn for light backgrounds, so the panel is white. Grey by
+     default and colour on hover: the grid reads as one surface until you
+     point at something, and the mark is still legible either way. The
+     filter is CSS, not a Hugo images.Grayscale, because a build-time
+     greyscale image cannot be put back into colour on hover. */
   .portfolio-card .portfolio-img {
-    @apply relative overflow-hidden;
+    @apply flex items-center justify-center overflow-hidden;
     background: #fff;
-    padding: 40px;
-    height: 16rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 32px;
+    height: 13rem;
   }
 
   .portfolio-card .portfolio-img img {
     max-height: 100%;
     width: auto;
     object-fit: contain;
+    filter: grayscale(1);
+    transition: filter var(--transition-base);
   }
 
-  .portfolio-card .portfolio-overlay {
-    @apply absolute inset-0 flex items-center justify-center;
-    opacity: 0;
-    background: rgba(255, 255, 255, 0.92);
-    transition: opacity var(--transition-base);
+  .portfolio-card:hover .portfolio-img img,
+  .portfolio-card:focus-within .portfolio-img img {
+    filter: grayscale(0);
   }
 
-  .portfolio-card:hover .portfolio-overlay {
-    opacity: 1;
-  }
-
-  .portfolio-card .portfolio-overlay .search-circle {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: var(--color-primary);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
+  @media (prefers-reduced-motion: reduce) {
+    .portfolio-card .portfolio-img img {
+      transition: none;
+    }
   }
 
   .portfolio-card .portfolio-meta {
-    padding: 20px;
+    padding: 28px 24px;
+  }
+
+  /* The categories the filter matches on, doubling as the card's eyebrow now
+     that there is no logo panel above the heading. */
+  .portfolio-card .portfolio-card__cats {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-muted);
+    margin-bottom: 0.6rem;
   }
 
   .portfolio-card .portfolio-meta h3 {
@@ -257,6 +231,44 @@
     font-size: 0.85rem;
     color: var(--color-light);
     margin-top: 8px;
+  }
+
+  /* Three groups side by side now the chart is gone, collapsing to one. */
+  .skill-groups {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 2.5rem 3rem;
+  }
+
+  /* Filter buttons carry their state in aria-pressed, so style from that
+     rather than from an Alpine :class binding — the two drifted apart. */
+  .portfolio-filter {
+    @apply px-5 py-2 text-sm font-bold border;
+    min-height: 24px;
+    background-color: var(--color-dark);
+    border-color: var(--color-border);
+    color: var(--color-body);
+    cursor: pointer;
+    transition:
+      background-color var(--transition-fast),
+      border-color var(--transition-fast),
+      color var(--transition-fast);
+  }
+
+  .portfolio-filter:hover {
+    border-color: var(--color-primary);
+  }
+
+  .portfolio-filter[aria-pressed="true"] {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    color: #fff;
+  }
+
+  .portfolio-link__icon {
+    font-size: 0.7em;
+    margin-left: 0.4em;
+    vertical-align: baseline;
   }
 
   /* Contact */
@@ -286,11 +298,71 @@
   }
 
   .contact-email__note {
-    @apply mt-3;
+    @apply mb-3;
     font-family: var(--font-sans);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    margin-top: 0;
+  }
+
+  .contact-reassure {
+    @apply mx-auto mb-14 flex flex-col items-start gap-2;
+    list-style: none;
+    max-width: 34rem;
+    padding: 0;
+  }
+
+  .contact-reassure li {
+    @apply relative;
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color-body);
+    padding-left: 1.6rem;
+  }
+
+  /* A tick, not a bullet: each line is something the reader gets. */
+  .contact-reassure li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.42em;
+    width: 0.5rem;
+    height: 0.85rem;
+    border-right: 2px solid var(--color-secondary);
+    border-bottom: 2px solid var(--color-secondary);
+    transform: rotate(45deg);
+  }
+
+  .contact-reassure li p {
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+  }
+
+  .skill-group__name {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--color-muted);
+    color: var(--color-secondary);
+    margin-bottom: 0.9rem;
+  }
+
+  .skill-tags {
+    @apply flex flex-wrap gap-2 p-0;
+    list-style: none;
+  }
+
+  .skill-tags li {
+    @apply px-3 py-1;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--color-body);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
   }
 }

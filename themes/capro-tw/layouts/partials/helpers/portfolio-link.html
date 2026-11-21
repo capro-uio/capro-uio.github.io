@@ -1,0 +1,11 @@
+{{- /* The project title, linked to its repository when there is one. The link
+       leaves the site, so say so for anyone who cannot see the icon. */ -}}
+{{- if .Params.link -}}
+  <a href="{{ .Params.link | safeURL }}" target="_blank" rel="noopener">
+    {{- .Title -}}
+    <span class="sr-only"> ({{ T "opensExternally" }})</span>
+    {{ partial "helpers/icon.html" (dict "name" "arrow-up-right-from-square" "class" "portfolio-link__icon") }}
+  </a>
+{{- else -}}
+  {{- .Title -}}
+{{- end -}}

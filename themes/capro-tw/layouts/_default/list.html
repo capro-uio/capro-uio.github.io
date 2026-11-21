@@ -3,7 +3,21 @@
 {{ with .CurrentSection }}
 <section class="section">
   <div class="max-w-7xl mx-auto px-4">
-    {{ partial "helpers/section-title.html" (dict "title" .Title "page" $page) }}
+    {{/* A term page used to be headed by the bare term — "R" on its own, with
+         no count and no way back to /news/. Name what the term is, and let the
+         accent land on the term itself. */}}
+    {{ $title := .Title }}
+    {{ if eq .Kind "term" }}
+      {{ $lead := cond (eq .Data.Plural "categories") (T "inCategory") (T "taggedWith") }}
+      {{ $title = printf "%s %s" $lead .Title }}
+      {{ partial "helpers/section-title.html" (dict "title" $title "page" $page "accentFrom" (len (split $lead " "))) }}
+    {{ else }}
+      {{ partial "helpers/section-title.html" (dict "title" $title "page" $page) }}
+    {{ end }}
+
+    {{ $count := len .Data.Pages }}
+    <p class="list-count">{{ if eq $count 1 }}{{ T "oneItem" }}{{ else }}{{ T "manyItems" $count }}{{ end }}</p>
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {{ $paginator := .Paginate .Data.Pages }}
       {{ range $paginator.Pages }}
@@ -11,6 +25,13 @@
       {{ end }}
     </div>
     {{ template "_internal/pagination.html" . }}
+
+    {{/* Term pages were a dead end: no link onward to anything. */}}
+    {{ if eq .Kind "term" }}
+      <div class="text-center mt-12">
+        <a class="btn btn-outline" href="{{ "news/" | relLangURL }}">{{ T "backToNews" }}</a>
+      </div>
+    {{ end }}
   </div>
 </section>
 {{ end }}

@@ -1,19 +1,19 @@
 ---
 title: Om oss
 item:
-  - icon: ti-user
+  - icon: user
     title: Et team inne i universitetet
     content: |
       Vi sitter ved Psykologisk institutt, Universitetet i Oslo, og jobber med
       prosjekter innen samfunnsvitenskap og humaniora ved UiO og utenfor.
 
-  - icon: ti-ruler-pencil
+  - icon: pen-ruler
     title: Ingeniører som har forsket selv
     content: |
       Alle i teamet har jobbet med forskning. Vi kjenner etikkgodkjenninger,
       søknadsfrister og hvordan data faktisk ser ut når de kommer inn.
 
-  - icon: ti-infinite
+  - icon: infinity
     title: Du eier det vi bygger
     content: |
       Kode, dokumentasjon og arbeidsflyt overleveres til deg, slik at prosjektet

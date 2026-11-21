@@ -1,8 +1,7 @@
 ---
-title : Lifebrain Global Brain Health Survey
-image : https://raw.githubusercontent.com/Lifebrain/gbhs/main/man/figures/logo.png
-categories : ["R-pakke", "Analyse"]
-link : "https://lifebrain.github.io/gbhs/"
+title: Lifebrain Global Brain Health Survey
+categories: ["R-pakker", "Analyser"]
+link: "https://lifebrain.github.io/gbhs/"
 date: 2022-09-27
 ---
 

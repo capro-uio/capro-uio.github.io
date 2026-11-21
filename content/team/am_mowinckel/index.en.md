@@ -1,20 +1,28 @@
 ---
-title : Athanasia Mo Mowinckel
-designation : ["Workflow", "Data processing",
-  "Web applications", "R"]
-social : # themify icon pack : https://themify.me/themify-icons or fontawesome
-  - icon : fa-brands fa-github 
-    link : "https://github.com/drmowinckels"
-  - icon : fa-brands fa-linkedin 
-    link : "https://www.linkedin.com/in/drmowinckels"
-  - icon: "fa-brands fa-orcid"
+title: "Athanasia Mo Mowinckel"
+role: "Researcher"
+summary: "Leads CAPRO, writes the R packages, and teaches research groups to work reproducibly."
+designation:
+  - Data engineering
+  - R
+  - Web apps
+  - Workshops
+uio_profile: "https://www.sv.uio.no/psi/english/people/academic/athanasm/"
+social:
+  - icon: github
+    link: "https://github.com/drmowinckels"
+  - icon: linkedin
+    link: "https://www.linkedin.com/in/drmowinckels"
+  - icon: orcid
     link: "https://orcid.org/0000-0002-5756-0223"
-  - icon: "fa-brands fa-mastodon"
+  - icon: mastodon
     link: "https://fosstodon.org/@Drmowinckels"
-  - icon : fa-brands fa-twitter
-    link : "https://twitter.com/DrMowinckels"
+  - icon: twitter
+    link: "https://twitter.com/DrMowinckels"
 ---
 
-With a PhD in psychology, Mo transitioned into research software and development as she saw technical solutions could aid fellow scientists in driving their projects forwards.
-
-<!-- more -->
+Mo is a researcher at LCBC, where she has run data processing and management
+for the EU Lifebrain consortium, and she leads CAPRO. She writes the R
+packages the work runs on — ggseg, ggseg3d, nettskjemar — and teaches research
+methods at the department. If your data is spread across sixty files and you
+want one documented script that pulls it together, that is her work.

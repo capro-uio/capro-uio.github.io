@@ -1,65 +1,48 @@
 ---
-title : Cost estimates
-entities:
-  - name: PSI UiO
-    id: psi
-    percent: 1
-  - name: SV UiO
-    id: sv
-    percent: 1.1
-  - name: UiO
-    id: uio
-    percent: 1.2
-  - name: Non-commercial
-    id: nc
-    percent: 1.3
-  - name: Commercial
-    id: com
-    percent: 2
+title : What it costs
 item :
-  - name : Non-binding talks 
-    price : 
-      - id: uio
-        price: 0
-      - id: nc
-        price: 1100
-      - id: com
-        price: 2000
-    unit : 1 hour
-    services:
-      - 1:1 with a team member
-      - Advice on services
-      - If necessary, cost and time estimates for a project or workshop
-    button:
-      label : "Book a time"
-      link : "#contact"
-    
-  - name : Project 
-    price : 
-      - id: base
-        price: 880
+  - name : Project work
     unit : hour
+    price :
+      - label: Externally funded grant project
+        amount: 1515
+      - label: Commissioned research project
+        amount: 1600
+      - label: Private sector
+        text: By agreement
     services:
-      - Some hours of HPC
-      - 1-1 time with a team member
-      - Code you will own
-      - Direct line of contact with team
+      - Someone on your project, not a ticket queue
+      - Code and documentation you own and keep
+      - Some computing hours included
+      - Direct contact, not a support address
+    button:
+      label : "Ask what it would cost"
+      link : "#contact"
 
   - name : Workshop
-    price : 
-      - id: base
-        price: 2000
-    unit : hour
+    price :
+      - text: By agreement
     services:
-      - 2 hours prep per 1 hour workshop
-      - Workshop materials
-      - Team availability before and after workshop
-      - Option for online workshop
+      - Quoted per workshop, depending on how many of us teach
+      - Built around your group's own data
+      - Two hours of preparation per teaching hour
+      - Materials you keep and can reuse
+      - Online or in person
+    button:
+      label : "Ask for a quote"
+      link : "#contact"
 ---
 
-Our services are contracted on an hourly basis (presented excluding value added taxes), and our prices include some basic infrastructure to get started.
-In case of projects needing secure data locations (like TSD) or heavy computational nodes (like Saga), such project infrastructure will not be handled by CAPRO, but we can aid you in setting up data structures and workflows once you have that in place.
-We can advise you in your needs prior to any contracted work is begun.
-We also have some resources to run smaller projects on our own servers as long as regulatory guidelines are followed.
+We charge by the hour, and the rate depends on the kind of project rather than
+on who you are. The line goes between projects where we are a partner on an
+externally funded grant, and commissioned work where we are a supplier.
+Everything else is by agreement. The rates below are 2026 rates and exclude
+VAT.
 
-Hourly project rates cover human work hours, not computational hours. 
+The rate covers our working hours, not computing time. If your project needs a
+secure data area like TSD, or time on a large machine like Saga, you apply for
+and pay for that separately — but we will help you work out what to ask for and
+set it up once you have it. For smaller projects we can sometimes host the work
+on our own servers instead, where the rules allow it.
+
+You can always ask what something would cost before committing to anything.

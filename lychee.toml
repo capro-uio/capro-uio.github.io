@@ -16,7 +16,7 @@ exclude = [
   '^https?://localhost',
   '^https?://127\.0\.0\.1',
 
-  # Served from outside Hugo: www.capro.dev/nettskjemar/ is live in production
+  # Served from outside Hugo: capro.dev/nettskjemar/ is live in production
   # but is not built from this repo, so it is absent from every preview.
   '^/nettskjemar',
   'nettskjemar$',

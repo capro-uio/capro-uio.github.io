@@ -4,7 +4,7 @@ author:
   - am_mowinckel # Who is the author of the news item
 tags: # choose any appropriate. Make new if appropriate, but we should not have too many overall categories. 
   - core-facility
-  - hub/node
+  - hub-node
   - uio
 link : "" # URL that opens if search icon is clicked
 date: 2023-08-22T09:50:21+02:00

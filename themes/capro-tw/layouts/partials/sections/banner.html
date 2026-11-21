@@ -2,7 +2,7 @@
 {{ $image := resources.GetMatch .image }}
 {{ $image = $image.Resize "1600x webp" }}
 <div class="relative">
-<section class="banner flex items-center justify-center bg-cover bg-center" style='background-image: url("{{ $image.Permalink }}")'>
+<section class="banner flex items-center justify-center bg-cover bg-center" style='background-image: url("{{ $image.RelPermalink }}")'>
   <div class="absolute inset-0 bg-black/70"></div>
   <div class="relative text-center px-4 max-w-4xl mx-auto py-24">
     <h1 class="text-4xl md:text-6xl font-light mb-8">{{ .title | markdownify }}</h1>

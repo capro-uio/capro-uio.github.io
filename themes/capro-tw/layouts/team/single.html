@@ -1,38 +1,76 @@
 {{ define "main" }}
 <section class="section bg-grey">
-  <div class="max-w-3xl mx-auto px-4 text-center">
-    {{/* Decorative label, not a heading: "About Member" carries no information.
-         The person's name is this page's heading. */}}
-    <div class="section-title">
-      {{ with .Site.GetPage "section" "team" }}
-        <p class="section-title__label">{{ index (split .Params.single " ") 0 | safeHTML }} <span class="accent">{{ index (split .Params.single " ") 1 | safeHTML }}</span></p>
-      {{ end }}
-      <div class="border-accent"></div>
-    </div>
-    <figure class="mb-6">
+  <div class="max-w-5xl mx-auto px-4">
+    {{/* Photo beside the text rather than above it. A centred column put the
+         bio in centred serif, which is fine for a line and poor for a
+         paragraph, and left the page as a narrow strip on a wide screen. */}}
+    <div class="person reveal">
+      {{ $photo := false }}
       {{ if isset .Params "photo" }}
-        {{ $image := resources.GetRemote .Params.photo | .Fill "600x600" }}
-        <img class="rounded-full w-48 h-48 mx-auto object-cover" src="{{ $image.RelPermalink }}" alt="{{ .Title }}" width="300" height="300">
+        {{ $photo = resources.GetRemote .Params.photo }}
       {{ else }}
-        {{ range first 1 (.Resources.ByType "image") }}
-          {{ $image := .Fill "600x600" }}
-          <img class="rounded-full w-48 h-48 mx-auto object-cover" src="{{ $image.RelPermalink }}" alt="{{ $.Title }}" width="300" height="300">
+        {{ range first 1 (.Resources.ByType "image") }}{{ $photo = . }}{{ end }}
+      {{ end }}
+      {{ with $photo }}
+      <figure class="person__photo">
+        {{/* Square and grey, the same treatment as the card that links here,
+             so the page looks like the thing that was clicked. Never
+             upscaled, and the anchor is overridable per person. */}}
+        {{ $side := 600 }}
+        {{ $shorter := int (math.Min .Width .Height) }}
+        {{ if lt $shorter $side }}{{ $side = $shorter }}{{ end }}
+        {{ $anchor := default "Smart" $.Params.photo_anchor }}
+        {{ $square := .Fill (printf "%dx%d webp %s" $side $side $anchor) | images.Filter (images.Grayscale) }}
+        <img src="{{ $square.RelPermalink }}" alt="" width="{{ $side }}" height="{{ $side }}">
+        {{/* Photographers have a right to be named, and a staff portrait is
+             someone's work. Rendered only where a credit is recorded. */}}
+        {{ with $.Params.photo_credit }}
+        <figcaption class="person-credit">{{ T "photoBy" }}: {{ . }}</figcaption>
         {{ end }}
+      </figure>
       {{ end }}
-      <figcaption>
-        <h1 class="text-xl font-bold mt-4">{{ .Title }}</h1>
-      </figcaption>
-    </figure>
-    <hr class="border-border my-6">
-    <div class="font-serif mb-6">{{ .Content }}</div>
-    <hr class="border-border my-6">
-    <div class="flex justify-center gap-4">
-      {{ range .Params.Social }}
-        <a href="{{ .link | safeURL }}" class="text-xl hover:text-primary transition-colors"
-           aria-label="{{ index (split .icon "-") (sub (len (split .icon "-")) 1) }}">
-          <i class="{{ .icon }}" aria-hidden="true"></i>
-        </a>
-      {{ end }}
+
+      <div class="person__body">
+        <h1 class="person__name">{{ .Title }}</h1>
+        {{ with .Params.role }}<p class="person__role">{{ . }}</p>{{ end }}
+
+        {{/* The roles only ever appeared on the grid; the page about the
+             person did not say what they work on. */}}
+        {{ with .Params.designation }}
+        <ul class="person-roles">
+          {{ range . }}<li>{{ . | markdownify }}</li>{{ end }}
+        </ul>
+        {{ end }}
+
+        <div class="person__bio">{{ .Content }}</div>
+
+        {{/* The row renders when there is anything to put in it: Silje has a
+             UiO page and no social accounts. */}}
+        {{ if or .Params.Social .Params.uio_profile }}
+        <div class="person__links">
+          {{ range .Params.Social }}
+          <a href="{{ .link | safeURL }}"
+             {{/* The label used to be the last hyphen-segment of the icon class,
+                  so "ti-twitter-alt" announced as "alt". Use the host instead. */}}
+             aria-label="{{ T "profileOn" (dict "name" $.Title "host" ((urls.Parse .link).Host | replaceRE `^www\.` ``)) }}">
+            {{ partial "helpers/icon.html" (dict "name" .icon) }}
+          </a>
+          {{ end }}
+          {{ with .Params.uio_profile }}
+          {{/* The colon from the UiO lockup, the same mark the CAPRO logo
+               carries. There is no icon font for it, so it is drawn here. */}}
+          <a class="person__uio" href="{{ . | safeURL }}" target="_blank" rel="noopener"
+             aria-label="{{ T "uioProfile" }} ({{ T "opensExternally" }})">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="6.5" r="4.2" />
+              <circle cx="12" cy="17.5" r="4.2" />
+            </svg>
+          </a>
+          {{ end }}
+        </div>
+        {{ end }}
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -42,7 +80,7 @@
 <section class="section">
   <div class="max-w-7xl mx-auto px-4">
     <div class="section-title">
-      <h2>{{ i18n "authorsPosts" }} <span class="accent">{{ with .Site.GetPage "section" "team" }}{{ index (split .Params.single " ") 1 | safeHTML }}{{ end }}</span></h2>
+      <h2>{{ i18n "authorsPosts" }} <span class="accent">{{ .Title }}</span></h2>
       <div class="border-accent"></div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -63,38 +101,38 @@
 {{ end }}
 
 {{ if $orcid }}
-<section class="section" id="orcid-pubs" data-orcid="{{ $orcid }}">
+<section class="section" id="pubs" data-orcid="{{ $orcid }}">
   <div class="max-w-5xl mx-auto px-4">
     <div class="section-title">
-      <h2>{{ i18n "authorsPubs" }} <span class="accent">{{ with .Site.GetPage "section" "team" }}{{ index (split .Params.single " ") 1 | safeHTML }}{{ end }}</span></h2>
+      <h2>{{ i18n "authorsPubs" }} <span class="accent">{{ .Title }}</span></h2>
       <div class="border-accent"></div>
     </div>
 
-    <div id="orcid-pubs-loading" class="text-center py-8">
-      <p class="text-muted">Loading publications from OpenAlex...</p>
+    <div id="pubs-loading" class="text-center py-8">
+      <p class="text-muted">{{ T "pubsLoading" }}</p>
     </div>
 
-    <div id="orcid-pubs-error" class="text-center py-8" style="display:none;">
-      <p>Could not load publications. <a href="https://orcid.org/{{ $orcid }}" target="_blank" rel="noopener" class="text-primary hover:underline">View on ORCID</a></p>
+    <div id="pubs-error" class="text-center py-8" style="display:none;">
+      <p>{{ T "pubsError" }} <a href="https://orcid.org/{{ $orcid }}" target="_blank" rel="noopener" class="text-primary-text">{{ T "pubsOnOrcid" }}</a></p>
     </div>
 
-    <div id="orcid-pubs-content" style="display:none;">
+    <div id="pubs-content" style="display:none;">
       <div class="mb-6">
-        <label for="orcid-pubs-year-select" class="sr-only">Filter by year</label>
-        <select id="orcid-pubs-year-select" class="year-select" aria-label="Filter publications by year">
+        <label for="pubs-year-select" class="sr-only">{{ T "pubsFilterYear" }}</label>
+        <select id="pubs-year-select" class="year-select" aria-label="{{ T "pubsFilterYear" }}">
           <option value="all" selected>{{ i18n "all" }}</option>
         </select>
       </div>
       <table class="pubs-table">
         <thead>
           <tr>
-            <th style="width:10%">Year</th>
-            <th style="width:20%">Authors</th>
-            <th style="width:40%">Title</th>
-            <th>Journal</th>
+            <th style="width:10%">{{ T "pubsYear" }}</th>
+            <th style="width:20%">{{ T "pubsAuthors" }}</th>
+            <th style="width:40%">{{ T "pubsTitle" }}</th>
+            <th>{{ T "pubsJournal" }}</th>
           </tr>
         </thead>
-        <tbody id="orcid-pubs-tbody"></tbody>
+        <tbody id="pubs-tbody"></tbody>
       </table>
     </div>
   </div>
@@ -103,6 +141,6 @@
 {{ end }}
 
 {{ define "scripts" }}
-{{ $orcid := resources.Get "js/orcid-pubs.js" | minify | fingerprint }}
-<script src="{{ $orcid.RelPermalink }}" integrity="{{ $orcid.Data.Integrity }}" defer></script>
+{{ $pubs := resources.Get "js/publications.js" | minify | fingerprint }}
+<script src="{{ $pubs.RelPermalink }}" integrity="{{ $pubs.Data.Integrity }}" defer></script>
 {{ end }}

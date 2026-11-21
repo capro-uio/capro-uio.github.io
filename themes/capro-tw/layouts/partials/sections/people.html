@@ -10,14 +10,23 @@
     {{ partial "helpers/section-title.html" (dict "title" .title "page" $page) }}
     {{ partial "helpers/section-intro.html" (.content | markdownify) }}
 
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-      {{ range $team.Pages | shuffle }}
+    <div class="people-grid">
+      {{/* Stable order: shuffle changed the lineup on every build and never
+           matched /team/. Weight first for anyone who sets it, then title. */}}
+      {{ range sort (sort $team.Pages "Title") "Weight" }}
       {{ $member := . }}
       <div class="team-card team-card--compact reveal">
         <div class="team-photo">
           {{ with ($member.Resources.ByType "image") }}
-            {{ $img := (index . 0).Fill "500x500 webp q82" | images.Filter images.Grayscale }}
-            <img src="{{ $img.RelPermalink }}" width="500" height="500"
+            {{ $src := index . 0 }}
+            {{/* Never upscale: one portrait here is only 133px on its short
+                 edge, and Fill would have blown it up to 500. */}}
+            {{ $side := 500 }}
+            {{ $shorter := int (math.Min $src.Width $src.Height) }}
+            {{ if lt $shorter $side }}{{ $side = $shorter }}{{ end }}
+            {{ $anchor := default "Smart" $member.Params.photo_anchor }}
+            {{ $img := $src.Fill (printf "%dx%d webp q82 %s" $side $side $anchor) | images.Filter images.Grayscale }}
+            <img src="{{ $img.RelPermalink }}" width="{{ $side }}" height="{{ $side }}"
                  alt="{{ $member.Title }}" loading="lazy" decoding="async">
           {{ end }}
           <a class="team-photo__link" href="{{ $member.RelPermalink }}"

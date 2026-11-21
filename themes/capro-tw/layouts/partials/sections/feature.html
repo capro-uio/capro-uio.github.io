@@ -8,7 +8,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {{ range .Params.item }}
         <div class="flex gap-3">
-          {{ with .icon }}<i class="{{ . }} text-xl text-primary mt-1"></i>{{ end }}
+          {{ with .icon }}{{ partial "helpers/icon.html" (dict "name" . "class" "text-xl text-primary-text mt-1") }}{{ end }}
           <div>
             <h3 class="text-base font-medium mb-1">{{ .title | markdownify }}</h3>
             <p class="text-sm">{{ .content | markdownify }}</p>
@@ -18,7 +18,8 @@
       </div>
     </div>
     {{ range first 1 (.Resources.ByType "image") }}
-    <div class="lg:w-1/2 min-h-[400px] bg-cover bg-top" style="background-image: url('{{ .RelPermalink }}');">
+    {{ $bg := .Resize "1600x webp q82" }}
+    <div class="lg:w-1/2 min-h-[400px] bg-cover bg-top" style="background-image: url('{{ $bg.RelPermalink }}');">
     </div>
     {{ end }}
   </div>

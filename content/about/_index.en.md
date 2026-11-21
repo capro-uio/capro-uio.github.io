@@ -1,19 +1,19 @@
 ---
 title: About Us
 item:
-  - icon: ti-user
+  - icon: user
     title: A team inside the university
     content: |
       We are based at the Department of Psychology, University of Oslo, and work
       with projects across the social sciences and humanities at UiO and beyond.
 
-  - icon: ti-ruler-pencil
+  - icon: pen-ruler
     title: Engineers who have done research
     content: |
       Everyone on the team has worked in research. We know ethics approvals,
       grant deadlines and what real data actually looks like when it arrives.
 
-  - icon: ti-infinite
+  - icon: infinity
     title: You own what we build
     content: |
       Code, documentation and workflows are handed over to you, so your project

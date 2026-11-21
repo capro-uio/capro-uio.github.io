@@ -1,19 +1,23 @@
 logo: images/capro_logo_dark.png
 author: Athanasia Monika Mowinckel
 google_analytics_id: ""
-post_share: true
-preloader:
-  enable: false
-  preloader: images/capro_logo_dark.png
-cookies:
-  enable: false
-  expire_days: 2
 map:
-  gmap_api: HUGO_GMAP_API
   map_latitude: "59.943881952368336"
   map_longitude: "10.71344642896635"
-  map_marker: images/marker.png
-plugins:
-  css:
-    - link: >-
-        https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css
+
+# One source for who and where we are: the contact section renders the address
+# and head/schema.html publishes the same values as JSON-LD. A street address
+# does not translate, so it lives here rather than in the language files.
+organization:
+  fullName: Capture and Processing of Life Science Big Data for the Social Sciences and Humanities
+  parent:
+    name: University of Oslo
+    url: https://www.uio.no/
+  sameAs:
+    - https://github.com/capro-uio
+  address:
+    building: Harald Schjelderups hus
+    street: Forskningsveien 3A
+    postalCode: "0373"
+    city: Oslo
+    country: NO

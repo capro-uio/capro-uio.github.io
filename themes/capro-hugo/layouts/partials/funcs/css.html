@@ -1,2 +1,0 @@
-{{ $css := resources.GetMatch . | minify | fingerprint "sha384"}}
-<link rel="stylesheet" href="{{ $css.Permalink }}" crossorigin="anonymous" integrity="{{ $css.Data.Integrity }}">

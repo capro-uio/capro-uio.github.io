@@ -1,0 +1,17 @@
+{{- /* Inline SVG from assets/icons. Takes a dict:
+         name  - the file's basename, without .svg
+         class - optional extra classes
+
+       Unknown names stop the build rather than rendering nothing, which is
+       what the icon-font classes used to do when a name was mistyped. */ -}}
+{{- $name := .name -}}
+{{- $class := .class | default "" -}}
+{{- $src := resources.Get (printf "icons/%s.svg" $name) -}}
+{{- with $src -}}
+  {{- $cls := "icon" -}}
+  {{- with $class }}{{ $cls = printf "icon %s" . }}{{ end -}}
+  {{- $attrs := printf `class="%s" fill="currentColor" aria-hidden="true" focusable="false"` $cls -}}
+  {{- replaceRE `<svg ` (printf "<svg %s " $attrs) .Content 1 | safeHTML -}}
+{{- else -}}
+  {{- errorf "icon.html: no icon %q (expected assets/icons/%s.svg)" $name $name -}}
+{{- end -}}

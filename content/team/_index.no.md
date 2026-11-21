@@ -1,7 +1,10 @@
 ---
 title: Våre medarbeidere
-single: Om medarbeider
+cascade:
+  build:
+    publishResources: false
 ---
 
-Våre medarbeidere er tilstede for å hjelpe samfsunnsvitere og humaniora fullføre deres prosjekter.
-Vi har ekspertise i flere ulike programmeringsspråk og verktøy for å hjelpe deg nå dine mål.
+Vi er de som faktisk gjør jobben — ikke kundeansvarlige som sender den videre.
+Alle her har jobbet med forskning, så du slipper å forklare hva en
+etikkgodkjenning er eller hvorfor søknadsfristen betyr noe.

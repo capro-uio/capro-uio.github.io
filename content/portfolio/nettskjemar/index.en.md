@@ -1,7 +1,7 @@
 ---
-title : Nettskjemar
-categories : ["R-packages"]
-link : "https://github.com/capro-uio/nettskjemar"
+title: Nettskjemar
+categories: ["R-packages"]
+link: "https://github.com/capro-uio/nettskjemar"
 date: 2019-01-31
 ---
 

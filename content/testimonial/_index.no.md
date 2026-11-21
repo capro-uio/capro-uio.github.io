@@ -1,12 +1,13 @@
 ---
-title: Utsagn fra kunder
+title: Hva folk sier etterpå
 build:
   render: false
   list: false
+  publishResources: false
 cascade:
   build:
     render: false
+    publishResources: false
 ---
 
-Ikke ta oss på vårt ord. 
-Hør på våre kunder!
+Fra forskere som har jobbet med oss.

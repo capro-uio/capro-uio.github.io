@@ -1,25 +1,37 @@
 ---
-title : Our Skills
-item :
-  - name :  Data flow and processing
-    percent : 90%
+title: What we work with
+group:
+  - name: Languages and tools
+    item:
+      - R
+      - Python
+      - Bash
+      - SQL
+      - Git
+      - Quarto
+      - Docker and Apptainer
 
-  - name :  Data capture
-    percent : 70%
+  - name: Systems at UiO and nationally
+    item:
+      - Nettskjema
+      - TSD
+      - Educloud
+      - NREC
+      - Saga and other Sigma2 machines
+      - UiO GitLab
 
-  - name :  Project data management
-    percent : 85%
-
-  - name :  Registry data handling
-    percent : 55%
-
-  - name :  HPC analyses
-    percent : 75%
+  - name: Kinds of data
+    item:
+      - Questionnaire and survey data
+      - MRI and other imaging
+      - Registry data
+      - Longitudinal cohort studies
+      - Sensor and log data
 image_decorative: true
 build:
   render: false
   list: false
 ---
 
-We’re skilled in translating the needs of social scientists into technical solutions to aid their work.
-  
+If something you use is not on this list, ask anyway. Most of what we do is
+reading someone else's setup and working out how to make it run.

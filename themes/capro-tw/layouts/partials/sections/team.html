@@ -5,27 +5,38 @@
   <div class="max-w-7xl mx-auto px-4">
     {{ partial "helpers/section-title.html" (dict "title" .Title "page" $page) }}
     {{ partial "helpers/section-intro.html" .Content }}
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      {{ range .Pages | shuffle }}
-      {{ $sch := newScratch }}
+    <div class="people-grid">
+      {{ range sort (sort .Pages "Title") "Weight" }}
+      {{ $member := . }}
+      {{ $photo := false }}
+      {{ if isset .Params "photo" }}
+        {{ $photo = resources.GetRemote .Params.photo }}
+      {{ else }}
+        {{ range first 1 (.Resources.ByType "image") }}{{ $photo = . }}{{ end }}
+      {{ end }}
       <div class="team-card reveal">
         <div class="team-photo">
-          {{ if isset .Params "photo" }}
-            {{ $image := resources.GetRemote .Params.photo }}
-            {{ $image = $image.Fill "600x600 webp" | images.Filter (images.Grayscale) }}
-            {{ $sch.Set "img" $image.RelPermalink }}
-          {{ else }}
-            {{ range first 1 (.Resources.ByType "image") }}
-              {{ $image := (.Resize "600x webp").Fill "600x600 webp" | images.Filter (images.Grayscale) }}
-              {{ $sch.Set "img" $image.RelPermalink }}
-            {{ end }}
+          {{ with $photo }}
+          {{/* Fill crops the square straight out of the original. Resizing to
+               600 wide first threw the height away, and Fill then scaled a
+               414px-tall landscape photo back up to 600 — the portraits that
+               were not already square came out soft and badly cropped.
+
+               The side is capped at the shorter edge so a small original is
+               never upscaled: one portrait here is only 300px. */}}
+          {{ $side := 600 }}
+          {{ $shorter := int (math.Min .Width .Height) }}
+          {{ if lt $shorter $side }}{{ $side = $shorter }}{{ end }}
+          {{ $anchor := default "Smart" $member.Params.photo_anchor }}
+          {{ $square := .Fill (printf "%dx%d webp %s" $side $side $anchor) | images.Filter (images.Grayscale) }}
+          <img src="{{ $square.RelPermalink }}" alt="{{ $member.Title }}" width="{{ $side }}" height="{{ $side }}" loading="lazy">
           {{ end }}
-          <img src="{{ $sch.Get "img" }}" alt="{{ .Title }}" width="600" height="600" loading="lazy">
           <div class="social-overlay">
             {{ range .Params.social }}
               {{ if .link }}
-                <a href="{{ .link | safeURL }}" aria-label="{{ index (split .icon "-") (sub (len (split .icon "-")) 1) }}">
-                  <i class="{{ .icon }}" aria-hidden="true"></i>
+                <a href="{{ .link | safeURL }}"
+                   aria-label="{{ T "profileOn" (dict "name" $member.Title "host" ((urls.Parse .link).Host | replaceRE `^www\.` ``)) }}">
+                  {{ partial "helpers/icon.html" (dict "name" .icon) }}
                 </a>
               {{ end }}
             {{ end }}
