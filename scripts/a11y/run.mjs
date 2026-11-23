@@ -294,10 +294,21 @@ for (const viewport of VIEWPORTS) {
     const el = document.querySelector('.reveal') || document.body;
     const cs = getComputedStyle(el);
     const reveals = [...document.querySelectorAll('.reveal')];
+    // An infinite animation is the case duration cannot speak to: the global
+    // reduced-motion rule pins every element at 0.01ms, so a loop that never
+    // stops reports the same duration as one that was suppressed. Iteration
+    // count is what actually distinguishes them.
+    const looping = [...document.querySelectorAll('*')]
+      .filter((e) => getComputedStyle(e).animationName !== 'none')
+      .map((e) => getComputedStyle(e).animationIterationCount)
+      .filter((c) => c !== '1');
+    const waves = [...document.querySelectorAll('.wave')];
     return {
       transition: cs.transitionDuration,
       animation: cs.animationDuration,
       scroll: getComputedStyle(document.documentElement).scrollBehavior,
+      looping,
+      waveCount: waves.length,
       allVisible:
         reveals.length === 0 ||
         reveals.every((e) => parseFloat(getComputedStyle(e).opacity) > 0.9),
@@ -306,6 +317,20 @@ for (const viewport of VIEWPORTS) {
   const near0 = (v) => v.split(',').every((x) => parseFloat(x) <= 0.02);
   note('reduced motion: transitions suppressed', near0(r.transition), r.transition);
   note('reduced motion: animations suppressed', near0(r.animation), r.animation);
+  note(
+    'reduced motion: no animation still loops',
+    r.looping.length === 0,
+    r.looping.length
+      ? `${r.looping.length} element(s) with iteration-count ${[...new Set(r.looping)].join(', ')}`
+      : 'none',
+  );
+  // Guards the probe itself: if the waves stop rendering, the check above
+  // passes vacuously and would hide a later regression.
+  note(
+    'reduced motion: the drifting waves are present to be checked',
+    r.waveCount > 0,
+    `${r.waveCount} .wave element(s)`,
+  );
   note('reduced motion: smooth scroll disabled', r.scroll === 'auto', r.scroll);
   note('reduced motion: content visible without the observer', r.allVisible);
   await page.close();

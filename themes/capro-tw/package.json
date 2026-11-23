@@ -7,6 +7,8 @@
     "setup": "mkdir -p assets/css/vendor assets/js/vendor static/webfonts/google-fonts/space-grotesk static/webfonts/google-fonts/spectral",
     "build": "npm run clean && npm run setup && npm run build:css && npm run sync:deps",
     "build:css": "npx @tailwindcss/cli -i assets/css/main.css -o assets/css/vendor/tailwind.css --minify",
+    "gen:waves": "node tools/gen-waves.mjs",
+    "check:waves": "node tools/check-waves.mjs",
     "sync:deps": "npm run sync:alpine && npm run sync:leaflet && npm run sync:icons && npm run sync:fonts",
     "sync:alpine": "cp node_modules/alpinejs/dist/cdn.min.js assets/js/vendor/alpine.min.js",
     "sync:leaflet": "cp node_modules/leaflet/dist/leaflet.js assets/js/vendor/leaflet.js && cp node_modules/leaflet/dist/leaflet.css assets/css/vendor/leaflet.css && mkdir -p static/webfonts/leaflet && cp node_modules/leaflet/dist/images/* static/webfonts/leaflet/",

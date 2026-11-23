@@ -39,6 +39,12 @@ jobs:
       - name: Set env parameters
         run: echo "hugovr=$(cat .hugo_version)" >> $GITHUB_ENV
 
+      # The wave data, its drift direction and the --wave-shift values in
+      # waves.css have to agree, and a break shows up only partway through a
+      # minute-long animation cycle — no other gate can see it.
+      - name: Wave data is consistent
+        run: npm run check:waves --prefix themes/capro-tw
+
       - uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: ${{ env.hugovr }}

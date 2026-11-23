@@ -10,7 +10,6 @@
     height: 100%;
   }
 
-  /* Under the hero photograph, over the overlay. */
   .waves--banner {
     position: absolute;
     bottom: 0;
@@ -20,108 +19,64 @@
     z-index: 10;
   }
 
-  .waves--cta-top,
-  .waves--cta-bottom {
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 5rem;
-  }
-
-  .waves--cta-top {
-    top: 0;
-  }
-
-  .waves--cta-bottom {
-    bottom: 0;
-  }
-
-  /* Mirrored so the crests hang from the top edge rather than rising from it.
-     On the <svg>, never on the paths, which carry the drift transform. */
-  .waves--cta-top svg {
-    transform: scaleY(-1);
-  }
-
-  /* A band in the normal flow above the footer, not an overlay. */
   .waves--footer {
     position: relative;
-    height: 60px;
+    height: 3.75rem;
     background-color: var(--color-dark);
   }
 
-  /* The five layers. Stroke colour comes from the theme tokens rather than
-     repeated hex literals. Each layer drifts at its own rate and the
-     neighbours drift in opposite directions, so the group never resolves into
-     one sliding sheet -- the differing rates are what reads as depth. */
   .wave {
-    animation: wave-drift 90s linear infinite;
-    will-change: transform;
+    animation: wave-drift linear infinite;
   }
 
-  .wave--a {
+  /* --wave-shift is the layer's own period, signed by the direction it drifts.
+     It has to agree with drift/shift in data/waves.yaml, because the path is
+     only drawn long enough in one direction: tools/check-waves.mjs fails the
+     build if the two disagree. Durations are set so every layer travels at a
+     similar rate despite the two different shift distances. */
+  .wave--1 {
+    --wave-shift: -1440px;
+    animation-duration: 96s;
     stroke: var(--color-primary);
     stroke-width: 2;
     opacity: 0.3;
-    animation-duration: 96s;
   }
 
-  .wave--b {
+  .wave--2 {
+    --wave-shift: 1440px;
+    animation-duration: 78s;
     stroke: var(--color-primary-text);
     stroke-width: 1.5;
     opacity: 0.26;
-    animation-name: wave-drift-reverse;
-    animation-duration: 78s;
   }
 
-  .wave--c {
+  .wave--3 {
+    --wave-shift: -720px;
+    animation-duration: 32s;
     stroke: var(--color-primary);
     stroke-width: 2;
     opacity: 0.4;
-    animation-duration: 64s;
   }
 
-  .wave--d {
+  .wave--4 {
+    --wave-shift: 1440px;
+    animation-duration: 110s;
     stroke: var(--color-primary);
     stroke-width: 2.5;
     opacity: 0.5;
-    animation-name: wave-drift-reverse;
-    animation-duration: 110s;
   }
 
-  .wave--e {
+  .wave--5 {
+    --wave-shift: -720px;
+    animation-duration: 42s;
     stroke: var(--color-primary-text);
     stroke-width: 1.5;
     opacity: 0.22;
-    animation-duration: 84s;
   }
 
-  /* One tile is 1440 user units, the full viewBox width, so a layer lands
-     exactly one period along and the loop is seamless. */
   @keyframes wave-drift {
-    from {
-      transform: translateX(0);
-    }
     to {
-      transform: translateX(-1440px);
-    }
-  }
-
-  @keyframes wave-drift-reverse {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(1440px);
-    }
-  }
-
-  /* The global reduced-motion rule collapses animation-duration to 0.01ms,
-     which would spin an infinite loop instead of stopping it. Stop it here,
-     and drop will-change so the layers are not promoted for nothing. */
-  @media (prefers-reduced-motion: reduce) {
-    .wave {
-      animation: none;
-      will-change: auto;
+      transform: translateX(var(--wave-shift));
     }
   }
 }
