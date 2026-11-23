@@ -70,10 +70,8 @@
     html {
       scroll-behavior: auto;
     }
-    /* iteration-count is the half that matters for an infinite animation: a
-       0.01ms loop does not stop, it runs flat out forever. Capping iterations
-       lets a component declare an infinite animation without each one needing
-       its own reduced-motion escape hatch. */
+    /* A 0.01ms loop does not stop, it runs flat out forever, so an infinite
+       animation needs the iteration cap rather than the duration. */
     *,
     *::before,
     *::after {

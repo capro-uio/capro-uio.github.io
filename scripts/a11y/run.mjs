@@ -298,10 +298,12 @@ for (const viewport of VIEWPORTS) {
     // reduced-motion rule pins every element at 0.01ms, so a loop that never
     // stops reports the same duration as one that was suppressed. Iteration
     // count is what actually distinguishes them.
-    const looping = [...document.querySelectorAll('*')]
-      .filter((e) => getComputedStyle(e).animationName !== 'none')
-      .map((e) => getComputedStyle(e).animationIterationCount)
-      .filter((c) => c !== '1');
+    const looping = [...document.querySelectorAll('*')].flatMap((e) => {
+      const s = getComputedStyle(e);
+      return s.animationName !== 'none' && s.animationIterationCount !== '1'
+        ? [s.animationIterationCount]
+        : [];
+    });
     const waves = [...document.querySelectorAll('.wave')];
     return {
       transition: cs.transitionDuration,

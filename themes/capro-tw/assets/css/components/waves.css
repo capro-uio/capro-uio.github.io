@@ -29,11 +29,9 @@
     animation: wave-drift linear infinite;
   }
 
-  /* --wave-shift is the layer's own period, signed by the direction it drifts.
-     It has to agree with drift/shift in data/waves.yaml, because the path is
-     only drawn long enough in one direction: tools/check-waves.mjs fails the
-     build if the two disagree. Durations are set so every layer travels at a
-     similar rate despite the two different shift distances. */
+  /* --wave-shift must match drift/shift in data/waves.yaml; check-waves.mjs
+     fails the build if it does not. The durations differ per layer so that all
+     of them travel at a similar rate despite the two shift distances. */
   .wave--1 {
     --wave-shift: -1440px;
     animation-duration: 96s;
