@@ -18,14 +18,14 @@
     "sync:icons": "node scripts/sync-icons.mjs"
   },
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.0",
+    "@tailwindcss/cli": "^4.3.5",
     "tailwindcss": "^4.1.0",
-    "alpinejs": "^3.14.0",
-    "@fontsource/space-grotesk": "^5.0.0",
-    "@fontsource/spectral": "^5.0.0",
+    "alpinejs": "^3.17.5",
+    "@fontsource/space-grotesk": "^5.3.0",
+    "@fontsource/spectral": "^5.3.0",
     "leaflet": "^1.9.0"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^6.7.0"
+    "@fortawesome/fontawesome-free": "^7.3.1"
   }
 }
