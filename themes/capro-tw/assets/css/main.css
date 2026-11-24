@@ -70,10 +70,13 @@
     html {
       scroll-behavior: auto;
     }
+    /* A 0.01ms loop does not stop, it runs flat out forever, so an infinite
+       animation needs the iteration cap rather than the duration. */
     *,
     *::before,
     *::after {
       animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
   }
@@ -184,7 +187,7 @@
 @import "./components/offerings.css";
 @import "./components/team.css";
 @import "./components/pubs.css";
-@import "./components/footer-waves.css";
+@import "./components/waves.css";
 
 /* Leaflet's stylesheet is unlayered and loads after ours, so an @layer rule
    can never override it however specific. Its attribution links are #0078a8

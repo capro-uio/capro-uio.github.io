@@ -1,0 +1,80 @@
+@layer components {
+  .waves {
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .waves svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .waves--banner {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 6rem;
+    z-index: 10;
+  }
+
+  .waves--footer {
+    position: relative;
+    height: 3.75rem;
+    background-color: var(--color-dark);
+  }
+
+  .wave {
+    animation: wave-drift linear infinite;
+  }
+
+  /* --wave-shift must match drift/shift in data/waves.yaml; check-waves.mjs
+     fails the build if it does not. The durations differ per layer so that all
+     of them travel at a similar rate despite the two shift distances. */
+  .wave--1 {
+    --wave-shift: -1440px;
+    animation-duration: 96s;
+    stroke: var(--color-primary);
+    stroke-width: 2;
+    opacity: 0.3;
+  }
+
+  .wave--2 {
+    --wave-shift: 1440px;
+    animation-duration: 78s;
+    stroke: var(--color-primary-text);
+    stroke-width: 1.5;
+    opacity: 0.26;
+  }
+
+  .wave--3 {
+    --wave-shift: -720px;
+    animation-duration: 32s;
+    stroke: var(--color-primary);
+    stroke-width: 2;
+    opacity: 0.4;
+  }
+
+  .wave--4 {
+    --wave-shift: 1440px;
+    animation-duration: 110s;
+    stroke: var(--color-primary);
+    stroke-width: 2.5;
+    opacity: 0.5;
+  }
+
+  .wave--5 {
+    --wave-shift: -720px;
+    animation-duration: 42s;
+    stroke: var(--color-primary-text);
+    stroke-width: 1.5;
+    opacity: 0.22;
+  }
+
+  @keyframes wave-drift {
+    to {
+      transform: translateX(var(--wave-shift));
+    }
+  }
+}

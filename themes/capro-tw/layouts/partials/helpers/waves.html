@@ -1,0 +1,22 @@
+{{- /* Drifting hairline waves. Takes a dict {variant}.
+
+       Path data, drift and shift come from data/waves.yaml; see its header for
+       why the three have to change together. tools/check-waves.mjs enforces it. */ -}}
+{{- $variant := .variant | default "" -}}
+{{- $sets := dict
+      "banner" (slice 1 3 4)
+      "footer" (slice 1 2 3 4 5)
+-}}
+{{- $keys := index $sets $variant -}}
+{{- if not $keys -}}
+  {{- $names := slice -}}
+  {{- range $name, $_ := $sets -}}{{- $names = $names | append $name -}}{{- end -}}
+  {{- errorf "waves.html: unknown variant %q (expected one of %s)" $variant (delimit $names ", ") -}}
+{{- end -}}
+<div class="waves waves--{{ $variant }}" aria-hidden="true">
+  <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    {{- range where hugo.Data.waves.layers "key" "in" $keys }}
+    <path class="wave wave--{{ .key }}" d="{{ .d }}" fill="none" />
+    {{- end }}
+  </svg>
+</div>
